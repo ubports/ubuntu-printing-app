@@ -1,0 +1,16 @@
+{
+    "name": "destination-app.ahayzen",
+    "description": "description of destination-app",
+    "architecture": "@CLICK_ARCH@",
+    "title": "destination-app",
+    "hooks": {
+        "destination-app": {
+            "apparmor": "destination-app/destination-app.apparmor",
+            "content-hub": "destination-app/content.json",
+            "desktop": "destination-app/destination-app.desktop"
+        }
+    },
+    "version": "0.1",
+    "maintainer": "Andrew Hayzen <ahayzen@gmail.com>",
+    "framework": "ubuntu-sdk-15.04.6"
+}
