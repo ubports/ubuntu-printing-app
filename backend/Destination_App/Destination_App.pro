@@ -12,11 +12,21 @@ TARGET = $$qtLibraryTarget($$TARGET)
 # Input
 SOURCES += \
     backend.cpp \
-    mytype.cpp
+    mytype.cpp \
+    printerinfo.cpp \
+    printer.cpp \
+    document.cpp \
+    popplerimageprovider.cpp \
+    previewimage.cpp
 
 HEADERS += \
     backend.h \
-    mytype.h
+    mytype.h \
+    printerinfo.h \
+    printer.h \
+    document.h \
+    popplerimageprovider.h \
+    previewimage.h
 
 OTHER_FILES = qmldir
 
@@ -36,4 +46,4 @@ INSTALLS += target qmldir
 
 
 unix:!macx: INCLUDEPATH += /usr/include/poppler/qt5/
-unix:!macx: LIBS += -lpoppler-qt5
+unix:!macx: LIBS += -lpoppler-qt5 -lcups

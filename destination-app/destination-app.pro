@@ -35,4 +35,7 @@ desktop_file.CONFIG += no_check_exist
 INSTALLS+=config_files qml_files desktop_file
 
 DISTFILES += \
-    content.json
+    content.json \
+    components/PrintRow.qml \
+    components/ExpandableListItem.qml \
+    components/SelectorRow.qml
