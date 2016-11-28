@@ -22,6 +22,10 @@ OTHER_FILES += $${CONF_FILES} \
 qml_files.path = /destination-app
 qml_files.files += $${QML_FILES}
 
+comp_qml_files.path = /destination-app/components
+comp_qml_files.files += $$files(components/*.qml,false) \
+                        $$files(components/*.js,false)
+
 #specify where the config files are installed to
 config_files.path = /destination-app
 config_files.files += $${CONF_FILES}
@@ -33,9 +37,3 @@ desktop_file.files = $$OUT_PWD/destination-app.desktop
 desktop_file.CONFIG += no_check_exist 
 
 INSTALLS+=config_files qml_files desktop_file
-
-DISTFILES += \
-    content.json \
-    components/PrintRow.qml \
-    components/ExpandableListItem.qml \
-    components/SelectorRow.qml
