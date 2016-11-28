@@ -36,4 +36,4 @@ desktop_file.path = /destination-app
 desktop_file.files = $$OUT_PWD/destination-app.desktop 
 desktop_file.CONFIG += no_check_exist 
 
-INSTALLS+=config_files qml_files desktop_file
+INSTALLS+=config_files qml_files desktop_file comp_qml_files
