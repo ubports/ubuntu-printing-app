@@ -74,7 +74,7 @@ bool Printer::print(Document *doc)
             }
         }
 
-        if (!doc->printFromImage(&painter, i)) {
+        if (!doc->renderPage(&painter, i)) {
             qWarning() << "Unable to render page to printer";
             return false;
         }
