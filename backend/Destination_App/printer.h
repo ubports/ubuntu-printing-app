@@ -20,12 +20,15 @@ public:
     Qt::Orientation orientation() const;
     QString paperSize() const;
 
-    Q_INVOKABLE QSize size() const;
+    QPrinter *printerInstance();
+
+//    Q_INVOKABLE QSize size() const;
     Q_INVOKABLE bool print(Document *doc);
 signals:
     void nameChanged();
     void paperSizeChanged();
     void orientationChanged();
+    void settingsChanged();
 public slots:
     void setName(QString name);
     void setOrientation(Qt::Orientation orientation);
@@ -34,7 +37,6 @@ private:
     QString m_name;
     QString m_paper_size;
     Qt::Orientation m_orientation = Qt::Orientation::Vertical;
-    QPrinter *m_printer;
 };
 
 #endif // PRINTER_H

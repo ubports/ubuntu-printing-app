@@ -33,6 +33,102 @@ int Document::count() const
     return m_count;
 }
 
+float Document::getDpi(QSizeF sourceSizeF, QSizeF targetSizeF)
+{
+    // Convert pt size to inches
+    QSizeF sourceSizeInch(sourceSizeF.width() / 72,
+                          sourceSizeF.height() / 72);
+
+    // Target size / source inch size = DPI to render at
+    QSizeF destDPI(targetSizeF.width() / sourceSizeInch.width(),
+                   targetSizeF.height() / sourceSizeInch.height());
+
+    // Choose the shorter side
+    return std::fmin(destDPI.width(), destDPI.height());
+}
+
+QImage Document::makeImage(QSizeF size, int pageNumber)
+{
+    if (pageNumber < 0) {
+        qWarning() << "Invalid page number";
+        return QImage();
+    }
+
+    if (!m_document) {
+        qWarning() << "No document loaded";
+        return QImage();
+    }
+
+    // Splash backend has much better rendering
+    m_document->setRenderBackend(Poppler::Document::SplashBackend);
+
+    Poppler::Page *page = m_document->page(pageNumber);
+
+    if (!page) {
+        qWarning() << "Invalid page";
+        return QImage();
+    }
+
+    float res = getDpi(page->pageSizeF(), size);
+
+    qDebug() << "Making image with res of" << res;
+
+    QImage image = page->renderToImage(res, res);
+
+    if (image.isNull()) {
+        qWarning() << "Image is null";
+    }
+
+    delete page;
+
+    return image;
+}
+
+QPixmap Document::makePixmap(QSize size, int pageNumber)
+{
+    if (pageNumber < 0) {
+        qWarning() << "Invalid page number";
+    }
+
+    if (!m_document) {
+        qWarning() << "No document loaded";
+    }
+
+    // Splash backend has much better rendering
+    m_document->setRenderBackend(Poppler::Document::SplashBackend);
+
+    Poppler::Page *page = m_document->page(pageNumber);
+
+    if (!page) {
+        qWarning() << "Invalid page";
+    }
+
+    float res = getDpi(page->pageSizeF(), size);
+
+    qDebug() << "Making image with res of" << res;
+
+    // Make QPixmap
+    QPixmap pixmap(size);
+
+    // If using ArthurBackend can do
+    // QPainter painter(&pixmap);
+    // if (!page->renderToPainter(painter, res, res)) {
+    //     qWarning() << "Failed to render to painter";
+    // }
+
+    QImage image = page->renderToImage(res, res);
+
+    if (image.isNull()) {
+        qWarning() << "Image is null";
+    }
+
+    pixmap = QPixmap::fromImage(image);
+
+    delete page;
+
+    return pixmap;
+}
+
 QImage Document::renderImage(QSize size, int pageNumber)
 {
     if (pageNumber < 0) {
@@ -73,7 +169,7 @@ QImage Document::renderImage(QSize size, int pageNumber)
         res = destDPI.width();
     }
 
-
+    qDebug() << "Making image with res of" << res;
 
     QImage image = page->renderToImage(res, res);
 
@@ -174,6 +270,19 @@ Doc Size: 595 842
 
     delete page;
 
+    return true;
+}
+
+bool Document::printFromImage(QPainter *painter, int pageNumber)
+{
+    QSize size(painter->device()->width(), painter->device()->height());
+    QImage image = makeImage(size, pageNumber);
+
+    if (image.isNull()) {
+        return false;
+    }
+
+    painter->drawImage(0, 0, image);
     return true;
 }
 

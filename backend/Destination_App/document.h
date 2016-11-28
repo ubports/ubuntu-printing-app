@@ -20,14 +20,21 @@ public:
     int count() const;
     QUrl url() const;
 
+    QImage makeImage(QSizeF size, int pageNumber);
+    QPixmap makePixmap(QSize size, int pageNumber);
+
     Q_INVOKABLE QImage renderImage(QSize size, int pageNumber);
     Q_INVOKABLE bool renderPage(QPainter *painter, int pageNumber);
+
+    bool printFromImage(QPainter *painter, int pageNumber);
 signals:
     void countChanged();
     void urlChanged();
 public slots:
     void setUrl(QUrl url);
 private:
+    float getDpi(QSizeF sourceSizeF, QSizeF targetSizeF);
+
     int m_count;
     Poppler::Document *m_document;
     QUrl m_url;

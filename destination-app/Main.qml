@@ -42,7 +42,7 @@ MainView {
 
     Printer {
         id: printer
-        name: "PDF"  //PrinterInfo.defaultPrinterName
+        name: PrinterInfo.defaultPrinterName
     }
 
     Document {
@@ -138,30 +138,45 @@ MainView {
 
                     onWidthChanged: console.debug("ColW", width / units.gu(1))
 
-                    Image {
-                        id: previewImage
-                        asynchronous: true
-                        height: units.gu(25)
-                        width: mainView.width - units.gu(5)
-                        source: document.url.toString() !== "" ? "image://poppler/" + document.url : ""  //.toString().substring(8)
-                        sourceSize {
-                            height: units.gu(25)
-                            width: mainView.width - units.gu(5)
+//                    Image {
+//                        id: previewImage
+//                        asynchronous: true
+//                        height: units.gu(25)
+//                        width: mainView.width - units.gu(5)
+//                        source: document.url.toString() !== "" ? "image://poppler/" + document.url : ""  //.toString().substring(8)
+//                        sourceSize {
+//                            height: units.gu(25)
+//                            width: mainView.width - units.gu(5)
+//                        }
+
+//                        onStatusChanged: console.debug("Status", status)
+//                    }
+
+                    Rectangle {
+                        anchors {
+                            left: parent.left
+                            right: parent.right
                         }
+                        color: "#DDD"
+                        height: units.gu(22)
 
-                        onStatusChanged: console.debug("Status", status)
-                    }
-
-                    PreviewImage {
-                        document: document
-                        height: units.gu(25)
-                        width: mainView.width - units.gu(5)
+                        PreviewImage {
+                            anchors {
+                                centerIn: parent
+                            }
+                            document: document
+                            implicitHeight: units.gu(20)
+                            printer: printer
+                            implicitWidth: parent.width - units.gu(2)
+                        }
                     }
 
                     SelectorRow {
                         model: PrinterInfo.availablePrinterNames
-                        selectedIndex: 0
+                        selectedIndex: model.indexOf(printer.name)
                         text: i18n.tr("Printer")
+
+                        onSelectedIndexChanged: printer.name = model[selectedIndex]
                     }
 
                     /*
@@ -205,7 +220,7 @@ MainView {
 
                     SelectorRow {
                         model: ["A4", "A5"]
-                        selectedIndex: 0
+                        selectedIndex: model.indexOf(printer.paperSize)
                         text: i18n.tr("Paper Size")
 
                         onSelectedIndexChanged: printer.paperSize = model[selectedIndex]
@@ -213,7 +228,7 @@ MainView {
 
                     SelectorRow {
                         model: ["Landscape", "Portrait"]
-                        selectedIndex: 1
+                        selectedIndex: printer.orientation === Qt.Horizontal ? 0 : 1
                         text: i18n.tr("Orientation")
 
                         onSelectedIndexChanged: {
@@ -255,7 +270,7 @@ MainView {
 
     Component.onCompleted: {
 //        document.url = Qt.resolvedUrl("/home/andy/Workspace/Work/Canonical/dump/2016-11-17T12:00:08");
-        document.url = Qt.resolvedUrl("/home/andy/Downloads/UbuntuPhone.pdf");
+//        document.url = Qt.resolvedUrl("/home/andy/Downloads/UbuntuPhone.pdf");
         console.debug("Printers:", PrinterInfo.availablePrinterNames);
     }
 }

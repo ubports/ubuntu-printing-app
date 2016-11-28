@@ -4,7 +4,7 @@
 
 PrinterInfo::PrinterInfo(QObject *parent) : QObject(parent)
 {
-    m_available_printer_names = QPrinterInfo::availablePrinterNames();
+    m_available_printer_names = QStringList() << "PDF" << QPrinterInfo::availablePrinterNames();
     m_default_printer_name = QPrinterInfo::defaultPrinterName();
 
     // Watch printers for updates
@@ -25,8 +25,8 @@ QString PrinterInfo::defaultPrinterName() const
 
 void PrinterInfo::updatePrinters()
 {
-    if (m_available_printer_names != QPrinterInfo::availablePrinterNames()) {
-        m_available_printer_names = QPrinterInfo::availablePrinterNames();
+    if (m_available_printer_names != QStringList() << "PDF" << QPrinterInfo::availablePrinterNames()) {
+        m_available_printer_names = QStringList() << "PDF" << QPrinterInfo::availablePrinterNames();
 
         Q_EMIT availablePrinterNamesChanged();
     }
