@@ -4,7 +4,6 @@
 #include "mytype.h"
 
 #include "document.h"
-#include "popplerasyncimageprovider.h"
 #include "popplerimageprovider.h"
 #include "printer.h"
 #include "printerinfo.h"

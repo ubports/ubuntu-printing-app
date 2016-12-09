@@ -16,9 +16,7 @@ SOURCES += \
     printerinfo.cpp \
     printer.cpp \
     document.cpp \
-    popplerimageprovider.cpp \
-    popplerasyncimageprovider.cpp \
-    popplerasyncimageresponse.cpp
+    popplerimageprovider.cpp
 
 HEADERS += \
     backend.h \
@@ -26,9 +24,7 @@ HEADERS += \
     printerinfo.h \
     printer.h \
     document.h \
-    popplerimageprovider.h \
-    popplerasyncimageprovider.h \
-    popplerasyncimageresponse.h
+    popplerimageprovider.h
 
 OTHER_FILES = qmldir
 
