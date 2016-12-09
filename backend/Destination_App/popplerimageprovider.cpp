@@ -42,5 +42,5 @@ QImage PopplerImageProvider::requestImage(const QString &id, QSize *size, const 
     Document *doc = new Document();
     doc->setUrl(url);
 
-    return doc->makeImageToFit(requestedSize, pageNumber, colorMode == Printer::ColorMode::Color);
+    return doc->makeImageToFit(requestedSize, pageNumber, colorMode == Printer::Color);
 }

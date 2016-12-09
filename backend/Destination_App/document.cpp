@@ -10,6 +10,8 @@
 #include <QtGui/QPainter>
 #include <QtGui/QPaintDevice>
 
+#include <cmath>
+
 #include <poppler/qt5/poppler-qt5.h>
 
 Document::Document(QObject *parent)
@@ -44,7 +46,7 @@ float Document::getDpi(QSizeF sourceSizeF, QSizeF targetSizeF)
                    targetSizeF.height() / sourceSizeInch.height());
 
     // Choose the shorter side
-    return std::fmin(destDPI.width(), destDPI.height());
+    return fmin(destDPI.width(), destDPI.height());
 }
 
 QImage Document::makeImage(QSizeF size, int pageNumber)
@@ -111,7 +113,7 @@ QImage Document::makeImageToFit(QSizeF size, int pageNumber, bool color)
     // Calculate scaler
     float scaleX = size.width() / page->pageSizeF().width();
     float scaleY = size.height() / page->pageSizeF().height();
-    float scale = std::fmin(scaleX, scaleY);
+    float scale = fmin(scaleX, scaleY);
 
     // Calculate the size of the content inside the container
     QSizeF scaledSize(scale * page->pageSizeF().width(), scale * page->pageSizeF().height());
@@ -343,23 +345,23 @@ QPrinter::Orientation Document::orientation() const
         QSizeF pageSize = page->pageSizeF();
 
         if (pageSize.width() > pageSize.height()) {
-            return QPrinter::Orientation::Landscape;
+            return QPrinter::Landscape;
         } else {
-            return QPrinter::Orientation::Portrait;
+            return QPrinter::Portrait;
         }
 
-        qDebug() << "DOC" << page->orientation() << QPrinter::Orientation::Portrait << QPrinter::Orientation::Landscape;
+        qDebug() << "DOC" << page->orientation() << QPrinter::Portrait << QPrinter::Landscape;
 
-        if (page->orientation() == Poppler::Page::Orientation::Landscape) {
-            return QPrinter::Orientation::Landscape;
-        } else if (page->orientation() == Poppler::Page::Orientation::Portrait) {
-            return QPrinter::Orientation::Portrait;
+        if (page->orientation() == Poppler::Page::Landscape) {
+            return QPrinter::Landscape;
+        } else if (page->orientation() == Poppler::Page::Portrait) {
+            return QPrinter::Portrait;
         } else {
             qWarning() << "Other orientation:" << page->orientation() << "using Portrait";
-            return QPrinter::Orientation::Portrait;
+            return QPrinter::Portrait;
         }
     } else {
-        return QPrinter::Orientation::Portrait;
+        return QPrinter::Portrait;
     }
 }
 
@@ -386,7 +388,7 @@ bool Document::printFromImage(QPainter *painter, int pageNumber, QRect pageRect,
     double ratioX = (double) image.width() / (double) pageRect.width();
     double ratioY = (double) image.height() / (double) pageRect.height();
 
-    image.setDevicePixelRatio(std::fmax(ratioX, ratioY));
+    image.setDevicePixelRatio(fmax(ratioX, ratioY));
 
     // Check that image isn't null
     if (image.isNull()) {

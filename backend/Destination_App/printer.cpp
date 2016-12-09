@@ -13,7 +13,7 @@
 
 Printer::Printer(QObject *parent)
     : QObject(parent),
-      m_color_mode(Printer::ColorMode::Color),
+      m_color_mode(Color),
       m_copies(1),
       m_name(""),
       m_resolution(300)
@@ -75,10 +75,10 @@ bool Printer::print(Document *doc)
 
     // TODO: load printer settings from PDF file ?
 
-    if (m_color_mode == Printer::ColorMode::Color) {
-        printer->setColorMode(QPrinter::ColorMode::Color);
-    } else if (m_color_mode == Printer::ColorMode::GrayScale) {
-        printer->setColorMode(QPrinter::ColorMode::GrayScale);
+    if (m_color_mode == Printer::Color) {
+        printer->setColorMode(QPrinter::Color);
+    } else if (m_color_mode == Printer::GrayScale) {
+        printer->setColorMode(QPrinter::GrayScale);
     } else {
         qWarning() << "Unknown color mode";
     }
