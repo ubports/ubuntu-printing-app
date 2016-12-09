@@ -5,12 +5,16 @@
 
 #include <QDebug>
 #include "document.h"
+#include "printer.h"
+
+
+#include <QThread>
 
 class PopplerImageProvider : public QQuickImageProvider
 {
 public:
     PopplerImageProvider()
-        : QQuickImageProvider(QQuickImageProvider::Image)
+        : QQuickImageProvider(QQuickImageProvider::Image, QQuickImageProvider::ForceAsynchronousImageLoading)
     {
 
     }
@@ -19,7 +23,17 @@ public:
     {
         qDebug() << "ID" << id << requestedSize.height() << requestedSize.width();
 
-        if (id.isEmpty()) {
+        QStringList parts = id.split("/");
+
+        bool colorOk, numberOk;
+        int pageNumber = parts.takeFirst().toInt(&numberOk, 10);
+        int colorModeInt = parts.takeFirst().toInt(&colorOk, 10);
+
+        Printer::ColorMode colorMode = static_cast<Printer::ColorMode>(colorModeInt);
+
+        QString url = parts.join("/");
+
+        if (url.isEmpty() || !numberOk || !colorOk) {
             return QImage();
         }
 
@@ -29,10 +43,13 @@ public:
         if (size)
             *size = QSize(width, height);
 
-        Document *doc = new Document();
-        doc->setUrl(id);
+        qDebug() << "Url:" << url;
+        qDebug() << "Page:" << pageNumber;
 
-        return doc->renderImage(requestedSize, 0);
+        Document *doc = new Document();
+        doc->setUrl(url);
+
+        return doc->makeImageToFit(requestedSize, pageNumber, colorMode == Printer::ColorMode::Color);
     }
 };
 

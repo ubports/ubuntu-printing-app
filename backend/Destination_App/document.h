@@ -6,6 +6,8 @@
 
 #include <QtGui/QPainter>
 
+#include <QtPrintSupport/QPrinter>
+
 #include <poppler/qt5/poppler-qt5.h>
 
 class Document : public QObject
@@ -18,15 +20,17 @@ public:
     explicit Document(QObject *parent = 0);
     ~Document();
     int count() const;
+    QPrinter::Orientation orientation() const;
     QUrl url() const;
 
     QImage makeImage(QSizeF size, int pageNumber);
+    QImage makeImageToFit(QSizeF size, int pageNumber, bool color);
     QPixmap makePixmap(QSize size, int pageNumber);
 
     Q_INVOKABLE QImage renderImage(QSize size, int pageNumber);
     Q_INVOKABLE bool renderPage(QPainter *painter, int pageNumber);
 
-    bool printFromImage(QPainter *painter, int pageNumber);
+    bool printFromImage(QPainter *painter, int pageNumber, QRect pageRect, double resolution);
 signals:
     void countChanged();
     void urlChanged();

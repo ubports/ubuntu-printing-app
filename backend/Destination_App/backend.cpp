@@ -4,8 +4,8 @@
 #include "mytype.h"
 
 #include "document.h"
+#include "popplerasyncimageprovider.h"
 #include "popplerimageprovider.h"
-#include "previewimage.h"
 #include "printer.h"
 #include "printerinfo.h"
 
@@ -28,7 +28,6 @@ void BackendPlugin::registerTypes(const char *uri)
     qmlRegisterType<MyType>(uri, 1, 0, "MyType");
     qmlRegisterType<Printer>(uri, 1, 0, "Printer");
     qmlRegisterSingletonType<PrinterInfo>(uri, 1, 0, "PrinterInfo", PrinterInfo_singleton_factory);
-    qmlRegisterType<PreviewImage>(uri, 1, 0, "PreviewImage");
 }
 
 void BackendPlugin::initializeEngine(QQmlEngine *engine, const char *uri)

@@ -69,11 +69,13 @@ QImage Document::makeImage(QSizeF size, int pageNumber)
         return QImage();
     }
 
+    // Calculate the DPI to render at
     float res = getDpi(page->pageSizeF(), size);
 
     qDebug() << "Making image with res of" << res;
 
-    QImage image = page->renderToImage(res, res);
+    // Make the image
+    QImage image = page->renderToImage(res, res, 0, 0, size.width(), size.height());
 
     if (image.isNull()) {
         qWarning() << "Image is null";
@@ -82,6 +84,66 @@ QImage Document::makeImage(QSizeF size, int pageNumber)
     delete page;
 
     return image;
+}
+
+QImage Document::makeImageToFit(QSizeF size, int pageNumber, bool color)
+{
+    if (pageNumber < 0) {
+        qWarning() << "Invalid page number";
+        return QImage();
+    }
+
+    if (!m_document) {
+        qWarning() << "No document loaded";
+        return QImage();
+    }
+
+    // Splash backend has much better rendering
+    m_document->setRenderBackend(Poppler::Document::SplashBackend);
+
+    Poppler::Page *page = m_document->page(pageNumber);
+
+    if (!page) {
+        qWarning() << "Invalid page";
+        return QImage();
+    }
+
+    // Calculate scaler
+    float scaleX = size.width() / page->pageSizeF().width();
+    float scaleY = size.height() / page->pageSizeF().height();
+    float scale = std::fmin(scaleX, scaleY);
+
+    // Calculate the size of the content inside the container
+    QSizeF scaledSize(scale * page->pageSizeF().width(), scale * page->pageSizeF().height());
+
+    // Make the image
+    QImage image = makeImage(scaledSize, pageNumber);
+//    image.setDotsPerMeterX(6000);
+//    image.setDotsPerMeterY(6000);
+
+    if (!color) {
+        image = image.convertToFormat(QImage::Format_Grayscale8);
+    }
+
+    qDebug() << "i" << image.width() << scaledSize.width() << image.dotsPerMeterX();
+
+    // Make a container then put the content image inside
+    QImage container(size.toSize(), QImage::Format_ARGB32_Premultiplied); //QImage::Format_Grayscale8); //QImage::Format_ARGB32);
+    QPainter painter;
+
+    container.fill(QColor(0, 0, 0, 0));
+
+    painter.begin(&container);
+
+    if (!image.isNull()) {
+        painter.drawImage((size.width() - scaledSize.width()) / 2, (size.height() - scaledSize.height()) / 2, image);
+    } else {
+        qWarning() << "Image is null";
+    }
+
+    painter.end();
+
+    return container;
 }
 
 QPixmap Document::makePixmap(QSize size, int pageNumber)
@@ -273,16 +335,75 @@ Doc Size: 595 842
     return true;
 }
 
-bool Document::printFromImage(QPainter *painter, int pageNumber)
+QPrinter::Orientation Document::orientation() const
 {
-    QSize size(painter->device()->width(), painter->device()->height());
-    QImage image = makeImage(size, pageNumber);
+    Poppler::Page *page = m_document->page(0);
 
+    if (page) {
+        QSizeF pageSize = page->pageSizeF();
+
+        if (pageSize.width() > pageSize.height()) {
+            return QPrinter::Orientation::Landscape;
+        } else {
+            return QPrinter::Orientation::Portrait;
+        }
+
+        qDebug() << "DOC" << page->orientation() << QPrinter::Orientation::Portrait << QPrinter::Orientation::Landscape;
+
+        if (page->orientation() == Poppler::Page::Orientation::Landscape) {
+            return QPrinter::Orientation::Landscape;
+        } else if (page->orientation() == Poppler::Page::Orientation::Portrait) {
+            return QPrinter::Orientation::Portrait;
+        } else {
+            qWarning() << "Other orientation:" << page->orientation() << "using Portrait";
+            return QPrinter::Orientation::Portrait;
+        }
+    } else {
+        return QPrinter::Orientation::Portrait;
+    }
+}
+
+bool Document::printFromImage(QPainter *painter, int pageNumber, QRect pageRect, double resolution)
+{
+    // Ensure we are using the right render hints
+    m_document->setRenderBackend(Poppler::Document::SplashBackend);
+
+    m_document->setRenderHint(Poppler::Document::Antialiasing, true);
+    m_document->setRenderHint(Poppler::Document::TextAntialiasing, true);
+    m_document->setRenderHint(Poppler::Document::TextHinting, true);
+
+    Poppler::Page *page = m_document->page(pageNumber);
+
+    if (!page) {
+        qWarning() << "Invalid page!";
+        return false;
+    }
+
+    // Render at given resolution
+    QImage image = page->renderToImage(resolution, resolution);
+
+    // Get the scalar for the image to fit within the pageRect
+    double ratioX = (double) image.width() / (double) pageRect.width();
+    double ratioY = (double) image.height() / (double) pageRect.height();
+
+    image.setDevicePixelRatio(std::fmax(ratioX, ratioY));
+
+    // Check that image isn't null
     if (image.isNull()) {
         return false;
     }
 
+    // Draw the image to the painter, should we scale? the image should be correct aspect
+    // Here we should check if the image aspect is different and position in the centre?
     painter->drawImage(0, 0, image);
+    //painter->drawImage(QRect(QPoint(0, 0), QSize(pageRect.width(), pageRect.height())), image, image.rect());
+
+    qDebug() << "Device Width:" << pageRect.width() << "LogicalDPI:" << painter->device()->logicalDpiX(); // << "RenderDPI:" << renderDPI.width();
+    qDebug() << "RatioX" << ratioX << "RatioY" << ratioY;
+
+    qDebug() << "PageRect:" << pageRect.width() << pageRect.height();
+    qDebug() << "Image:" << image.width() << image.height() << image.dotsPerMeterX();
+
     return true;
 }
 
@@ -300,10 +421,10 @@ void Document::setUrl(QUrl url)
                 m_document->setRenderHint(Poppler::Document::Antialiasing, true);
                 m_document->setRenderHint(Poppler::Document::TextAntialiasing, true);
                 m_document->setRenderHint(Poppler::Document::TextHinting, true);
-                m_document->setRenderHint(Poppler::Document::TextSlightHinting, true);
-                m_document->setRenderHint(Poppler::Document::OverprintPreview, true);
-                m_document->setRenderHint(Poppler::Document::ThinLineSolid, true);
-                m_document->setRenderHint(Poppler::Document::ThinLineShape, true);
+//                m_document->setRenderHint(Poppler::Document::TextSlightHinting, true);
+//                m_document->setRenderHint(Poppler::Document::OverprintPreview, true);
+//                m_document->setRenderHint(Poppler::Document::ThinLineSolid, true);
+//                m_document->setRenderHint(Poppler::Document::ThinLineShape, true);
 
                 if (!m_document || m_document->isLocked()) {
                     qWarning() << "Invalid Document";

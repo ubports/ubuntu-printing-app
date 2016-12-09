@@ -17,7 +17,8 @@ SOURCES += \
     printer.cpp \
     document.cpp \
     popplerimageprovider.cpp \
-    previewimage.cpp
+    popplerasyncimageprovider.cpp \
+    popplerasyncimageresponse.cpp
 
 HEADERS += \
     backend.h \
@@ -26,7 +27,8 @@ HEADERS += \
     printer.h \
     document.h \
     popplerimageprovider.h \
-    previewimage.h
+    popplerasyncimageprovider.h \
+    popplerasyncimageresponse.h
 
 OTHER_FILES = qmldir
 
@@ -46,4 +48,4 @@ INSTALLS += target qmldir
 
 
 unix:!macx: INCLUDEPATH += /usr/include/poppler/qt5/
-unix:!macx: LIBS += -lpoppler-qt5 -lcups
+unix:!macx: LIBS += -lpoppler-qt5 #-lcups

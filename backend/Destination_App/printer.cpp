@@ -9,29 +9,31 @@
 #include <QtPrintSupport/QPrinter>
 #include <QtPrintSupport/QPrinterInfo>
 
-#include <cups/cups.h>
+//#include <cups/cups.h>
 
 Printer::Printer(QObject *parent)
     : QObject(parent),
+      m_color_mode(Printer::ColorMode::Color),
+      m_copies(1),
       m_name(""),
-      m_paper_size("A4")
+      m_resolution(300)
 {
 
+}
+
+Printer::ColorMode Printer::colorMode() const
+{
+    return m_color_mode;
+}
+
+int Printer::copies() const
+{
+    return m_copies;
 }
 
 QString Printer::name() const
 {
     return m_name;
-}
-
-Qt::Orientation Printer::orientation() const
-{
-    return m_orientation;
-}
-
-QString Printer::paperSize() const
-{
-    return m_paper_size;
 }
 
 bool Printer::print(Document *doc)
@@ -62,7 +64,32 @@ bool Printer::print(Document *doc)
 
     QPrinter *printer = printerInstance();
 
+    printer->setResolution(resolution());
+
     qDebug() << "Paper/Page" << printer->paperRect().width() << printer->pageRect().width();
+
+    qDebug() << "Printer (assumed) Resolution:" << printer->resolution();
+
+    qDebug() << "Printer PageRect" << printer->pageRect().x() << printer->pageRect().y() << printer->pageRect().width() << printer->pageRect().height();
+    qDebug() << "Printer PaperRect" << printer->paperRect().x() << printer->paperRect().y() << printer->paperRect().width() << printer->paperRect().height();
+
+    // TODO: load printer settings from PDF file ?
+
+    if (m_color_mode == Printer::ColorMode::Color) {
+        printer->setColorMode(QPrinter::ColorMode::Color);
+    } else if (m_color_mode == Printer::ColorMode::GrayScale) {
+        printer->setColorMode(QPrinter::ColorMode::GrayScale);
+    } else {
+        qWarning() << "Unknown color mode";
+    }
+
+    printer->setCopyCount(m_copies);
+    printer->setOrientation(doc->orientation());
+
+    // TODO: implement this case
+    if (!printer->supportsMultipleCopies()) {
+        qWarning() << "Does not support multiple copies, will need to manually loop.";
+    }
 
     QPainter painter(printer);
 
@@ -74,7 +101,7 @@ bool Printer::print(Document *doc)
             }
         }
 
-        if (!doc->renderPage(&painter, i)) {
+        if (!doc->printFromImage(&painter, i, printer->pageRect(), printer->resolution())) {
             qWarning() << "Unable to render page to printer";
             return false;
         }
@@ -104,22 +131,30 @@ QPrinter *Printer::printerInstance()
         }
     }
 
-//    printer->setPageMargins(1, 1, 1, 1, QPrinter::Inch);
-
-    // TODO: load settings for printer
-    if (m_orientation == Qt::Orientation::Vertical) {
-        printer->setOrientation(QPrinter::Orientation::Portrait);
-    } else {
-        printer->setOrientation(QPrinter::Orientation::Landscape);
-    }
-
-    if (m_paper_size == "A4") {
-        printer->setPaperSize(QPrinter::PaperSize::A4);
-    } else if (m_paper_size == "A5") {
-        printer->setPaperSize(QPrinter::PaperSize::A5);
-    }
-
     return printer;
+}
+
+int Printer::resolution() const
+{
+    return m_resolution;
+}
+
+void Printer::setColorMode(Printer::ColorMode colorMode)
+{
+    if (m_color_mode != colorMode) {
+        m_color_mode = colorMode;
+
+        Q_EMIT colorModeChanged();
+    }
+}
+
+void Printer::setCopies(int copies)
+{
+    if (m_copies != copies) {
+        m_copies = copies;
+
+        Q_EMIT copiesChanged();
+    }
 }
 
 void Printer::setName(QString name)
@@ -136,28 +171,11 @@ void Printer::setName(QString name)
     }
 }
 
-void Printer::setOrientation(Qt::Orientation orientation)
+void Printer::setResolution(int resolution)
 {
-    if (m_orientation != orientation) {
-        m_orientation = orientation;
+    if (m_resolution != resolution) {
+        m_resolution = resolution;
 
-        Q_EMIT orientationChanged();
-        Q_EMIT settingsChanged();
+        Q_EMIT resolutionChanged();
     }
 }
-
-void Printer::setPaperSize(QString paperSize)
-{
-    if (m_paper_size != paperSize) {
-        m_paper_size = paperSize;
-
-        Q_EMIT paperSizeChanged();
-        Q_EMIT settingsChanged();
-    }
-}
-
-//QSize Printer::size() const
-//{
-//    QPrinter *printer = printerInstance();
-//    return QSize(printer->width(), printer->height());
-//}

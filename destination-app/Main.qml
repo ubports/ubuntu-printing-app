@@ -47,15 +47,6 @@ MainView {
 
     Document {
         id: document
-
-
-//        onUrlChanged: {
-//            var image = renderImage(printer.size(), 0);
-
-//            console.debug("Image:", image);
-
-//            image.parent = container;
-//        }
     }
 
     /*
@@ -69,28 +60,18 @@ MainView {
       name: PrinterInfo.defaultName
 
       colorMode: ColorModes.greyscale
-      orientation: Paper.portrait
-      paperSize: Paper.A4
+      copies: 2
 
-      print(Document document)
+      print(Document document)  // async
+
+      status: {Null,Rendering,SentToPrinter,Error}
+      progress: 0.6  // progress of print
     }
 
     Document {
         error: false
         errorString: ""
         url: "/tmp/my.pdf"
-
-        renderPage(QPainter, Int)
-    }
-
-    PreviewImage {
-        document: doc
-        page: 2
-        printer: printer
-    }
-
-    PreviewImage {
-        document:
     }
 
     */
@@ -136,40 +117,65 @@ MainView {
                     spacing: units.gu(1)
                     width: parent.width
 
-                    onWidthChanged: console.debug("ColW", width / units.gu(1))
-
-//                    Image {
-//                        id: previewImage
-//                        asynchronous: true
-//                        height: units.gu(25)
-//                        width: mainView.width - units.gu(5)
-//                        source: document.url.toString() !== "" ? "image://poppler/" + document.url : ""  //.toString().substring(8)
-//                        sourceSize {
-//                            height: units.gu(25)
-//                            width: mainView.width - units.gu(5)
-//                        }
-
-//                        onStatusChanged: console.debug("Status", status)
-//                    }
-
                     Rectangle {
                         anchors {
                             left: parent.left
                             right: parent.right
                         }
-                        color: "#DDD"
-                        height: units.gu(22)
+                        color: "#EEE"
+                        implicitHeight: units.gu(25)
 
-                        PreviewImage {
-                            anchors {
-                                centerIn: parent
+                        RowLayout {
+                            anchors.fill: parent
+
+                            Button {
+                                enabled: previewImage.pageNumber > 0
+                                Layout.preferredWidth: units.gu(4)
+                                color: "#000"
+                                text: "<"
+
+                                onClicked: previewImage.pageNumber--
                             }
-                            document: document
-                            implicitHeight: units.gu(20)
-                            printer: printer
-                            implicitWidth: parent.width - units.gu(2)
+
+                            Item {
+                                Layout.fillWidth: true
+                                Layout.preferredHeight: units.gu(25)
+
+                                Image {
+                                    id: previewImage
+                                    anchors {
+                                        fill: parent
+                                    }
+
+                                    asynchronous: true
+                                    source: document.url.toString() !== "" ? "image://poppler/" + pageNumber + "/" + printer.colorMode + "/" + document.url : ""
+                                    sourceSize {
+                                        height: units.gu(25)
+                                        width: previewImage.width
+                                    }
+
+                                    property int pageNumber: 0
+                                }
+
+                                ActivityIndicator {
+                                    anchors {
+                                        centerIn: parent
+                                    }
+                                    running: previewImage.status == Image.Loading
+                                }
+                            }
+
+                            Button {
+                                color: "#000"
+                                enabled: previewImage.pageNumber < document.count - 1
+                                Layout.preferredWidth: units.gu(4)
+                                text: ">"
+
+                                onClicked: previewImage.pageNumber++
+                            }
                         }
                     }
+
 
                     SelectorRow {
                         model: PrinterInfo.availablePrinterNames
@@ -178,25 +184,6 @@ MainView {
 
                         onSelectedIndexChanged: printer.name = model[selectedIndex]
                     }
-
-                    /*
-                    ListItem {
-                        id: listItem
-
-                        Label {
-                            text: "a"  //PrinterInfo.defaultPrinterName
-                        }
-
-    //                        Label {
-    //                            text: "a, b, c"
-    //                            visible: listItem.expansion.expanded
-    //                        }
-
-                        //expansion.height: units.gu(15)
-
-                        onClicked: expansion.expanded = true
-                    }
-                    */
 
                     RowLayout {
                         Label {
@@ -208,46 +195,85 @@ MainView {
                             inputMethodHints: Qt.ImhDigitsOnly
                             Layout.fillWidth: true
                             Layout.preferredWidth: units.gu(5)
-                            text: "1"
+                            text: printer.copies
                             validator: IntValidator {
                                 bottom: 1
                                 top: 999
                             }
 
-                            onAcceptableInputChanged: console.debug("AcceptableInput:", acceptableInput)
-                        }
-                    }
+                            // TODO: acceptableInput is False show hint
 
-                    SelectorRow {
-                        model: ["A4", "A5"]
-                        selectedIndex: model.indexOf(printer.paperSize)
-                        text: i18n.tr("Paper Size")
-
-                        onSelectedIndexChanged: printer.paperSize = model[selectedIndex]
-                    }
-
-                    SelectorRow {
-                        model: ["Landscape", "Portrait"]
-                        selectedIndex: printer.orientation === Qt.Horizontal ? 0 : 1
-                        text: i18n.tr("Orientation")
-
-                        onSelectedIndexChanged: {
-                            if (selectedIndex == 0) {
-                                printer.orientation = Qt.Horizontal;
-                            } else {
-                                printer.orientation = Qt.Vertical
+                            onTextChanged: {
+                                if (acceptableInput) {
+                                    printer.copies = Number(text);
+                                }
                             }
                         }
                     }
 
-    //                Label {
-    //                    id: label
-    //                    objectName: "label"
-    //                    anchors {
-    //                        horizontalCenter: parent.horizontalCenter
-    //                    }
-    //                    text: "URL to print: " + PrinterInfo.availablePrinterNames + PrinterInfo.defaultPrinterName
-    //                }
+                    RowLayout {
+                        Item {
+                            Layout.preferredWidth: units.gu(10)
+                        }
+
+                        MouseArea {
+                            Layout.fillWidth: true
+                            Layout.preferredHeight: units.gu(3)
+                            Layout.preferredWidth: units.gu(10)
+
+                            onClicked: checkbox.checked = !checkbox.checked
+
+                            Row {
+                                anchors {
+                                    fill: parent
+                                }
+                                spacing: units.gu(1)
+
+                                CheckBox {
+                                    id: checkbox
+                                    anchors {
+                                        verticalCenter: parent.verticalCenter
+                                    }
+                                    checked: true
+                                    enabled: document.count > 1
+                                }
+
+                                Label {
+                                    enabled: document.count > 1
+                                    height: parent.height
+                                    text: i18n.tr("Two sided")
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+                            }
+
+                        }
+                    }
+
+                    SelectorRow {
+                        model: [i18n.tr("Black & White"), i18n.tr("Color")]
+                        selectedIndex: modelValue.indexOf(printer.colorMode)
+                        text: i18n.tr("Color")
+
+                        property var modelValue: [Printer.GrayScale, Printer.Color]
+
+                        onSelectedIndexChanged: printer.colorMode = modelValue[selectedIndex]
+                    }
+
+                    SelectorRow {
+                        model: [i18n.tr("Draft (150 DPI)"), i18n.tr("Normal (300 DPI)"), i18n.tr("Best (1200 DPI)")]
+                        selectedIndex: 1
+                        text: i18n.tr("Quality")
+
+                        onSelectedIndexChanged: {
+                            if (selectedIndex == 0) {
+                                printer.resolution = 150;
+                            } else if (selectedIndex == 1) {
+                                printer.resolution = 300;
+                            } else if (selectedIndex == 2) {
+                                printer.resolution = 1200;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -270,7 +296,8 @@ MainView {
 
     Component.onCompleted: {
 //        document.url = Qt.resolvedUrl("/home/andy/Workspace/Work/Canonical/dump/2016-11-17T12:00:08");
-//        document.url = Qt.resolvedUrl("/home/andy/Downloads/UbuntuPhone.pdf");
+//        document.url = Qt.resolvedUrl("/home/andrew/Downloads/UbuntuPhone.pdf");
+//        document.url = Qt.resolvedUrl("/home/andrew/Documents/test.pdf");
         console.debug("Printers:", PrinterInfo.availablePrinterNames);
     }
 }
