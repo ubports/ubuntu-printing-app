@@ -450,6 +450,15 @@ void Document::setUrl(QUrl url)
     }
 }
 
+QString Document::title() const
+{
+    if (m_document) {
+        return m_document->info("Title");
+    } else {
+        return "";
+    }
+}
+
 QUrl Document::url() const
 {
     return m_url;

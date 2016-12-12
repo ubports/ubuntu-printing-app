@@ -73,6 +73,7 @@ private:
     int m_copies;
     bool m_duplex;
     bool m_duplex_supported;
+    int m_job_id;
     QString m_name;
     bool m_pdf_mode;
     Quality m_quality;

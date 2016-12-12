@@ -9,13 +9,12 @@
 
 #include <QtCore/QDebug>
 
-#include <QtGui/QPainter>
-
 #include <QtPrintSupport/QPrinterInfo>
 
 #include <cups/cups.h>
 
-#include <iostream>
+#define __CUPS_ADD_OPTION(dest, name, value) dest->num_options = \
+    cupsAddOption(name, value, dest->num_options, &dest->options);
 
 Printer::Printer(QObject *parent)
     : QObject(parent)
@@ -23,6 +22,7 @@ Printer::Printer(QObject *parent)
     , m_copies(1)
     , m_duplex(false)
     , m_duplex_supported(false)
+    , m_job_id(0)
     , m_name("")
     , m_pdf_mode(false)
     , m_quality(Normal)
@@ -74,21 +74,15 @@ bool Printer::pdfMode() const
 
 bool Printer::print(Document *doc)
 {
-//    // Get all the dests
-    int         num_dests;
+    // Get all the dests
+    int         num_dests;  Q_UNUSED(num_dests)
     cups_dest_t *dests;
 
-    num_dests = cupsGetDests(&dests);  // appear to need to run this first?
+    num_dests = cupsGetDests(&dests);  // FIXME: appear to need to run this first?
+    cupsFreeDests(num_dests, dests);
 
-//    // List dests
-
-//    for (int i=0; i < num_dests; i++) {
-//        qDebug() << "P" << i << dests[i].name << dests[i].instance;
-//    }
-
-//    cupsFreeDests(num_dests, dests);
-
-    // Extract the name and instance from the name
+    // Extract the name and instance from the m_name
+    // TODO: instead do this in the setName() ? to remove QPrinterInfo ?
     QStringList split = m_name.split("/");
 
     const char *name = split.takeFirst().toLocal8Bit();
@@ -99,7 +93,6 @@ bool Printer::print(Document *doc)
         return false;
     }
 
-    std::cout << "Name:" << name << "Instance:" << instance << "\n";
 
     // Ensure the destination is free
     if (m_cups_dest) {
@@ -109,42 +102,51 @@ bool Printer::print(Document *doc)
     }
 
     // Get the destination
-
-//    cups_dest_t *dest = cupsGetDest(dests[0].name, dests[0].instance, num_dests, dests);
     cups_dest_t *m_cups_dest = cupsGetNamedDest(CUPS_HTTP_DEFAULT, name, instance);
+
 
     if (!m_cups_dest) {
         qWarning() << "Could not find printer:" << m_name;
         return false;
     }
 
-    // TODO: set options on dest?
-    // Load options
-    QList<QPair<QByteArray, QByteArray>> options;
-    QVector<cups_option_t> cupsOptStruct;
+//    cups_dinfo_t *cap = cupsCopyDestInfo(CUPS_HTTP_DEFAULT, m_cups_dest);
 
+//    qDebug() << "CAP" << (cap & CUPS_PRINTER_DUPLEX);
+
+//    for (int i=0; i < m_cups_dest->num_options; i++) {
+//        qDebug() << m_cups_dest->options[i].name << m_cups_dest->options[i].value;
+//    }
+
+    // CUPS_PRINTER_DUPLEX
+
+    // Load options
     // Copies
     if (m_copies > 1) {
-        options.append(QPair<QByteArray, QByteArray>("copies", QString::number(m_copies).toLocal8Bit()));
+        __CUPS_ADD_OPTION(m_cups_dest, "copies", QString::number(m_copies).toLocal8Bit());
     }
 
     // Colour mode
     if (m_color_mode == GrayScale) {
-        options.append(QPair<QByteArray, QByteArray>("ColorModel", "CMYGray"));
+        __CUPS_ADD_OPTION(m_cups_dest, "ColorModel", "CMYGray");
     }
 
     // Duplex
     if (m_duplex_supported && m_duplex) {
         if (doc->orientation() == QPrinter::Portrait) {
-            options.append(QPair<QByteArray, QByteArray>("sides", "two-sided-long-edge"));
+            __CUPS_ADD_OPTION(m_cups_dest, "Duplex", "DuplexNoTumble");
+//            __CUPS_ADD_OPTION(m_cups_dest, "sides", "two-sided-long-edge")
         } else {
-            options.append(QPair<QByteArray, QByteArray>("sides", "two-sided-short-edge"));
+            __CUPS_ADD_OPTION(m_cups_dest, "Duplex", "DuplexTumble");
+//            __CUPS_ADD_OPTION(m_cups_dest, "sides", "two-sided-long-edge")
         }
+    } else {
+        __CUPS_ADD_OPTION(m_cups_dest, "Duplex", "None");
     }
 
     // Orientation
     if (doc->orientation() == QPrinter::Landscape) {
-        options.append(QPair<QByteArray, QByteArray>("landscape", ""));
+        __CUPS_ADD_OPTION(m_cups_dest, "landscape", "");
     }
 
     // Print quality
@@ -164,39 +166,32 @@ bool Printer::print(Document *doc)
         printQuality = "Normal";
         break;
     }
-    //options.append(QPair<QByteArray, QByteArray>("OutputMode", printQuality.toLocal8Bit()));
-    m_cups_dest->num_options = cupsAddOption("OutputMode", printQuality.toLocal8Bit(), m_cups_dest->num_options, &m_cups_dest->options);
+    __CUPS_ADD_OPTION(m_cups_dest, "OutputMode", printQuality.toLocal8Bit());
 
-    // Add default options
-    for (int i=0; i < m_cups_dest->num_options; i++) {
-        options.append(QPair<QByteArray, QByteArray>(QByteArray(m_cups_dest->options[i].name), QByteArray(m_cups_dest->options[i].value)));
+    // Load title
+    QString title = doc->title();
+
+    if (title.isEmpty()) {
+        title = doc->url().fileName();
     }
 
-    // Build all our options
-    for (int i=options.size() - 1; i > -1; i--) {
-        cups_option_t opt;
-        opt.name = options[i].first.data();
-        opt.value = options[i].second.data();
-
-        qDebug() << "O" << i << opt.name << opt.value;
-
-        cupsOptStruct.append(opt);
-    }
-
-    cups_option_t *optionPtr = cupsOptStruct.size() > 0 ? &cupsOptStruct.first() : 0;
-    int jobId = cupsPrintFile(m_cups_dest->name,
-                              QUrl(doc->url()).toLocalFile().toStdString().c_str(),
-                              "Test Print!",  // TODO: build title from document
-                              cupsOptStruct.size(), optionPtr);
-
-    qDebug() << "JobID" << jobId;
-
+    // Send to the printer
+    m_job_id = cupsPrintFile(m_cups_dest->name,
+                             doc->url().toLocalFile().toLocal8Bit().data(),
+                             title.toLocal8Bit().data(),
+                             m_cups_dest->num_options, m_cups_dest->options);
     // TODO: PDF mode!
     if (m_pdf_mode) {
         Q_EMIT exportRequest(doc->url().toLocalFile());
     }
 
-    return true;
+    if (m_job_id == 0) {
+        qWarning() << "Creating Job Failed:" << cupsLastErrorString();
+        return false;
+    } else {
+        qDebug() << "JobID" << m_job_id;
+        return true;
+    }
 }
 
 void Printer::setColorMode(Printer::ColorMode colorMode)

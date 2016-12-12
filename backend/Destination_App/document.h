@@ -21,6 +21,7 @@ public:
     ~Document();
     int count() const;
     QPrinter::Orientation orientation() const;
+    QString title() const;
     QUrl url() const;
 
     QImage makeImage(QSizeF size, int pageNumber);
