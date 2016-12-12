@@ -5,6 +5,8 @@
 
 #include <QtPrintSupport/QPrinter>
 
+#include <cups/cups.h>
+
 #include "document.h"
 
 class Printer : public QObject
@@ -17,7 +19,7 @@ class Printer : public QObject
     Q_PROPERTY(bool duplexSupported READ duplexSupported NOTIFY duplexSupportedChanged)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(bool pdfMode READ pdfMode WRITE setPdfMode NOTIFY pdfModeChanged)
-    Q_PROPERTY(int resolution READ resolution WRITE setResolution NOTIFY resolutionChanged)
+    Q_PROPERTY(Quality quality READ quality WRITE setQuality NOTIFY qualityChanged)
 public:
     enum ColorMode
     {
@@ -26,6 +28,15 @@ public:
     };
     Q_ENUMS(ColorMode)
 
+    enum Quality
+    {
+        Draft,
+        Normal,
+        Best,
+        Photo,
+    };
+    Q_ENUMS(Quality)
+
     explicit Printer(QObject *parent = 0);
     ColorMode colorMode() const;
     int copies() const;
@@ -33,9 +44,7 @@ public:
     bool duplexSupported() const;
     QString name() const;
     bool pdfMode() const;
-    int resolution() const;
-
-    QPrinter *printerInstance();
+    Quality quality() const;
 
     Q_INVOKABLE bool print(Document *doc);
 signals:
@@ -46,7 +55,7 @@ signals:
     void nameChanged();
     void settingsChanged();
     void pdfModeChanged();
-    void resolutionChanged();
+    void qualityChanged();
 
     void exportRequest(const QString &filepath);
 public slots:
@@ -56,7 +65,7 @@ public slots:
     void setDuplexSupported(bool duplexSupported);
     void setName(QString name);
     void setPdfMode(bool pdfMode);
-    void setResolution(int resolution);
+    void setQuality(Quality quality);
 private:
     QString makeOutputFilepath() const;
 
@@ -66,7 +75,9 @@ private:
     bool m_duplex_supported;
     QString m_name;
     bool m_pdf_mode;
-    int m_resolution;
+    Quality m_quality;
+
+    cups_dest_t *m_cups_dest;
 };
 
 #endif // PRINTER_H

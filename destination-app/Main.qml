@@ -269,19 +269,13 @@ MainView {
                     }
 
                     SelectorRow {
-                        model: [i18n.tr("Draft (150 DPI)"), i18n.tr("Normal (300 DPI)"), i18n.tr("Best (1200 DPI)")]
-                        selectedIndex: 1
+                        model: [i18n.tr("Draft"), i18n.tr("Normal"), i18n.tr("Best"), i18n.tr("Photo")]
+                        selectedIndex: modelValue.indexOf(printer.quality)
                         text: i18n.tr("Quality")
 
-                        onSelectedIndexChanged: {
-                            if (selectedIndex == 0) {
-                                printer.resolution = 150;
-                            } else if (selectedIndex == 1) {
-                                printer.resolution = 300;
-                            } else if (selectedIndex == 2) {
-                                printer.resolution = 1200;
-                            }
-                        }
+                        property var modelValue: [Printer.Draft, Printer.Normal, Printer.Best, Printer.Photo]
+
+                        onSelectedIndexChanged: printer.quality = modelValue[selectedIndex]
                     }
                 }
             }
@@ -306,8 +300,9 @@ MainView {
 
     Component.onCompleted: {
 //        document.url = Qt.resolvedUrl("/home/andy/Workspace/Work/Canonical/dump/2016-11-17T12:00:08");
-//        document.url = Qt.resolvedUrl("/home/andrew/Downloads/UbuntuPhone.pdf");
+        document.url = Qt.resolvedUrl("/home/andrew/Downloads/UbuntuPhone.pdf");
 //        document.url = Qt.resolvedUrl("/home/andrew/Documents/test.pdf");
+        document.url = Qt.resolvedUrl("/home/andrew/Documents/UKNewStarterForm.pdf");
         console.debug("Printers:", PrinterInfo.availablePrinterNames);
     }
 }

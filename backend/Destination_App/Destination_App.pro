@@ -41,4 +41,4 @@ target.path = $$installPath
 INSTALLS += target qmldir
 
 unix:!macx: INCLUDEPATH += /usr/include/poppler/qt5/
-unix:!macx: LIBS += -lpoppler-qt5 #-lcups
+unix:!macx: LIBS += -lpoppler-qt5 -lcups  # libcups2-dev
