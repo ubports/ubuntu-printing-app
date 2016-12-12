@@ -217,6 +217,7 @@ MainView {
                         }
 
                         MouseArea {
+                            enabled: checkbox.enabled
                             Layout.fillWidth: true
                             Layout.preferredHeight: units.gu(3)
                             Layout.preferredWidth: units.gu(10)
@@ -234,8 +235,10 @@ MainView {
                                     anchors {
                                         verticalCenter: parent.verticalCenter
                                     }
-                                    checked: true
+                                    checked: printer.duplex
                                     enabled: document.count > 1
+
+                                    onCheckedChanged: printer.duplex = checked
                                 }
 
                                 Label {

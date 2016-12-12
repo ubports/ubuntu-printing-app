@@ -15,6 +15,7 @@ Printer::Printer(QObject *parent)
     : QObject(parent),
       m_color_mode(Color),
       m_copies(1),
+      m_duplex(false),
       m_name(""),
       m_resolution(300)
 {
@@ -29,6 +30,11 @@ Printer::ColorMode Printer::colorMode() const
 int Printer::copies() const
 {
     return m_copies;
+}
+
+bool Printer::duplex() const
+{
+    return m_duplex;
 }
 
 QString Printer::name() const
@@ -81,6 +87,12 @@ bool Printer::print(Document *doc)
         printer->setColorMode(QPrinter::GrayScale);
     } else {
         qWarning() << "Unknown color mode";
+    }
+
+    if (m_duplex) {
+        printer->setDuplex(QPrinter::DuplexAuto);
+    } else {
+        printer->setDuplex(QPrinter::DuplexNone);
     }
 
     printer->setCopyCount(m_copies);
@@ -154,6 +166,15 @@ void Printer::setCopies(int copies)
         m_copies = copies;
 
         Q_EMIT copiesChanged();
+    }
+}
+
+void Printer::setDuplex(bool duplex)
+{
+    if (m_duplex != duplex) {
+        m_duplex = duplex;
+
+        Q_EMIT duplexChanged();
     }
 }
 
