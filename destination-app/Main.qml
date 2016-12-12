@@ -43,6 +43,8 @@ MainView {
     Printer {
         id: printer
         name: PrinterInfo.defaultPrinterName
+
+        onExportRequest: console.debug("Export requested!", filepath)
     }
 
     Document {
@@ -95,7 +97,7 @@ MainView {
                 ]
             }
 
-            title: i18n.tr("Printer Options")
+            title: printer.pdfMode ? i18n.tr("Page Setup") : i18n.tr("Printer Options")
         }
 
         ScrollView {
@@ -182,7 +184,10 @@ MainView {
                         selectedIndex: model.indexOf(printer.name)
                         text: i18n.tr("Printer")
 
-                        onSelectedIndexChanged: printer.name = model[selectedIndex]
+                        onSelectedIndexChanged: {
+                            printer.pdfMode = selectedIndex === model.length - 1
+                            printer.name = model[selectedIndex]
+                        }
                     }
 
                     RowLayout {
@@ -192,6 +197,7 @@ MainView {
                         }
 
                         TextField {
+                            enabled: !printer.pdfMode
                             inputMethodHints: Qt.ImhDigitsOnly
                             Layout.fillWidth: true
                             Layout.preferredWidth: units.gu(5)
@@ -236,7 +242,7 @@ MainView {
                                         verticalCenter: parent.verticalCenter
                                     }
                                     checked: printer.duplex
-                                    enabled: document.count > 1
+                                    enabled: document.count > 1 && printer.duplexSupported
 
                                     onCheckedChanged: printer.duplex = checked
                                 }
@@ -244,7 +250,7 @@ MainView {
                                 Label {
                                     enabled: document.count > 1
                                     height: parent.height
-                                    text: i18n.tr("Two sided")
+                                    text: i18n.tr("Two-Sided")
                                     verticalAlignment: Text.AlignVCenter
                                 }
                             }
@@ -290,6 +296,7 @@ MainView {
                 right: parent.right
                 rightMargin: units.gu(1)
             }
+            pdfMode: printer.pdfMode
             sheets: document.count
 
             onCancel: Qt.quit()

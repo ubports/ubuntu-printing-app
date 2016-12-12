@@ -16,6 +16,7 @@ QImage PopplerImageProvider::requestImage(const QString &id, QSize *size, const 
 {
     qDebug() << "ID" << id << requestedSize.height() << requestedSize.width();
 
+    // Load id ( image://poppler/{pageNumber}/{colorMode}/{filePath} )
     QStringList parts = id.split("/");
 
     bool colorOk, numberOk;
@@ -30,6 +31,7 @@ QImage PopplerImageProvider::requestImage(const QString &id, QSize *size, const 
         return QImage();
     }
 
+    // Fallback size if none is given for QImage
     int width = 100;
     int height = 50;
 

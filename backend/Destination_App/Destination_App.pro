@@ -12,7 +12,6 @@ TARGET = $$qtLibraryTarget($$TARGET)
 # Input
 SOURCES += \
     backend.cpp \
-    mytype.cpp \
     printerinfo.cpp \
     printer.cpp \
     document.cpp \
@@ -20,7 +19,6 @@ SOURCES += \
 
 HEADERS += \
     backend.h \
-    mytype.h \
     printerinfo.h \
     printer.h \
     document.h \
@@ -41,7 +39,6 @@ installPath = $${UBUNTU_CLICK_PLUGIN_PATH}/Destination_App
 qmldir.path = $$installPath
 target.path = $$installPath
 INSTALLS += target qmldir
-
 
 unix:!macx: INCLUDEPATH += /usr/include/poppler/qt5/
 unix:!macx: LIBS += -lpoppler-qt5 #-lcups

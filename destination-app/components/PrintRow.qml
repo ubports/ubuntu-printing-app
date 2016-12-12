@@ -6,6 +6,7 @@ import Ubuntu.Components 1.3
 Item {
     height: units.gu(6)
 
+    property bool pdfMode: false
     property int sheets: 0
 
     signal cancel()
@@ -46,7 +47,7 @@ Item {
             objectName: "button"
             color: pressed ? Qt.lighter("#111") : "#111"
             Layout.fillWidth: true
-            text: i18n.tr("Print") + " <u>" + sheets + "</u> " + i18n.tr("Sheets")
+            text: pdfMode ? i18n.tr("Create PDF") : i18n.tr("Print") + " <u>" + sheets + "</u> " + i18n.tr("Sheets")
 
             onClicked: confirm()
         }

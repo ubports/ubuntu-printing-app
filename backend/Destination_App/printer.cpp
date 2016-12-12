@@ -1,6 +1,9 @@
 #include "printer.h"
 
 #include <QtCore/QDateTime>
+#include <QtCore/QDir>
+#include <QtCore/QStandardPaths>
+#include <QtCore/QFileInfo>
 
 #include <QtCore/QDebug>
 
@@ -12,12 +15,14 @@
 //#include <cups/cups.h>
 
 Printer::Printer(QObject *parent)
-    : QObject(parent),
-      m_color_mode(Color),
-      m_copies(1),
-      m_duplex(false),
-      m_name(""),
-      m_resolution(300)
+    : QObject(parent)
+    , m_color_mode(Color)
+    , m_copies(1)
+    , m_duplex(false)
+    , m_duplex_supported(false)
+    , m_name("")
+    , m_pdf_mode(false)
+    , m_resolution(300)
 {
 
 }
@@ -37,9 +42,31 @@ bool Printer::duplex() const
     return m_duplex;
 }
 
+bool Printer::duplexSupported() const
+{
+    return m_duplex_supported;
+}
+
+QString Printer::makeOutputFilepath() const
+{
+    QDir dir(QStandardPaths::writableLocation(QStandardPaths::TempLocation));
+
+    if (!dir.exists()) {
+        dir.mkpath(".");
+    }
+
+    QFileInfo fileInfo(dir.path(), QDateTime::currentDateTime().toString(Qt::ISODate));
+    return fileInfo.absoluteFilePath();
+}
+
 QString Printer::name() const
 {
     return m_name;
+}
+
+bool Printer::pdfMode() const
+{
+    return m_pdf_mode;
 }
 
 bool Printer::print(Document *doc)
@@ -70,7 +97,6 @@ bool Printer::print(Document *doc)
 
     QPrinter *printer = printerInstance();
 
-    printer->setResolution(resolution());
 
     qDebug() << "Paper/Page" << printer->paperRect().width() << printer->pageRect().width();
 
@@ -81,6 +107,10 @@ bool Printer::print(Document *doc)
 
     // TODO: load printer settings from PDF file ?
 
+    if (m_pdf_mode) {
+        printer->setOutputFileName(makeOutputFilepath());
+    }
+
     if (m_color_mode == Printer::Color) {
         printer->setColorMode(QPrinter::Color);
     } else if (m_color_mode == Printer::GrayScale) {
@@ -89,7 +119,7 @@ bool Printer::print(Document *doc)
         qWarning() << "Unknown color mode";
     }
 
-    if (m_duplex) {
+    if (m_duplex_supported && m_duplex) {
         printer->setDuplex(QPrinter::DuplexAuto);
     } else {
         printer->setDuplex(QPrinter::DuplexNone);
@@ -97,6 +127,7 @@ bool Printer::print(Document *doc)
 
     printer->setCopyCount(m_copies);
     printer->setOrientation(doc->orientation());
+    printer->setResolution(resolution());
 
     // TODO: implement this case
     if (!printer->supportsMultipleCopies()) {
@@ -119,6 +150,10 @@ bool Printer::print(Document *doc)
         }
     }
 
+    if (m_pdf_mode) {
+        Q_EMIT exportRequest(printer->outputFileName());
+    }
+
     return true;
 }
 
@@ -126,9 +161,9 @@ QPrinter *Printer::printerInstance()
 {
     QPrinter *printer = Q_NULLPTR;
 
-    if (m_name == "PDF") {
+    if (m_pdf_mode) {
         printer = new QPrinter(QPrinter::ScreenResolution);
-        printer->setOutputFileName("/tmp/" + QDateTime::currentDateTime().toString(Qt::ISODate));
+
         printer->setOutputFormat(QPrinter::PdfFormat);
 
         qDebug() << "Loaded PDF printer:" << printer->outputFileName();
@@ -137,6 +172,7 @@ QPrinter *Printer::printerInstance()
 
         if (!printerInfo.isNull()) {
             printer = new QPrinter(printerInfo);  // FIXME: set high res here?
+
             qDebug() << "Loaded printer:" << m_name;
         } else {
             qWarning() << "No printer found:" << m_name;
@@ -178,17 +214,43 @@ void Printer::setDuplex(bool duplex)
     }
 }
 
+void Printer::setDuplexSupported(bool duplexSupported)
+{
+    if (m_duplex_supported != duplexSupported) {
+        m_duplex_supported = duplexSupported;
+
+        Q_EMIT duplexSupportedChanged();
+    }
+}
+
 void Printer::setName(QString name)
 {
     if (m_name != name) {
         m_name = name;
 
-        if (name != "PDF" && QPrinterInfo::printerInfo(m_name).isNull()) {
-            qWarning() << "No printer found:" << m_name;
+        if (m_pdf_mode) {
+            setDuplexSupported(false);
+        } else {
+            QPrinterInfo printerInfo = QPrinterInfo::printerInfo(m_name);
+
+            if (printerInfo.isNull()) {
+                qWarning() << "No printer found:" << m_name;
+            } else {
+                setDuplexSupported(printerInfo.supportedDuplexModes().contains(QPrinter::DuplexAuto));
+            }
         }
 
         Q_EMIT nameChanged();
         Q_EMIT settingsChanged();
+    }
+}
+
+void Printer::setPdfMode(bool pdfMode)
+{
+    if (m_pdf_mode != pdfMode) {
+        m_pdf_mode = pdfMode;
+
+        Q_EMIT pdfModeChanged();
     }
 }
 

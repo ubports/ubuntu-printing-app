@@ -14,7 +14,9 @@ class Printer : public QObject
     Q_PROPERTY(ColorMode colorMode READ colorMode WRITE setColorMode NOTIFY colorModeChanged)
     Q_PROPERTY(int copies READ copies WRITE setCopies NOTIFY copiesChanged)
     Q_PROPERTY(bool duplex READ duplex WRITE setDuplex NOTIFY duplexChanged)
+    Q_PROPERTY(bool duplexSupported READ duplexSupported NOTIFY duplexSupportedChanged)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(bool pdfMode READ pdfMode WRITE setPdfMode NOTIFY pdfModeChanged)
     Q_PROPERTY(int resolution READ resolution WRITE setResolution NOTIFY resolutionChanged)
 public:
     enum ColorMode
@@ -28,7 +30,9 @@ public:
     ColorMode colorMode() const;
     int copies() const;
     bool duplex() const;
+    bool duplexSupported() const;
     QString name() const;
+    bool pdfMode() const;
     int resolution() const;
 
     QPrinter *printerInstance();
@@ -38,20 +42,30 @@ signals:
     void colorModeChanged();
     void copiesChanged();
     void duplexChanged();
+    void duplexSupportedChanged();
     void nameChanged();
     void settingsChanged();
+    void pdfModeChanged();
     void resolutionChanged();
+
+    void exportRequest(const QString &filepath);
 public slots:
     void setColorMode(ColorMode colorMode);
     void setCopies(int copies);
     void setDuplex(bool duplex);
+    void setDuplexSupported(bool duplexSupported);
     void setName(QString name);
+    void setPdfMode(bool pdfMode);
     void setResolution(int resolution);
 private:
+    QString makeOutputFilepath() const;
+
     ColorMode m_color_mode;
     int m_copies;
     bool m_duplex;
+    bool m_duplex_supported;
     QString m_name;
+    bool m_pdf_mode;
     int m_resolution;
 };
 

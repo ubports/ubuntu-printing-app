@@ -1,7 +1,6 @@
 #include <QtQml>
 #include <QtQml/QQmlContext>
 #include "backend.h"
-#include "mytype.h"
 
 #include "document.h"
 #include "popplerimageprovider.h"
@@ -24,7 +23,6 @@ void BackendPlugin::registerTypes(const char *uri)
     Q_ASSERT(uri == QLatin1String("Destination_App"));
 
     qmlRegisterType<Document>(uri, 1, 0, "Document");
-    qmlRegisterType<MyType>(uri, 1, 0, "MyType");
     qmlRegisterType<Printer>(uri, 1, 0, "Printer");
     qmlRegisterSingletonType<PrinterInfo>(uri, 1, 0, "PrinterInfo", PrinterInfo_singleton_factory);
 }
