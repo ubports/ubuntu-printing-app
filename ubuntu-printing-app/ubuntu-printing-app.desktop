@@ -1,7 +1,0 @@
-[Desktop Entry]
-_Name=ubuntu-printing-app
-Exec=qmlscene %U /usr/share/ubuntu-printing-app/Main.qml
-Icon=/usr/share/ubuntu-printing-app/ubuntu-printing-app.png
-Terminal=false
-Type=Application
-X-Ubuntu-Touch=true

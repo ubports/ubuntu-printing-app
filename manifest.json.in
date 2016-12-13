@@ -6,7 +6,7 @@
     "hooks": {
         "ubuntu-printing-app": {
             "apparmor": "ubuntu-printing-app/ubuntu-printing-app.apparmor",
-            "content-hub": "ubuntu-printing-app/ubuntu-printing-app",
+            "content-hub": "ubuntu-printing-app/ubuntu-printing-app-content-hub.json",
             "desktop": "ubuntu-printing-app/ubuntu-printing-app.desktop"
         }
     },
