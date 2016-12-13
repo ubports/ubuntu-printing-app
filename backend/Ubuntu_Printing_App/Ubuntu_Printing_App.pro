@@ -35,7 +35,7 @@ OTHER_FILES = qmldir
 }
 
 qmldir.files = qmldir
-installPath = $${UBUNTU_CLICK_PLUGIN_PATH}/Ubuntu_Printing_App
+installPath = $$[QT_INSTALL_QML]/Ubuntu_Printing_App
 qmldir.path = $$installPath
 target.path = $$installPath
 INSTALLS += target qmldir

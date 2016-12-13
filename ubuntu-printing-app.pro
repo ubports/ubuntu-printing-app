@@ -32,6 +32,11 @@ UBUNTU_TRANSLATION_SOURCES+= \
 # compiled and installed into the right place in the click package
 UBUNTU_PO_FILES+=$$files(po/*.po)
 
+runner.files = runner/ubuntu-printing-app
+runner.path = /usr/bin/
+
+INSTALLS += runner
+
 # FIXME: disable tests for now
 # aptest.target   = autopilot
 # aptest.commands = QML2_IMPORT_PATH=$$OUT_PWD/backend bash $$PWD/ubuntu-printing-app/tests/autopilot/run
