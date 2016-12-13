@@ -8,7 +8,7 @@ QML_FILES += $$files(*.qml,true) \
 
 CONF_FILES +=  ubuntu-printing-app.apparmor \
                ubuntu-printing-app.png \
-               ubuntu-printing-app.json
+               ubuntu-printing-app
 
 AP_TEST_FILES += tests/autopilot/run \
                  $$files(tests/*.py,true)
@@ -38,7 +38,6 @@ desktop_file.CONFIG += no_check_exist
 
 #install content-hub in the correct place for debs
 content_hub.files = ubuntu-printing-app
-content_hub.extra = cp ubuntu-printing-app.json ubuntu-printing-app
 content_hub.path = /usr/share/content-hub/peers/
 
 INSTALLS+=config_files qml_files desktop_file comp_qml_files content_hub
