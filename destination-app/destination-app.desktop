@@ -1,7 +1,0 @@
-[Desktop Entry]
-_Name=destination-app
-Exec=qmlscene %U destination-app/Main.qml
-Icon=destination-app/destination-app.png
-Terminal=false
-Type=Application
-X-Ubuntu-Touch=true

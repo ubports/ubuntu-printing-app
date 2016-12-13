@@ -7,5 +7,5 @@ fi
 
 SCRIPTPATH=`dirname $0`
 pushd ${SCRIPTPATH}
-autopilot3 run destination-app
+autopilot3 run ubuntu_printing_app
 popd

@@ -20,7 +20,7 @@ MAKE_SINGLETON_FACTORY(PrinterInfo)
 
 void BackendPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("Destination_App"));
+    Q_ASSERT(uri == QLatin1String("Ubuntu_Printing_App"));
 
     qmlRegisterType<Document>(uri, 1, 0, "Document");
     qmlRegisterType<Printer>(uri, 1, 0, "Printer");

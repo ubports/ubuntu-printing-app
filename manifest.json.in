@@ -1,13 +1,13 @@
 {
-    "name": "destination-app.ahayzen",
-    "description": "description of destination-app",
+    "name": "ubuntu-printing-app.ahayzen",
+    "description": "A basic printing app for Ubuntu",
     "architecture": "@CLICK_ARCH@",
-    "title": "destination-app",
+    "title": "ubuntu-printing-app",
     "hooks": {
-        "destination-app": {
-            "apparmor": "destination-app/destination-app.apparmor",
-            "content-hub": "destination-app/content.json",
-            "desktop": "destination-app/destination-app.desktop"
+        "ubuntu-printing-app": {
+            "apparmor": "ubuntu-printing-app/ubuntu-printing-app.apparmor",
+            "content-hub": "ubuntu-printing-app/ubuntu-printing-content.json",
+            "desktop": "ubuntu-printing-app/ubuntu-printing-app.desktop"
         }
     },
     "version": "0.1",

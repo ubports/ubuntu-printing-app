@@ -2,7 +2,7 @@
 
 from autopilot.matchers import Eventually
 from testtools.matchers import Equals
-from destination-app import tests
+from ubuntu_printing_app import tests
 
 
 class MainViewTestCase(tests.BaseTestCase):

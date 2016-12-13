@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItems
 import Ubuntu.Content 0.1
-import Destination_App 1.0
+import Ubuntu_Printing_App 1.0
 
 import "components"
 
@@ -18,7 +18,7 @@ MainView {
     objectName: "mainView"
 
     // Note! applicationName needs to match the "name" field of the click manifest
-    applicationName: "destination-app.ahayzen"
+    applicationName: "ubuntu-printing-app.ahayzen"
 
     width: units.gu(40)
     height: units.gu(60)

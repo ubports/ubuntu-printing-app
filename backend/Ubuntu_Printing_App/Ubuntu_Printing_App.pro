@@ -1,5 +1,5 @@
 TEMPLATE = lib
-TARGET = Destination_Appbackend
+TARGET = Ubuntu_Printing_Appbackend
 QT += qml quick
 CONFIG += qt plugin
 
@@ -35,10 +35,10 @@ OTHER_FILES = qmldir
 }
 
 qmldir.files = qmldir
-installPath = $${UBUNTU_CLICK_PLUGIN_PATH}/Destination_App
+installPath = $${UBUNTU_CLICK_PLUGIN_PATH}/Ubuntu_Printing_App
 qmldir.path = $$installPath
 target.path = $$installPath
 INSTALLS += target qmldir
 
 unix:!macx: INCLUDEPATH += /usr/include/poppler/qt5/
-unix:!macx: LIBS += -lpoppler-qt5 -lcups  # libcups2-dev
+unix:!macx: LIBS += -lpoppler-qt5 -lcups

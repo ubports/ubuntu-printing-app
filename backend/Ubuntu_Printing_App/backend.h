@@ -7,7 +7,7 @@
 /*
  ----8<-----
 
- import Destination_App 1.0
+ import Ubuntu_Printing_App 1.0
 
  Rectangle {
    width: 200

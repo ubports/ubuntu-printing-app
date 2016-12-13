@@ -6,8 +6,8 @@ TEMPLATE = subdirs
 #load Ubuntu specific features
 load(ubuntu-click)
 
-SUBDIRS += destination-app \
-           backend/Destination_App
+SUBDIRS += ubuntu-printing-app \
+           backend/Ubuntu_Printing_App
 
 # specify the manifest file, this file is required for click
 # packaging and for the IDE to create runconfigurations
@@ -15,7 +15,7 @@ UBUNTU_MANIFEST_FILE=manifest.json.in
 
 # specify translation domain, this must be equal with the
 # app name in the manifest file
-UBUNTU_TRANSLATION_DOMAIN="destination-app.ahayzen"
+UBUNTU_TRANSLATION_DOMAIN="ubuntu-printing-app.ahayzen"
 
 # specify the source files that should be included into
 # the translation file, from those files a translation
@@ -34,13 +34,13 @@ UBUNTU_PO_FILES+=$$files(po/*.po)
 
 # FIXME: disable tests for now
 # aptest.target   = autopilot
-# aptest.commands = QML2_IMPORT_PATH=$$OUT_PWD/backend bash $$PWD/destination-app/tests/autopilot/run
-# aptest.depends  = sub-destination-app sub-backend-App
+# aptest.commands = QML2_IMPORT_PATH=$$OUT_PWD/backend bash $$PWD/ubuntu-printing-app/tests/autopilot/run
+# aptest.depends  = sub-ubuntu-printing-app sub-backend-App
 
 # unittest.target   = check
 # unittest.commands = /usr/bin/qmltestrunner -input $$PWD/backend/tests/unit -import $$OUT_PWD/backend
-# unittest.commands += && /usr/bin/qmltestrunner -input $$PWD/destination-app/tests/unit -import $$OUT_PWD/backend
-# unittest.depends  = sub-destination-app sub-backend-App
+# unittest.commands += && /usr/bin/qmltestrunner -input $$PWD/ubuntu-printing-app/tests/unit -import $$OUT_PWD/backend
+# unittest.depends  = sub-ubuntu-printing-app sub-backend-App
 
 # QMAKE_EXTRA_TARGETS += aptest unittest
 
