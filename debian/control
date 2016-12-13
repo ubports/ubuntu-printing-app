@@ -4,6 +4,7 @@ Priority: optional
 Maintainer: Andrew Hayzen <ahayzen@gmail.com>
 Build-Depends: debhelper (>=9),
                dh-translations,
+               libcups2-dev,
                libpoppler-qt5-dev,
                qmlscene,
                qt5-default,
@@ -16,6 +17,7 @@ Homepage: <insert the upstream URL, if relevant>
 Package: ubuntu-printing-app
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends},
+         libcups2,
          qml-module-qtquick2,
          qml-module-qtquick-layouts,
          qtdeclarative5-ubuntu-content1,
