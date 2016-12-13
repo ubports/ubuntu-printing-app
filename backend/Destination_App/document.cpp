@@ -337,7 +337,7 @@ Doc Size: 595 842
     return true;
 }
 
-QPrinter::Orientation Document::orientation() const
+Document::Orientation Document::orientation() const
 {
     Poppler::Page *page = m_document->page(0);
 
@@ -345,23 +345,23 @@ QPrinter::Orientation Document::orientation() const
         QSizeF pageSize = page->pageSizeF();
 
         if (pageSize.width() > pageSize.height()) {
-            return QPrinter::Landscape;
+            return Landscape;
         } else {
-            return QPrinter::Portrait;
+            return Portrait;
         }
 
-        qDebug() << "DOC" << page->orientation() << QPrinter::Portrait << QPrinter::Landscape;
+        qDebug() << "DOC" << page->orientation() << Portrait << Landscape;
 
         if (page->orientation() == Poppler::Page::Landscape) {
-            return QPrinter::Landscape;
+            return Landscape;
         } else if (page->orientation() == Poppler::Page::Portrait) {
-            return QPrinter::Portrait;
+            return Portrait;
         } else {
             qWarning() << "Other orientation:" << page->orientation() << "using Portrait";
-            return QPrinter::Portrait;
+            return Portrait;
         }
     } else {
-        return QPrinter::Portrait;
+        return Portrait;
     }
 }
 

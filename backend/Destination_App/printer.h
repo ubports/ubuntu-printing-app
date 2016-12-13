@@ -3,9 +3,8 @@
 
 #include <QtCore/QObject>
 
-#include <QtPrintSupport/QPrinter>
-
 #include <cups/cups.h>
+#include <cups/ppd.h>
 
 #include "document.h"
 
@@ -38,6 +37,7 @@ public:
     Q_ENUMS(Quality)
 
     explicit Printer(QObject *parent = 0);
+    ~Printer();
     ColorMode colorMode() const;
     int copies() const;
     bool duplex() const;
@@ -67,18 +67,28 @@ public slots:
     void setPdfMode(bool pdfMode);
     void setQuality(Quality quality);
 private:
+    void loadDuplexModes(const QString name);
+    bool loadOptions(cups_dest_t *cups_dest, Document *doc);
     QString makeOutputFilepath() const;
 
     ColorMode m_color_mode;
     int m_copies;
+
+    cups_dest_t *m_cups_dest;
+    QString m_cups_instance;
+    QString m_cups_name;
+
     bool m_duplex;
+    QList<QString> m_duplex_modes;
     bool m_duplex_supported;
     int m_job_id;
     QString m_name;
+
+    ppd_file_t *m_ppd;
+
     bool m_pdf_mode;
     Quality m_quality;
 
-    cups_dest_t *m_cups_dest;
 };
 
 #endif // PRINTER_H

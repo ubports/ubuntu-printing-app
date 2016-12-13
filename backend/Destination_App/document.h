@@ -6,8 +6,6 @@
 
 #include <QtGui/QPainter>
 
-#include <QtPrintSupport/QPrinter>
-
 #include <poppler/qt5/poppler-qt5.h>
 
 class Document : public QObject
@@ -17,10 +15,15 @@ class Document : public QObject
     Q_PROPERTY(int count READ count NOTIFY countChanged)
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
 public:
+    enum Orientation {
+        Portrait,
+        Landscape,
+    };
+
     explicit Document(QObject *parent = 0);
     ~Document();
     int count() const;
-    QPrinter::Orientation orientation() const;
+    Orientation orientation() const;
     QString title() const;
     QUrl url() const;
 

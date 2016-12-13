@@ -44,6 +44,8 @@ MainView {
         id: printer
         name: PrinterInfo.defaultPrinterName
 
+        // TODO: status ?
+
         onExportRequest: console.debug("Export requested!", filepath)
     }
 
@@ -259,6 +261,7 @@ MainView {
                     }
 
                     SelectorRow {
+                        enabled: !printer.pdfMode
                         model: [i18n.tr("Black & White"), i18n.tr("Color")]
                         selectedIndex: modelValue.indexOf(printer.colorMode)
                         text: i18n.tr("Color")
@@ -269,6 +272,7 @@ MainView {
                     }
 
                     SelectorRow {
+                        enabled: !printer.pdfMode
                         model: [i18n.tr("Draft"), i18n.tr("Normal"), i18n.tr("Best"), i18n.tr("Photo")]
                         selectedIndex: modelValue.indexOf(printer.quality)
                         text: i18n.tr("Quality")
@@ -302,7 +306,6 @@ MainView {
 //        document.url = Qt.resolvedUrl("/home/andy/Workspace/Work/Canonical/dump/2016-11-17T12:00:08");
         document.url = Qt.resolvedUrl("/home/andrew/Downloads/UbuntuPhone.pdf");
 //        document.url = Qt.resolvedUrl("/home/andrew/Documents/test.pdf");
-        document.url = Qt.resolvedUrl("/home/andrew/Documents/UKNewStarterForm.pdf");
         console.debug("Printers:", PrinterInfo.availablePrinterNames);
     }
 }
