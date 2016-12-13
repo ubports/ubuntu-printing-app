@@ -1,12 +1,9 @@
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
-#    /usr/include/cups/
-#    /usr/include/poppler/qt5/
-#    ${QT_INCLUDES}
-#    ${Qt5PrintSupport_INCLUDE_DIRS}
+    /usr/include/cups/
+    /usr/include/poppler/qt5/
+    ${Qt5PrintSupport_INCLUDE_DIRS}
 )
-
-#link_directories(${Qt5PrintSupport_INCLUDE_DIRS})
 
 #add_definitions(
 #  -DGETTEXT_PACKAGE=\"${PROJECT_NAME}\"
@@ -26,20 +23,10 @@ set(
 
 add_library(${LIBNAME} SHARED ${Ubuntu_Printing_App_SRC})
 
-message("Qt5PrintSupport ${Qt5PrintSupport_INCLUDE_DIRS}")
-
 qt5_use_modules(${LIBNAME} Core Gui Qml Quick PrintSupport)
 target_link_libraries(${LIBNAME}
     cups
     poppler-qt5
-#    Qt5::Core
-#    Qt5::Gui
-#    Qt5::Qml
-#    Qt5::Quick
-#    Qt5::PrintSupport
-#    -lQt5PrintSupport
-#    -lcups
-#    -lpoppler-qt5
 )
 
 set_target_properties(${LIBNAME} PROPERTIES

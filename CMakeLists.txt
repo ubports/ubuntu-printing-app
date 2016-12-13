@@ -65,24 +65,6 @@ list(APPEND I18N_SRC_FILES ${DESKTOP_FILE}.in.in.h)
 list(SORT I18N_SRC_FILES)
 
 
-# Set install locations
-#file(GLOB SRC_FILES
-#     RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
-#     *.qml *.js *.png)
-#install(DIRECTORY ubuntu-printing-app DESTINATION ${UBUNTU_PRINTING_APP_DATA_DIR})
-#install(FILES ${SRC_FILES} ${ICON_FILE} DESTINATION ${UBUNTU_PRINTING_APP_DATA_DIR})
-
-## Desktop file
-#configure_file(ubuntu-printing-app/${DESKTOP_FILE}.in.in ubuntu-printing-app/${DESKTOP_FILE}.in)
-
-#add_custom_target(${DESKTOP_FILE} ALL
-#  COMMENT "Merging translations into ${DESKTOP_FILE}"
-#  COMMAND LC_ALL=C ${INTLTOOL_MERGE} -d -u ${CMAKE_SOURCE_DIR}/po ubuntu-printing-app/${DESKTOP_FILE}.in ${DESKTOP_FILE}
-#)
-
-#install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}
-#        DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
-
 # Add subdirs
 add_subdirectory(backend)
 add_subdirectory(runner)
