@@ -3,6 +3,7 @@ Section: unknown
 Priority: optional
 Maintainer: Andrew Hayzen <ahayzen@gmail.com>
 Build-Depends: debhelper (>=9),
+               dh-apparmor,
                dh-translations,
                libcups2-dev,
                libpoppler-qt5-dev,

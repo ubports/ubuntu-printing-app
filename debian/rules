@@ -17,6 +17,9 @@
 %:
 	dh $@ 
 
+override_dh_install:
+	dh_install --fail-missing
+	dh_apparmor -pubuntu-printing-app --profile-name=usr.bin.ubuntu-printing-app
 
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )
