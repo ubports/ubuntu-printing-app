@@ -23,6 +23,6 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}
 
 # Show in QtCreator
 if(NOT "${CMAKE_CURRENT_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
-  file(GLOB MAIN_QML_JS_FILES *.qml *.js)
+  file(GLOB MAIN_QML_JS_FILES *.apparmor *.js *.json *.qml)
   add_custom_target(ubuntu_printing_app_main_qml_js_files ALL SOURCES ${MAIN_QML_JS_FILES})
 endif(NOT "${CMAKE_CURRENT_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")

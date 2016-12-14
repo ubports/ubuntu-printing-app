@@ -418,21 +418,24 @@ void Document::setUrl(QUrl url)
 
                 // Load document
                 m_document = Poppler::Document::load(m_url.toLocalFile());
-                m_document->setRenderBackend(Poppler::Document::ArthurBackend);
-
-                m_document->setRenderHint(Poppler::Document::Antialiasing, true);
-                m_document->setRenderHint(Poppler::Document::TextAntialiasing, true);
-                m_document->setRenderHint(Poppler::Document::TextHinting, true);
-//                m_document->setRenderHint(Poppler::Document::TextSlightHinting, true);
-//                m_document->setRenderHint(Poppler::Document::OverprintPreview, true);
-//                m_document->setRenderHint(Poppler::Document::ThinLineSolid, true);
-//                m_document->setRenderHint(Poppler::Document::ThinLineShape, true);
 
                 if (!m_document || m_document->isLocked()) {
                     qWarning() << "Invalid Document";
                     delete m_document;
                     m_document = Q_NULLPTR;
+
+                    Q_EMIT error(ErrorDocumentInvalid);
                 } else {
+                    m_document->setRenderBackend(Poppler::Document::ArthurBackend);
+
+                    m_document->setRenderHint(Poppler::Document::Antialiasing, true);
+                    m_document->setRenderHint(Poppler::Document::TextAntialiasing, true);
+                    m_document->setRenderHint(Poppler::Document::TextHinting, true);
+    //                m_document->setRenderHint(Poppler::Document::TextSlightHinting, true);
+    //                m_document->setRenderHint(Poppler::Document::OverprintPreview, true);
+    //                m_document->setRenderHint(Poppler::Document::ThinLineSolid, true);
+    //                m_document->setRenderHint(Poppler::Document::ThinLineShape, true);
+
                     if (m_count != m_document->numPages()) {
                         m_count = m_document->numPages();
 
@@ -443,9 +446,12 @@ void Document::setUrl(QUrl url)
                 Q_EMIT urlChanged();
             } else {
                 qWarning() << "File is not a PDF:" << url;
+                Q_EMIT error(ErrorNotPdf);
             }
         } else {
             qWarning() << "Url is not a local file:" << url;
+
+            Q_EMIT error(ErrorNotFound);
         }
     }
 }

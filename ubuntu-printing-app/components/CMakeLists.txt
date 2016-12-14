@@ -1,4 +1,6 @@
 set(COMPONENT_QML_JS_FILES
+    AlertDialog.qml
+    ContentPeerPickerDialog.qml
     ExpandableListItem.qml
     PrintRow.qml
     SelectorRow.qml

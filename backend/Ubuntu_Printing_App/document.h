@@ -15,6 +15,14 @@ class Document : public QObject
     Q_PROPERTY(int count READ count NOTIFY countChanged)
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
 public:
+    enum Errors {
+        ErrorDocumentInvalid,
+        ErrorNotFound,
+        ErrorNotPdf,
+    };
+
+    Q_ENUMS(Errors)
+
     enum Orientation {
         Portrait,
         Landscape,
@@ -29,14 +37,15 @@ public:
 
     QImage makeImage(QSizeF size, int pageNumber);
     QImage makeImageToFit(QSizeF size, int pageNumber, bool color);
-    QPixmap makePixmap(QSize size, int pageNumber);
+    QPixmap makePixmap(QSize size, int pageNumber);  // del
 
-    Q_INVOKABLE QImage renderImage(QSize size, int pageNumber);
-    Q_INVOKABLE bool renderPage(QPainter *painter, int pageNumber);
+    Q_INVOKABLE QImage renderImage(QSize size, int pageNumber);  // del
+    Q_INVOKABLE bool renderPage(QPainter *painter, int pageNumber);  // del
 
-    bool printFromImage(QPainter *painter, int pageNumber, QRect pageRect, double resolution);
+    bool printFromImage(QPainter *painter, int pageNumber, QRect pageRect, double resolution);  // del
 signals:
     void countChanged();
+    void error(Errors errorType);
     void urlChanged();
 public slots:
     void setUrl(QUrl url);
