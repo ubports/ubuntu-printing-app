@@ -2,7 +2,8 @@ Source: ubuntu-printing-app
 Section: unknown
 Priority: optional
 Maintainer: Andrew Hayzen <ahayzen@gmail.com>
-Build-Depends: debhelper (>=9),
+Build-Depends: cmake (>= 2.8.9),
+               debhelper (>=9),
                dh-apparmor,
                dh-translations,
                libcups2-dev,
