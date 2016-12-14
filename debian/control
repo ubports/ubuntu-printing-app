@@ -1,5 +1,5 @@
 Source: ubuntu-printing-app
-Section: unknown
+Section: misc
 Priority: optional
 Maintainer: Andrew Hayzen <ahayzen@gmail.com>
 Build-Depends: cmake (>= 2.8.9),
@@ -14,7 +14,8 @@ Build-Depends: cmake (>= 2.8.9),
                qtdeclarative5-dev,
                ubuntu-sdk-qmake-extras
 Standards-Version: 3.9.6
-Homepage: <insert the upstream URL, if relevant>
+Homepage: http://launchpad.net/ubuntu-printing-app
+Vcs-Bzr: https://code.launchpad.net/~phablet-team/ubuntu-printing-app/trunk
 
 Package: ubuntu-printing-app
 Architecture: any
