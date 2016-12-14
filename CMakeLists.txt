@@ -21,7 +21,7 @@ set(UBUNTU_MANIFEST_PATH "manifest.json.in" CACHE INTERNAL "Tell QtCreator the l
 set(DESKTOP_FILE "${APP_NAME}.desktop")
 set(ICON_FILE ubuntu-printing-app.png)
 set(MAIN_QML Main.qml)
-set(RUNNER ${CMAKE_INSTALL_BINDIR}/${APP_HARDCODE})
+set(RUNNER ${APP_HARDCODE})
 
 # Set the options
 option(CLICK_MODE "Build as a click package" off)
