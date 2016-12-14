@@ -18,7 +18,7 @@ MainView {
     objectName: "mainView"
 
     // Note! applicationName needs to match the "name" field of the click manifest
-    applicationName: "ubuntu-printing-app.ahayzen"
+    applicationName: "ubuntu-printing-app"
 
     width: units.gu(40)
     height: units.gu(60)

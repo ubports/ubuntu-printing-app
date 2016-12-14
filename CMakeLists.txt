@@ -52,8 +52,7 @@ endif(CLICK_MODE)
 if (CLICK_MODE)
   message("CLICK_MODE is not supported at this time!")
 else(CLICK_MODE)
-  # FIXME should this point to the runner?
-  set(EXEC "qmlscene $@ -I ${MODULE_PATH} ${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${MAIN_QML}")
+  set(EXEC "APP_ID=${APP_HARDCODE} qmlscene $@ -I ${MODULE_PATH} ${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${MAIN_QML}")
 endif(CLICK_MODE)
 
 
