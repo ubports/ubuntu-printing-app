@@ -23,7 +23,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItems
 import Ubuntu.Components.Popups 1.3
-import Ubuntu.Content 0.1
+import Ubuntu.Content 1.1
 import Ubuntu_Printing_App 1.0
 
 import "components"
@@ -66,7 +66,7 @@ MainView {
 
         // TODO: status ? similar style of onError to Document
 
-        onExportRequest: console.debug("Export requested!", filepath)
+        onExportRequest: pageStack.push(Qt.resolvedUrl("components/ContentPeerPickerDialog.qml"), {"url": filepath})
     }
 
     Component {  // cannot split due to issue
@@ -141,12 +141,20 @@ MainView {
 
     */
 
+    PageStack {
+        id: pageStack
+        anchors {
+            fill: parent
+        }
+    }
+
     Page {
         id: page
         anchors {
             fill: parent
         }
         width: mainView.width
+        visible: false
 
         header: PageHeader {
             id: pageHeader
@@ -333,6 +341,8 @@ MainView {
     }
 
     Component.onCompleted: {
+        pageStack.push(page)
+
         console.debug("Printers:", PrinterInfo.availablePrinterNames);
 
         if (args.values.url) {

@@ -19,7 +19,109 @@
  */
 
 import QtQuick 2.4
+import Ubuntu.Components 1.3
+import Ubuntu.Content 1.3
 
-Item {
+Page {
+    id: picker
+    header: PageHeader {
+        leadingActionBar {
+            actions: [
+                Action {
+                    iconName: "close"
 
+                    onTriggered: {
+                        if (picker.curTransfer) {
+                            picker.curTransfer.state = ContentTransfer.Aborted;
+                        }
+
+                        picker.pageStack.pop()
+                    }
+                }
+            ]
+        }
+        title: i18n.tr("Open With...")
+    }
+    visible: false
+
+    property var curTransfer: null
+    property var url
+
+    Component {
+        id: contentItem
+        ContentItem {}
+    }
+
+    function __exportItems(url) {
+        if (picker.curTransfer.state === ContentTransfer.InProgress) {
+            picker.curTransfer.items = [ contentItem.createObject(picker, {"url": url}) ];
+            picker.curTransfer.state = ContentTransfer.Charged;
+        }
+    }
+
+    ContentPeerPicker {
+        id: peerPicker
+        anchors {
+            bottom: parent.bottom
+            fill: undefined
+            left: parent.left
+            right: parent.right
+            top: picker.header.bottom
+        }
+        contentType: ContentType.Documents
+        customPeerModelLoader: Loader {
+            asynchronous: true
+            sourceComponent: ContentPeerModel {
+                contentType: ContentType.Documents
+                handler: ContentHandler.Destination
+
+                onPeersChanged: {
+                    var tmpPeers = [];
+
+                    for (var i=0; i < peers.length; i++) {
+                        if (peers[i].appId !== "ubuntu-printing-app") {
+                            tmpPeers.push(peers[i]);
+                        }
+                    }
+
+                    peers = tmpPeers;
+                }
+            }
+        }
+        handler: ContentHandler.Destination
+        showTitle: false
+        visible: parent.visible
+
+        property bool selectRunning: false
+
+        onPeerSelected: {
+            selectRunning = true;
+
+            picker.curTransfer = peer.request();
+            if (picker.curTransfer.state === ContentTransfer.InProgress) {
+                picker.__exportItems(picker.url);
+            }
+
+            selectRunning = false;
+            pageStack.pop();
+        }
+    }
+
+    ActivityIndicator {
+        anchors {
+            centerIn: parent
+        }
+        running: (picker.curTransfer ? picker.curTransfer.status === ContentTransfer.InProgress : false) || peerPicker.selectRunning
+
+    }
+
+    Connections {
+        target: picker.curTransfer
+        onStateChanged: {
+            console.log("curTransfer StateChanged: " + picker.curTransfer.state);
+            if (picker.curTransfer.state === ContentTransfer.InProgress) {
+                picker.__exportItems(picker.url);
+            }
+        }
+    }
 }
