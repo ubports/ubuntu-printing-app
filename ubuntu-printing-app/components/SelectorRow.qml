@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Authored-by: Andrew Hayzen <andrew.hayzen@canonical.com>
  */
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
@@ -22,8 +24,15 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItems
 
 RowLayout {
+    anchors {
+        left: parent.left
+        leftMargin: units.gu(2)
+        right: parent.right
+        rightMargin: units.gu(2)
+    }
+
     implicitHeight: selector.implicitHeight
-    Layout.maximumWidth: parent.width
+    Layout.maximumWidth: width
 
     property alias model: selector.model
     property var modelValue: model

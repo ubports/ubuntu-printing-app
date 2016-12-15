@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Authored-by: Andrew Hayzen <andrew.hayzen@canonical.com>
  */
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
@@ -170,121 +172,135 @@ MainView {
                 top: page.header.bottom
             }
 
-            Item {  // remove and move ColumnLayout here, set margins in RowLayout
-                height: columnLayout.height + units.gu(2)
-                width: mainView.width - units.gu(2)
-                x: units.gu(1)
-                y: x
+            ColumnLayout {
+                id: columnLayout
+                spacing: units.gu(1)
+                width: mainView.width
 
-                ColumnLayout {
-                    id: columnLayout
-                    spacing: units.gu(1)
-                    width: parent.width
+                PreviewRow {
+                    document: document
+                    printer: printer
+                    view: scrollView
+                }
 
-                    PreviewRow {
-                        document: document
-                        printer: printer
-                        view: scrollView
+                SelectorRow {
+                    model: PrinterInfo.availablePrinterNames
+                    selectedIndex: model.indexOf(printer.name)
+                    text: i18n.tr("Printer")
+
+                    onSelectedValueChanged: {
+                        printer.pdfMode = selectedIndex === model.length - 1
+                        printer.name = value
+                    }
+                }
+
+                RowLayout {  // make TextFieldRow
+                    anchors {
+                        left: parent.left
+                        leftMargin: units.gu(2)
+                        right: parent.right
+                        rightMargin: units.gu(2)
+                    }
+                    Layout.maximumWidth: width
+
+                    Label {
+                        Layout.preferredWidth: units.gu(10)
+                        text: i18n.tr("Copies")
                     }
 
-                    SelectorRow {
-                        model: PrinterInfo.availablePrinterNames
-                        selectedIndex: model.indexOf(printer.name)
-                        text: i18n.tr("Printer")
-
-                        onSelectedValueChanged: {
-                            printer.pdfMode = selectedIndex === model.length - 1
-                            printer.name = value
-                        }
-                    }
-
-                    RowLayout {  // make TextFieldRow
-                        Label {
-                            Layout.preferredWidth: units.gu(10)
-                            text: i18n.tr("Copies")
+                    TextField {
+                        enabled: !printer.pdfMode
+                        inputMethodHints: Qt.ImhDigitsOnly
+                        Layout.fillWidth: true
+                        Layout.preferredWidth: units.gu(5)
+                        text: printer.copies
+                        validator: IntValidator {
+                            bottom: 1
+                            top: 999
                         }
 
-                        TextField {
-                            enabled: !printer.pdfMode
-                            inputMethodHints: Qt.ImhDigitsOnly
-                            Layout.fillWidth: true
-                            Layout.preferredWidth: units.gu(5)
-                            text: printer.copies
-                            validator: IntValidator {
-                                bottom: 1
-                                top: 999
+                        // TODO: acceptableInput is False show hint
+
+                        onTextChanged: {
+                            if (acceptableInput) {
+                                printer.copies = Number(text);
                             }
-
-                            // TODO: acceptableInput is False show hint
-
-                            onTextChanged: {
-                                if (acceptableInput) {
-                                    printer.copies = Number(text);
-                                }
-                            }
                         }
                     }
+                }
 
-                    RowLayout {  // Make CheckBoxRow
-                        Item {
-                            Layout.preferredWidth: units.gu(10)
-                        }
+                RowLayout {  // Make CheckBoxRow
+                    anchors {
+                        left: parent.left
+                        leftMargin: units.gu(2)
+                        right: parent.right
+                        rightMargin: units.gu(2)
+                    }
+                    Layout.maximumWidth: width
 
-                        MouseArea {
-                            enabled: checkbox.enabled
-                            Layout.fillWidth: true
-                            Layout.preferredHeight: units.gu(3)
-                            Layout.preferredWidth: units.gu(10)
+                    Item {
+                        Layout.preferredWidth: units.gu(10)
+                    }
 
-                            onClicked: checkbox.checked = !checkbox.checked
+                    MouseArea {
+                        enabled: checkbox.enabled
+                        Layout.fillWidth: true
+                        Layout.preferredHeight: units.gu(3)
+                        Layout.preferredWidth: units.gu(10)
 
-                            Row {
+                        onClicked: checkbox.checked = !checkbox.checked
+
+                        Row {
+                            anchors {
+                                fill: parent
+                            }
+                            spacing: units.gu(1)
+
+                            CheckBox {
+                                id: checkbox
                                 anchors {
-                                    fill: parent
+                                    verticalCenter: parent.verticalCenter
                                 }
-                                spacing: units.gu(1)
+                                checked: printer.duplex
+                                enabled: document.count > 1 && printer.duplexSupported && !printer.pdfMode
 
-                                CheckBox {
-                                    id: checkbox
-                                    anchors {
-                                        verticalCenter: parent.verticalCenter
-                                    }
-                                    checked: printer.duplex
-                                    enabled: document.count > 1 && printer.duplexSupported && !printer.pdfMode
-
-                                    onCheckedChanged: printer.duplex = checked
-                                }
-
-                                Label {
-                                    enabled: document.count > 1
-                                    height: parent.height
-                                    text: i18n.tr("Two-Sided")
-                                    verticalAlignment: Text.AlignVCenter
-                                }
+                                onCheckedChanged: printer.duplex = checked
                             }
 
+                            Label {
+                                enabled: document.count > 1
+                                height: parent.height
+                                text: i18n.tr("Two-Sided")
+                                verticalAlignment: Text.AlignVCenter
+                            }
                         }
+
                     }
+                }
 
-                    SelectorRow {
-                        enabled: !printer.pdfMode
-                        model: [i18n.tr("Black & White"), i18n.tr("Color")]
-                        modelValue: [Printer.GrayScale, Printer.Color]
-                        selectedIndex: modelValue.indexOf(printer.colorMode)
-                        text: i18n.tr("Color")
+                SelectorRow {
+                    enabled: !printer.pdfMode
+                    model: [i18n.tr("Black & White"), i18n.tr("Color")]
+                    modelValue: [Printer.GrayScale, Printer.Color]
+                    selectedIndex: modelValue.indexOf(printer.colorMode)
+                    text: i18n.tr("Color")
 
-                        onSelectedValueChanged: printer.colorMode = value
-                    }
+                    onSelectedValueChanged: printer.colorMode = value
+                }
 
-                    SelectorRow {
-                        enabled: !printer.pdfMode
-                        model: [i18n.tr("Draft"), i18n.tr("Normal"), i18n.tr("Best"), i18n.tr("Photo")]
-                        modelValue: [Printer.Draft, Printer.Normal, Printer.Best, Printer.Photo]
-                        selectedIndex: modelValue.indexOf(printer.quality)
-                        text: i18n.tr("Quality")
+                SelectorRow {
+                    enabled: !printer.pdfMode
+                    model: [i18n.tr("Draft"), i18n.tr("Normal"), i18n.tr("Best"), i18n.tr("Photo")]
+                    modelValue: [Printer.Draft, Printer.Normal, Printer.Best, Printer.Photo]
+                    selectedIndex: modelValue.indexOf(printer.quality)
+                    text: i18n.tr("Quality")
 
-                        onSelectedValueChanged: printer.quality = value
-                    }
+                    onSelectedValueChanged: printer.quality = value
+                }
+
+                Item {
+                    height: units.gu(2)
+                    width: parent.width
                 }
             }
         }
