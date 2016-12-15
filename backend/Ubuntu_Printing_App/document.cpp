@@ -49,6 +49,15 @@ float Document::getDpi(QSizeF sourceSizeF, QSizeF targetSizeF)
     return fmin(destDPI.width(), destDPI.height());
 }
 
+Poppler::Page *Document::getPage(int pageNumber)
+{
+    if (m_document) {
+        return m_document->page(pageNumber);
+    } else {
+        return Q_NULLPTR;
+    }
+}
+
 QImage Document::makeImage(QSizeF size, int pageNumber)
 {
     if (pageNumber < 0) {
@@ -60,9 +69,6 @@ QImage Document::makeImage(QSizeF size, int pageNumber)
         qWarning() << "No document loaded";
         return QImage();
     }
-
-    // Splash backend has much better rendering
-    m_document->setRenderBackend(Poppler::Document::SplashBackend);
 
     Poppler::Page *page = m_document->page(pageNumber);
 
@@ -100,9 +106,6 @@ QImage Document::makeImageToFit(QSizeF size, int pageNumber, bool color)
         return QImage();
     }
 
-    // Splash backend has much better rendering
-    m_document->setRenderBackend(Poppler::Document::SplashBackend);
-
     Poppler::Page *page = m_document->page(pageNumber);
 
     if (!page) {
@@ -120,8 +123,6 @@ QImage Document::makeImageToFit(QSizeF size, int pageNumber, bool color)
 
     // Make the image
     QImage image = makeImage(scaledSize, pageNumber);
-//    image.setDotsPerMeterX(6000);
-//    image.setDotsPerMeterY(6000);
 
     if (!color) {
         image = image.convertToFormat(QImage::Format_Grayscale8);
@@ -130,7 +131,7 @@ QImage Document::makeImageToFit(QSizeF size, int pageNumber, bool color)
     qDebug() << "i" << image.width() << scaledSize.width() << image.dotsPerMeterX();
 
     // Make a container then put the content image inside
-    QImage container(size.toSize(), QImage::Format_ARGB32_Premultiplied); //QImage::Format_Grayscale8); //QImage::Format_ARGB32);
+    QImage container(size.toSize(), QImage::Format_ARGB32_Premultiplied);
     QPainter painter;
 
     container.fill(QColor(0, 0, 0, 0));
@@ -146,195 +147,6 @@ QImage Document::makeImageToFit(QSizeF size, int pageNumber, bool color)
     painter.end();
 
     return container;
-}
-
-QPixmap Document::makePixmap(QSize size, int pageNumber)
-{
-    if (pageNumber < 0) {
-        qWarning() << "Invalid page number";
-    }
-
-    if (!m_document) {
-        qWarning() << "No document loaded";
-    }
-
-    // Splash backend has much better rendering
-    m_document->setRenderBackend(Poppler::Document::SplashBackend);
-
-    Poppler::Page *page = m_document->page(pageNumber);
-
-    if (!page) {
-        qWarning() << "Invalid page";
-    }
-
-    float res = getDpi(page->pageSizeF(), size);
-
-    qDebug() << "Making image with res of" << res;
-
-    // Make QPixmap
-    QPixmap pixmap(size);
-
-    // If using ArthurBackend can do
-    // QPainter painter(&pixmap);
-    // if (!page->renderToPainter(painter, res, res)) {
-    //     qWarning() << "Failed to render to painter";
-    // }
-
-    QImage image = page->renderToImage(res, res);
-
-    if (image.isNull()) {
-        qWarning() << "Image is null";
-    }
-
-    pixmap = QPixmap::fromImage(image);
-
-    delete page;
-
-    return pixmap;
-}
-
-QImage Document::renderImage(QSize size, int pageNumber)
-{
-    if (pageNumber < 0) {
-        qWarning() << "Invalid page number";
-    }
-
-    if (!m_document) {
-        qWarning() << "No document loaded";
-    }
-
-//    m_document->setRenderBackend(Poppler::Document::SplashBackend);
-
-    Poppler::Page *page = m_document->page(pageNumber);
-
-    if (!page) {
-        qWarning() << "Invalid page";
-    }
-
-    /*
-     * width / res    width / res
-     */
-
-//    int res = size.width() / (page->pageSize().width() / 72);
-
-//    qDebug() << "Res:" << res;
-
-
-
-    QSizeF sourceSizeInch(page->pageSizeF().width() / 72, page->pageSizeF().height() / 72);
-
-    QSizeF destDPI(size.width() / sourceSizeInch.width(), size.height()/ sourceSizeInch.height());
-
-    float res;
-
-    if (destDPI.width() > destDPI.height()) {
-        res = destDPI.height();
-    } else {
-        res = destDPI.width();
-    }
-
-    qDebug() << "Making image with res of" << res;
-
-    QImage image = page->renderToImage(res, res);
-
-    if (image.isNull()) {
-        qWarning() << "Image is null";
-    }
-
-    delete page;
-
-    return image;
-}
-
-bool Document::renderPage(QPainter *painter, int pageNumber)
-{
-    if (!painter) {
-        qWarning() << "Invalid painter";
-        return false;
-    }
-
-    if (pageNumber < 0) {
-        qWarning() << "Invalid page number";
-        return false;
-    }
-
-    if (!m_document) {
-        qWarning() << "No document loaded";
-        return false;
-    }
-
-    Poppler::Page *page = m_document->page(pageNumber);
-
-    m_document->setRenderBackend(Poppler::Document::ArthurBackend);
-
-    if (!page) {
-        qWarning() << "Invalid page";
-        return false;
-    }
-
-    /*
-A4
-DPI: 96 1200
-Device Size: 767 1097
-Doc Size: 595 842
-
-A5
-DPI: 96 1200
-Device Size: 534 767
-Doc Size: 595 842
-    */
-
-    QSizeF sourceSizeInch(page->pageSizeF().width() / 72, page->pageSizeF().height() / 72);
-
-    QSizeF destDPI(painter->device()->width() / sourceSizeInch.width(), painter->device()->height()/ sourceSizeInch.height());
-
-    float res;
-
-    if (destDPI.width() > destDPI.height()) {
-        res = destDPI.height();
-    } else {
-        res = destDPI.width();
-    }
-
-//    Poppler::PSConverter *psConv = m_document->psConverter();
-
-//    psConv->setLeftMargin(5);
-//    psConv->setRightMargin(1);
-//    psConv->setOutputFileName("/tmp/out.ps");
-//    psConv->setPaperHeight(painter->device()->height());
-//    psConv->setPaperWidth(painter->device()->width());
-
-//    QList<int> pages = { 1 };
-
-//    psConv->setPageList(pages);
-
-//    qDebug() << "PS" << psConv->convert();
-
-
-//    float res = painter->device()->width() / (page->pageSize().width() / 72);  //painter->device()->logicalDpiX());
-
-    //res = 70;
-
-    qDebug() << "DPI:" << painter->device()->logicalDpiX() << painter->device()->physicalDpiX() << res;
-
-    qDebug() << "Device Size:" << painter->device()->width() << painter->device()->height();
-    qDebug() << "Doc Size:" << page->pageSize().width() << page->pageSize().height();
-
-    // Create Image same dimensions as PageSize
-    // Render to the image
-    // Render the image to the printer
-    // Image can also be used for preview?
-
-    if (!page->renderToPainter(painter, res, res)) {
-//    if (!page->renderToPainter(painter, painter->device()->logicalDpiX(), painter->device()->logicalDpiY(),
-//                               0, 0, page->pageSize().width(), page->pageSize().height())) {
-        qWarning() << "Rendering failed";
-        return false;
-    }
-
-    delete page;
-
-    return true;
 }
 
 Document::Orientation Document::orientation() const
@@ -365,50 +177,6 @@ Document::Orientation Document::orientation() const
     }
 }
 
-bool Document::printFromImage(QPainter *painter, int pageNumber, QRect pageRect, double resolution)
-{
-    // Ensure we are using the right render hints
-    m_document->setRenderBackend(Poppler::Document::SplashBackend);
-
-    m_document->setRenderHint(Poppler::Document::Antialiasing, true);
-    m_document->setRenderHint(Poppler::Document::TextAntialiasing, true);
-    m_document->setRenderHint(Poppler::Document::TextHinting, true);
-
-    Poppler::Page *page = m_document->page(pageNumber);
-
-    if (!page) {
-        qWarning() << "Invalid page!";
-        return false;
-    }
-
-    // Render at given resolution
-    QImage image = page->renderToImage(resolution, resolution);
-
-    // Get the scalar for the image to fit within the pageRect
-    double ratioX = (double) image.width() / (double) pageRect.width();
-    double ratioY = (double) image.height() / (double) pageRect.height();
-
-    image.setDevicePixelRatio(fmax(ratioX, ratioY));
-
-    // Check that image isn't null
-    if (image.isNull()) {
-        return false;
-    }
-
-    // Draw the image to the painter, should we scale? the image should be correct aspect
-    // Here we should check if the image aspect is different and position in the centre?
-    painter->drawImage(0, 0, image);
-    //painter->drawImage(QRect(QPoint(0, 0), QSize(pageRect.width(), pageRect.height())), image, image.rect());
-
-    qDebug() << "Device Width:" << pageRect.width() << "LogicalDPI:" << painter->device()->logicalDpiX(); // << "RenderDPI:" << renderDPI.width();
-    qDebug() << "RatioX" << ratioX << "RatioY" << ratioY;
-
-    qDebug() << "PageRect:" << pageRect.width() << pageRect.height();
-    qDebug() << "Image:" << image.width() << image.height() << image.dotsPerMeterX();
-
-    return true;
-}
-
 void Document::setUrl(QUrl url)
 {
     if (m_url != url) {
@@ -426,7 +194,7 @@ void Document::setUrl(QUrl url)
 
                     Q_EMIT error(ErrorDocumentInvalid);
                 } else {
-                    m_document->setRenderBackend(Poppler::Document::ArthurBackend);
+                    m_document->setRenderBackend(Poppler::Document::SplashBackend);
 
                     m_document->setRenderHint(Poppler::Document::Antialiasing, true);
                     m_document->setRenderHint(Poppler::Document::TextAntialiasing, true);

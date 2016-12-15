@@ -21,10 +21,10 @@ MainView {
     // Note! applicationName needs to match the "name" field of the click manifest
     applicationName: "ubuntu-printing-app"
 
-    width: units.gu(40)
-    height: units.gu(60)
+    width: units.gu(45)
+    height: units.gu(70)
 
-    Connections {
+    Connections {  // split into ContentHubHelper which has onDocumentUrlChanged, exportDocument(url)
         target: ContentHub
 
         onImportRequested: {
@@ -50,7 +50,7 @@ MainView {
         onExportRequest: console.debug("Export requested!", filepath)
     }
 
-    Component {
+    Component {  // cannot split due to issue
         id: dialogComponent
         Dialog {
             id: dialog
@@ -145,6 +145,7 @@ MainView {
         }
 
         ScrollView {
+            id: scrollView
             anchors {
                 bottom: printRow.top
                 left: parent.left
@@ -152,7 +153,7 @@ MainView {
                 top: page.header.bottom
             }
 
-            Item {
+            Item {  // remove and move ColumnLayout here, set margins in RowLayout
                 height: columnLayout.height + units.gu(2)
                 width: mainView.width - units.gu(2)
                 x: units.gu(1)
@@ -163,78 +164,24 @@ MainView {
                     spacing: units.gu(1)
                     width: parent.width
 
-                    Rectangle {
-                        anchors {
-                            left: parent.left
-                            right: parent.right
-                        }
-                        color: "#EEE"
-                        implicitHeight: units.gu(25)
-
-                        RowLayout {
-                            anchors.fill: parent
-
-                            Button {
-                                enabled: previewImage.pageNumber > 0
-                                Layout.preferredWidth: units.gu(4)
-                                color: "#000"
-                                text: "<"
-
-                                onClicked: previewImage.pageNumber--
-                            }
-
-                            Item {
-                                Layout.fillWidth: true
-                                Layout.preferredHeight: units.gu(25)
-
-                                Image {
-                                    id: previewImage
-                                    anchors {
-                                        fill: parent
-                                    }
-
-                                    asynchronous: true
-                                    source: document.url.toString() !== "" ? "image://poppler/" + pageNumber + "/" + printer.colorMode + "/" + document.url : ""
-                                    sourceSize {
-                                        height: units.gu(25)
-                                        width: previewImage.width
-                                    }
-
-                                    property int pageNumber: 0
-                                }
-
-                                ActivityIndicator {
-                                    anchors {
-                                        centerIn: parent
-                                    }
-                                    running: previewImage.status == Image.Loading
-                                }
-                            }
-
-                            Button {
-                                color: "#000"
-                                enabled: previewImage.pageNumber < document.count - 1
-                                Layout.preferredWidth: units.gu(4)
-                                text: ">"
-
-                                onClicked: previewImage.pageNumber++
-                            }
-                        }
+                    PreviewRow {
+                        document: document
+                        printer: printer
+                        view: scrollView
                     }
-
 
                     SelectorRow {
                         model: PrinterInfo.availablePrinterNames
                         selectedIndex: model.indexOf(printer.name)
                         text: i18n.tr("Printer")
 
-                        onSelectedIndexChanged: {
+                        onSelectedValueChanged: {
                             printer.pdfMode = selectedIndex === model.length - 1
-                            printer.name = model[selectedIndex]
+                            printer.name = value
                         }
                     }
 
-                    RowLayout {
+                    RowLayout {  // make TextFieldRow
                         Label {
                             Layout.preferredWidth: units.gu(10)
                             text: i18n.tr("Copies")
@@ -261,7 +208,7 @@ MainView {
                         }
                     }
 
-                    RowLayout {
+                    RowLayout {  // Make CheckBoxRow
                         Item {
                             Layout.preferredWidth: units.gu(10)
                         }
@@ -305,23 +252,21 @@ MainView {
                     SelectorRow {
                         enabled: !printer.pdfMode
                         model: [i18n.tr("Black & White"), i18n.tr("Color")]
+                        modelValue: [Printer.GrayScale, Printer.Color]
                         selectedIndex: modelValue.indexOf(printer.colorMode)
                         text: i18n.tr("Color")
 
-                        property var modelValue: [Printer.GrayScale, Printer.Color]
-
-                        onSelectedIndexChanged: printer.colorMode = modelValue[selectedIndex]
+                        onSelectedValueChanged: printer.colorMode = value
                     }
 
                     SelectorRow {
                         enabled: !printer.pdfMode
                         model: [i18n.tr("Draft"), i18n.tr("Normal"), i18n.tr("Best"), i18n.tr("Photo")]
+                        modelValue: [Printer.Draft, Printer.Normal, Printer.Best, Printer.Photo]
                         selectedIndex: modelValue.indexOf(printer.quality)
                         text: i18n.tr("Quality")
 
-                        property var modelValue: [Printer.Draft, Printer.Normal, Printer.Best, Printer.Photo]
-
-                        onSelectedIndexChanged: printer.quality = modelValue[selectedIndex]
+                        onSelectedValueChanged: printer.quality = value
                     }
                 }
             }
@@ -344,11 +289,22 @@ MainView {
         }
     }
 
+    Arguments {
+        id: args
+        Argument {
+            name: "url"
+            help: i18n.tr("Url of PDF to print")
+            required: false
+            valueNames: ["url"]
+        }
+    }
+
     Component.onCompleted: {
-//        document.url = Qt.resolvedUrl("/home/andy/Workspace/Work/Canonical/dump/2016-11-17T12:00:08");
-        document.url = Qt.resolvedUrl("/home/andrew/Downloads/UbuntuPhone.pdf");
-//        document.url = Qt.resolvedUrl("/home/andrew/Documents/test.pdf");
         console.debug("Printers:", PrinterInfo.availablePrinterNames);
+
+        if (args.values.url) {
+            document.url = Qt.resolvedUrl(args.values.url);
+        }
     }
 }
 

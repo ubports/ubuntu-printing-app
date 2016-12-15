@@ -17,6 +17,7 @@ set(
   Ubuntu_Printing_App/backend.cpp
   Ubuntu_Printing_App/document.cpp
   Ubuntu_Printing_App/popplerimageprovider.cpp
+  Ubuntu_Printing_App/pagehelper.cpp
   Ubuntu_Printing_App/printer.cpp
   Ubuntu_Printing_App/printerinfo.cpp
 )

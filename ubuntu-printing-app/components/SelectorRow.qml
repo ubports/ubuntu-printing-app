@@ -9,8 +9,13 @@ RowLayout {
     Layout.maximumWidth: parent.width
 
     property alias model: selector.model
+    property var modelValue: model
     property alias selectedIndex: selector.selectedIndex
     property alias text: label.text
+
+    signal selectedValueChanged(var value)
+
+    onSelectedIndexChanged: selectedValueChanged(modelValue[selectedIndex])
 
     Label {
         id: label

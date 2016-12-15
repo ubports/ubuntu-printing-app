@@ -28,7 +28,13 @@ QImage PopplerImageProvider::requestImage(const QString &id, QSize *size, const 
     QString url = parts.join("/");
 
     if (url.isEmpty() || !numberOk || !colorOk) {
+        qWarning() << "Invalid id given to poppler image provider:" << id;
         return QImage();
+    }
+
+    // Check request size is valid
+    if (requestedSize.height() <= 0 || requestedSize.width() <= 0) {
+        return QImage(QSize(1, 1), QImage::Format_ARGB32_Premultiplied);
     }
 
     // Fallback size if none is given for QImage

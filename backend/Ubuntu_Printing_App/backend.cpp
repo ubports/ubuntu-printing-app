@@ -3,6 +3,7 @@
 #include "backend.h"
 
 #include "document.h"
+#include "pagehelper.h"
 #include "popplerimageprovider.h"
 #include "printer.h"
 #include "printerinfo.h"
@@ -23,6 +24,7 @@ void BackendPlugin::registerTypes(const char *uri)
     Q_ASSERT(uri == QLatin1String("Ubuntu_Printing_App"));
 
     qmlRegisterType<Document>(uri, 1, 0, "Document");
+    qmlRegisterType<PageHelper>(uri, 1, 0, "PageHelper");
     qmlRegisterType<Printer>(uri, 1, 0, "Printer");
     qmlRegisterSingletonType<PrinterInfo>(uri, 1, 0, "PrinterInfo", PrinterInfo_singleton_factory);
 }

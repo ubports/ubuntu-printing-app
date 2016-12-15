@@ -31,18 +31,13 @@ public:
     explicit Document(QObject *parent = 0);
     ~Document();
     int count() const;
+    Poppler::Page *getPage(int pageNumber);
     Orientation orientation() const;
     QString title() const;
     QUrl url() const;
 
     QImage makeImage(QSizeF size, int pageNumber);
     QImage makeImageToFit(QSizeF size, int pageNumber, bool color);
-    QPixmap makePixmap(QSize size, int pageNumber);  // del
-
-    Q_INVOKABLE QImage renderImage(QSize size, int pageNumber);  // del
-    Q_INVOKABLE bool renderPage(QPainter *painter, int pageNumber);  // del
-
-    bool printFromImage(QPainter *painter, int pageNumber, QRect pageRect, double resolution);  // del
 signals:
     void countChanged();
     void error(Errors errorType);
