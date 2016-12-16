@@ -46,8 +46,10 @@ Printer::Printer(QObject *parent)
     , m_duplex_supported(false)
     , m_job_id(0)
     , m_name("")
-    , m_ppd(0)
+    , m_print_range("")
+    , m_print_range_mode(AllPages)
     , m_pdf_mode(false)
+    , m_ppd(0)
     , m_quality(Normal)
 {
 
@@ -176,9 +178,12 @@ bool Printer::loadOptions(cups_dest_t *cups_dest, Document *doc)
     }
 
     // Page range
+    if (m_print_range_mode == PageRange && !m_print_range.isEmpty()) {
+        __CUPS_ADD_OPTION(cups_dest, "page-ranges", m_print_range.toLocal8Bit().data());  // 3-5,7,10-20
+    }
+
 //    __CUPS_ADD_OPTION(cups_dest, "number-up", "4");  // 1, 2, 4, 6, 9
 //    __CUPS_ADD_OPTION(cups_dest, "number-up-layout", "lrtb");  // "lrtb", "lrbt", "rlbt", "rltb", "btlr", "btrl", "tblr", "tbrl"
-//    __CUPS_ADD_OPTION(cups_dest, "page-ranges", "1-2");  // 3-5,7,10-20
 
     // Print quality
     QString printQuality = "";
@@ -287,6 +292,16 @@ bool Printer::print(Document *doc)
     }
 }
 
+QString Printer::printRange() const
+{
+    return m_print_range;
+}
+
+Printer::PrintRange Printer::printRangeMode() const
+{
+    return m_print_range_mode;
+}
+
 void Printer::setColorMode(Printer::ColorMode colorMode)
 {
     if (m_color_mode != colorMode) {
@@ -347,6 +362,24 @@ void Printer::setName(QString name)
 
         Q_EMIT nameChanged();
         Q_EMIT settingsChanged();
+    }
+}
+
+void Printer::setPrintRange(QString printRange)
+{
+    if (m_print_range != printRange) {
+        m_print_range = printRange;
+
+        Q_EMIT printRangeChanged();
+    }
+}
+
+void Printer::setPrintRangeMode(PrintRange printRangeMode)
+{
+    if (m_print_range_mode != printRangeMode) {
+        m_print_range_mode = printRangeMode;
+
+        Q_EMIT printRangeModeChanged();
     }
 }
 

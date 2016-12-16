@@ -36,6 +36,8 @@ class Printer : public QObject
     Q_PROPERTY(bool duplex READ duplex WRITE setDuplex NOTIFY duplexChanged)
     Q_PROPERTY(bool duplexSupported READ duplexSupported NOTIFY duplexSupportedChanged)
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
+    Q_PROPERTY(QString printRange READ printRange WRITE setPrintRange NOTIFY printRangeChanged)
+    Q_PROPERTY(PrintRange printRangeMode READ printRangeMode WRITE setPrintRangeMode NOTIFY printRangeModeChanged)
     Q_PROPERTY(bool pdfMode READ pdfMode WRITE setPdfMode NOTIFY pdfModeChanged)
     Q_PROPERTY(Quality quality READ quality WRITE setQuality NOTIFY qualityChanged)
 public:
@@ -45,6 +47,13 @@ public:
         GrayScale,
     };
     Q_ENUMS(ColorMode)
+
+    enum PrintRange
+    {
+        AllPages,
+        PageRange,
+    };
+    Q_ENUMS(PrintRange)
 
     enum Quality
     {
@@ -62,6 +71,8 @@ public:
     bool duplex() const;
     bool duplexSupported() const;
     QString name() const;
+    QString printRange() const;
+    PrintRange printRangeMode() const;
     bool pdfMode() const;
     Quality quality() const;
 
@@ -73,6 +84,8 @@ signals:
     void duplexSupportedChanged();
     void nameChanged();
     void settingsChanged();
+    void printRangeChanged();
+    void printRangeModeChanged();
     void pdfModeChanged();
     void qualityChanged();
 
@@ -83,6 +96,8 @@ public slots:
     void setDuplex(bool duplex);
     void setDuplexSupported(bool duplexSupported);
     void setName(QString name);
+    void setPrintRange(QString printRange);
+    void setPrintRangeMode(PrintRange printRangeMode);
     void setPdfMode(bool pdfMode);
     void setQuality(Quality quality);
 private:
@@ -103,9 +118,12 @@ private:
     int m_job_id;
     QString m_name;
 
+    QString m_print_range;
+    PrintRange m_print_range_mode;
+    bool m_pdf_mode;
+
     ppd_file_t *m_ppd;
 
-    bool m_pdf_mode;
     Quality m_quality;
 
 };

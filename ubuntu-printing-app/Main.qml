@@ -198,92 +198,60 @@ MainView {
 
                     onSelectedValueChanged: {
                         printer.pdfMode = selectedIndex === model.length - 1
-                        printer.name = value
+                        printer.name = selectedValue
                     }
                 }
 
-                RowLayout {  // make TextFieldRow
-                    anchors {
-                        left: parent.left
-                        leftMargin: units.gu(2)
-                        right: parent.right
-                        rightMargin: units.gu(2)
-                    }
-                    Layout.maximumWidth: width
-
-                    Label {
-                        Layout.preferredWidth: units.gu(10)
-                        text: i18n.tr("Copies")
+                TextFieldRow {
+                    enabled: !printer.pdfMode
+                    inputMethodHints: Qt.ImhDigitsOnly
+                    placeholderText: printer.copies
+                    text: i18n.tr("Copies")
+                    validator: IntValidator {
+                        bottom: 1
+                        top: 999
                     }
 
-                    TextField {
-                        enabled: !printer.pdfMode
-                        inputMethodHints: Qt.ImhDigitsOnly
-                        Layout.fillWidth: true
-                        Layout.preferredWidth: units.gu(5)
-                        text: printer.copies
-                        validator: IntValidator {
-                            bottom: 1
-                            top: 999
-                        }
-
-                        // TODO: acceptableInput is False show hint
-
-                        onTextChanged: {
-                            if (acceptableInput) {
-                                printer.copies = Number(text);
-                            }
+                    onValueChanged: {
+                        if (acceptableInput) {
+                            printer.copies = Number(text);
                         }
                     }
                 }
 
-                RowLayout {  // Make CheckBoxRow
-                    anchors {
-                        left: parent.left
-                        leftMargin: units.gu(2)
-                        right: parent.right
-                        rightMargin: units.gu(2)
+                CheckBoxRow {
+                    checked: printer.duplex
+                    checkboxText: i18n.tr("Two Sided")
+                    enabled: document.count > 1 && printer.duplexSupported && !printer.pdfMode
+
+                    onCheckedChanged: printer.duplex = checked
+                }
+
+                SelectorRow {
+                    id: pageRangeSelector
+                    enabled: !printer.pdfMode
+                    model: [i18n.tr("All"), i18n.tr("Range")]
+                    modelValue: [Printer.AllPages, Printer.PageRange]
+                    selectedIndex: 0
+                    text: i18n.tr("Pages")
+
+                    onSelectedValueChanged: printer.printRangeMode = selectedValue
+                }
+
+                TextFieldRow {
+                    enabled: !printer.pdfMode
+                    validator: RegExpValidator {
+//                        regExp: ""  // TODO: validate to only 0-9||9-0||0 ,
                     }
-                    Layout.maximumWidth: width
+                    visible: pageRangeSelector.selectedValue === Printer.PageRange
 
-                    Item {
-                        Layout.preferredWidth: units.gu(10)
-                    }
+                    onValueChanged: printer.printRange = value
+                }
 
-                    MouseArea {
-                        enabled: checkbox.enabled
-                        Layout.fillWidth: true
-                        Layout.preferredHeight: units.gu(3)
-                        Layout.preferredWidth: units.gu(10)
-
-                        onClicked: checkbox.checked = !checkbox.checked
-
-                        Row {
-                            anchors {
-                                fill: parent
-                            }
-                            spacing: units.gu(1)
-
-                            CheckBox {
-                                id: checkbox
-                                anchors {
-                                    verticalCenter: parent.verticalCenter
-                                }
-                                checked: printer.duplex
-                                enabled: document.count > 1 && printer.duplexSupported && !printer.pdfMode
-
-                                onCheckedChanged: printer.duplex = checked
-                            }
-
-                            Label {
-                                enabled: document.count > 1
-                                height: parent.height
-                                text: i18n.tr("Two-Sided")
-                                verticalAlignment: Text.AlignVCenter
-                            }
-                        }
-
-                    }
+                LabelRow {
+                    enabled: !printer.pdfMode
+                    secondaryText: i18n.tr("eg 1-3,8")
+                    visible: pageRangeSelector.selectedValue === Printer.PageRange
                 }
 
                 SelectorRow {
@@ -293,17 +261,17 @@ MainView {
                     selectedIndex: modelValue.indexOf(printer.colorMode)
                     text: i18n.tr("Color")
 
-                    onSelectedValueChanged: printer.colorMode = value
+                    onSelectedValueChanged: printer.colorMode = selectedValue
                 }
 
                 SelectorRow {
-                    enabled: !printer.pdfMode
+                    enabled: !printer.pdfMode  // !Printer.pdfMode
                     model: [i18n.tr("Draft"), i18n.tr("Normal"), i18n.tr("Best"), i18n.tr("Photo")]
                     modelValue: [Printer.Draft, Printer.Normal, Printer.Best, Printer.Photo]
                     selectedIndex: modelValue.indexOf(printer.quality)
                     text: i18n.tr("Quality")
 
-                    onSelectedValueChanged: printer.quality = value
+                    onSelectedValueChanged: printer.quality = selectedValue
                 }
 
                 Item {

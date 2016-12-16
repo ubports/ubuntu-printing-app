@@ -21,7 +21,6 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 
 import Ubuntu.Components 1.3
-import Ubuntu.Components.ListItems 1.3 as ListItems
 
 RowLayout {
     anchors {
@@ -30,29 +29,22 @@ RowLayout {
         right: parent.right
         rightMargin: units.gu(2)
     }
-
-    implicitHeight: selector.implicitHeight
     Layout.maximumWidth: width
 
-    property alias model: selector.model
-    property var modelValue: model
-    property alias selectedIndex: selector.selectedIndex
-    property alias text: label.text
-
-    readonly property var selectedValue: modelValue[selectedIndex]
+    property alias enabled: secondaryLabel.enabled
+    property alias primaryText: primaryLabel.text
+    property alias secondaryText: secondaryLabel.text
 
     Label {
-        id: label
+        id: primaryLabel
         Layout.preferredWidth: units.gu(10)
     }
 
-    ListItems.ItemSelector {
-        id: selector
-        containerHeight: itemHeight * 4
+    Label {
+        id: secondaryLabel
         Layout.fillWidth: true
-        Layout.preferredWidth: units.gu(5)
-//        Layout.minimumWidth: units.gu(20)
-//        Layout.maximumWidth: units.gu(40)
-        selectedIndex: 0
+        Layout.preferredHeight: units.gu(3)
+        Layout.preferredWidth: units.gu(10)
+        verticalAlignment: Text.AlignVCenter
     }
 }
