@@ -42,7 +42,6 @@ Page {
         }
         title: i18n.tr("Open With...")
     }
-    visible: false
 
     property var curTransfer: null
     property var url
@@ -53,9 +52,27 @@ Page {
     }
 
     function __exportItems(url) {
-        if (picker.curTransfer.state === ContentTransfer.InProgress) {
-            picker.curTransfer.items = [ contentItem.createObject(picker, {"url": url}) ];
+        console.debug("Export Url", url)
+
+        function __export(item) {
+            picker.curTransfer.items = [item];
+
+            // FIXME: settings state to Charged causes UI freeze for few seconds
             picker.curTransfer.state = ContentTransfer.Charged;
+        }
+
+        if (picker.curTransfer.state === ContentTransfer.InProgress) {
+            var incubator = contentItem.incubateObject(picker, {"url": url});
+
+            if (incubator.status !== Component.Ready) {
+                incubator.onStatusChanged = function(status) {
+                    if (status === Component.Ready) {
+                        __export(incubator.object);
+                    }
+                }
+            } else {
+                __export(incubator.object);
+            }
         }
     }
 
@@ -92,35 +109,31 @@ Page {
         showTitle: false
         visible: parent.visible
 
-        property bool selectRunning: false
-
         onPeerSelected: {
-            selectRunning = true;
-
             picker.curTransfer = peer.request();
+
             if (picker.curTransfer.state === ContentTransfer.InProgress) {
                 picker.__exportItems(picker.url);
+            } else {
+                console.debug("Expected inProgress state, not exporting item")
             }
-
-            selectRunning = false;
-            pageStack.pop();
         }
     }
 
     ActivityIndicator {
+        id: test
         anchors {
             centerIn: parent
         }
-        running: (picker.curTransfer ? picker.curTransfer.status === ContentTransfer.InProgress : false) || peerPicker.selectRunning
-
+        running: picker.curTransfer ? picker.curTransfer.state === ContentTransfer.InProgress || picker.curTransfer === ContentTransfer.Charged : false
     }
 
     Connections {
         target: picker.curTransfer
         onStateChanged: {
-            console.log("curTransfer StateChanged: " + picker.curTransfer.state);
-            if (picker.curTransfer.state === ContentTransfer.InProgress) {
-                picker.__exportItems(picker.url);
+            // TODO: pop when charged or collected?
+            if (picker.curTransfer.state === ContentTransfer.Collected) {
+                picker.pageStack.pop();
             }
         }
     }
