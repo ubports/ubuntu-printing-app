@@ -22,9 +22,11 @@ set(DESKTOP_FILE "${APP_NAME}.desktop")
 set(ICON_FILE ubuntu-printing-app.png)
 set(MAIN_QML Main.qml)
 set(RUNNER ${APP_HARDCODE})
+set(SNAP_DESKTOP_FILE setup/gui/${DESKTOP_FILE})
 
 # Set the options
 option(CLICK_MODE "Build as a click package" off)
+option(SNAP_MODE "Build as a snap package" off)
 
 # Find packages
 find_package(Qt5Core)
@@ -53,7 +55,11 @@ endif(CLICK_MODE)
 if (CLICK_MODE)
   message("CLICK_MODE is not supported at this time!")
 else(CLICK_MODE)
-  set(EXEC "APP_ID=${APP_HARDCODE} qmlscene $@ -I ${MODULE_PATH} ${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${MAIN_QML}")
+  if(SNAP_MODE)
+    set(EXEC "APP_ID=${APP_HARDCODE} qmlscene $@ -I $SNAP/${MODULE_PATH} $SNAP/${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${MAIN_QML}")
+  else(SNAP_MODE)
+    set(EXEC "APP_ID=${APP_HARDCODE} qmlscene $@ -I ${MODULE_PATH} ${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${MAIN_QML}")
+  endif(SNAP_MODE)
 endif(CLICK_MODE)
 
 
