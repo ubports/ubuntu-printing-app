@@ -5,3 +5,4 @@ Icon=@ICON@
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
+X-Ubuntu-Touch-Single-Instance=False
