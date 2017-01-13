@@ -16,9 +16,9 @@
 
 #include "utils.h"
 
-namespace unity {
-namespace indicator {
-namespace printers {
+namespace ubuntu {
+namespace printing {
+namespace notifier {
 
 std::string Utilities::prepend_snap_path(const std::string& path)
 {
@@ -32,6 +32,6 @@ std::string Utilities::prepend_snap_path(const std::string& path)
     return get_snap_path() + path;
 }
 
-} // printers
-} // indicators
-} // unity
+} // notifier
+} // printing
+} // ubuntu

@@ -21,9 +21,9 @@
 #include <core/signal.h>
 #include <gmock/gmock.h>
 
-namespace unity {
-namespace indicator {
-namespace printers {
+namespace ubuntu {
+namespace printing {
+namespace notifier {
 
     class MockClient: public Client
     {
@@ -49,6 +49,6 @@ namespace printers {
         core::Signal<const Job&> m_job_state_changed;
     };
 
-} // printers
-} // indicator
-} // unity
+} // notifier
+} // printing
+} // ubuntu

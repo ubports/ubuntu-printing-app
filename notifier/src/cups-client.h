@@ -24,9 +24,9 @@
 
 #include <memory>
 
-namespace unity {
-namespace indicator {
-namespace printers {
+namespace ubuntu {
+namespace printing {
+namespace notifier {
 
 #define CUPS_DBUS_NAME "org.cups.cupsd.Notifier"
 #define CUPS_DBUS_PATH "/org/cups/cupsd/Notifier"
@@ -37,7 +37,7 @@ namespace printers {
         CupsClient();
         virtual ~CupsClient();
 
-        // Signals corresponding to printers
+        // Signals corresponding to notifier
         core::Signal<const Printer&>& printer_state_changed() override;
 
         // Signals corresponding to jobs
@@ -48,7 +48,7 @@ namespace printers {
         virtual void renew_subscription() override;
         virtual void cancel_subscription() override;
 
-        // To initialize the indicator with current jobs
+        // To initialize the printing with current jobs
         virtual void refresh() override;
 
     private:
@@ -60,6 +60,6 @@ namespace printers {
         CupsClient& operator=(const CupsClient&) = delete; 
     };
 
-} // printers
-} // indicators
-} // unity
+} // notifier
+} // printing
+} // ubuntu

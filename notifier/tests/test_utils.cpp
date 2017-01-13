@@ -18,7 +18,7 @@
 
 #include <gtest/gtest.h>
 
-using namespace unity::indicator::printers;
+using namespace ubuntu::printing::notifier;
 
 
 TEST(Utilities, testPrependSnapPathSet) {

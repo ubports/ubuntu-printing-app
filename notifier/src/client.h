@@ -22,13 +22,13 @@
 #include <core/signal.h>
 
 
-namespace unity {
-namespace indicator {
-namespace printers {
+namespace ubuntu {
+namespace printing {
+namespace notifier {
 
     class Client {
     public:
-        explicit Client() = default;
+        Client() = default;
         virtual ~Client() = default;
 
         // Signals corresponding to printers
@@ -42,7 +42,7 @@ namespace printers {
         virtual void renew_subscription() = 0;
         virtual void cancel_subscription() = 0;
 
-        // To iniitalize the indicator with current jobs
+        // To iniitalize the notifier with current jobs
         virtual void refresh() = 0;
 
     private:
@@ -51,6 +51,6 @@ namespace printers {
         Client& operator=(const Client&) = delete; 
     };
 
-} // printers
-} // indicators
-} // unity
+} // notifier
+} // printing
+} // ubuntu

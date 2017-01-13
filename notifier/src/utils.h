@@ -18,15 +18,15 @@
 
 #include <string>
 
-namespace unity {
-namespace indicator {
-namespace printers {
+namespace ubuntu {
+namespace printing {
+namespace notifier {
 
     class Utilities {
     public:
         static std::string prepend_snap_path(const std::string& path);
     };
 
-} // printers
-} // indicators
-} // unity
+} // notifier
+} // printing
+} // ubuntu

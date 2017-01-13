@@ -21,9 +21,9 @@
 
 #include <stdexcept>
 
-namespace unity {
-namespace indicator {
-namespace printers {
+namespace ubuntu {
+namespace printing {
+namespace notifier {
 
 #define NOTIFY_LEASE_DURATION (24 * 60 * 60)
 
@@ -323,6 +323,6 @@ void CupsClient::refresh()
     p->refresh();
 }
 
-} // printers
-} // indicators
-} // unity
+} // notifier
+} // printing
+} // ubuntu

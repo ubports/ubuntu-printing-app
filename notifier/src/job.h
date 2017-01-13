@@ -20,9 +20,9 @@
 
 #include <string>
 
-namespace unity {
-namespace indicator {
-namespace printers {
+namespace ubuntu {
+namespace printing {
+namespace notifier {
 
     struct Job {
         // State to match ipp_jstate_t from cups.h
@@ -45,6 +45,6 @@ namespace printers {
         Printer printer;
     };
 
-} // printers
-} // indicators
-} // unity
+} // notifier
+} // printing
+} // ubuntu

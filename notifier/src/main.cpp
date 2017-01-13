@@ -20,7 +20,7 @@
 #include <glib/gi18n.h>
 #include <gio/gio.h>
 
-using namespace unity::indicator::printers;
+using namespace ubuntu::printing::notifier;
 
 int main() {
     // Work around a deadlock in glib's type initialization.
