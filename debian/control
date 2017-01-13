@@ -3,10 +3,16 @@ Section: unknown
 Priority: optional
 Maintainer: Andrew Hayzen <ahayzen@gmail.com>
 Build-Depends: cmake (>= 2.8.9),
+               cmake-extras (>= 0.10),
                debhelper (>=9),
                dh-apparmor,
                dh-translations,
+               gcovr,
+               googletest | google-mock,
+               intltool,
+               lcov,
                libcups2-dev,
+               libglib2.0-dev (>= 2.35.4),
                libpoppler-qt5-dev,
                qmlscene,
                qt5-default,
