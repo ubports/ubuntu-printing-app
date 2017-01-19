@@ -1,5 +1,3 @@
-#include "pagehelper.h"
-
 /*
  * Copyright 2016 Canonical Ltd.
  *
@@ -22,6 +20,8 @@
 #include <QtCore/QSizeF>
 
 #include <poppler/qt5/poppler-qt5.h>
+
+#include "pagehelper.h"
 
 #define A4_ASPECT_RATIO 210.0 / 297.0
 

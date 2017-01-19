@@ -22,7 +22,6 @@
 #include <QDebug>
 
 #include "document.h"
-#include "printer.h"
 
 PopplerImageProvider::PopplerImageProvider()
     : QQuickImageProvider(QQuickImageProvider::Image, QQuickImageProvider::ForceAsynchronousImageLoading)
@@ -35,14 +34,24 @@ QImage PopplerImageProvider::requestImage(const QString &id, QSize *size, const 
 {
     qDebug() << "ID" << id << requestedSize.height() << requestedSize.width();
 
-    // Load id ( image://poppler/{pageNumber}/{colorMode}/{filePath} )
+    // Load id ( image://poppler/{pageNumber}/{color}/{filePath} )
     QStringList parts = id.split("/");
 
     bool colorOk, numberOk;
     int pageNumber = parts.takeFirst().toInt(&numberOk, 10);
-    int colorModeInt = parts.takeFirst().toInt(&colorOk, 10);
+    QString colorMode = QString::fromStdString(parts.takeFirst().toStdString());
 
-    Printer::ColorMode colorMode = static_cast<Printer::ColorMode>(colorModeInt);
+    bool color;
+
+    if (colorMode == "true") {
+        color = true;
+        colorOk = true;
+    } else if (colorMode == "false") {
+        color = false;
+        colorOk = true;
+    } else {
+        colorOk = false;
+    }
 
     QString url = parts.join("/");
 
@@ -69,7 +78,7 @@ QImage PopplerImageProvider::requestImage(const QString &id, QSize *size, const 
     Document *doc = new Document();
     doc->setUrl(url);
 
-    QImage image = doc->makeImageToFit(requestedSize, pageNumber, colorMode == Printer::Color);
+    QImage image = doc->makeImageToFit(requestedSize, pageNumber, color);
 
     doc->deleteLater();
 

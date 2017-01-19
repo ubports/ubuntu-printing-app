@@ -25,6 +25,7 @@ import Ubuntu.Components.ListItems 1.3 as ListItems
 import Ubuntu.Components.Popups 1.3
 import Ubuntu.Content 1.1
 import Ubuntu_Printing_App 1.0
+import Ubuntu.Settings.Printers 0.1
 
 import "components"
 
@@ -58,15 +59,6 @@ MainView {
                 console.debug("Item URL:", item.url);
             }
         }
-    }
-
-    Printer {
-        id: printer
-        name: PrinterInfo.defaultPrinterName
-
-        // TODO: status ? similar style of onError to Document
-
-        onExportRequest: pageStack.push(Qt.resolvedUrl("components/ContentPeerPickerDialog.qml"), {"url": filepath})
     }
 
     Component {  // cannot split due to issue
@@ -114,38 +106,29 @@ MainView {
         }
     }
 
-    /*
-    PrinterInfo.availablePrinterNames
-
-    PrinterInfo.defaultName
-
-    Printer {
-      error: false
-      errorString: ""
-      name: PrinterInfo.defaultName
-
-      colorMode: ColorModes.greyscale
-      copies: 2
-
-      print(Document document)  // async
-
-      status: {Null,Rendering,SentToPrinter,Error}
-      progress: 0.6  // progress of print
-    }
-
-    Document {
-        error: false
-        errorString: ""
-        url: "/tmp/my.pdf"
-    }
-
-    */
-
     PageStack {
         id: pageStack
         anchors {
             fill: parent
         }
+    }
+
+    property bool pdfMode: printer ? printer.isPdf : true
+    property var printer: {
+        if (Printers.allPrintersWithPdf.count > 0
+                && 0 <= printerSelectedIndex
+                && printerSelectedIndex < Printers.allPrintersWithPdf.count) {
+            Printers.allPrintersWithPdf.get(printerSelectedIndex)
+        } else {
+            null
+        }
+    }
+    property int printerSelectedIndex: -1
+
+    PrinterJob {
+        id: printerJob
+        printerName: printer ? printer.name : ""
+        landscape: document.orientation === Document.Landscape
     }
 
     Page {
@@ -168,7 +151,7 @@ MainView {
                 ]
             }
 
-            title: printer.pdfMode ? i18n.tr("Page Setup") : i18n.tr("Printer Options")
+            title: pdfMode ? i18n.tr("Page Setup") : i18n.tr("Printer Options")
         }
 
         ScrollView {
@@ -187,91 +170,136 @@ MainView {
 
                 PreviewRow {
                     document: document
-                    printer: printer
+                    Layout.fillHeight: true
+                    printerJob: printerJob
                     view: scrollView
                 }
 
                 SelectorRow {
-                    model: PrinterInfo.availablePrinterNames
-                    selectedIndex: model.indexOf(printer.name)
+                    id: printerSelector
+                    delegate: OptionSelectorDelegate {
+                        text: name
+                    }
+                    model: Printers.allPrintersWithPdf
                     text: i18n.tr("Printer")
 
-                    onSelectedValueChanged: {
-                        printer.pdfMode = selectedIndex === model.length - 1
-                        printer.name = selectedValue
-                    }
-                }
+                    onSelectedIndexChanged: printerSelectedIndex = selectedIndex
+
+                    Component.onCompleted: printerSelectedIndex = selectedIndex
+                 }
 
                 TextFieldRow {
-                    enabled: !printer.pdfMode
+                    enabled: !pdfMode
                     inputMethodHints: Qt.ImhDigitsOnly
-                    placeholderText: printer.copies
                     text: i18n.tr("Copies")
                     validator: IntValidator {
                         bottom: 1
                         top: 999
                     }
+                    value: printerJob.copies
 
                     onValueChanged: {
                         if (acceptableInput) {
-                            printer.copies = Number(text);
+                            printerJob.copies = Number(value);
                         }
                     }
                 }
 
-                CheckBoxRow {
-                    checked: printer.duplex
-                    checkboxText: i18n.tr("Two Sided")
-                    enabled: document.count > 1 && printer.duplexSupported && !printer.pdfMode
+//                CheckBoxRow {
+////                    checked: printer.collate
+//                    checkboxText: i18n.tr("Collate")
+//                    enabled: printerJob.copies > 1 //&& !printer.pdfMode
 
-                    onCheckedChanged: printer.duplex = checked
+////                    onCheckedChanged: printer.collate = checked
+//                }
+
+                SelectorRow {
+                    id: duplexSelector
+                    enabled: printer && !pdfMode ? printer.supportedDuplexModes.length > 1 : false
+                    model: printer ? printer.supportedDuplexModes : [""]
+                    text: i18n.tr("Two-sided")
+
+                    onSelectedIndexChanged: {
+                        if (printerJob.duplexMode !== selectedIndex) {
+                            printerJob.duplexMode = selectedIndex
+                        }
+                    }
+
+                    Binding {
+                        target: duplexSelector
+                        property: "selectedIndex"
+                        when: printerJob && duplexSelector.enabled
+                        value: printerJob.duplexMode
+                    }
                 }
 
                 SelectorRow {
                     id: pageRangeSelector
-                    enabled: !printer.pdfMode
+                    enabled: !pdfMode
                     model: [i18n.tr("All"), i18n.tr("Range")]
-                    modelValue: [Printer.AllPages, Printer.PageRange]
+                    modelValue: [PrinterEnum.AllPages, PrinterEnum.PageRange]
                     selectedIndex: 0
                     text: i18n.tr("Pages")
 
-                    onSelectedValueChanged: printer.printRangeMode = selectedValue
+                    onSelectedValueChanged: printerJob.printRangeMode = selectedValue
                 }
 
                 TextFieldRow {
-                    enabled: !printer.pdfMode
+                    enabled: !pdfMode
                     validator: RegExpValidator {
 //                        regExp: ""  // TODO: validate to only 0-9||9-0||0 ,
                     }
-                    visible: pageRangeSelector.selectedValue === Printer.PageRange
+                    visible: pageRangeSelector.selectedValue === PrinterEnum.PageRange
 
-                    onValueChanged: printer.printRange = value
+                    onValueChanged: printerJob.printRange = value
                 }
 
                 LabelRow {
-                    enabled: !printer.pdfMode
+                    enabled: !pdfMode
                     secondaryText: i18n.tr("eg 1-3,8")
-                    visible: pageRangeSelector.selectedValue === Printer.PageRange
+                    visible: pageRangeSelector.selectedValue === PrinterEnum.PageRange
                 }
 
+//                SelectorRow {
+//                    enabled: !printer.pdfMode
+//                    model: [1, 2, 4, 6, 9]
+//                    selectedIndex: 0
+//                    text: i18n.tr("Pages per side")
+//                }
+
                 SelectorRow {
-                    enabled: !printer.pdfMode
-                    model: [i18n.tr("Black & White"), i18n.tr("Color")]
-                    modelValue: [Printer.GrayScale, Printer.Color]
-                    selectedIndex: modelValue.indexOf(printer.colorMode)
+                    id: colorModelSelector
+                    enabled: printer && !pdfMode ? printer.supportedColorModels.length > 1 : false
+                    model: printer ? printer.supportedColorModels : [""]
                     text: i18n.tr("Color")
 
-                    onSelectedValueChanged: printer.colorMode = selectedValue
+                    onSelectedIndexChanged: {
+                        if (printerJob.colorModel !== selectedIndex) {
+                            printerJob.colorModel = selectedIndex
+                        }
+                    }
+
+                    Binding {
+                        target: colorModelSelector
+                        property: "selectedIndex"
+                        when: printerJob && colorModelSelector.enabled
+                        value: printerJob.colorModel
+                    }
                 }
 
                 SelectorRow {
-                    enabled: !printer.pdfMode  // !Printer.pdfMode
+                    id: qualitySelector
+                    enabled: !pdfMode
                     model: [i18n.tr("Draft"), i18n.tr("Normal"), i18n.tr("Best"), i18n.tr("Photo")]
-                    modelValue: [Printer.Draft, Printer.Normal, Printer.Best, Printer.Photo]
-                    selectedIndex: modelValue.indexOf(printer.quality)
+                    modelValue: [PrinterEnum.DraftQuality, PrinterEnum.NormalQuality, PrinterEnum.BestQuality, PrinterEnum.PhotoQuality]
                     text: i18n.tr("Quality")
 
-                    onSelectedValueChanged: printer.quality = selectedValue
+                    Binding {
+                        target: qualitySelector
+                        property: "selectedIndex"
+                        when: printerJob && qualitySelector.enabled
+                        value: qualitySelector.modelValue.indexOf(printerJob.quality)
+                    }
                 }
 
                 Item {
@@ -290,11 +318,18 @@ MainView {
                 right: parent.right
                 rightMargin: units.gu(1)
             }
-            pdfMode: printer.pdfMode
+            pdfMode: mainView.pdfMode
             sheets: document.count
 
             onCancel: Qt.quit()
-            onConfirm: printer.print(document);  // TODO: check document is valid raise error if not?
+            onConfirm: {
+                if (pdfMode) {
+                    // TODO: check if .toLocalFilepath() needs to be called?
+                    pageStack.push(Qt.resolvedUrl("components/ContentPeerPickerDialog.qml"), {"url": document.url});
+                } else {
+                    printerJob.printFile(document.url);  // TODO: check document is valid raise error if not?
+                }
+            }
         }
     }
 
@@ -310,8 +345,6 @@ MainView {
 
     Component.onCompleted: {
         pageStack.push(page)
-
-        console.debug("Printers:", PrinterInfo.availablePrinterNames);
 
         if (args.values.url) {
             document.url = Qt.resolvedUrl(args.values.url);

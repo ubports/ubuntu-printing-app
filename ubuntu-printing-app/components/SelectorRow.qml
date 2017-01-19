@@ -34,6 +34,7 @@ RowLayout {
     implicitHeight: selector.implicitHeight
     Layout.maximumWidth: width
 
+    property alias delegate: selector.delegate
     property alias model: selector.model
     property var modelValue: model
     property alias selectedIndex: selector.selectedIndex
@@ -43,7 +44,9 @@ RowLayout {
 
     Label {
         id: label
+        elide: Text.ElideRight
         Layout.preferredWidth: units.gu(10)
+        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }
 
     ListItems.ItemSelector {

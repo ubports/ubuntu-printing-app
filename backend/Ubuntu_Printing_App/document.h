@@ -32,6 +32,7 @@ class Document : public QObject
     Q_OBJECT
 
     Q_PROPERTY(int count READ count NOTIFY countChanged)
+    Q_PROPERTY(Orientation orientation READ orientation NOTIFY orientationChanged)
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
 public:
     enum Errors {
@@ -46,6 +47,7 @@ public:
         Portrait,
         Landscape,
     };
+    Q_ENUMS(Orientation)
 
     explicit Document(QObject *parent = 0);
     ~Document();
@@ -60,6 +62,7 @@ public:
 signals:
     void countChanged();
     void error(Errors errorType);
+    void orientationChanged();
     void urlChanged();
 public slots:
     void setUrl(QUrl url);

@@ -21,6 +21,7 @@ import QtQuick 2.4
 import Ubuntu.Components 1.3
 
 import Ubuntu_Printing_App 1.0
+import Ubuntu.Settings.Printers 0.1
 
 Rectangle {
     anchors {
@@ -34,7 +35,7 @@ Rectangle {
     implicitHeight: Math.min((view.width - units.gu(10)) / pageHelper.aspect, view.height / 1.5)
 
     property alias document: pageHelper.document
-    property var printer
+    property var printerJob
     property var view
 
     PageHelper {
@@ -65,7 +66,7 @@ Rectangle {
             top: parent.top
         }
         asynchronous: true
-        source: pageHelper.document.url.toString() !== "" ? "image://poppler/" + pageHelper.page + "/" + printer.colorMode + "/" + pageHelper.document.url : ""
+        source: pageHelper.document.url.toString() !== "" ? "image://poppler/" + pageHelper.page + "/" + (printerJob.colorModelType !== PrinterEnum.GrayType ? "true" : "false") + "/" + pageHelper.document.url : ""
         sourceSize {
             height: previewImage.height
             width: previewImage.width

@@ -11,6 +11,7 @@ apps:
     command: desktop-launch $SNAP/usr/bin/ubuntu-printing-app --desktop_file_hint=unity8
     plugs:
      - cups-control
+     - home
      - network
      - opengl
      - platform

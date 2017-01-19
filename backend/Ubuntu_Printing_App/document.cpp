@@ -170,6 +170,10 @@ QImage Document::makeImageToFit(QSizeF size, int pageNumber, bool color)
 
 Document::Orientation Document::orientation() const
 {
+    if (!m_document) {
+        return Portrait;
+    }
+
     Poppler::Page *page = m_document->page(0);
 
     if (page) {
@@ -181,16 +185,17 @@ Document::Orientation Document::orientation() const
             return Portrait;
         }
 
-        qDebug() << "DOC" << page->orientation() << Portrait << Landscape;
+        // TODO: page orientation seems to be wrong?
+//        qDebug() << "DOC" << page->orientation() << Portrait << Landscape;
 
-        if (page->orientation() == Poppler::Page::Landscape) {
-            return Landscape;
-        } else if (page->orientation() == Poppler::Page::Portrait) {
-            return Portrait;
-        } else {
-            qWarning() << "Other orientation:" << page->orientation() << "using Portrait";
-            return Portrait;
-        }
+//        if (page->orientation() == Poppler::Page::Landscape) {
+//            return Landscape;
+//        } else if (page->orientation() == Poppler::Page::Portrait) {
+//            return Portrait;
+//        } else {
+//            qWarning() << "Other orientation:" << page->orientation() << "using Portrait";
+//            return Portrait;
+//        }
     } else {
         return Portrait;
     }
@@ -218,10 +223,10 @@ void Document::setUrl(QUrl url)
                     m_document->setRenderHint(Poppler::Document::Antialiasing, true);
                     m_document->setRenderHint(Poppler::Document::TextAntialiasing, true);
                     m_document->setRenderHint(Poppler::Document::TextHinting, true);
-    //                m_document->setRenderHint(Poppler::Document::TextSlightHinting, true);
-    //                m_document->setRenderHint(Poppler::Document::OverprintPreview, true);
-    //                m_document->setRenderHint(Poppler::Document::ThinLineSolid, true);
-    //                m_document->setRenderHint(Poppler::Document::ThinLineShape, true);
+                    m_document->setRenderHint(Poppler::Document::TextSlightHinting, true);
+//                    m_document->setRenderHint(Poppler::Document::OverprintPreview, true);
+//                    m_document->setRenderHint(Poppler::Document::ThinLineSolid, true);
+//                    m_document->setRenderHint(Poppler::Document::ThinLineShape, true);
 
                     if (m_count != m_document->numPages()) {
                         m_count = m_document->numPages();
@@ -231,6 +236,7 @@ void Document::setUrl(QUrl url)
                 }
 
                 Q_EMIT urlChanged();
+                Q_EMIT orientationChanged();
             } else {
                 qWarning() << "File is not a PDF:" << url;
                 Q_EMIT error(ErrorNotPdf);
