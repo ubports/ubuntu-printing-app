@@ -23,7 +23,7 @@
 
 #include "pagehelper.h"
 
-#define A4_ASPECT_RATIO 210.0 / 297.0
+#define A4_ASPECT_RATIO 595.0 / 842.0
 
 PageHelper::PageHelper(QObject *parent)
     : QObject(parent)
@@ -50,11 +50,9 @@ void PageHelper::loadAspect()
         setAspect(A4_ASPECT_RATIO);
     }
 
-    Poppler::Page *page = m_document->getPage(m_page);
+    QSizeF pageSize = m_document->getPageSize(m_page);
 
-    if (page) {
-        QSizeF pageSize = page->pageSizeF();
-
+    if (pageSize.isValid()) {
         setAspect(pageSize.width() / pageSize.height());
     } else {
         setAspect(A4_ASPECT_RATIO);
@@ -78,6 +76,10 @@ void PageHelper::setAspect(double aspect)
 void PageHelper::setDocument(Document *document)
 {
     if (m_document != document) {
+        if (m_document) {  // disconnect old signals
+            m_document->disconnect();
+        }
+
         m_document = document;
 
         // If the document URL changes reload the aspect

@@ -21,6 +21,7 @@
 #define DOCUMENT_H
 
 #include <QtCore/QObject>
+#include <QtCore/QSizeF>
 #include <QtCore/QUrl>
 
 #include <QtGui/QPainter>
@@ -33,26 +34,27 @@ class Document : public QObject
 
     Q_PROPERTY(int count READ count NOTIFY countChanged)
     Q_PROPERTY(Orientation orientation READ orientation NOTIFY orientationChanged)
+    Q_PROPERTY(QString title READ title NOTIFY titleChanged)
     Q_PROPERTY(QUrl url READ url WRITE setUrl NOTIFY urlChanged)
 public:
-    enum Errors {
+    enum class Errors {
         ErrorDocumentInvalid,
         ErrorNotFound,
         ErrorNotPdf,
     };
 
-    Q_ENUMS(Errors)
+    Q_ENUM(Errors)
 
     enum Orientation {
         Portrait,
         Landscape,
     };
-    Q_ENUMS(Orientation)
+    Q_ENUM(Orientation)
 
     explicit Document(QObject *parent = 0);
     ~Document();
     int count() const;
-    Poppler::Page *getPage(int pageNumber);
+    QSizeF getPageSize(int pageNumber);
     Orientation orientation() const;
     QString title() const;
     QUrl url() const;
@@ -61,8 +63,9 @@ public:
     QImage makeImageToFit(QSizeF size, int pageNumber, bool color);
 signals:
     void countChanged();
-    void error(Errors errorType);
+    void error(Document::Errors errorType);
     void orientationChanged();
+    void titleChanged();
     void urlChanged();
 public slots:
     void setUrl(QUrl url);

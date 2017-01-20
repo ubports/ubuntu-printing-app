@@ -37,7 +37,7 @@ Document::Document(QObject *parent)
     : QObject(parent),
       m_count(0),
       m_document(Q_NULLPTR),
-      m_url("")
+      m_url(QStringLiteral(""))
 {
 
 }
@@ -68,13 +68,19 @@ float Document::getDpi(QSizeF sourceSizeF, QSizeF targetSizeF)
     return fmin(destDPI.width(), destDPI.height());
 }
 
-Poppler::Page *Document::getPage(int pageNumber)
+QSizeF Document::getPageSize(int pageNumber)
 {
+    QSizeF size;
+
     if (m_document) {
-        return m_document->page(pageNumber);
-    } else {
-        return Q_NULLPTR;
+        Poppler::Page *page = m_document->page(pageNumber);
+
+        if (page) {
+            size = page->pageSizeF();
+        }
     }
+
+    return size;
 }
 
 QImage Document::makeImage(QSizeF size, int pageNumber)
@@ -86,6 +92,10 @@ QImage Document::makeImage(QSizeF size, int pageNumber)
 
     if (!m_document) {
         qWarning() << "No document loaded";
+        return QImage();
+    }
+
+    if (size == QSize(0, 0)) {
         return QImage();
     }
 
@@ -102,11 +112,12 @@ QImage Document::makeImage(QSizeF size, int pageNumber)
     // Make the image
     QImage image = page->renderToImage(res, res, 0, 0, size.width(), size.height());
 
+    delete page;
+
     if (image.isNull()) {
         qWarning() << "Image is null";
+        return QImage();
     }
-
-    delete page;
 
     return image;
 }
@@ -157,6 +168,7 @@ QImage Document::makeImageToFit(QSizeF size, int pageNumber, bool color)
         painter.drawImage((size.width() - scaledSize.width()) / 2, (size.height() - scaledSize.height()) / 2, image);
     } else {
         qWarning() << "Image is null";
+        return QImage();
     }
 
     painter.end();
@@ -202,18 +214,18 @@ void Document::setUrl(QUrl url)
     if (m_url != url) {
         if (url.isLocalFile() && QFileInfo::exists(url.toLocalFile())) {
             if (QMimeDatabase().mimeTypeForUrl(url).name() == "application/pdf") {
-                m_url = url;
-
-                // Load document
-                m_document = Poppler::Document::load(m_url.toLocalFile());
+                // Attempt to Load document
+                m_document = Poppler::Document::load(url.toLocalFile());
 
                 if (!m_document || m_document->isLocked()) {
                     qWarning() << "Invalid Document";
                     delete m_document;
                     m_document = Q_NULLPTR;
 
-                    Q_EMIT error(ErrorDocumentInvalid);
+                    Q_EMIT error(Errors::ErrorDocumentInvalid);
                 } else {
+                    m_url = url;
+
                     m_document->setRenderBackend(Poppler::Document::SplashBackend);
 
                     m_document->setRenderHint(Poppler::Document::Antialiasing, true);
@@ -224,23 +236,25 @@ void Document::setUrl(QUrl url)
 //                    m_document->setRenderHint(Poppler::Document::ThinLineSolid, true);
 //                    m_document->setRenderHint(Poppler::Document::ThinLineShape, true);
 
+                    Q_EMIT urlChanged();
+
                     if (m_count != m_document->numPages()) {
                         m_count = m_document->numPages();
 
                         Q_EMIT countChanged();
                     }
-                }
 
-                Q_EMIT urlChanged();
-                Q_EMIT orientationChanged();
+                    Q_EMIT orientationChanged();
+                    Q_EMIT titleChanged();
+                }
             } else {
                 qWarning() << "File is not a PDF:" << url;
-                Q_EMIT error(ErrorNotPdf);
+                Q_EMIT error(Errors::ErrorNotPdf);
             }
         } else {
             qWarning() << "Url is not a local file:" << url;
 
-            Q_EMIT error(ErrorNotFound);
+            Q_EMIT error(Errors::ErrorNotFound);
         }
     }
 }
@@ -250,7 +264,7 @@ QString Document::title() const
     if (m_document) {
         return m_document->info("Title");
     } else {
-        return "";
+        return QStringLiteral("");
     }
 }
 

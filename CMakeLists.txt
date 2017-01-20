@@ -77,6 +77,12 @@ add_subdirectory(runner)
 add_subdirectory(ubuntu-printing-app)
 
 
+# Add tests
+find_package(Qt5Test REQUIRED)
+enable_testing()
+add_subdirectory(tests)
+
+
 # Add run command for QtC
 add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/ubuntu-printing-app/Main.qml
                   DEPENDS Ubuntu_Printing_App Ubuntu_Printing_App_qmldir
