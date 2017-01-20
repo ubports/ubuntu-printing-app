@@ -1,4 +1,5 @@
 add_subdirectory(components)
+add_subdirectory(pages)
 
 # Install Main.qml and icon
 install(FILES ${MAIN_QML} DESTINATION ${UBUNTU_PRINTING_APP_DATA_DIR})

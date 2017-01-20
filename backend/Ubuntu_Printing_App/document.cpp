@@ -99,8 +99,6 @@ QImage Document::makeImage(QSizeF size, int pageNumber)
     // Calculate the DPI to render at
     float res = getDpi(page->pageSizeF(), size);
 
-    qDebug() << "Making image with res of" << res;
-
     // Make the image
     QImage image = page->renderToImage(res, res, 0, 0, size.width(), size.height());
 
@@ -146,8 +144,6 @@ QImage Document::makeImageToFit(QSizeF size, int pageNumber, bool color)
     if (!color) {
         image = image.convertToFormat(QImage::Format_Grayscale8);
     }
-
-    qDebug() << "i" << image.width() << scaledSize.width() << image.dotsPerMeterX();
 
     // Make a container then put the content image inside
     QImage container(size.toSize(), QImage::Format_ARGB32_Premultiplied);

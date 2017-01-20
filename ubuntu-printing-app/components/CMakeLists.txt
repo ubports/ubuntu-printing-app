@@ -1,10 +1,10 @@
 set(COMPONENT_QML_JS_FILES
     AlertDialog.qml
     CheckBoxRow.qml
-    ContentPeerPickerDialog.qml
     LabelRow.qml
     PreviewRow.qml
     PrintRow.qml
+    PrintingHelper.qml
     SelectorRow.qml
     TextFieldRow.qml
 )
