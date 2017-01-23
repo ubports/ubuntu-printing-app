@@ -32,8 +32,6 @@ PopplerImageProvider::PopplerImageProvider()
 
 QImage PopplerImageProvider::requestImage(const QString &id, QSize *size, const QSize &requestedSize)
 {
-    qDebug() << "ID" << id << requestedSize.height() << requestedSize.width();
-
     // Load id ( image://poppler/{pageNumber}/{color}/{filePath} )
     QStringList parts = id.split("/");
 
@@ -55,26 +53,30 @@ QImage PopplerImageProvider::requestImage(const QString &id, QSize *size, const 
 
     QString url = parts.join("/");
 
+    // Check request size is valid
+    if (requestedSize.height() <= 0 || requestedSize.width() <= 0) {
+        qWarning() << "Invalid requestedSize given" << requestedSize;
+
+        // Requested size is invalid, return a 1x1 image to prevent QML errors
+        // when resizing the window really small
+        if (size) {
+            *size = QSize(1, 1);
+        }
+
+        return QImage(QSize(1, 1), QImage::Format_ARGB32_Premultiplied);
+    } else if (size) {
+        // Set the size of the 'orignal' image to the requestedSize
+        // as we generate an image dynamically
+        *size = requestedSize;
+    }
+
+    // Check all parts given were OK
     if (url.isEmpty() || !numberOk || !colorOk) {
         qWarning() << "Invalid id given to poppler image provider:" << id;
         return QImage();
     }
 
-    // Check request size is valid
-    if (requestedSize.height() <= 0 || requestedSize.width() <= 0) {
-        return QImage(QSize(1, 1), QImage::Format_ARGB32_Premultiplied);
-    }
-
-    // Fallback size if none is given for QImage
-    int width = 100;
-    int height = 50;
-
-    if (size)
-        *size = QSize(width, height);
-
-    qDebug() << "Url:" << url;
-    qDebug() << "Page:" << pageNumber;
-
+    // Build a Document and generate an image to fit the given requestedSize
     Document *doc = new Document();
     doc->setUrl(url);
 
