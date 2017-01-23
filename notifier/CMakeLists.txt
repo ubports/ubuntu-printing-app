@@ -28,6 +28,7 @@ find_package(Threads)
 pkg_check_modules(SERVICE_DEPS REQUIRED
   gio-unix-2.0>=2.36
   glib-2.0>=2.36
+  libnotify>=0.7.6
   properties-cpp
 )
 

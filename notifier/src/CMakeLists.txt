@@ -23,6 +23,10 @@ add_library(${SERVICE_LIB_NAME} STATIC
   cups-client.cpp
   cups-client.h
   job.h
+  notification.cpp
+  notification.h
+  notify-engine.cpp
+  notify-engine.h
   printer.h
   utils.cpp
   utils.h
