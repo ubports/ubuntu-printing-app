@@ -137,7 +137,7 @@ QImage Document::makeImageToFit(QSizeF size, int pageNumber, bool color)
     Poppler::Page *page = m_document->page(pageNumber);
 
     if (!page) {
-        qWarning() << "Invalid page";
+        qWarning() << "Invalid page:" << pageNumber;
         return QImage();
     }
 

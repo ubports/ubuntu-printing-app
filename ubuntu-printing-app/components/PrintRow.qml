@@ -63,7 +63,7 @@ Item {
         }
 
         Button {
-            objectName: "button"
+            objectName: "confirm"
             color: pressed ? Qt.lighter("#111") : "#111"
             Layout.fillWidth: true
             text: pdfMode ? i18n.tr("Create PDF") : i18n.tr("Print") + " <u>" + sheets + "</u> " + i18n.tr("Sheets")
