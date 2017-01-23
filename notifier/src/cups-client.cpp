@@ -275,6 +275,13 @@ private:
         printer.uri = uri;
         printer.state_reasons = state_reasons;
         printer.accepting_jobs = is_accepting_jobs;
+
+        // Get the number of jobs currently active on the printer
+        cups_job_t* jobs;
+        printer.num_jobs = cupsGetJobs(&jobs, name, true,
+                                       CUPS_WHICHJOBS_ACTIVE);
+        cupsFreeJobs(printer.num_jobs, jobs);
+
         self->m_printer_state_changed(printer);
     }
 

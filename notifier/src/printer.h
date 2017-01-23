@@ -37,6 +37,7 @@ namespace notifier {
         std::string uri;
         std::string state_reasons;
         bool accepting_jobs = false;
+        uint32_t num_jobs = 0;
     };
 
 } // notifier
