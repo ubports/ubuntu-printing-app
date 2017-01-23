@@ -73,9 +73,11 @@ Page {
             SelectorRow {
                 id: printerSelector
                 delegate: OptionSelectorDelegate {
+                    objectName: "option" + index
                     text: name
                 }
-                model: Printers.allPrintersWithPdf
+                model: printing.model
+                objectName: "printerSelector"
                 text: i18n.tr("Printer")
 
                 onSelectedIndexChanged: printing.printerSelectedIndex = selectedIndex
@@ -110,7 +112,7 @@ Page {
 
             SelectorRow {
                 id: duplexSelector
-                enabled: printing.printer && !printing.pdfMode ? printing.printer.supportedDuplexModes.length > 1 : false
+                enabled: printing.printer && currentDocument.count > 1 && !printing.pdfMode ? printing.printer.supportedDuplexModes.length > 1 : false
                 model: printing.printer ? printing.printer.supportedDuplexModes : [""]
                 text: i18n.tr("Two-sided")
 

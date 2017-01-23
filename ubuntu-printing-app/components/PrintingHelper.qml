@@ -22,6 +22,7 @@ import Ubuntu_Printing_App 1.0
 import Ubuntu.Settings.Printers 0.1
 
 QtObject {
+    readonly property var model: Printers.allPrintersWithPdf
     readonly property bool pdfMode: printer ? printer.isPdf : true
     readonly property var printer: {
         if (Printers.allPrintersWithPdf.count > 0

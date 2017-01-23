@@ -20,38 +20,39 @@
 #include <QtQml/QtQml>
 #include <QtQuickTest/QtQuickTest>
 
-
-#include "Ubuntu_Printing_App/document.h"
-#include "Ubuntu_Printing_App/pagehelper.h"
-#include "Ubuntu_Printing_App/popplerimageprovider.h"
-
-
+// Mock the PrinterEnum's from Ubuntu.Settings.Printers
 class PrinterEnum
 {
     Q_GADGET
 public:
     enum class ColorModelType
     {
-        GrayType = 5,
+        GrayType = 0,
         ColorType,
         UnknownType,
     };
     Q_ENUM(ColorModelType)
-};
 
+    enum class DuplexMode
+    {
+        DuplexNone = 0,
+        DuplexLongSide,
+        DuplexShortSide,
+    };
+    Q_ENUM(DuplexMode)
+
+    enum class PrintRange
+    {
+        AllPages = 0,
+        PageRange,
+    };
+    Q_ENUM(PrintRange)
+};
 
 int main(int argc, char** argv)
 {
-//    const char* uri = "Ubuntu_Printing_App";
-
-//    qmlRegisterType<Document>(uri, 1, 0, "Document");
-//    qmlRegisterType<PageHelper>(uri, 1, 0, "PageHelper");
-
-//    QQmlEngine engine();
-//    QQmlExtensionPlugin::initializeEngine(engine, uri);
-//    engine->addImageProvider(QLatin1String("poppler"), new PopplerImageProvider);
-
     const char* uri = "Ubuntu.Settings.Printers";
+
     qmlRegisterUncreatableType<PrinterEnum>(uri, 0, 1, "PrinterEnum", "Is an enum");
 
     return quick_test_main(argc, argv, "QmlTests", nullptr);

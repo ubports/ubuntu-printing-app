@@ -24,6 +24,7 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItems
 
 RowLayout {
+    id: rowLayout
     anchors {
         left: parent.left
         leftMargin: units.gu(2)
@@ -52,6 +53,9 @@ RowLayout {
     ListItems.ItemSelector {
         id: selector
         containerHeight: itemHeight * 4
+        delegate: OptionSelectorDelegate {
+            objectName: "option" + index
+        }
         Layout.fillWidth: true
         Layout.preferredWidth: units.gu(5)
 //        Layout.minimumWidth: units.gu(20)

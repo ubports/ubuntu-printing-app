@@ -30,7 +30,7 @@ Item {
     }
 
     UbuntuTestCase {
-        name: "MainTestCase"
+        name: "PrintRowTestCase"
 
         when: windowShown
 
