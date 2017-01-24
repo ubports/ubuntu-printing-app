@@ -43,10 +43,13 @@ RowLayout {
 
     readonly property var selectedValue: modelValue[selectedIndex]
 
+    signal expansionCompleted()  // for qmltests
+
     Label {
         id: label
         elide: Text.ElideRight
         Layout.preferredWidth: units.gu(10)
+        objectName: "label"
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }
 
@@ -62,5 +65,7 @@ RowLayout {
 //        Layout.minimumWidth: units.gu(20)
 //        Layout.maximumWidth: units.gu(40)
         selectedIndex: 0
+
+        onExpansionCompleted: rowLayout.expansionCompleted()
     }
 }

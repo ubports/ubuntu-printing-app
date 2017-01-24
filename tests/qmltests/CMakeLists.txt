@@ -37,6 +37,7 @@ add_test(${TEST} ${XVFB_COMMAND} ${CMAKE_CURRENT_BINARY_DIR}/${TEST}
 set(QMLTEST_FILES
     tst_PrintRow.qml
     tst_PrintPage.qml
+    tst_SelectorRow.qml
 )
 
 add_custom_target(qmltest_copyFiles ALL
