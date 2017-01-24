@@ -40,6 +40,14 @@ namespace notifier {
 
         // Show the notification
         virtual void show() const;
+
+    private:
+        class Impl;
+        std::unique_ptr<Impl> p;
+
+        // disable copying
+        Notification(const Notification&) = delete;
+        Notification& operator=(const Notification&) = delete;
     };
 
 } // notifier

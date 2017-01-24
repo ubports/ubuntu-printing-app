@@ -35,15 +35,16 @@ public:
     Impl(const std::shared_ptr<Client>& client):
         m_client(client),
         m_reasons({
-            {"media-low", _("The printer “%s” is low on paper.")},
-            {"media-empty", _("The printer “%s” is out of paper.")},
-            {"toner-low", _("The printer “%s” is low on toner.")},
-            {"toner-empty", _("The printer “%s” is out of toner.")},
+            // NOTE: sorted alphabetically by state
             {"cover-open", _("A cover is open on the printer “%s”.")},
-            {"door-open", _("A door is open on the printer “%s”.")},
             {"cups-missing-filter", _("The printer “%s” can’t be used, because required software is missing.")},
+            {"door-open-report", _("A door is open on the printer “%s”.")},
+            {"media-empty", _("The printer “%s” is out of paper.")},
+            {"media-low", _("The printer “%s” is low on paper.")},
             {"offline", _("The printer “%s” is currently off-line.")},
             {"other", _("The printer “%s” has an unknown problem.")},
+            {"toner-empty", _("The printer “%s” is out of toner.")},
+            {"toner-low", _("The printer “%s” is low on toner.")},
         })
     {
     }
@@ -91,7 +92,7 @@ NotifyEngine::NotifyEngine(const std::shared_ptr<Client>& client):
                     job.state_reasons.c_str());
             if (job.state == Job::State::COMPLETED) {
                 auto notification = build_job_notification(job);
-                notification.show();
+                notification->show();
             }
         });
     client->printer_state_changed().connect([this](const Printer& printer) {
@@ -104,7 +105,7 @@ NotifyEngine::NotifyEngine(const std::shared_ptr<Client>& client):
                 for (const auto& reason: reasons) {
                     if (notified.count(reason) == 0) {
                         auto notification = build_printer_notification(printer, reason);
-                        notification.show();
+                        notification->show();
                     }
                 }
                 p->set_notified_reasons(printer, reasons);
@@ -116,22 +117,22 @@ NotifyEngine::~NotifyEngine()
 {
 }
 
-Notification NotifyEngine::build_job_notification(const Job& job)
+std::shared_ptr<Notification> NotifyEngine::build_job_notification(const Job& job)
 {
-    Notification notification;
-    notification.set_icon_name(NOTIFY_PRINTER_ICON);
+    auto notification = std::make_shared<Notification>();
+    notification->set_icon_name(NOTIFY_PRINTER_ICON);
 
     auto summary = boost::format(_("“%s” has printed.")) % job.name;
-    notification.set_summary(summary.str());
+    notification->set_summary(summary.str());
 
     return notification;
 }
 
-Notification NotifyEngine::build_printer_notification(const Printer& printer,
-                                                      const std::string& reason)
+std::shared_ptr<Notification> NotifyEngine::build_printer_notification(const Printer& printer,
+                                                                       const std::string& reason)
 {
-    Notification notification;
-    notification.set_icon_name(NOTIFY_ERROR_ICON);
+    auto notification = std::make_shared<Notification>();
+    notification->set_icon_name(NOTIFY_ERROR_ICON);
 
     const auto& displayname = printer.description.empty() ? printer.description : printer.name;
 
@@ -139,13 +140,13 @@ Notification NotifyEngine::build_printer_notification(const Printer& printer,
     auto untranslated = p->get_displayable_reason(reason);
     if (!untranslated.empty()) {
         auto summary = boost::format(untranslated) % displayname;
-        notification.set_summary(summary.str());
+        notification->set_summary(summary.str());
 
         auto jobtext = ngettext("You have %d job queued to print on this printer.", 
                                 "You have %d jobs queued to print on this printer.",
                                 printer.num_jobs);
         auto body = boost::format(jobtext) % printer.num_jobs;
-        notification.set_body(body.str());
+        notification->set_body(body.str());
     }
 
     return notification;
