@@ -42,11 +42,13 @@ RowLayout {
     Label {
         id: label
         Layout.preferredWidth: units.gu(10)
+        objectName: "label"
     }
 
     TextField {
         id: textField
         Layout.fillWidth: true
         Layout.preferredWidth: units.gu(5)
+        objectName: "textField"
     }
 }

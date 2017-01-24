@@ -38,6 +38,7 @@ RowLayout {
     Label {
         id: primaryLabel
         Layout.preferredWidth: units.gu(10)
+        objectName: "primary"
     }
 
     Label {
@@ -45,6 +46,7 @@ RowLayout {
         Layout.fillWidth: true
         Layout.preferredHeight: units.gu(3)
         Layout.preferredWidth: units.gu(10)
+        objectName: "secondary"
         verticalAlignment: Text.AlignVCenter
     }
 }
