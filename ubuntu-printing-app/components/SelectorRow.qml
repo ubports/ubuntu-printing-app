@@ -55,6 +55,7 @@ RowLayout {
         containerHeight: itemHeight * 4
         delegate: OptionSelectorDelegate {
             objectName: "option" + index
+            text: modelData
         }
         Layout.fillWidth: true
         Layout.preferredWidth: units.gu(5)

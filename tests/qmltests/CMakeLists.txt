@@ -30,7 +30,7 @@ target_link_libraries(${TEST}
 
 add_test(${TEST} ${XVFB_COMMAND} ${CMAKE_CURRENT_BINARY_DIR}/${TEST}
          -input ${CMAKE_CURRENT_SOURCE_DIR}
-         -import ${CMAKE_BINARY_DIR}/src)
+         -import ${CMAKE_BINARY_DIR}/backend)
 
 
 # Add the qml test files to build dir

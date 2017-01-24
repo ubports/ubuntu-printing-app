@@ -86,8 +86,10 @@ Page {
              }
 
             TextFieldRow {
+                id: copiesSelector
                 enabled: !printing.pdfMode
                 inputMethodHints: Qt.ImhDigitsOnly
+                objectName: "copiesTextField"
                 text: i18n.tr("Copies")
                 validator: IntValidator {
                     bottom: 1
@@ -96,9 +98,16 @@ Page {
                 value: printing.printerJob.copies
 
                 onValueChanged: {
-                    if (acceptableInput) {
+                    if (acceptableInput && printing.printerJob.copies !== Number(value)) {
                         printing.printerJob.copies = Number(value);
                     }
+                }
+
+                Binding {
+                    target: copiesSelector
+                    property: "value"
+                    when: printing.printerJob && copiesSelector.enabled
+                    value: printing.printerJob.copies
                 }
             }
 
@@ -114,6 +123,7 @@ Page {
                 id: duplexSelector
                 enabled: printing.printer && currentDocument.count > 1 && !printing.pdfMode ? printing.printer.supportedDuplexModes.length > 1 : false
                 model: printing.printer ? printing.printer.supportedDuplexModes : [""]
+                objectName: "duplexSelector"
                 text: i18n.tr("Two-sided")
 
                 onSelectedIndexChanged: {
@@ -135,24 +145,50 @@ Page {
                 enabled: !printing.pdfMode
                 model: [i18n.tr("All"), i18n.tr("Range")]
                 modelValue: [PrinterEnum.AllPages, PrinterEnum.PageRange]
+                objectName: "pageRangeSelector"
                 selectedIndex: 0
                 text: i18n.tr("Pages")
 
-                onSelectedValueChanged: printing.printerJob.printRangeMode = selectedValue
+                onSelectedValueChanged: {
+                    if (printing.printerJob.printRangeMode !== selectedValue) {
+                        printing.printerJob.printRangeMode = selectedValue
+                    }
+                }
+
+                Binding {
+                    target: pageRangeSelector
+                    property: "selectedIndex"
+                    when: printing.printerJob && pageRangeSelector.enabled
+                    value: printing.printerJob.printRangeMode
+                }
             }
 
             TextFieldRow {
+                id: pageRangeTextField
                 enabled: !printing.pdfMode
+                objectName: "pageRangeTextField"
                 validator: RegExpValidator {
 //                        regExp: ""  // TODO: validate to only 0-9||9-0||0 ,
                 }
                 visible: pageRangeSelector.selectedValue === PrinterEnum.PageRange
 
-                onValueChanged: printing.printerJob.printRange = value
+                onValueChanged: {
+                    if (printing.printerJob.printRange !== value) {
+                        printing.printerJob.printRange = value
+                    }
+                }
+
+                Binding {
+                    target: pageRangeTextField
+                    property: "value"
+                    when: printing.printerJob && pageRangeTextField.enabled
+                    value: printing.printerJob.printRange
+                }
             }
 
             LabelRow {
                 enabled: !printing.pdfMode
+                objectName: "pageRangeLabel"
                 secondaryText: i18n.tr("eg 1-3,8")
                 visible: pageRangeSelector.selectedValue === PrinterEnum.PageRange
             }
@@ -168,6 +204,7 @@ Page {
                 id: colorModelSelector
                 enabled: printing.printer && !printing.pdfMode ? printing.printer.supportedColorModels.length > 1 : false
                 model: printing.printer ? printing.printer.supportedColorModels : [""]
+                objectName: "colorModelSelector"
                 text: i18n.tr("Color")
 
                 onSelectedIndexChanged: {
@@ -188,6 +225,7 @@ Page {
                 id: qualitySelector
                 enabled: printing.printer && !printing.pdfMode ? printing.printer.supportedPrintQualities.length > 1 : false
                 model: printing.printer ? printing.printer.supportedPrintQualities : [""]
+                objectName: "qualitySelector"
                 text: i18n.tr("Quality")
 
                 onSelectedIndexChanged: {
