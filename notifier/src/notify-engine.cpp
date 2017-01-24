@@ -19,6 +19,7 @@
 #include <map>
 #include <unordered_set>
 
+#include <boost/algorithm/string.hpp>
 #include <boost/format.hpp>
 
 #include <glib/gi18n.h>
@@ -51,14 +52,30 @@ public:
     {
     }
 
+    std::string get_displayable_reason(const std::string& reason)
+    {
+        return m_reasons[reason];
+    }
+
+    std::unordered_set<std::string> get_notified_reasons(const Printer& printer)
+    {
+        return m_notified[printer.name];
+    }
+
+    void set_notified_reasons(const Printer& printer,
+                              std::unordered_set<std::string> reasons)
+    {
+        m_notified[printer.name] = reasons;
+    }
+
 private:
     std::shared_ptr<Client> m_client;
 
     // The map of "printer" -> set of notified notified states
-    const std::map<std::string, std::unordered_set<std::string>> m_notified;
+    std::map<std::string, std::unordered_set<std::string>> m_notified;
 
     // The map of "reason" -> _("Translated displayable reason") strings
-    const std::map<std::string, std::string> m_reasons;
+    std::map<std::string, std::string> m_reasons;
 }; // class Impl
 
 
@@ -80,9 +97,17 @@ NotifyEngine::NotifyEngine(const std::shared_ptr<Client>& client):
     client->printer_state_changed().connect([this](const Printer& printer) {
             g_debug("Printer state changed for reasons: '%s'",
                     printer.state_reasons.c_str());
-            if (printer.num_jobs > 0 && printer.state_reasons != "none") {
-                auto notification = build_printer_notification(printer);
-                notification.show();
+            if (printer.num_jobs > 0) {
+                auto notified = p->get_notified_reasons(printer);
+                std::unordered_set<std::string> reasons;
+                boost::split(reasons, printer.state_reasons, boost::is_any_of(","));
+                for (const auto& reason: reasons) {
+                    if (notified.count(reason) == 0) {
+                        auto notification = build_printer_notification(printer, reason);
+                        notification.show();
+                    }
+                }
+                p->set_notified_reasons(printer, reasons);
             }
         });
 }
@@ -102,15 +127,26 @@ Notification NotifyEngine::build_job_notification(const Job& job)
     return notification;
 }
 
-Notification NotifyEngine::build_printer_notification(const Printer& printer)
+Notification NotifyEngine::build_printer_notification(const Printer& printer,
+                                                      const std::string& reason)
 {
     Notification notification;
     notification.set_icon_name(NOTIFY_ERROR_ICON);
 
-    auto body = boost::format(ngettext("You have %d job queued to print on this printer.", 
-                                       "You have %d jobs queued to print on this printer.",
-                                 printer.num_jobs)) % printer.num_jobs;
-    notification.set_body(body.str());
+    const auto& displayname = printer.description.empty() ? printer.description : printer.name;
+
+    // Get the reason text and add summary/body if valid
+    auto untranslated = p->get_displayable_reason(reason);
+    if (!untranslated.empty()) {
+        auto summary = boost::format(untranslated) % displayname;
+        notification.set_summary(summary.str());
+
+        auto jobtext = ngettext("You have %d job queued to print on this printer.", 
+                                "You have %d jobs queued to print on this printer.",
+                                printer.num_jobs);
+        auto body = boost::format(jobtext) % printer.num_jobs;
+        notification.set_body(body.str());
+    }
 
     return notification;
 }

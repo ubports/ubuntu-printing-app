@@ -49,6 +49,10 @@ TEST_F(EngineFixture, NotifyEngine)
                     printer.state_reasons = "door-open";
                     client->m_printer_state_changed(printer);
 
+                    // Now with 2 reasons
+                    printer.state_reasons = "door-open,something-else";
+                    client->m_printer_state_changed(printer);
+
                     // Notify a COMPLETED job
                     Job fake_job;
                     fake_job.id = 42;

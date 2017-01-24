@@ -34,7 +34,8 @@ namespace notifier {
         virtual ~NotifyEngine();
 
         virtual Notification build_job_notification(const Job& job);
-        virtual Notification build_printer_notification(const Printer& printer);
+        virtual Notification build_printer_notification(const Printer& printer,
+                                                        const std::string& reason);
 
     private:
         class Impl;
