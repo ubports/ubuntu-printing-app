@@ -19,7 +19,7 @@ Item {
         }
         property bool pdfMode: false
         property var printer: QtObject {
-            property var name: "PrinterA"
+            property string name: "PrinterA"
             property var supportedColorModels: []
             property var supportedDuplexModes: []
             property var supportedPrintQualities: []
@@ -29,10 +29,8 @@ Item {
             property int copies: 1
             property int duplexMode: 0
             property string printRange: ""
-            property var printRangeMode: 0  // is enum so need to be var
+            property var printRangeMode: 0  // var as it needs to be enum
             property int quality: 0
-
-            signal printFile(string url);
         }
         property int printerSelectedIndex: 0
     }
@@ -49,6 +47,18 @@ Item {
         }
         currentDocument: document
         printing: mockPrinting
+    }
+
+    SignalSpy {
+        id: cancelSpy
+        signalName: "cancel"
+        target: printPage
+    }
+
+    SignalSpy {
+        id: confirmSpy
+        signalName: "confirm"
+        target: printPage
     }
 
     UbuntuTestCase {
@@ -84,7 +94,29 @@ Item {
 
             mockPrinting.printerSelectedIndex = 0;
 
+            cancelSpy.clear();
+            confirmSpy.clear();
+
             waitForRendering(printPage, timeout);
+        }
+
+        function test_cancelButton() {
+            var cancel = findChild(printPage, "cancel");
+
+            mouseClick(cancel);
+
+            cancelSpy.wait();
+            compare(cancelSpy.count, 1);
+        }
+
+        function test_cancelHeader() {
+            // Note SDK adds _button to objectNames in ActionBar
+            var cancel = findChild(root, "headerBack_button");
+
+            mouseClick(cancel);
+
+            cancelSpy.wait();
+            compare(cancelSpy.count, 1);
         }
 
         function test_colorModel() {
@@ -112,6 +144,20 @@ Item {
 
             waitForRendering(colorModel, timeout)
             compare(colorModel.enabled, false);
+        }
+
+        function test_confirm() {
+            var confirm = findChild(printPage, "confirm");
+
+            mouseClick(confirm);
+
+            confirmSpy.wait();
+            compare(confirmSpy.count, 1);
+            compare(confirmSpy.signalArguments.length, 1);
+
+            var arg = confirmSpy.signalArguments.pop();
+            compare(arg.length, 1);
+            compare(arg[0], document.url);
         }
 
         function test_copies() {
@@ -179,14 +225,16 @@ Item {
                            "pageRangeSelector", "pageRangeTextField",
                            "pageRangeLabel", "colorModelSelector",
                            "qualitySelector"];
+            var pageTitle = printPage.title;
 
             mockPrinting.pdfMode = true;
-
             waitForRendering(printPage, timeout);
 
             for (var obj in objects) {
                 compare(findChild(printPage, obj).enabled, false);
             }
+
+            verify(pageTitle !== printPage.title, "Page title did not change");
         }
 
         function test_printers() {

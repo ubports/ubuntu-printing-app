@@ -94,6 +94,7 @@ MainView {
             landscape: document.orientation === Document.Landscape
         }
     }
+    property Page printPage: null
 
     PageStack {
         id: pageStack
@@ -124,8 +125,22 @@ MainView {
         }
     }
 
+    Connections {
+        target: printPage
+
+        onCancel: Qt.quit()
+        onConfirm: {
+            if (printing.pdfMode) {
+                // TODO: check if .toLocalFilepath() needs to be called?
+                pageStack.push(Qt.resolvedUrl("pages/ContentPeerPickerPage.qml"), {"url": url});
+            } else {
+                printing.printerJob.printFile(url);  // TODO: check document is valid raise error if not?
+            }
+        }
+    }
+
     Component.onCompleted: {
-        pageStack.push(
+        printPage = pageStack.push(
             Qt.resolvedUrl("pages/PrintPage.qml"),
             {
                 "currentDocument": document,

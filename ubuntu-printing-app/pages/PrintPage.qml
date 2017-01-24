@@ -38,8 +38,9 @@ Page {
             actions: [
                 Action {
                     iconName: "back"
+                    objectName: "headerBack"
 
-                    onTriggered: Qt.quit()
+                    onTriggered: page.cancel()
                 }
             ]
         }
@@ -48,6 +49,9 @@ Page {
 
     property Document currentDocument: null
     property QtObject printing: null
+
+    signal cancel()
+    signal confirm(string url)
 
     ScrollView {
         id: scrollView
@@ -261,14 +265,7 @@ Page {
         pdfMode: printing.pdfMode
         sheets: document.count
 
-        onCancel: Qt.quit()
-        onConfirm: {
-            if (printing.pdfMode) {
-                // TODO: check if .toLocalFilepath() needs to be called?
-                pageStack.push(Qt.resolvedUrl("ContentPeerPickerPage.qml"), {"url": document.url});
-            } else {
-                printing.printerJob.printFile(document.url);  // TODO: check document is valid raise error if not?
-            }
-        }
+        onCancel: page.cancel()
+        onConfirm: page.confirm(document.url)
     }
 }
