@@ -129,9 +129,6 @@ private Q_SLOTS:
         m_document->setUrl(getResourceUrl("a5_landscape.pdf"));
         QTRY_COMPARE(aspectSpy.count(), 1);
 
-        qDebug() << "ASPECT:" << m_document->getPageSize(0).width() << m_document->getPageSize(0).height();
-
-
         QCOMPARE(m_page_helper->aspect(), A5_LANDSCAPE_ASPECT_RATIO);
     }
 

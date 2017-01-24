@@ -40,11 +40,14 @@ Item {
             printRow.sheets = 0;
 
             cancelSignal.clear();
+            confirmSignal.clear();
         }
 
         function test_clickCancel() {
             var button = findChild(printRow, "cancel");
             var buttonCenter = centerOf(button);
+
+            compare(cancelSignal.count, 0)
 
             mouseClick(button, buttonCenter.x, buttonCenter.y);
             cancelSignal.wait();
@@ -54,6 +57,8 @@ Item {
         function test_clickConfirm() {
             var button = findChild(printRow, "confirm");
             var buttonCenter = centerOf(button);
+
+            compare(confirmSignal.count, 0)
 
             mouseClick(button, buttonCenter.x, buttonCenter.y);
             confirmSignal.wait();
