@@ -63,19 +63,16 @@ else(CLICK_MODE)
 endif(CLICK_MODE)
 
 
-# Find translatable files
-file(GLOB_RECURSE I18N_SRC_FILES
-     RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}/po
-     *.qml *.js *.cpp)
-list(APPEND I18N_SRC_FILES ${DESKTOP_FILE}.in.in.h)
-list(SORT I18N_SRC_FILES)
-
-
 # Add subdirs
 add_subdirectory(backend)
 add_subdirectory(runner)
 add_subdirectory(ubuntu-printing-app)
 
+# Setup gettext defs and include po directory
+set(GETTEXT_PACKAGE "ubuntu-printing-app")
+add_definitions(-DI18N_DOMAIN="${GETTEXT_PACKAGE}")
+
+add_subdirectory(po)
 
 # Add tests
 find_package(Qt5Test REQUIRED)
