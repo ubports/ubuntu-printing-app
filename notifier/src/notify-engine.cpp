@@ -69,8 +69,25 @@ public:
         m_notified[printer.name] = reasons;
     }
 
+    void show_notification(const std::shared_ptr<Notification>& notification)
+    {
+        if (notification.get() == nullptr) {
+            return;
+        }
+
+        notification->closed().connect([this, &notification]() {
+                g_debug("Closed notification.");
+                m_notifications.erase(notification);
+            });
+        m_notifications.emplace(notification);
+        notification->show();
+    }
+
 private:
     std::shared_ptr<Client> m_client;
+
+    // The set of current notifications
+    std::unordered_set<std::shared_ptr<Notification>> m_notifications;
 
     // The map of "printer" -> set of notified notified states
     std::map<std::string, std::unordered_set<std::string>> m_notified;
@@ -92,7 +109,7 @@ NotifyEngine::NotifyEngine(const std::shared_ptr<Client>& client):
                     job.state_reasons.c_str());
             if (job.state == Job::State::COMPLETED) {
                 auto notification = build_job_notification(job);
-                notification->show();
+                p->show_notification(notification);
             }
         });
     client->printer_state_changed().connect([this](const Printer& printer) {
@@ -105,7 +122,7 @@ NotifyEngine::NotifyEngine(const std::shared_ptr<Client>& client):
                 for (const auto& reason: reasons) {
                     if (notified.count(reason) == 0) {
                         auto notification = build_printer_notification(printer, reason);
-                        notification->show();
+                        p->show_notification(notification);
                     }
                 }
                 p->set_notified_reasons(printer, reasons);
@@ -119,11 +136,10 @@ NotifyEngine::~NotifyEngine()
 
 std::shared_ptr<Notification> NotifyEngine::build_job_notification(const Job& job)
 {
-    auto notification = std::make_shared<Notification>();
-    notification->set_icon_name(NOTIFY_PRINTER_ICON);
+    std::shared_ptr<Notification> notification;
 
     auto summary = boost::format(_("“%s” has printed.")) % job.name;
-    notification->set_summary(summary.str());
+    notification.reset(new Notification(summary.str(), "", NOTIFY_PRINTER_ICON));
 
     return notification;
 }
@@ -131,8 +147,7 @@ std::shared_ptr<Notification> NotifyEngine::build_job_notification(const Job& jo
 std::shared_ptr<Notification> NotifyEngine::build_printer_notification(const Printer& printer,
                                                                        const std::string& reason)
 {
-    auto notification = std::make_shared<Notification>();
-    notification->set_icon_name(NOTIFY_ERROR_ICON);
+    std::shared_ptr<Notification> notification;
 
     const auto& displayname = printer.description.empty() ? printer.description : printer.name;
 
@@ -140,13 +155,13 @@ std::shared_ptr<Notification> NotifyEngine::build_printer_notification(const Pri
     auto untranslated = p->get_displayable_reason(reason);
     if (!untranslated.empty()) {
         auto summary = boost::format(untranslated) % displayname;
-        notification->set_summary(summary.str());
 
         auto jobtext = ngettext("You have %d job queued to print on this printer.", 
                                 "You have %d jobs queued to print on this printer.",
                                 printer.num_jobs);
         auto body = boost::format(jobtext) % printer.num_jobs;
-        notification->set_body(body.str());
+
+        notification.reset(new Notification(summary.str(), body.str(), NOTIFY_ERROR_ICON));
     }
 
     return notification;

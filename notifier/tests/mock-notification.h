@@ -14,40 +14,38 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#pragma once
-
-#include <string>
+#include "notification.h"
 
 #include <core/signal.h>
+#include <gmock/gmock.h>
 
 namespace ubuntu {
 namespace printing {
 namespace notifier {
 
-    class Notification {
-    public:
-        Notification(const std::string& summary,
-                     const std::string& body,
-                     const std::string& icon_name);
-        virtual ~Notification();
+class MockNotification: public Notification
+{
+ public:
+    MockNotification(const std::string& summary, const std::string& body,
+                     const std::string& icon_name):
+        Notification(summary, body, icon_name)
+    {
+    }
 
-        // Signal for activation of actions in notification
-        virtual core::Signal<const std::string&>& activated();
+    ~MockNotification()
+    {
+    }
 
-        // Signal for forced closing of notification
-        virtual core::Signal<>& closed();
+    core::Signal<>& closed()
+    {
+        return m_closed;
+    }
 
-        virtual void close();
-        virtual void show();
+    MOCK_METHOD0(close, void());
+    MOCK_METHOD0(show, void());
 
-    private:
-        class Impl;
-        std::unique_ptr<Impl> p;
-
-        // disable copying
-        Notification(const Notification&) = delete;
-        Notification& operator=(const Notification&) = delete;
-    };
+    core::Signal<> m_closed;
+};
 
 } // notifier
 } // printing

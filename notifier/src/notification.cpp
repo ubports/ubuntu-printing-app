@@ -26,21 +26,104 @@ namespace notifier {
 class Notification::Impl
 {
 public:
-    Impl()
+    Impl(const std::string& summary,
+         const std::string& body,
+         const std::string& icon_name):
+        m_summary(summary),
+        m_body(body),
+        m_icon_name(icon_name)
     {
+        m_nn = notify_notification_new(m_summary.c_str(),
+                                       m_body.c_str(),
+                                       m_icon_name.c_str());
+
+        g_signal_connect(m_nn, "closed",
+                         G_CALLBACK(on_notification_closed), this);
     }
 
     ~Impl()
     {
+        g_object_unref(m_nn);
     }
 
-    std::string m_icon_name;
+    core::Signal<const std::string&>& activated()
+    {
+        return m_activated;
+    }
+
+    core::Signal<>& closed()
+    {
+        return m_closed;
+    }
+
+    void close()
+    {
+        if (!notify_is_initted()) {
+            g_warning("Tried to close a notification without notify_init().");
+            return;
+        }
+
+        GError* error = nullptr;
+        notify_notification_close(m_nn, &error);
+
+        if (error != nullptr) {
+            g_critical("Error closing notification: %s", error->message);
+            g_clear_error(&error);
+        }
+    }
+
+    void show()
+    {
+        if (!notify_is_initted()) {
+            g_critical("Unable to display notifications without notify_init().");
+            return;
+        }
+
+        if (m_summary.empty()) {
+            g_critical("Attempting to show notification with no summary!");
+            return;
+        }
+
+        GError* error = nullptr;
+        notify_notification_show(m_nn, &error);
+
+        if (error != nullptr) {
+            g_critical("Error showing notification: %s", error->message);
+            g_clear_error(&error);
+        }
+    }
+
+private:
+    static void on_notify_activated(NotifyNotification*,
+                                    char* action,
+                                    gpointer gthis)
+    {
+        auto self = static_cast<Impl*>(gthis);
+        self->m_activated(action);
+    }
+
+    static void on_notification_closed(NotifyNotification*,
+                                       gpointer gthis)
+    {
+        auto self = static_cast<Impl*>(gthis);
+        g_debug("Notification was closed.");
+        self->m_closed();
+    }
+
+    NotifyNotification* m_nn = nullptr;
+
     std::string m_summary;
     std::string m_body;
+    std::string m_icon_name;
+
+    core::Signal<const std::string&> m_activated;
+    core::Signal<> m_closed;
 };
 
-Notification::Notification():
-    p(new Impl())
+Notification::Notification(const std::string& summary,
+                           const std::string& body,
+                           const std::string& icon_name):
+    p(new Impl(summary, body, icon_name))
 {
 }
 
@@ -48,41 +131,24 @@ Notification::~Notification()
 {
 }
 
-void Notification::set_icon_name(const std::string& icon_name)
+core::Signal<const std::string&>& Notification::activated()
 {
-    p->m_icon_name = icon_name;
+    return p->activated();
 }
 
-void Notification::set_summary(const std::string& summary)
+core::Signal<>& Notification::closed()
 {
-    p->m_summary = summary;
+    return p->closed();
 }
 
-void Notification::set_body(const std::string& body)
+void Notification::close()
 {
-    p->m_body = body;
+    p->close();
 }
 
-void Notification::show() const
+void Notification::show()
 {
-    if (!p->m_summary.empty()) {
-        GError* error = nullptr;
-        auto nn = notify_notification_new(p->m_summary.c_str(),
-                                          p->m_body.c_str(),
-                                          p->m_icon_name.c_str());
-        if (notify_is_initted()) {
-            notify_notification_show(nn, &error);
-        } else {
-            g_warning("Unable to display notifications without notify_init().");
-        }
-
-        if (error != nullptr) {
-            g_critical("Error showing notification: %s", error->message);
-            g_clear_error(&error);
-        }
-
-        g_object_unref(nn);
-    }
+    p->show();
 }
 
 } // notifier

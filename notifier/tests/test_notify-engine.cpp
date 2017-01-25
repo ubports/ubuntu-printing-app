@@ -15,6 +15,7 @@
  */
 
 #include "client-mock.h"
+#include "mock-notification.h"
 #include "notify-engine.h"
 
 #include <memory>
@@ -28,6 +29,24 @@ class EngineFixture: public ::testing::Test
 {
 };
 
+class MockEngine: public NotifyEngine
+{
+public:
+    MockEngine(const std::shared_ptr<Client>& client):
+        NotifyEngine(client)
+    {
+    }
+
+    ~MockEngine()
+    {
+    }
+
+    MOCK_METHOD1(build_job_notification,
+                 std::shared_ptr<Notification>(const Job&));
+    MOCK_METHOD2(build_printer_notification,
+                 std::shared_ptr<Notification>(const Printer&,
+                                               const std::string&));
+};
 
 TEST_F(EngineFixture, NotifyEngine)
 {
@@ -46,11 +65,11 @@ TEST_F(EngineFixture, NotifyEngine)
                     printer.description = "A Printer";
                     printer.accepting_jobs = true;
                     printer.num_jobs = 1;
-                    printer.state_reasons = "door-open";
+                    printer.state_reasons = "door-open-report";
                     client->m_printer_state_changed(printer);
 
                     // Now with 2 reasons
-                    printer.state_reasons = "door-open,something-else";
+                    printer.state_reasons = "door-open-report,something-else";
                     client->m_printer_state_changed(printer);
 
                     // Notify a COMPLETED job
@@ -63,5 +82,54 @@ TEST_F(EngineFixture, NotifyEngine)
                     client->m_job_state_changed(fake_job);
                 }));
     client->refresh();
+}
 
+TEST_F(EngineFixture, JobNotification)
+{
+    auto client = std::make_shared<MockClient>();
+    auto engine = std::make_shared<MockEngine>(client);
+
+    auto notification = std::make_shared<MockNotification>("Job finished",
+                                                           "",
+                                                           NOTIFY_PRINTER_ICON);
+    EXPECT_CALL(*engine, build_job_notification(_))
+        .WillOnce(Return(notification));
+    EXPECT_CALL(*notification, show()).Times(1)
+        .WillOnce(Invoke([&notification](){
+                    notification->m_closed();
+                }));
+
+    Job fake_job;
+    fake_job.id = 42;
+    fake_job.state = Job::State::COMPLETED;
+    fake_job.name = "Life, The Universe, and Everything";
+    fake_job.printer.description = "Deep Thought";
+    fake_job.printer.name = "deep-thought";
+
+    client->m_job_state_changed(fake_job);
+}
+
+TEST_F(EngineFixture, PrinterNotification)
+{
+    auto client = std::make_shared<MockClient>();
+    auto engine = std::make_shared<MockEngine>(client);
+
+    auto notification = std::make_shared<MockNotification>("Printer fail",
+                                                           "Some jobs",
+                                                           NOTIFY_ERROR_ICON);
+    EXPECT_CALL(*engine, build_printer_notification(_, _))
+        .WillOnce(Return(notification));
+    EXPECT_CALL(*notification, show()).Times(1)
+        .WillOnce(Invoke([&notification](){
+                    notification->m_closed();
+                }));
+
+    Printer printer;
+    printer.name = "a-printer";
+    printer.description = "A Printer";
+    printer.accepting_jobs = true;
+    printer.num_jobs = 1;
+    printer.state_reasons = "door-open-report";
+
+    client->m_printer_state_changed(printer);
 }
