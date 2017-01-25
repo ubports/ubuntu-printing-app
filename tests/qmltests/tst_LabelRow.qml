@@ -47,19 +47,25 @@ Item {
         }
 
         function test_enabled() {
+            // Check that label enabled state is at the starting state
             var secondary = findChild(labelRow, "secondary");
             compare(labelRow.enabled, dataEnabled);
 
+            // Flip the enabled state
             labelRow.enabled = !dataEnabled;
+
+            // Check that the label enabled state changes
             tryCompare(secondary, "enabled", !dataEnabled);
         }
 
         function test_primaryText() {
+            // Check primary text is correct
             var primary = findChild(labelRow, "primary");
             compare(primary.text, dataPrimaryText);
         }
 
         function test_secondaryText() {
+            // Check secondary text is correct
             var secondary = findChild(labelRow, "secondary");
             compare(secondary.text, dataSecondaryText);
         }

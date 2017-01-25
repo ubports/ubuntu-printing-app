@@ -71,8 +71,11 @@ Item {
 
         function test_acceptableInput() {
             var textField = findChild(textFieldRow, "textField");
+
+            // Set the validator to int (1-9)
             textFieldRow.validator = intValidator;
 
+            // Set the value to an invalid value
             textFieldRow.value = "99";
 
             valueSpy.wait();
@@ -81,9 +84,11 @@ Item {
             compare(valueSpy.count, 1);
             compare(acceptableInputSpy.count, 1);
 
+            // Check the value was not acceptable
             compare(textFieldRow.acceptableInput, false);
             compare(textField.acceptableInput, false);
 
+            // Set the value to a valid value
             textFieldRow.value = "2";
 
             valueSpy.wait();
@@ -92,43 +97,55 @@ Item {
             compare(valueSpy.count, 2);
             compare(acceptableInputSpy.count, 2);
 
+            // Check the value was acceptable
             compare(textFieldRow.acceptableInput, true);
             compare(textField.acceptableInput, true);
         }
 
         function test_enabled() {
+            // Check textField enabled state is starting value
             var textField = findChild(textFieldRow, "textField");
             compare(textFieldRow.enabled, dataEnabled);
 
+            // Flip the enabled state
             textFieldRow.enabled = !dataEnabled;
+
+            // Check that the enabled state changes
             tryCompare(textField, "enabled", !dataEnabled);
         }
 
         function test_inputMethodHints() {
+            // Check that inputMethodHints is starting value
             var textField = findChild(textFieldRow, "textField");
             compare(textFieldRow.inputMethodHints, Qt.ImhNone);
             compare(textField.inputMethodHints, Qt.ImhNone);
 
+            // Change the inputMethodHints mode
             textFieldRow.inputMethodHints = Qt.ImhDigitsOnly;
 
+            // Check it changes in the textField
             compare(textField.inputMethodHints, Qt.ImhDigitsOnly);
         }
 
         function test_placeholderText() {
+            // Check the placeholder text is correct
             var textField = findChild(textFieldRow, "textField");
             compare(textField.placeholderText, dataPlaceholderText);
             compare(textFieldRow.placeholderText, dataPlaceholderText);
 
+            // Check that the value is not the placeholder
             verify(textField.text !== dataPlaceholderText);
-            verify(textFieldRow.text !== dataPlaceholderText);
+            verify(textFieldRow.value !== dataPlaceholderText);
         }
 
         function test_text() {
+            // Check that the text is the correct value
             var label = findChild(textFieldRow, "label");
             compare(label.text, textFieldRow.text);
         }
 
         function test_validator() {
+            // Check that a validator can be set
             var textField = findChild(textFieldRow, "textField");
             textFieldRow.validator = intValidator;
 
@@ -136,13 +153,18 @@ Item {
         }
 
         function test_value() {
+            // Check that the value is the starting value
             var textField = findChild(textFieldRow, "textField");
             compare(textFieldRow.value, "");
             compare(textField.text, "");
 
+            // Click on the text field
             mouseClick(textField);
+
+            // Enter "a"
             keyPress(Qt.Key_A);
 
+            // Check that "a" is set to the value
             valueSpy.wait();
             compare(valueSpy.count, 1);
             compare(textField.text, "a");

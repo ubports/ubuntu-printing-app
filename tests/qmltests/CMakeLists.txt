@@ -35,7 +35,9 @@ add_test(${TEST} ${XVFB_COMMAND} ${CMAKE_CURRENT_BINARY_DIR}/${TEST}
 
 # Add the qml test files to build dir
 set(QMLTEST_FILES
+    tst_CheckBoxRow.qml
     tst_LabelRow.qml
+    tst_PreviewRow.qml
     tst_PrintRow.qml
     tst_PrintPage.qml
     tst_SelectorRow.qml

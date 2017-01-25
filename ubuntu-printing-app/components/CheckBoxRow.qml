@@ -39,6 +39,7 @@ RowLayout {
     Label {
         id: label
         Layout.preferredWidth: units.gu(10)
+        objectName: "label"
     }
 
     MouseArea {
@@ -60,12 +61,14 @@ RowLayout {
                 anchors {
                     verticalCenter: parent.verticalCenter
                 }
+                objectName: "checkbox"
             }
 
             Label {
                 id: checkboxLabel
                 enabled: checkbox.enabled
                 height: parent.height
+                objectName: "checkboxLabel"
                 verticalAlignment: Text.AlignVCenter
             }
         }

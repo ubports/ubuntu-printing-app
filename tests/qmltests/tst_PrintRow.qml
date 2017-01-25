@@ -62,10 +62,12 @@ Item {
         function test_clickCancel() {
             var button = findChild(printRow, "cancel");
             var buttonCenter = centerOf(button);
-
             compare(cancelSignal.count, 0)
 
-            mouseClick(button, buttonCenter.x, buttonCenter.y);
+            // Click on the cancel button
+            mouseClick(button);
+
+            // Check that the cancel signal is emitted
             cancelSignal.wait();
             compare(cancelSignal.count, 1)
         }
@@ -73,10 +75,12 @@ Item {
         function test_clickConfirm() {
             var button = findChild(printRow, "confirm");
             var buttonCenter = centerOf(button);
-
             compare(confirmSignal.count, 0)
 
-            mouseClick(button, buttonCenter.x, buttonCenter.y);
+            // Click on the confirm button
+            mouseClick(button);
+
+            // Check that the confirm signal is emitted
             confirmSignal.wait();
             compare(confirmSignal.count, 1)
         }
@@ -85,8 +89,10 @@ Item {
             var button = findChild(printRow, "confirm");
             var originalText = button.text;
 
+            // Change to Pdf mode
             printRow.pdfMode = true;
 
+            // Check that the confirm button text changes
             verify(button.text !== originalText, 1000, "Text did not change when entering PDF Mode");
         }
 
@@ -94,8 +100,10 @@ Item {
             var button = findChild(printRow, "confirm");
             var originalText = button.text;
 
+            // Change the number of sheets
             printRow.sheets = 10;
 
+            // Check that the confirm button text changes
             verify(button.text !== originalText, 1000, "Text did not change when changing sheets");
         }
     }

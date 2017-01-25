@@ -24,6 +24,7 @@ import Ubuntu_Printing_App 1.0
 import Ubuntu.Settings.Printers 0.1
 
 Rectangle {
+    id: previewRow
     anchors {
         left: parent.left
         right: parent.right
@@ -34,14 +35,20 @@ Rectangle {
     // - 2/3 height of the view
     implicitHeight: Math.min((view.width - units.gu(10)) / pageHelper.aspect, view.height / 1.5)
 
-    property alias document: pageHelper.document
+    property Document document
     property var printerJob
     property var view
 
-    PageHelper {
-        id: pageHelper
-        document: document
+    // FIXME: QMLtests are not able to find by objectName, so make a property for now
+    readonly property var pageHelper: PageHelper {
+        document: previewRow.document
+        objectName: "pageHelper"
         page: 0  // change to human style ?
+    }
+
+    Connections {  // reset to first page when document changes
+        target: document
+        onUrlChanged: pageHelper.page = 0
     }
 
     Button {
@@ -52,6 +59,7 @@ Rectangle {
         }
         enabled: pageHelper.page > 0
         color: "#000"
+        objectName: "previousButton"
         text: "<"
         width: units.gu(4)
 
@@ -66,6 +74,7 @@ Rectangle {
             top: parent.top
         }
         asynchronous: true
+        objectName: "previewImage"
         source: pageHelper.document.url.toString() !== "" ? "image://poppler/" + pageHelper.page + "/" + (printerJob.colorModelType !== PrinterEnum.GrayType ? "true" : "false") + "/" + pageHelper.document.url : ""
         sourceSize {
             height: previewImage.height
@@ -80,6 +89,7 @@ Rectangle {
             anchors {
                 centerIn: parent
             }
+            objectName: "activityIndicator"
             running: previewImage.status == Image.Loading
         }
     }
@@ -92,6 +102,7 @@ Rectangle {
         }
         color: "#000"
         enabled: pageHelper.page < document.count - 1
+        objectName: "nextButton"
         text: ">"
         width: units.gu(4)
 
@@ -116,6 +127,7 @@ Rectangle {
             color: "#EEE"
             elide: Text.ElideRight
             horizontalAlignment: Text.AlignHCenter
+            objectName: "overlayLabel"
             text: (pageHelper.page + 1) + "/" + document.count
             width: parent.width
         }

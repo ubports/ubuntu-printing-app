@@ -71,51 +71,64 @@ Item {
         }
 
         function test_changeOption() {
-            mouseClick(selectorRow);
+            // Check selectedIndex is the starting index
+            compare(selectorRow.selectedIndex, dataSelectedIndex);
 
+            // Expand the selector
+            mouseClick(selectorRow);
             expansionCompletedSpy.wait();
             compare(expansionCompletedSpy.count, 1);
 
-            var option1 = findChild(selectorRow, "option1");
+            // Click on the secondary index
+            var option1 = findChild(selectorRow, "option" + dataSecondarySelectedIndex);
             mouseClick(option1);
 
+            // Check that the selectedIndex is the secondaryIndex
             selectedIndexSpy.wait();
             compare(selectedIndexSpy.count, 1);
-            compare(selectorRow.selectedIndex, 1);
+            compare(selectorRow.selectedIndex, dataSecondarySelectedIndex);
         }
 
         function test_label() {
+            // Check that the label is correct
             var label = findChild(selectorRow, "label");
-
             compare(label.text, dataLabelText);
         }
 
         function test_model() {
+            // Check the model length is the starting value
             compare(selectorRow.model.length, dataModel.length);
 
+            // Remove the last entry from the model
             var tmpModel = dataModel;
             tmpModel.pop();
-
             selectorRow.model = tmpModel;
 
+            // Check the model length changed
             compare(selectorRow.model.length, tmpModel.length);
         }
 
         function test_selectedIndex() {
+            // Check selectedIndex is the starting index
             compare(selectorRow.selectedIndex, dataSelectedIndex);
 
+            // Change the index to the secondaryIndex
             selectorRow.selectedIndex = dataSecondarySelectedIndex;
 
+            // Check the index changed
             selectedIndexSpy.wait();
             compare(selectedIndexSpy.count, 1);
             compare(selectorRow.selectedIndex, dataSecondarySelectedIndex);
         }
 
         function test_selectedValue() {
+            // Check that selectedValue is the starting value
             compare(selectorRow.selectedValue, dataModel[dataSelectedIndex]);
 
+            // Change to the secondaryIndex
             selectorRow.selectedIndex = dataSecondarySelectedIndex;
 
+            // Check that the selectedValue changes
             selectedValueSpy.wait();
             compare(selectorRow.selectedValue, dataModel[dataSecondarySelectedIndex]);
         }
