@@ -162,6 +162,10 @@ std::shared_ptr<Notification> NotifyEngine::build_printer_notification(const Pri
         auto body = boost::format(jobtext) % printer.num_jobs;
 
         notification.reset(new Notification(summary.str(), body.str(), NOTIFY_ERROR_ICON));
+
+        notification->add_action("PRINTER_ACTION_IGNORE", _("OK"));
+        std::string settings_url{"settings:///system/printers/"};
+        notification->add_action(settings_url + printer.name, _("Settings…"));
     }
 
     return notification;

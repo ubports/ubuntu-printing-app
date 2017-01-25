@@ -64,7 +64,7 @@ public:
         notify_notification_add_action(m_nn.get(),
                                        action.c_str(), label.c_str(),
                                        on_notify_activated,
-                                       nullptr, nullptr);
+                                       this, nullptr);
     }
 
     void close()
