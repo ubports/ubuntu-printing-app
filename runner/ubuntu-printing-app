@@ -1,3 +1,0 @@
-#!/bin/sh
-
-qmlscene -qt5 /usr/share/ubuntu-printing-app/Main.qml

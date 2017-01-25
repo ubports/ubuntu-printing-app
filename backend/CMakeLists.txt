@@ -1,8 +1,6 @@
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
-    /usr/include/cups/
     /usr/include/poppler/qt5/
-    ${Qt5PrintSupport_INCLUDE_DIRS}
 )
 
 #add_definitions(
@@ -17,15 +15,13 @@ set(
   Ubuntu_Printing_App/backend.cpp
   Ubuntu_Printing_App/document.cpp
   Ubuntu_Printing_App/popplerimageprovider.cpp
-  Ubuntu_Printing_App/printer.cpp
-  Ubuntu_Printing_App/printerinfo.cpp
+  Ubuntu_Printing_App/pagehelper.cpp
 )
 
 add_library(${LIBNAME} SHARED ${Ubuntu_Printing_App_SRC})
 
-qt5_use_modules(${LIBNAME} Core Gui Qml Quick PrintSupport)
+qt5_use_modules(${LIBNAME} Core Gui Qml Quick)
 target_link_libraries(${LIBNAME}
-    cups
     poppler-qt5
 )
 

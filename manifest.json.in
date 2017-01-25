@@ -1,5 +1,5 @@
 {
-    "name": "ubuntu-printing-app.ahayzen",
+    "name": "ubuntu-printing-app",
     "description": "A basic printing app for Ubuntu",
     "architecture": "@CLICK_ARCH@",
     "title": "ubuntu-printing-app",
