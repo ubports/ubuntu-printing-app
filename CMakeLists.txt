@@ -71,7 +71,6 @@ list(SORT I18N_SRC_FILES)
 # Add subdirs
 add_subdirectory(backend)
 add_subdirectory(notifier)
-add_subdirectory(po)
 add_subdirectory(runner)
 add_subdirectory(ubuntu-printing-app)
 
