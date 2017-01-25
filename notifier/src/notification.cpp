@@ -56,6 +56,13 @@ public:
         return m_closed;
     }
 
+    void add_action(const std::string& action, const std::string& label)
+    {
+        notify_notification_add_action(m_nn, action.c_str(), label.c_str(),
+                                       on_notify_activated,
+                                       nullptr, nullptr);
+    }
+
     void close()
     {
         if (!notify_is_initted()) {
@@ -139,6 +146,12 @@ core::Signal<const std::string&>& Notification::activated()
 core::Signal<>& Notification::closed()
 {
     return p->closed();
+}
+
+void Notification::add_action(const std::string& action,
+                              const std::string& label)
+{
+    p->add_action(action, label);
 }
 
 void Notification::close()

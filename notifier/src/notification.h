@@ -37,6 +37,9 @@ namespace notifier {
         // Signal for forced closing of notification
         virtual core::Signal<>& closed();
 
+        virtual void add_action(const std::string& action,
+                                const std::string& label);
+
         virtual void close();
         virtual void show();
 
