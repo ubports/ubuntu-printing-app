@@ -25,8 +25,12 @@ namespace ubuntu {
 namespace printing {
 namespace notifier {
 
+    // Icons for notifications
     static constexpr const char* NOTIFY_PRINTER_ICON{"printer-symbolic"};
     static constexpr const char* NOTIFY_ERROR_ICON{"printer-error-symbolic"};
+
+    // Hints for notifications
+    static constexpr const char* NOTIFY_HINT_SNAP{"x-canonical-snap-decisions"};
 
     class NotifyEngine {
     public:

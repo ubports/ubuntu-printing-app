@@ -67,6 +67,12 @@ public:
                                        this, nullptr);
     }
 
+    void set_hint(const std::string& hint, const std::string& value)
+    {
+        notify_notification_set_hint_string(m_nn.get(),
+                                            hint.c_str(), value.c_str());
+    }
+
     void close()
     {
         if (!notify_is_initted()) {
@@ -156,6 +162,12 @@ void Notification::add_action(const std::string& action,
                               const std::string& label)
 {
     p->add_action(action, label);
+}
+
+void Notification::set_hint(const std::string& hint,
+                            const std::string& value)
+{
+    p->set_hint(hint, value);
 }
 
 void Notification::close()

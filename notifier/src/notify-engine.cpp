@@ -163,6 +163,7 @@ std::shared_ptr<Notification> NotifyEngine::build_printer_notification(const Pri
 
         notification.reset(new Notification(summary.str(), body.str(), NOTIFY_ERROR_ICON));
 
+        notification->set_hint(NOTIFY_HINT_SNAP, "true");
         notification->add_action("PRINTER_ACTION_IGNORE", _("OK"));
         std::string settings_url{"settings:///system/printers/"};
         notification->add_action(settings_url + printer.name, _("Settings…"));

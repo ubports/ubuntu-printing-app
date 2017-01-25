@@ -40,6 +40,10 @@ namespace notifier {
         virtual void add_action(const std::string& action,
                                 const std::string& label);
 
+        // For hints
+        virtual void set_hint(const std::string& hint,
+                              const std::string& value);
+
         virtual void close();
         virtual void show();
 
