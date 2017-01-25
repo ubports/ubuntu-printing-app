@@ -16,6 +16,7 @@
 
 #pragma once
 
+#include "actions.h"
 #include "client.h"
 #include "notification.h"
 
@@ -34,7 +35,8 @@ namespace notifier {
 
     class NotifyEngine {
     public:
-        NotifyEngine(const std::shared_ptr<Client>& client);
+        NotifyEngine(const std::shared_ptr<Client>& client,
+                     const std::shared_ptr<Actions>& actions);
         virtual ~NotifyEngine();
 
         virtual std::shared_ptr<Notification> build_job_notification(const Job& job);
@@ -50,6 +52,6 @@ namespace notifier {
         NotifyEngine& operator=(const NotifyEngine&) = delete;
     };
 
-} //notifier
+} // notifier
 } // printing
 } // ubuntu

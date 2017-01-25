@@ -9,7 +9,9 @@ link_directories(
 )
 
 add_executable(test-${SERVICE_LIB_NAME}
+  actions-mock.h
   client-mock.h
+  mock-notification.h
   test_notify-engine.cpp
   test_utils.cpp
 )

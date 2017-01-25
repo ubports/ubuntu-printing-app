@@ -14,6 +14,7 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "actions.h"
 #include "cups-client.h"
 #include "notify-engine.h"
 #include "utils.h"
@@ -48,7 +49,8 @@ int main(int /* argc */, char** argv)
  
     // create the client and set up the signal handling
     auto client = std::make_shared<CupsClient>();
-    auto engine = std::make_shared<NotifyEngine>(client);
+    auto actions = std::make_shared<Actions>();
+    auto engine = std::make_shared<NotifyEngine>(client, actions);
 
     g_main_loop_run(loop);
 

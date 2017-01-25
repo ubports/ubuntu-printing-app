@@ -17,6 +17,7 @@
 #include "notify-engine.h"
 
 #include <map>
+#include <regex>
 #include <unordered_set>
 
 #include <boost/algorithm/string.hpp>
@@ -32,8 +33,10 @@ namespace notifier {
 class NotifyEngine::Impl
 {
 public:
-    Impl(const std::shared_ptr<Client>& client):
+    Impl(const std::shared_ptr<Client>& client,
+         const std::shared_ptr<Actions>& actions):
         m_client(client),
+        m_actions(actions),
         m_reasons({
             // NOTE: sorted alphabetically by state
             {"cover-open", _("A cover is open on the printer “%s”.")},
@@ -75,6 +78,13 @@ public:
             return;
         }
 
+        notification->activated().connect([this](const std::string& action) {
+                static const std::regex actionsettings{"^settings:///.*"};
+                if (std::regex_match(action, actionsettings)) {
+                    m_actions->open_settings_app(action);
+                }
+                // Otherwise we just ignore the action.
+            });
         notification->closed().connect([this, &notification]() {
                 g_debug("Closed notification.");
                 m_notifications.erase(notification);
@@ -85,6 +95,7 @@ public:
 
 private:
     std::shared_ptr<Client> m_client;
+    std::shared_ptr<Actions> m_actions;
 
     // The set of current notifications
     std::unordered_set<std::shared_ptr<Notification>> m_notifications;
@@ -97,8 +108,9 @@ private:
 }; // class Impl
 
 
-NotifyEngine::NotifyEngine(const std::shared_ptr<Client>& client):
-    p(new Impl(client))
+NotifyEngine::NotifyEngine(const std::shared_ptr<Client>& client,
+                           const std::shared_ptr<Actions>& actions):
+    p(new Impl(client, actions))
 {
     client->job_state_changed().connect([this](const Job& job) {
             const auto& printer = job.printer;

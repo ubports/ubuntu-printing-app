@@ -19,6 +19,8 @@ add_gdbus_codegen(SERVICE_GENERATED_SOURCES cups-cupsd-notifier
                   ${CMAKE_CURRENT_SOURCE_DIR}/org.cups.cupsd.Notifier.xml)
 
 add_library(${SERVICE_LIB_NAME} STATIC
+  actions.cpp
+  actions.h
   client.h
   cups-client.cpp
   cups-client.h

@@ -30,6 +30,7 @@ pkg_check_modules(SERVICE_DEPS REQUIRED
   glib-2.0>=2.36
   libnotify>=0.7.6
   properties-cpp
+  url-dispatcher-1
 )
 
 ### Find libcups

@@ -14,6 +14,7 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "actions-mock.h"
 #include "client-mock.h"
 #include "mock-notification.h"
 #include "notify-engine.h"
@@ -32,8 +33,9 @@ class EngineFixture: public ::testing::Test
 class MockEngine: public NotifyEngine
 {
 public:
-    MockEngine(const std::shared_ptr<Client>& client):
-        NotifyEngine(client)
+    MockEngine(const std::shared_ptr<Client>& client,
+               const std::shared_ptr<Actions>& actions):
+        NotifyEngine(client, actions)
     {
     }
 
@@ -51,9 +53,10 @@ public:
 TEST_F(EngineFixture, NotifyEngine)
 {
     auto client = std::make_shared<MockClient>();
+    auto actions = std::make_shared<MockActions>();
 
     // Test for initialization
-    auto engine = std::make_shared<NotifyEngine>(client);
+    auto engine = std::make_shared<NotifyEngine>(client, actions);
     ASSERT_FALSE(nullptr == engine);
 
     // Test refresh
@@ -87,7 +90,8 @@ TEST_F(EngineFixture, NotifyEngine)
 TEST_F(EngineFixture, JobNotification)
 {
     auto client = std::make_shared<MockClient>();
-    auto engine = std::make_shared<MockEngine>(client);
+    auto actions = std::make_shared<MockActions>();
+    auto engine = std::make_shared<MockEngine>(client, actions);
 
     auto notification = std::make_shared<MockNotification>("Job finished",
                                                            "",
@@ -112,7 +116,8 @@ TEST_F(EngineFixture, JobNotification)
 TEST_F(EngineFixture, PrinterNotification)
 {
     auto client = std::make_shared<MockClient>();
-    auto engine = std::make_shared<MockEngine>(client);
+    auto actions = std::make_shared<MockActions>();
+    auto engine = std::make_shared<MockEngine>(client, actions);
 
     auto notification = std::make_shared<MockNotification>("Printer fail",
                                                            "Some jobs",
