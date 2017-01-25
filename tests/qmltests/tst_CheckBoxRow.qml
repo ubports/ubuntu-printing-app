@@ -53,8 +53,10 @@ Item {
             var checkbox = findChild(checkBoxRow, "checkbox");
             compare(checkBoxRow.checked, dataChecked);
 
+            // Click on the checkbox
             mouseClick(checkbox);
 
+            // Check that the checked state flips
             tryCompare(checkBoxRow, "checked", !dataChecked);
         }
 

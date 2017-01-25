@@ -44,12 +44,14 @@ Item {
             property var supportedPrintQualities: []
         }
         property var printerJob: QtObject {
+            property bool collate: true
             property int colorModel: 0
             property int copies: 1
             property int duplexMode: 0
             property string printRange: ""
             property var printRangeMode: 0  // var as it needs to be enum
             property int quality: 0
+            property bool reverse: false
         }
         property int printerSelectedIndex: 0
     }
@@ -108,8 +110,10 @@ Item {
             mockPrinting.printer.supportedDuplexModes = dataDuplexModes;
             mockPrinting.printer.supportedPrintQualities = dataPrintQualities;
 
+            mockPrinting.printerJob.collate = true;
             mockPrinting.printerJob.copies = 1;
             mockPrinting.printerJob.printRangeMode = PrinterEnum.AllPages;
+            mockPrinting.printerJob.reverse = false;
 
             mockPrinting.printerSelectedIndex = 0;
 
@@ -140,6 +144,35 @@ Item {
             // Check that cancel signal was emitted
             cancelSpy.wait();
             compare(cancelSpy.count, 1);
+        }
+
+        function test_collate() {
+            // Set copies to 2, so collate is enabled
+            mockPrinting.printerJob.copies = 2;
+            tryCompare(mockPrinting.printerJob, "copies", 2);
+
+            // Check starting value of collate is correct
+            var collate = findChild(printPage, "collateCheckBox");
+            compare(collate.enabled, true);
+            compare(collate.checked, true);
+
+            // Click on the checkbox
+            mouseClick(collate);
+
+            // Check that the value of collate has flipped
+            tryCompare(collate, "checked", false, timeout);
+            compare(mockPrinting.printerJob.collate, false);
+        }
+
+        function test_collate_disabled() {
+            // Check collate is disabled when copies is 1
+            var collate = findChild(printPage, "collateCheckBox");
+            compare(mockPrinting.printerJob.copies, 1);
+            compare(collate.enabled, false);
+
+            // Check that is becomes enabled when there are two copies
+            mockPrinting.printerJob.copies = 2;
+            tryCompare(collate, "enabled", true);
         }
 
         function test_colorModel() {
@@ -268,10 +301,11 @@ Item {
         }
 
         function testPdfMode() {
-            var objects = ["copiesTextField", "duplexSelector",
-                           "pageRangeSelector", "pageRangeTextField",
-                           "pageRangeLabel", "colorModelSelector",
-                           "qualitySelector"];
+            var objects = ["collateCheckBox", "copiesTextField",
+                           "duplexSelector", "pageRangeSelector",
+                           "pageRangeTextField", "pageRangeLabel",
+                           "colorModelSelector", "qualitySelector",
+                           "reverseCheckBox"];
             var pageTitle = printPage.title;
 
             // Enable pdf mode
@@ -347,6 +381,19 @@ Item {
             // Check that the selector becomes disabled
             waitForRendering(quality, timeout)
             compare(quality.enabled, false);
+        }
+
+        function test_reverse() {
+            // Check starting value of reverse is correct
+            var reverse = findChild(printPage, "reverseCheckBox");
+            compare(reverse.checked, false);
+
+            // Click on the checkbox
+            mouseClick(reverse);
+
+            // Check that the value of reverse has flipped
+            tryCompare(reverse, "checked", true);
+            compare(mockPrinting.printerJob.reverse, true);
         }
     }
 }

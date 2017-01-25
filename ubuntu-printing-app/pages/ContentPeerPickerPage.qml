@@ -57,7 +57,7 @@ Page {
         function __export(item) {
             picker.curTransfer.items = [item];
 
-            // FIXME: settings state to Charged causes UI freeze for few seconds
+            // FIXME: setting state to Charged can cause UI freeze for few seconds
             picker.curTransfer.state = ContentTransfer.Charged;
         }
 
@@ -121,7 +121,6 @@ Page {
     }
 
     ActivityIndicator {
-        id: test
         anchors {
             centerIn: parent
         }

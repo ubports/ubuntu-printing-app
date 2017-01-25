@@ -115,13 +115,45 @@ Page {
                 }
             }
 
-//                CheckBoxRow {
-////                    checked: printer.collate
-//                    checkboxText: i18n.tr("Collate")
-//                    enabled: printerJob.copies > 1 //&& !printer.pdfMode
+            CheckBoxRow {
+                id: checkboxSelector
+                checkboxText: i18n.tr("Collate")
+                enabled: printing.printerJob.copies > 1 && !printing.pdfMode
+                objectName: "collateCheckBox"
 
-////                    onCheckedChanged: printer.collate = checked
-//                }
+                onCheckedChanged: {
+                    if (printing.printerJob.collate !== checked) {
+                        printing.printerJob.collate = checked
+                    }
+                }
+
+                Binding {
+                    target: checkboxSelector
+                    property: "checked"
+                    when: printing.printerJob
+                    value: printing.printerJob.collate
+                }
+            }
+
+            CheckBoxRow {
+                id: reverseSelector
+                checkboxText: i18n.tr("Reverse")
+                enabled: !printing.pdfMode
+                objectName: "reverseCheckBox"
+
+                onCheckedChanged: {
+                    if (printing.printerJob.reverse !== checked) {
+                        printing.printerJob.reverse = checked
+                    }
+                }
+
+                Binding {
+                    target: reverseSelector
+                    property: "checked"
+                    when: printing.printerJob
+                    value: printing.printerJob.reverse
+                }
+            }
 
             SelectorRow {
                 id: duplexSelector
@@ -263,6 +295,7 @@ Page {
             rightMargin: units.gu(1)
         }
         pdfMode: printing.pdfMode
+        // TODO: should this be (range * copies) / duplex ?
         sheets: document.count
 
         onCancel: page.cancel()
