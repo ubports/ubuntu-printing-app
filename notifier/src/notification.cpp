@@ -33,17 +33,20 @@ public:
         m_body(body),
         m_icon_name(icon_name)
     {
-        m_nn = notify_notification_new(m_summary.c_str(),
-                                       m_body.c_str(),
-                                       m_icon_name.c_str());
+        m_nn.reset(notify_notification_new(m_summary.c_str(),
+                                           m_body.c_str(),
+                                           m_icon_name.c_str()),
+                   [this](NotifyNotification* n) {
+                       g_signal_handlers_disconnect_by_data(n, this);
+                       g_object_unref(n);
+                   });
 
-        g_signal_connect(m_nn, "closed",
+        g_signal_connect(m_nn.get(), "closed",
                          G_CALLBACK(on_notification_closed), this);
     }
 
     ~Impl()
     {
-        g_object_unref(m_nn);
     }
 
     core::Signal<const std::string&>& activated()
@@ -58,7 +61,8 @@ public:
 
     void add_action(const std::string& action, const std::string& label)
     {
-        notify_notification_add_action(m_nn, action.c_str(), label.c_str(),
+        notify_notification_add_action(m_nn.get(),
+                                       action.c_str(), label.c_str(),
                                        on_notify_activated,
                                        nullptr, nullptr);
     }
@@ -71,7 +75,7 @@ public:
         }
 
         GError* error = nullptr;
-        notify_notification_close(m_nn, &error);
+        notify_notification_close(m_nn.get(), &error);
 
         if (error != nullptr) {
             g_critical("Error closing notification: %s", error->message);
@@ -92,7 +96,7 @@ public:
         }
 
         GError* error = nullptr;
-        notify_notification_show(m_nn, &error);
+        notify_notification_show(m_nn.get(), &error);
 
         if (error != nullptr) {
             g_critical("Error showing notification: %s", error->message);
@@ -117,7 +121,7 @@ private:
         self->m_closed();
     }
 
-    NotifyNotification* m_nn = nullptr;
+    std::shared_ptr<NotifyNotification> m_nn;
 
     std::string m_summary;
     std::string m_body;
