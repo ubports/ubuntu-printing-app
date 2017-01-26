@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-printing-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-24 10:48+0000\n"
+"POT-Creation-Date: 2017-01-26 11:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,7 +42,7 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: ubuntu-printing-app/Main.qml:109
+#: ubuntu-printing-app/Main.qml:109 ubuntu-printing-app/Main.qml:110
 msgid "Url of PDF to print"
 msgstr ""
 
@@ -67,49 +67,68 @@ msgid "Open With..."
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:46
+#: ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:46
+#: ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Printer Options"
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:81
+#: ubuntu-printing-app/pages/PrintPage.qml:85
 msgid "Printer"
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:93
+#: ubuntu-printing-app/pages/PrintPage.qml:97
 msgid "Copies"
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:127
+#: ubuntu-printing-app/pages/PrintPage.qml:163
 msgid "Two-sided"
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:146
+#: ubuntu-printing-app/pages/PrintPage.qml:182
 msgid "All"
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:146
+#: ubuntu-printing-app/pages/PrintPage.qml:182
 msgid "Range"
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:150
+#: ubuntu-printing-app/pages/PrintPage.qml:186
 msgid "Pages"
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:192
+#: ubuntu-printing-app/pages/PrintPage.qml:228
 msgid "eg 1-3,8"
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:208
+#: ubuntu-printing-app/pages/PrintPage.qml:244
 msgid "Color"
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:229
+#: ubuntu-printing-app/pages/PrintPage.qml:265
 msgid "Quality"
 msgstr ""
 
 #: po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 msgid "ubuntu-printing-app"
+msgstr ""
+
+#: ubuntu-printing-app/pages/PrintPage.qml:120
+msgid "Collate"
+msgstr ""
+
+#: ubuntu-printing-app/pages/PrintPage.qml:140
+msgid "Reverse"
 msgstr ""
