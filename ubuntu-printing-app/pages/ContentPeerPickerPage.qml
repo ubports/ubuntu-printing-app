@@ -130,7 +130,6 @@ Page {
     Connections {
         target: picker.curTransfer
         onStateChanged: {
-            // TODO: pop when charged or collected?
             if (picker.curTransfer.state === ContentTransfer.Collected) {
                 picker.pageStack.pop();
             }

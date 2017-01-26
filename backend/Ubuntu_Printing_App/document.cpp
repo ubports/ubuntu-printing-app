@@ -195,7 +195,6 @@ Document::Orientation Document::orientation() const
 
         // TODO: page orientation seems to be wrong?
 //        qDebug() << "DOC" << page->orientation() << Portrait << Landscape;
-
 //        if (page->orientation() == Poppler::Page::Landscape) {
 //            return Landscape;
 //        } else if (page->orientation() == Poppler::Page::Portrait) {

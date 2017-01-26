@@ -44,7 +44,9 @@ MainView {
     width: units.gu(45)
     height: units.gu(70)
 
-    Component {  // cannot split due to issue
+    // cannot split into it's own component, as open() is called from onCompleted
+    // which results in PopupUtils.open(): Failed to get the root object.
+    Component {
         id: dialogComponent
         Dialog {
             id: dialog
@@ -78,8 +80,11 @@ MainView {
                 break;
             }
 
+            // Empty the Url so user cannot print
+            url = "";
+
             PopupUtils.open(
-                dialogComponent,  // Qt.resolvedUrl("components/AlertDialog.qml"),  // FIXME: doesn't work when document is set onCompleted of MainView
+                dialogComponent,
                 undefined,
                 {
                     "text": errorString,
@@ -131,10 +136,9 @@ MainView {
         onCancel: Qt.quit()
         onConfirm: {
             if (printing.pdfMode) {
-                // TODO: check if .toLocalFilepath() needs to be called?
                 pageStack.push(Qt.resolvedUrl("pages/ContentPeerPickerPage.qml"), {"url": url});
             } else {
-                printing.printerJob.printFile(url);  // TODO: check document is valid raise error if not?
+                printing.printerJob.printFile(url);
             }
         }
     }

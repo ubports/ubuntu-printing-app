@@ -37,7 +37,7 @@ parts:
      - qtdeclarative5-dev
      - ubuntu-sdk-qmake-extras
      - xvfb
-    configflags: [-DCMAKE_INSTALL_PREFIX=/usr, -DCLICK_MODE=off, -DSNAP_MODE=on]
+    configflags: [-DCMAKE_INSTALL_PREFIX=/usr, -DSNAP_MODE=on]
     plugin: cmake
     source: .
     after: [printer-components, desktop-ubuntu-app-platform]

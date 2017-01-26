@@ -294,9 +294,11 @@ Page {
             right: parent.right
             rightMargin: units.gu(1)
         }
+        objectName: "printRow"
         pdfMode: printing.pdfMode
-        // TODO: should this be (range * copies) / duplex ?
-        sheets: document.count
+        // TODO: This should count the range not all pages
+        // roundUp((pageCount * copies) / duplex)
+        sheets: Math.ceil((document.count * printing.printerJob.copies) / (printing.printerJob.isTwoSided ? 2 : 1))
 
         onCancel: page.cancel()
         onConfirm: page.confirm(document.url)

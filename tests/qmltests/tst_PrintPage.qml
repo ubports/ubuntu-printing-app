@@ -48,6 +48,7 @@ Item {
             property int colorModel: 0
             property int copies: 1
             property int duplexMode: 0
+            property bool isTwoSided: false
             property string printRange: ""
             property var printRangeMode: 0  // var as it needs to be enum
             property int quality: 0
@@ -394,6 +395,43 @@ Item {
             // Check that the value of reverse has flipped
             tryCompare(reverse, "checked", true);
             compare(mockPrinting.printerJob.reverse, true);
+        }
+
+        function test_sheets() {
+            var printRow = findChild(printPage, "printRow");
+            compare(document.count, 1);
+            compare(mockPrinting.printerJob.copies, 1);
+            compare(mockPrinting.printerJob.isTwoSided, false);
+            compare(printRow.sheets, 1);
+
+            // Enable twoSided, we should get 0.5 rounded to 1 sheet
+            mockPrinting.printerJob.isTwoSided = true;
+
+            compare(mockPrinting.printerJob.isTwoSided, true);
+            compare(printRow.sheets, 1);
+
+            // Enable two copies, we should get 2 copies with duplex, so 1 sheet
+            mockPrinting.printerJob.copies = 2;
+
+            compare(mockPrinting.printerJob.copies, 2);
+            compare(printRow.sheets, 1);
+
+            // Disable two sided, so 2 copies and 2 sheets
+            mockPrinting.printerJob.isTwoSided = false;
+
+            compare(mockPrinting.printerJob.isTwoSided, false);
+            compare(printRow.sheets, 2);
+
+            // Change to a multi page document (3 pages, 2 copies so 6 sheets)
+            document.url = Qt.resolvedUrl("../resources/pdf/mixed_portrait.pdf");
+
+            compare(printRow.sheets, 6);
+
+            // Enable two sided, and 1 copy, check we have 3 pages, duplex so 2 sheets
+            mockPrinting.printerJob.copies = 1;
+            mockPrinting.printerJob.isTwoSided = true;
+
+            compare(printRow.sheets, 2);
         }
     }
 }
