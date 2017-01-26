@@ -205,13 +205,15 @@ private:
         num_dests = cupsGetDests(&dests);
         our_dest = cupsGetDest(name.c_str(), nullptr,
                                num_dests, dests);
-        
-        // Get the printer's description
-        auto description = cupsGetOption("printer-info",
-                                         our_dest->num_options,
-                                         our_dest->options);
-        if (description != nullptr) {
-            printer.description = description;
+
+        if (our_dest != nullptr) {
+            // Get the printer's description
+            auto description = cupsGetOption("printer-info",
+                                             our_dest->num_options,
+                                             our_dest->options);
+            if (description != nullptr) {
+                printer.description = description;
+            }
         }
 
         cupsFreeDests(num_dests, dests);
