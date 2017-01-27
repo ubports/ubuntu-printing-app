@@ -22,7 +22,7 @@ import QtQuick.Layouts 1.1
 
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
-import Ubuntu_Printing_App 1.0
+import UbuntuPrintingApp 1.0
 import Ubuntu.Settings.Printers 0.1
 
 import "../components"

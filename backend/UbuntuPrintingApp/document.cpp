@@ -231,9 +231,6 @@ void Document::setUrl(QUrl url)
                     m_document->setRenderHint(Poppler::Document::TextAntialiasing, true);
                     m_document->setRenderHint(Poppler::Document::TextHinting, true);
                     m_document->setRenderHint(Poppler::Document::TextSlightHinting, true);
-//                    m_document->setRenderHint(Poppler::Document::OverprintPreview, true);
-//                    m_document->setRenderHint(Poppler::Document::ThinLineSolid, true);
-//                    m_document->setRenderHint(Poppler::Document::ThinLineShape, true);
 
                     Q_EMIT urlChanged();
 

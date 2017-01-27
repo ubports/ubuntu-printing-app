@@ -24,7 +24,7 @@ import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItems
 import Ubuntu.Components.Popups 1.3
 import Ubuntu.Content 1.1
-import Ubuntu_Printing_App 1.0
+import UbuntuPrintingApp 1.0
 import Ubuntu.Settings.Printers 0.1
 
 import "components"

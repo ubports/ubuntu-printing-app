@@ -23,7 +23,7 @@
 #include <QSignalSpy>
 #include <QTest>
 
-#include "Ubuntu_Printing_App/popplerimageprovider.h"
+#include "UbuntuPrintingApp/popplerimageprovider.h"
 
 class TestPopplerImageProvider : public QObject
 {

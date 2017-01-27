@@ -18,7 +18,7 @@
  * Authored-by: Andrew Hayzen <andrew.hayzen@canonical.com>
  */
 import QtQuick 2.4
-import Ubuntu_Printing_App 1.0
+import UbuntuPrintingApp 1.0
 import Ubuntu.Settings.Printers 0.1
 
 QtObject {
