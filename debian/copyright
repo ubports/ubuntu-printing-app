@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: ubuntu-printing-app
-Source: <url://example.com>
+Source: https://code.launchpad.net/ubuntu-printing-app
 
 Files: *
 Copyright: 2016 Canonical Ltd.

@@ -1,7 +1,7 @@
 Source: ubuntu-printing-app
 Section: misc
 Priority: optional
-Maintainer: Andrew Hayzen <ahayzen@gmail.com>
+Maintainer: Andrew Hayzen <andrew.hayzen@canonical.com>
 Build-Depends: cmake (>= 2.8.9),
                debhelper (>=9),
                dh-apparmor,
