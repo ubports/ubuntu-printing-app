@@ -29,7 +29,8 @@ Rectangle {
         left: parent.left
         right: parent.right
     }
-    color: "#EEE"
+    // Use foreground as this element is ontop of the background
+    color: theme.palette.normal.foreground
     // Height is smallest of
     // - calc'd height using aspect and width of image
     // - 2/3 height of the view
@@ -58,7 +59,9 @@ Rectangle {
             verticalCenter: previewImage.verticalCenter
         }
         enabled: pageHelper.page > 0
-        color: "#000"
+        // Use foregroundText as this is ontop of foreground
+        // and we want the button to be flipped colours
+        color: theme.palette.normal.foregroundText
         objectName: "previousButton"
         text: "<"
         width: units.gu(4)
@@ -100,7 +103,9 @@ Rectangle {
             leftMargin: units.gu(1)
             verticalCenter: previewImage.verticalCenter
         }
-        color: "#000"
+        // Use foregroundText as this is ontop of foreground
+        // and we want the button to be flipped colours
+        color: theme.palette.normal.foregroundText
         enabled: pageHelper.page < document.count - 1
         objectName: "nextButton"
         text: ">"
@@ -116,15 +121,17 @@ Rectangle {
             left: previewImage.left
             right: previewImage.right
         }
-        color: "#000"
+        // Use foregroundText as this is ontop of foreground
+        color: theme.palette.normal.foregroundText
         height: units.gu(4)
-        opacity: 0.8
 
         Label {
             anchors {
                 centerIn: parent
             }
-            color: "#EEE"
+            // Use foreground as this is ontop of foregroundText
+            // and we want this to have flipped colours
+            color: theme.palette.normal.foreground
             elide: Text.ElideRight
             horizontalAlignment: Text.AlignHCenter
             objectName: "overlayLabel"

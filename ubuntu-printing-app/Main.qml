@@ -44,21 +44,6 @@ MainView {
     width: units.gu(45)
     height: units.gu(70)
 
-    // cannot split into it's own component, as open() is called from onCompleted
-    // which results in PopupUtils.open(): Failed to get the root object.
-    Component {
-        id: dialogComponent
-        Dialog {
-            id: dialog
-
-            Button {
-                text: i18n.tr("OK")
-
-                onClicked: PopupUtils.close(dialog)
-            }
-        }
-    }
-
     Document {
         id: document
 
@@ -84,8 +69,8 @@ MainView {
             url = "";
 
             PopupUtils.open(
-                dialogComponent,
-                undefined,
+                Qt.resolvedUrl("components/AlertDialog.qml"),
+                pageStack.currentPage,
                 {
                     "text": errorString,
                     "title": i18n.tr("Error"),
@@ -112,7 +97,7 @@ MainView {
         id: args
         Argument {
             name: "url"
-            help: i18n.tr("Url of PDF to print")
+            help: i18n.tr("URL of PDF to print")
             required: false
             valueNames: ["url"]
         }
@@ -122,10 +107,10 @@ MainView {
         target: ContentHub
 
         onImportRequested: {
-            // FIXME: would this ever get more than one?
-            for (var i=0; i < transfer.items.length; i++) {
-                var item = transfer.items[i];
-                document.url = item.url;
+            // FIXME: Only uses the first item given over content-hub
+            // do we need to support multiple items in the future?
+            if (transfer.items.length > 0) {
+                document.url = transfer.items[0].url;
             }
         }
     }

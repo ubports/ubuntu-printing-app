@@ -229,13 +229,6 @@ Page {
                 visible: pageRangeSelector.selectedValue === PrinterEnum.PageRange
             }
 
-//                SelectorRow {
-//                    enabled: !printer.pdfMode
-//                    model: [1, 2, 4, 6, 9]
-//                    selectedIndex: 0
-//                    text: i18n.tr("Pages per side")
-//                }
-
             SelectorRow {
                 id: colorModelSelector
                 enabled: printing.printer && !printing.pdfMode ? printing.printer.supportedColorModels.length > 1 : false

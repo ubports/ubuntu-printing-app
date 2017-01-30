@@ -62,8 +62,6 @@ RowLayout {
         }
         Layout.fillWidth: true
         Layout.preferredWidth: units.gu(5)
-//        Layout.minimumWidth: units.gu(20)
-//        Layout.maximumWidth: units.gu(40)
         selectedIndex: 0
 
         onExpansionCompleted: rowLayout.expansionCompleted()
