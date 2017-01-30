@@ -42,7 +42,7 @@ COMMAND qmake -query QT_INSTALL_QML
         OUTPUT_VARIABLE QT_IMPORTS_DIR
         OUTPUT_STRIP_TRAILING_WHITESPACE
 )
-set(MODULE_PATH ${QT_IMPORTS_DIR}/Ubuntu_Printing_App)
+set(MODULE_PATH ${QT_IMPORTS_DIR}/UbuntuPrintingApp)
 
 # Set the exec path
 if(SNAP_MODE)
@@ -73,7 +73,7 @@ add_subdirectory(tests)
 
 # Add run command for QtC
 add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/ubuntu-printing-app/Main.qml
-                  DEPENDS Ubuntu_Printing_App Ubuntu_Printing_App_qmldir
+                  DEPENDS UbuntuPrintingApp UbuntuPrintingAppqmldir
                   WORKING_DIRECTORY ./ubuntu-printing-app)
 
 # Show files in QtC

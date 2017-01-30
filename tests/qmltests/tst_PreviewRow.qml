@@ -22,7 +22,7 @@ import QtTest 1.1
 import Ubuntu.Test 1.0
 import "../../ubuntu-printing-app/components"
 
-import Ubuntu_Printing_App 1.0
+import UbuntuPrintingApp 1.0
 import Ubuntu.Settings.Printers 0.1
 
 Item {
