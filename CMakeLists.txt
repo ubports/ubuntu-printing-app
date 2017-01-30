@@ -27,10 +27,10 @@ set(SNAP_DESKTOP_FILE setup/gui/${DESKTOP_FILE})
 option(SNAP_MODE "Build as a snap package" off)
 
 # Find packages
-find_package(Qt5Core)
-find_package(Qt5Qml)
-find_package(Qt5Quick)
-find_package(Qt5PrintSupport)
+find_package(Qt5Core REQUIRED)
+find_package(Qt5Qml REQUIRED)
+find_package(Qt5Quick REQUIRED)
+find_package(Qt5PrintSupport REQUIRED)
 
 include(GNUInstallDirs)
 
@@ -42,14 +42,15 @@ COMMAND qmake -query QT_INSTALL_QML
         OUTPUT_VARIABLE QT_IMPORTS_DIR
         OUTPUT_STRIP_TRAILING_WHITESPACE
 )
-set(ICON ${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${ICON_FILE})
 set(MODULE_PATH ${QT_IMPORTS_DIR}/Ubuntu_Printing_App)
 
 # Set the exec path
 if(SNAP_MODE)
   set(EXEC "APP_ID=${APP_HARDCODE} qmlscene $@ -I $SNAP/${MODULE_PATH} $SNAP/${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${MAIN_QML}")
+  set(ICON "$SNAP/${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${ICON_FILE}")
 else(SNAP_MODE)
   set(EXEC "APP_ID=${APP_HARDCODE} qmlscene $@ -I ${MODULE_PATH} ${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${MAIN_QML}")
+  set(ICON ${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${ICON_FILE})
 endif(SNAP_MODE)
 
 
