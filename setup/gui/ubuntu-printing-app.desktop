@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ubuntu-printing-app
+Exec=ubuntu-printing-app
+Icon=${SNAP}/meta/gui/ubuntu-printing-app.png
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+X-Ubuntu-Touch-Single-Instance=false
