@@ -82,6 +82,7 @@ MainView {
     property PrintingHelper printing: PrintingHelper {
         printerJob {
             landscape: document.orientation === Document.Landscape
+            title: document.title || document.url.toString().split("/").pop()
         }
     }
     property Page printPage: null
