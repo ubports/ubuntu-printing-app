@@ -131,7 +131,7 @@ Page {
         target: picker.curTransfer
         onStateChanged: {
             if (picker.curTransfer.state === ContentTransfer.Collected) {
-                picker.pageStack.pop();
+                Qt.quit();
             }
         }
     }

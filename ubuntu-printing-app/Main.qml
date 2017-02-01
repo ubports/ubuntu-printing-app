@@ -125,6 +125,7 @@ MainView {
                 pageStack.push(Qt.resolvedUrl("pages/ContentPeerPickerPage.qml"), {"url": url});
             } else {
                 printing.printerJob.printFile(url);
+                Qt.quit();
             }
         }
     }
