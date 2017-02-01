@@ -32,6 +32,12 @@ namespace notifier {
 
 class NotifyEngine::Impl
 {
+    struct notification_data
+    {
+        std::shared_ptr<Notification> notification;
+        std::unordered_set<std::shared_ptr<Notification>> notifications;
+    };
+
 public:
     Impl(const std::shared_ptr<Client>& client,
          const std::shared_ptr<Actions>& actions):
@@ -87,13 +93,21 @@ public:
             });
         notification->closed().connect([this, &notification]() {
                 g_debug("Closed notification.");
-                m_notifications.erase(notification);
+                auto data = new notification_data({notification, m_notifications});
+                g_idle_add(on_delete_later, data);
             });
         m_notifications.emplace(notification);
         notification->show();
     }
 
 private:
+    static gboolean on_delete_later(gpointer gdata)
+    {
+        auto data = static_cast<notification_data*>(gdata);
+        data->notifications.erase(data->notification);
+        return G_SOURCE_REMOVE;
+    }
+
     std::shared_ptr<Client> m_client;
     std::shared_ptr<Actions> m_actions;
 
