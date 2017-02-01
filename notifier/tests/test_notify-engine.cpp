@@ -21,7 +21,6 @@
 
 #include <memory>
 
-#include <glib.h>
 #include <gmock/gmock.h>
 
 using namespace ubuntu::printing::notifier;
