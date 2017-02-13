@@ -1,5 +1,6 @@
 set(PAGES_QML_JS_FILES
     ContentPeerPickerPage.qml
+    EmptyPage.qml
     PrintPage.qml
 )
 

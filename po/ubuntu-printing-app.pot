@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-printing-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-30 17:37+0000\n"
+"POT-Creation-Date: 2017-02-13 11:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgstr ""
 msgid "Error"
 msgstr ""
 
-#: ubuntu-printing-app/Main.qml:100
+#: ubuntu-printing-app/Main.qml:101
 msgid "URL of PDF to print"
 msgstr ""
 
@@ -63,6 +63,12 @@ msgstr ""
 
 #: ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
 msgid "Open With..."
+msgstr ""
+
+#: ubuntu-printing-app/pages/EmptyPage.qml:48
+msgid ""
+"No document was chosen for printing. In order to print, you need to select "
+"print from an app. Alternatively you can export a PDF document from an app"
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:47

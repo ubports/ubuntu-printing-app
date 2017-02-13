@@ -112,6 +112,8 @@ MainView {
             // do we need to support multiple items in the future?
             if (transfer.items.length > 0) {
                 document.url = transfer.items[0].url;
+
+                pushPrintPage();
             }
         }
     }
@@ -130,17 +132,32 @@ MainView {
         }
     }
 
-    Component.onCompleted: {
-        printPage = pageStack.push(
-            Qt.resolvedUrl("pages/PrintPage.qml"),
-            {
-                "currentDocument": document,
-                "printing": printing,
+    function pushPrintPage() {
+        // If no print page exists then push one
+        if (!printPage) {
+            // Pop the stack
+            while (pageStack.depth > 0) {
+                pageStack.pop();
             }
-        );
 
+            // Push printing page
+            printPage = pageStack.push(
+                Qt.resolvedUrl("pages/PrintPage.qml"),
+                {
+                    "currentDocument": document,
+                    "printing": printing,
+                }
+            );
+        }
+    }
+
+    Component.onCompleted: {
         if (args.values.url) {
             document.url = Qt.resolvedUrl(args.values.url);
+
+            pushPrintPage();
+        } else {
+            pageStack.push(Qt.resolvedUrl("pages/EmptyPage.qml"));
         }
     }
 }
