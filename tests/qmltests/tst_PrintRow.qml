@@ -52,11 +52,23 @@ Item {
 
 
         function init() {
+            printRow.canPrint = true;
             printRow.pdfMode = false;
             printRow.sheets = 0;
 
             cancelSignal.clear();
             confirmSignal.clear();
+        }
+
+        function test_canPrint() {
+            var button = findChild(printRow, "confirm");
+            compare(button.enabled, true);
+
+            // Set canPrint to false, as the printer is loading
+            printRow.canPrint = false;
+
+            // Check that the button becomes disabled
+            compare(button.enabled, false);
         }
 
         function test_clickCancel() {

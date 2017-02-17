@@ -33,6 +33,9 @@ Item {
     QtObject {
         id: mockPrinting
 
+        property bool __isEditable: true
+        readonly property bool isEditable: isLoaded && !pdfMode && __isEditable
+        property bool isLoaded: true
         property ListModel model: ListModel {
 
         }
@@ -105,6 +108,8 @@ Item {
                 mockPrinting.model.append(dataPrinters[i]);
             }
 
+            mockPrinting.__isEditable = true;
+            mockPrinting.isLoaded = true;
             mockPrinting.pdfMode = false;
 
             mockPrinting.printer.supportedColorModels = dataColorModels;
@@ -301,25 +306,90 @@ Item {
             compare(duplex.enabled, false);
         }
 
-        function testPdfMode() {
+        function test_isEditable() {
+            var i;
+            var objects = ["duplexSelector", "colorModelSelector",
+                           "qualitySelector"];
+
+            // Load a multi-page doc so we can test duplex selector
+            document.url = Qt.resolvedUrl("../resources/pdf/mixed_portrait.pdf");
+
+            // Disable editing
+            mockPrinting.__isEditable = false;
+
+            // Check that all the selectors become disabled
+            for (i=0; i < objects.length; i++) {
+                compare(findChild(printPage, objects[i]).enabled, false);
+            }
+
+            // Enable editing
+            mockPrinting.__isEditable = true;
+
+            // Check that all the selectors become enabled
+            for (i=0; i < objects.length; i++) {
+                compare(findChild(printPage, objects[i]).enabled, true);
+            }
+        }
+
+        function test_isLoading() {
+            var i;
+            var indicator = findChild(printPage, "printerLoadingIndicator");
             var objects = ["collateCheckBox", "copiesTextField",
                            "duplexSelector", "pageRangeSelector",
                            "pageRangeTextField", "pageRangeLabel",
                            "colorModelSelector", "qualitySelector",
                            "reverseCheckBox"];
-            var pageTitle = printPage.title;
+
+            // Load a multi-page doc so we can test duplex selector
+            document.url = Qt.resolvedUrl("../resources/pdf/mixed_portrait.pdf");
+
+            // Set multiple copies to allow for testing collate selector
+            mockPrinting.printerJob.copies = 2;
+
+            // Enabling loading of printer
+            mockPrinting.isLoaded = false;
+
+            // Check that the loading indicator is visible
+            compare(indicator.running, true);
+            compare(indicator.visible, true);
+
+            // Check that all the selectors become disabled
+            for (i=0; i < objects.length; i++) {
+                compare(findChild(printPage, objects[i]).enabled, false);
+            }
+
+            // Finish loading of printer
+            mockPrinting.isLoaded = true;
+
+            // Check that the loading indicator is invisible
+            compare(indicator.running, false);
+            compare(indicator.visible, false);
+
+            // Check that all the selectors become enabled
+            for (i=0; i < objects.length; i++) {
+                compare(findChild(printPage, objects[i]).enabled, true);
+            }
+        }
+
+        function test_pdfMode() {
+            var objects = ["collateCheckBox", "copiesTextField",
+                           "duplexSelector", "pageRangeSelector",
+                           "pageRangeTextField", "pageRangeLabel",
+                           "colorModelSelector", "qualitySelector",
+                           "reverseCheckBox"];
+            var pageTitle = printPage.header.title;
 
             // Enable pdf mode
             mockPrinting.pdfMode = true;
             waitForRendering(printPage, timeout);
 
             // Check that all the selectors become disabled
-            for (var obj in objects) {
-                compare(findChild(printPage, obj).enabled, false);
+            for (var i=0; i < objects.length; i++) {
+                compare(findChild(printPage, objects[i]).enabled, false);
             }
 
             // Check that the page title changes
-            verify(pageTitle !== printPage.title, "Page title did not change");
+            verify(pageTitle !== printPage.header.title, "Page title did not change");
         }
 
         function test_printers() {

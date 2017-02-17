@@ -18,23 +18,39 @@
  * Authored-by: Andrew Hayzen <andrew.hayzen@canonical.com>
  */
 import QtQuick 2.4
+import QtQml 2.2
 import UbuntuPrintingApp 1.0
 import Ubuntu.Settings.Printers 0.1
 
-QtObject {
-    readonly property var model: Printers.allPrintersWithPdf
-    readonly property bool pdfMode: printer ? printer.isPdf : true
+Item {
+    readonly property bool isEditable: isLoaded && !pdfMode && !printer.isRaw
+    readonly property bool isLoaded: printer && printer.isLoaded
+    readonly property alias model: instantiator.model
+    readonly property bool pdfMode: isLoaded && printer.isPdf
     readonly property var printer: {
-        if (Printers.allPrintersWithPdf.count > 0
+        if (model.count > 0
                 && 0 <= printerSelectedIndex
-                && printerSelectedIndex < Printers.allPrintersWithPdf.count) {
-            Printers.allPrintersWithPdf.get(printerSelectedIndex)
+                && printerSelectedIndex < model.count) {
+            instantiator.objectAt(printerSelectedIndex).printer
         } else {
             null
         }
     }
-    readonly property PrinterJob printerJob: PrinterJob {
-        printerName: printer ? printer.name : ""
-    }
+    property var printerJob: Printers.createJob("")
     property int printerSelectedIndex: -1
+
+    Instantiator {
+        id: instantiator
+        model: Printers.allPrintersWithPdf
+        delegate: Item {
+            property var printer: model
+        }
+    }
+
+    Binding {
+        property: "printer"
+        target: printerJob
+        when: printer && isLoaded
+        value: printer.printer
+    }
 }

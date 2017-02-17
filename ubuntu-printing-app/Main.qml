@@ -80,9 +80,9 @@ MainView {
     }
 
     property PrintingHelper printing: PrintingHelper {
-        printerJob {
-            landscape: document.orientation === Document.Landscape
-            title: document.title || document.url.toString().split("/").pop()
+        Component.onCompleted: {
+            printerJob.landscape = Qt.binding(function() { return document.orientation === Document.Landscape; });
+            printerJob.title = Qt.binding(function() { return document.title || document.url.toString().split("/").pop(); });
         }
     }
     property Page printPage: null
