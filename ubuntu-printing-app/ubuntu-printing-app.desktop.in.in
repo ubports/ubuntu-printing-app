@@ -1,5 +1,5 @@
 [Desktop Entry]
-_Name=ubuntu-printing-app
+_Name=Print
 Exec=@RUNNER@
 Icon=@ICON@
 Terminal=false
