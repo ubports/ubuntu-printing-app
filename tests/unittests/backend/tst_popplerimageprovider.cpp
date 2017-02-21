@@ -80,7 +80,10 @@ private Q_SLOTS:
         QCOMPARE(result.isNull(), false);
         QCOMPARE(result.size(), requestedSize);
         QCOMPARE(*size, requestedSize);
-        QCOMPARE(result.isGrayscale(), true);
+        // Use allGray() as the image container is color,
+        // but the content is only gray
+        // otherwise this fails on power-based cpu's
+        QCOMPARE(result.allGray(), true);
     }
 
     void testRequestImageInvalidColor()
