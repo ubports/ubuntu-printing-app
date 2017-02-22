@@ -20,7 +20,7 @@
 import QtQuick 2.4
 import QtQml 2.2
 import UbuntuPrintingApp 1.0
-import Ubuntu.Settings.Printers 0.1
+import Ubuntu.Components.Extras.Printers 0.1
 
 Item {
     readonly property bool isEditable: isLoaded && !pdfMode && !printer.isRaw
@@ -51,6 +51,6 @@ Item {
         property: "printer"
         target: printerJob
         when: printer && isLoaded
-        value: printer.printer
+        value: printer ? printer.printer : null
     }
 }
