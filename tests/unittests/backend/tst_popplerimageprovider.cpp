@@ -71,7 +71,13 @@ private Q_SLOTS:
     void testRequestImageMultiPage()
     {
         // TODO: is there a way we can confirm that the image is showing the 2nd page?
-        QString id = "1/true/" + getResourceUrl("mixed_portrait.pdf").toString();
+
+        // Request a grayscale image otherwise power-based CPU's give a value
+        // of isGrayscale() as false (intel-based give true) even though the pdf
+        // has no colour in it.
+        // Note there is a tests that colour and grayscale work above
+        // testRequestImage() and testRequestImageGrayscale()
+        QString id = "1/false/" + getResourceUrl("mixed_portrait.pdf").toString();
         QSize *size = new QSize();
         QSize requestedSize(250, 250);
 
@@ -80,10 +86,7 @@ private Q_SLOTS:
         QCOMPARE(result.isNull(), false);
         QCOMPARE(result.size(), requestedSize);
         QCOMPARE(*size, requestedSize);
-        // Use allGray() as the image container is color,
-        // but the content is only gray
-        // otherwise this fails on power-based cpu's
-        QCOMPARE(result.allGray(), true);
+        QCOMPARE(result.isGrayscale(), true);
     }
 
     void testRequestImageInvalidColor()
