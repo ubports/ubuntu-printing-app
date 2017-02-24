@@ -27,15 +27,10 @@ Item {
     readonly property bool isLoaded: printer && printer.isLoaded
     readonly property alias model: instantiator.model
     readonly property bool pdfMode: isLoaded && printer.isPdf
-    readonly property var printer: {
-        if (model.count > 0
-                && 0 <= printerSelectedIndex
-                && printerSelectedIndex < model.count) {
-            instantiator.objectAt(printerSelectedIndex).printer
-        } else {
-            null
-        }
-    }
+
+    // This is the current printer and is preloaded
+    readonly property var printer: instantiator.printer.isLoaded ? instantiator.printer : null
+
     property var printerJob: Printers.createJob("")
     property int printerSelectedIndex: -1
 
@@ -43,8 +38,32 @@ Item {
         id: instantiator
         model: Printers.allPrintersWithPdf
         delegate: Item {
-            property var printer: model
+            readonly property var printer: model
         }
+
+        // Extract the printer from the Instantiator so we can use it
+        // this printer may not be loaded yet
+        readonly property var printer: {
+            if (model.count > 0
+                    && 0 <= printerSelectedIndex
+                    && printerSelectedIndex < model.count) {
+                instantiator.objectAt(printerSelectedIndex).printer
+            } else {
+                null
+            }
+        }
+
+        // The information about the Printer is lazy loaded, this requests
+        // the loading of a Printer's information
+        function loadPrinter() {
+            if (printer) {
+                Printers.loadPrinter(printer.name)
+            }
+        }
+
+        onPrinterChanged: loadPrinter()
+
+        Component.onCompleted: loadPrinter()
     }
 
     Binding {
