@@ -29,7 +29,7 @@ Item {
     readonly property bool pdfMode: isLoaded && printer.isPdf
 
     // This is the current printer and is preloaded
-    readonly property var printer: instantiator.printer.isLoaded ? instantiator.printer : null
+    readonly property var printer: instantiator.printer && instantiator.printer.isLoaded ? instantiator.printer : null
 
     property var printerJob: Printers.createJob("")
     property int printerSelectedIndex: -1
