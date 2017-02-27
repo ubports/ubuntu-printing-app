@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-printing-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-22 13:43+0000\n"
+"POT-Creation-Date: 2017-02-27 15:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,23 +45,19 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ubuntu-printing-app/components/PrintRow.qml:56
 #: ubuntu-printing-app/components/PrintRow.qml:57
 msgid "Cancel"
 msgstr ""
 
-#: ubuntu-printing-app/components/PrintRow.qml:69
 #: ubuntu-printing-app/components/PrintRow.qml:71
 msgid "Create PDF"
 msgstr ""
 
-#: ubuntu-printing-app/components/PrintRow.qml:69
 #: ubuntu-printing-app/components/PrintRow.qml:71
 #: po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 msgid "Print"
 msgstr ""
 
-#: ubuntu-printing-app/components/PrintRow.qml:69
 #: ubuntu-printing-app/components/PrintRow.qml:71
 msgid "Sheets"
 msgstr ""
@@ -73,7 +69,7 @@ msgstr ""
 #: ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
 "No document was chosen for printing. In order to print, you need to select "
-"print from an app. Alternatively you can export a PDF document from an app"
+"print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:47
@@ -88,66 +84,42 @@ msgstr ""
 msgid "Printer"
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:97
-#: ubuntu-printing-app/pages/PrintPage.qml:105
 #: ubuntu-printing-app/pages/PrintPage.qml:106
 msgid "Copies"
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:120
-#: ubuntu-printing-app/pages/PrintPage.qml:128
 #: ubuntu-printing-app/pages/PrintPage.qml:129
 msgid "Collate"
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:140
-#: ubuntu-printing-app/pages/PrintPage.qml:148
 #: ubuntu-printing-app/pages/PrintPage.qml:149
 msgid "Reverse"
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:163
-#: ubuntu-printing-app/pages/PrintPage.qml:224
-#: ubuntu-printing-app/pages/PrintPage.qml:225
-msgid "Two-sided"
-msgstr ""
-
-#: ubuntu-printing-app/pages/PrintPage.qml:182
-#: ubuntu-printing-app/pages/PrintPage.qml:169
 #: ubuntu-printing-app/pages/PrintPage.qml:170
 msgid "All"
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:182
-#: ubuntu-printing-app/pages/PrintPage.qml:169
 #: ubuntu-printing-app/pages/PrintPage.qml:170
 msgid "Range"
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:186
-#: ubuntu-printing-app/pages/PrintPage.qml:173
 #: ubuntu-printing-app/pages/PrintPage.qml:174
 msgid "Pages"
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:228
-#: ubuntu-printing-app/pages/PrintPage.qml:215
 #: ubuntu-printing-app/pages/PrintPage.qml:216
 msgid "eg 1-3,8"
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:237
-#: ubuntu-printing-app/pages/PrintPage.qml:245
+#: ubuntu-printing-app/pages/PrintPage.qml:225
+msgid "Two-sided"
+msgstr ""
+
 #: ubuntu-printing-app/pages/PrintPage.qml:246
 msgid "Color"
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:258
-#: ubuntu-printing-app/pages/PrintPage.qml:266
 #: ubuntu-printing-app/pages/PrintPage.qml:267
 msgid "Quality"
-msgstr ""
-
-#: po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
-msgid "ubuntu-printing-app"
 msgstr ""

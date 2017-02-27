@@ -45,7 +45,7 @@ Page {
             centerIn: parent
         }
         horizontalAlignment: Text.AlignHCenter
-        text: i18n.tr("No document was chosen for printing. In order to print, you need to select print from an app. Alternatively you can export a PDF document from an app")
+        text: i18n.tr("No document was chosen for printing. In order to print, you need to select print from an app. Alternatively you can export a PDF document from an app.")
         width: parent.width - units.gu(1)
         wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }
