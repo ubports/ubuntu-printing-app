@@ -47,9 +47,20 @@ MainView {
     Document {
         id: document
 
-        onError: {
-            var errorString;
+        property Dialog dialog: null
+        property string errorString: ""
 
+        // Dialog's in the SDK require a window to exist so it can detect the
+        // currently focused item, this bool tells us when it is ready
+        readonly property bool windowExists: typeof window !== "undefined" && window
+
+        onWindowExistsChanged: {
+            if (windowExists) {
+                showErrorDialog();
+            }
+        }
+
+        onError: {
             switch (errorType) {
             case Document.ErrorDocumentInvalid:
                 errorString = i18n.tr("Document is invalid");
@@ -68,14 +79,25 @@ MainView {
             // Empty the Url so user cannot print
             url = "";
 
-            PopupUtils.open(
-                Qt.resolvedUrl("components/AlertDialog.qml"),
-                pageStack.currentPage,
-                {
-                    "text": errorString,
-                    "title": i18n.tr("Error"),
-                }
-            )
+            // Try to show the error dialog
+            showErrorDialog();
+        }
+
+        function showErrorDialog() {
+            // Check that the window is ready
+            // Check that there is an error message to show
+            // Check that there is no existing dialog (so we don't spam)
+            if (windowExists && errorString !== "" && dialog === null) {
+                // Once the dialog has been closed it goes back to null
+                dialog = PopupUtils.open(
+                    Qt.resolvedUrl("components/AlertDialog.qml"),
+                    pageStack.currentPage,
+                    {
+                        "text": errorString,
+                        "title": i18n.tr("Error"),
+                    }
+                );
+            }
         }
     }
 
