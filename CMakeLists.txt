@@ -18,7 +18,7 @@ set(APP_HARDCODE ubuntu-printing-app)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")  # -fno-permissive -pedantic -Wall -Wextra")
 set(DESKTOP_FILE "${APP_NAME}.desktop")
-set(ICON_FILE ubuntu-printing-app.png)
+set(ICON_FILE ubuntu-printing-app.svg)
 set(MAIN_QML Main.qml)
 set(RUNNER ${APP_HARDCODE})
 set(SNAP_DESKTOP_FILE setup/gui/${DESKTOP_FILE})
@@ -38,7 +38,7 @@ include(GNUInstallDirs)
 # Set the path for the QML files and the backend
 set(UBUNTU_PRINTING_APP_DATA_DIR "${CMAKE_INSTALL_DATADIR}/${APP_HARDCODE}")
 execute_process(
-COMMAND qmake -qt5 -query QT_INSTALL_QML
+COMMAND qmake -qt=qt5 -query QT_INSTALL_QML
         OUTPUT_VARIABLE QT_IMPORTS_DIR
         OUTPUT_STRIP_TRAILING_WHITESPACE
 )

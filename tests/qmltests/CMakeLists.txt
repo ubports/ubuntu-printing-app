@@ -16,7 +16,7 @@ if(NOT QMLTESTRUNNER)
 endif()
 
 set(TEST tst_QmlTests)
-add_test(${TEST} ${XVFB_COMMAND} ${QMLTESTRUNNER}
+add_test(${TEST} ${XVFB_COMMAND} ${QMLTESTRUNNER} -qt=qt5
          -input ${CMAKE_CURRENT_SOURCE_DIR}
          -import ${CMAKE_BINARY_DIR}/backend)
 

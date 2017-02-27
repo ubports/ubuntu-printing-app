@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=ubuntu-printing-app
 Exec=ubuntu-printing-app
-Icon=${SNAP}/meta/gui/ubuntu-printing-app.png
+Icon=${SNAP}/meta/gui/ubuntu-printing-app.svg
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
