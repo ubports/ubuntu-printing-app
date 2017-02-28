@@ -88,6 +88,8 @@ MainView {
             // Check that there is an error message to show
             // Check that there is no existing dialog (so we don't spam)
             if (windowExists && errorString !== "" && dialog === null) {
+                pushEmptyPage();
+
                 // Once the dialog has been closed it goes back to null
                 dialog = PopupUtils.open(
                     Qt.resolvedUrl("components/AlertDialog.qml"),
@@ -107,6 +109,7 @@ MainView {
             printerJob.title = Qt.binding(function() { return document.title || document.url.toString().split("/").pop(); });
         }
     }
+    property Page emptyPage: null
     property Page printPage: null
 
     PageStack {
@@ -154,6 +157,23 @@ MainView {
         }
     }
 
+    function pushEmptyPage() {
+        // If no empty page exists then push one
+        if (!emptyPage) {
+            // Pop the stack
+            while (pageStack.depth > 0) {
+                pageStack.pop();
+            }
+
+            printPage = null;
+
+            // Push empty page
+            emptyPage = pageStack.push(
+                Qt.resolvedUrl("pages/EmptyPage.qml"), {}
+            );
+        }
+    }
+
     function pushPrintPage() {
         // If no print page exists then push one
         if (!printPage) {
@@ -161,6 +181,8 @@ MainView {
             while (pageStack.depth > 0) {
                 pageStack.pop();
             }
+
+            emptyPage = null;
 
             // Push printing page
             printPage = pageStack.push(
@@ -179,7 +201,7 @@ MainView {
 
             pushPrintPage();
         } else {
-            pageStack.push(Qt.resolvedUrl("pages/EmptyPage.qml"));
+            pushEmptyPage();
         }
     }
 }
