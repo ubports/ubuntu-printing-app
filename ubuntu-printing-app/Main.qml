@@ -91,7 +91,7 @@ MainView {
                 // Once the dialog has been closed it goes back to null
                 dialog = PopupUtils.open(
                     Qt.resolvedUrl("components/AlertDialog.qml"),
-                    pageStack.currentPage,
+                    null,
                     {
                         "text": errorString,
                         "title": i18n.tr("Error"),
