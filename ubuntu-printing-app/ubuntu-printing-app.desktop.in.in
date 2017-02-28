@@ -2,6 +2,7 @@
 _Name=Print
 Exec=@RUNNER@
 Icon=@ICON@
+_Keywords=Print;Printing;
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true

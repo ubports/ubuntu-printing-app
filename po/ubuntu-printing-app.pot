@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-printing-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-27 15:28+0000\n"
+"POT-Creation-Date: 2017-02-28 15:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ubuntu-printing-app/Main.qml:55
+#: ubuntu-printing-app/Main.qml:66
 msgid "Document is invalid"
 msgstr ""
 
-#: ubuntu-printing-app/Main.qml:58
+#: ubuntu-printing-app/Main.qml:69
 msgid "Document not found"
 msgstr ""
 
-#: ubuntu-printing-app/Main.qml:61
+#: ubuntu-printing-app/Main.qml:72
 msgid "Not a PDF document"
 msgstr ""
 
-#: ubuntu-printing-app/Main.qml:64
+#: ubuntu-printing-app/Main.qml:75
 msgid "An unknown error occurred"
 msgstr ""
 
-#: ubuntu-printing-app/Main.qml:76
+#: ubuntu-printing-app/Main.qml:99
 msgid "Error"
 msgstr ""
 
-#: ubuntu-printing-app/Main.qml:101
+#: ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
 msgstr ""
 
@@ -122,4 +122,8 @@ msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:267
 msgid "Quality"
+msgstr ""
+
+#: po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
+msgid "Print;Printing;"
 msgstr ""
