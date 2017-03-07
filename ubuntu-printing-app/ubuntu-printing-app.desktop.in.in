@@ -3,6 +3,7 @@ _Name=Print
 Exec=@RUNNER@
 Icon=@ICON@
 _Keywords=Print;Printing;
+OnlyShowIn=GNOME
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true

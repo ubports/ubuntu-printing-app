@@ -23,7 +23,7 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItems
 import Ubuntu.Components.Popups 1.3
-import Ubuntu.Content 1.1
+import Ubuntu.Content 1.3
 import UbuntuPrintingApp 1.0
 import Ubuntu.Components.Extras.Printers 0.1
 

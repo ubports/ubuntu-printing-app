@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Canonical Ltd.
+ * Copyright 2016, 2017 Canonical Ltd.
  *
  * This file is part of ubuntu-printing-app.
  *
@@ -45,9 +45,12 @@ Item {
     RowLayout {
         id: rowLayout
         anchors {
-            fill: parent
+            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
+            top: parent.top
         }
         spacing: units.gu(1)
+        width: Math.min(units.gu(60), parent.width)
 
         Button {
             objectName: "cancel"

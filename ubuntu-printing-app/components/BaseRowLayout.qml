@@ -1,5 +1,5 @@
 /*
- * Copyright 2016, 2017 Canonical Ltd.
+ * Copyright 2017 Canonical Ltd.
  *
  * This file is part of ubuntu-printing-app.
  *
@@ -20,25 +20,9 @@
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
 
-import Ubuntu.Components 1.3
-
-BaseRowLayout {
-    property alias enabled: secondaryLabel.enabled
-    property alias primaryText: primaryLabel.text
-    property alias secondaryText: secondaryLabel.text
-
-    Label {
-        id: primaryLabel
-        Layout.preferredWidth: units.gu(10)
-        objectName: "primary"
+RowLayout {
+    anchors {
+        horizontalCenter: parent.horizontalCenter
     }
-
-    Label {
-        id: secondaryLabel
-        Layout.fillWidth: true
-        Layout.preferredHeight: units.gu(3)
-        Layout.preferredWidth: units.gu(10)
-        objectName: "secondary"
-        verticalAlignment: Text.AlignVCenter
-    }
+    Layout.maximumWidth: Math.min(units.gu(60), parent.width - units.gu(4))
 }
