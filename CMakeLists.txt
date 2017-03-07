@@ -37,12 +37,7 @@ include(GNUInstallDirs)
 
 # Set the path for the QML files and the backend
 set(UBUNTU_PRINTING_APP_DATA_DIR "${CMAKE_INSTALL_DATADIR}/${APP_HARDCODE}")
-execute_process(
-COMMAND qmake -qt=qt5 -query QT_INSTALL_QML
-        OUTPUT_VARIABLE QT_IMPORTS_DIR
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-)
-set(MODULE_PATH ${QT_IMPORTS_DIR}/UbuntuPrintingApp)
+set(MODULE_PATH ${CMAKE_INSTALL_PREFIX}/lib/${CMAKE_LIBRARY_ARCHITECTURE}/${APP_HARDCORE}/UbuntuPrintingApp)
 
 # Set the exec path
 if(SNAP_MODE)
