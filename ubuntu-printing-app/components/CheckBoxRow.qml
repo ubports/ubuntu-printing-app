@@ -21,49 +21,56 @@ import QtQuick 2.4
 import QtQuick.Layouts 1.1
 
 import Ubuntu.Components 1.3
-import Ubuntu.Components.ListItems 1.3 as ListItems
 
 RowLayout {
-    id: rowLayout
     anchors {
         left: parent.left
         leftMargin: units.gu(2)
         right: parent.right
         rightMargin: units.gu(2)
     }
-
-    implicitHeight: selector.implicitHeight
     Layout.maximumWidth: width
 
-    property alias delegate: selector.delegate
-    property alias model: selector.model
-    property var modelValue: model
-    property alias selectedIndex: selector.selectedIndex
+    property alias checked: checkbox.checked
+    property alias checkboxText: checkboxLabel.text
+    property alias enabled: checkbox.enabled
     property alias text: label.text
-
-    readonly property var selectedValue: modelValue[selectedIndex]
-
-    signal expansionCompleted()  // for qmltests
 
     Label {
         id: label
-        elide: Text.ElideRight
         Layout.preferredWidth: units.gu(10)
         objectName: "label"
-        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }
 
-    ListItems.ItemSelector {
-        id: selector
-        containerHeight: itemHeight * 4
-        delegate: OptionSelectorDelegate {
-            objectName: "option" + index
-            text: modelData
-        }
+    MouseArea {
+        enabled: checkbox.enabled
         Layout.fillWidth: true
-        Layout.preferredWidth: units.gu(5)
-        selectedIndex: 0
+        Layout.preferredHeight: units.gu(3)
+        Layout.preferredWidth: units.gu(10)
 
-        onExpansionCompleted: rowLayout.expansionCompleted()
+        onClicked: checkbox.checked = !checkbox.checked
+
+        Row {
+            anchors {
+                fill: parent
+            }
+            spacing: units.gu(1)
+
+            CheckBox {
+                id: checkbox
+                anchors {
+                    verticalCenter: parent.verticalCenter
+                }
+                objectName: "checkbox"
+            }
+
+            Label {
+                id: checkboxLabel
+                enabled: checkbox.enabled
+                height: parent.height
+                objectName: "checkboxLabel"
+                verticalAlignment: Text.AlignVCenter
+            }
+        }
     }
 }
