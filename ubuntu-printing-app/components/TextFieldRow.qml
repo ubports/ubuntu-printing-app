@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Canonical Ltd.
+ * Copyright 2016, 2017 Canonical Ltd.
  *
  * This file is part of ubuntu-printing-app.
  *
@@ -22,15 +22,7 @@ import QtQuick.Layouts 1.1
 
 import Ubuntu.Components 1.3
 
-RowLayout {
-    anchors {
-        left: parent.left
-        leftMargin: units.gu(2)
-        right: parent.right
-        rightMargin: units.gu(2)
-    }
-    Layout.maximumWidth: width
-
+BaseRowLayout {
     property alias acceptableInput: textField.acceptableInput
     property alias enabled: textField.enabled
     property alias inputMethodHints: textField.inputMethodHints

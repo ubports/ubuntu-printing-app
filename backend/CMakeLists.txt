@@ -30,5 +30,5 @@ add_custom_target(UbuntuPrintingApp_qmldir ALL
   DEPENDS ${QMLFILES})
 
 # Install the plugin file
-install(TARGETS ${LIBNAME} DESTINATION ${MODULE_PATH})
-install(FILES UbuntuPrintingApp/qmldir DESTINATION ${MODULE_PATH})
+install(TARGETS ${LIBNAME} DESTINATION ${MODULE_PATH}/UbuntuPrintingApp)
+install(FILES UbuntuPrintingApp/qmldir DESTINATION ${MODULE_PATH}/UbuntuPrintingApp)

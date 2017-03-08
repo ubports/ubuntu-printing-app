@@ -27,7 +27,8 @@ import Ubuntu.Components.Extras.Printers 0.1
 
 Item {
     width: units.gu(100)
-    height: units.gu(75)
+    // use a large height so all options are visible to click
+    height: units.gu(150)
 
     // Mock the PrintingHelper
     QtObject {

@@ -69,6 +69,7 @@ Page {
 
             PreviewRow {
                 document: currentDocument
+                monitorMouseArea: globalMouseArea
                 Layout.fillHeight: true
                 printerJob: printing.printerJob
                 view: scrollView
@@ -121,46 +122,6 @@ Page {
                     property: "value"
                     when: printing.printerJob && copiesSelector.enabled
                     value: printing.printerJob.copies
-                }
-            }
-
-            CheckBoxRow {
-                id: checkboxSelector
-                checkboxText: i18n.tr("Collate")
-                enabled: printing.printerJob.copies > 1 && printing.isLoaded && !printing.pdfMode
-                objectName: "collateCheckBox"
-
-                onCheckedChanged: {
-                    if (printing.printerJob.collate !== checked) {
-                        printing.printerJob.collate = checked
-                    }
-                }
-
-                Binding {
-                    target: checkboxSelector
-                    property: "checked"
-                    when: printing.printerJob
-                    value: printing.printerJob.collate
-                }
-            }
-
-            CheckBoxRow {
-                id: reverseSelector
-                checkboxText: i18n.tr("Reverse")
-                enabled: printing.isLoaded && !printing.pdfMode
-                objectName: "reverseCheckBox"
-
-                onCheckedChanged: {
-                    if (printing.printerJob.reverse !== checked) {
-                        printing.printerJob.reverse = checked
-                    }
-                }
-
-                Binding {
-                    target: reverseSelector
-                    property: "checked"
-                    when: printing.printerJob
-                    value: printing.printerJob.reverse
                 }
             }
 
@@ -280,6 +241,46 @@ Page {
                 }
             }
 
+            CheckBoxRow {
+                id: checkboxSelector
+                checkboxText: i18n.tr("Collate")
+                enabled: printing.printerJob.copies > 1 && printing.isLoaded && !printing.pdfMode
+                objectName: "collateCheckBox"
+
+                onCheckedChanged: {
+                    if (printing.printerJob.collate !== checked) {
+                        printing.printerJob.collate = checked
+                    }
+                }
+
+                Binding {
+                    target: checkboxSelector
+                    property: "checked"
+                    when: printing.printerJob
+                    value: printing.printerJob.collate
+                }
+            }
+
+            CheckBoxRow {
+                id: reverseSelector
+                checkboxText: i18n.tr("Reverse")
+                enabled: printing.isLoaded && !printing.pdfMode
+                objectName: "reverseCheckBox"
+
+                onCheckedChanged: {
+                    if (printing.printerJob.reverse !== checked) {
+                        printing.printerJob.reverse = checked
+                    }
+                }
+
+                Binding {
+                    target: reverseSelector
+                    property: "checked"
+                    when: printing.printerJob
+                    value: printing.printerJob.reverse
+                }
+            }
+
             Item {
                 height: units.gu(2)
                 width: parent.width
@@ -305,5 +306,16 @@ Page {
 
         onCancel: page.cancel()
         onConfirm: page.confirm(document.url)
+    }
+
+    // ScrollView has a MouseArea which doesn't propagate hover events
+    // so this is used to monitor for these events
+    MouseArea {
+        id: globalMouseArea
+        anchors {
+            fill: parent
+        }
+        acceptedButtons: Qt.NoButton
+        hoverEnabled: true
     }
 }

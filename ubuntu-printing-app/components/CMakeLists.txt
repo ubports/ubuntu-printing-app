@@ -1,5 +1,6 @@
 set(COMPONENT_QML_JS_FILES
     AlertDialog.qml
+    BaseRowLayout.qml
     CheckBoxRow.qml
     LabelRow.qml
     PreviewRow.qml
