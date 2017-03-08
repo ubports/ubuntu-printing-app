@@ -38,11 +38,11 @@ Rectangle {
 
     // Calculated height is smallest of
     // - calc'd height using aspect and width of image
-    // - 1/3 height of the view
-    readonly property double calcHeight: Math.min((view.width - units.gu(10)) / pageHelper.aspect, view.height / 3.0)
+    // - 40% height of the view
+    readonly property double calcHeight: Math.min((view.width - units.gu(10)) / pageHelper.aspect, view.height * 0.4)
 
     property Document document
-    property double minimumHeight: units.gu(1)
+    property double minimumHeight: units.gu(15)
     // This is the MouseArea that the separator uses to monitor when to change
     // the cursorShape
     property MouseArea monitorMouseArea: null

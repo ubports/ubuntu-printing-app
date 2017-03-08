@@ -318,20 +318,20 @@ Item {
             // test that the implicitHeight is set from the view height
             var pageHelper = previewRow.pageHelper;
 
-            // min((WIDTH - 10) / ASPECT, HEIGHT / 3)
+            // min((WIDTH - 10) / ASPECT, HEIGHT * 0.4)
 
             // height/width of 100GU, aspect is 0.71
-            // min((100 - 10) / 0.71, 100 / 3)
-            // min(126.76, 33.33)
-            fuzzyCompare(previewRow.implicitHeight, units.gu(33.33), units.gu(1));
+            // min((100 - 10) / 0.71, 100 * 0.4)
+            // min(126.76, 40.00)
+            fuzzyCompare(previewRow.implicitHeight, units.gu(40), units.gu(1));
 
             // Change the view to have a short width
             mockView.width = units.gu(20);
             waitForRendering(previewRow);
 
             // width 20GU, height 100GU, aspect is 0.71
-            // min((20 - 10) / 0.71, 100 / 3)
-            // min(14.08, 33.33)
+            // min((20 - 10) / 0.71, 100 * 0.4)
+            // min(14.08, 40.00)
             fuzzyCompare(previewRow.implicitHeight, units.gu(14.08), units.gu(1));
         }
 
@@ -339,39 +339,39 @@ Item {
             // Test that changing the heightDiff changes the view height
             var pageHelper = previewRow.pageHelper;
 
-            // min((WIDTH - 10) / ASPECT, HEIGHT / 3)  +  heightDiff
+            // min((WIDTH - 10) / ASPECT, HEIGHT * 0.4)  +  heightDiff
 
             // height/width of 100GU, aspect is 0.71
-            // min((100 - 10) / 0.71, 100 / 3)
-            // min(126.76, 33.33)
-            fuzzyCompare(previewRow.implicitHeight, units.gu(33.33), units.gu(1));
+            // min((100 - 10) / 0.71, 100 * 0.4)
+            // min(126.76, 40.00)
+            fuzzyCompare(previewRow.implicitHeight, units.gu(40), units.gu(1));
 
             var sepearator = findChild(root, "separator");
             sepearator.resizer.y = units.gu(10);
 
             waitForRendering(previewRow);
 
-            // min(126.76, 33.33) + units.gu(10)
-            fuzzyCompare(previewRow.implicitHeight, units.gu(43.33), units.gu(1));
+            // min(126.76, 40.00) + units.gu(10)
+            fuzzyCompare(previewRow.implicitHeight, units.gu(50), units.gu(1));
         }
 
         function test_view_heightDiff_minimum() {
             // Test that changing the heightDiff cannot go below the minimum
             var pageHelper = previewRow.pageHelper;
 
-            // min((WIDTH - 10) / ASPECT, HEIGHT / 3)  +  heightDiff
+            // min((WIDTH - 10) / ASPECT, HEIGHT * 0.4)  +  heightDiff
 
             // height/width of 100GU, aspect is 0.71
-            // min((100 - 10) / 0.71, 100 / 3)
-            // min(126.76, 33.33)
-            fuzzyCompare(previewRow.implicitHeight, units.gu(33.33), units.gu(1));
+            // min((100 - 10) / 0.71, 100 * 0.4)
+            // min(126.76, 40.00)
+            fuzzyCompare(previewRow.implicitHeight, units.gu(40), units.gu(1));
 
             var sepearator = findChild(root, "separator");
             sepearator.resizer.y = -units.gu(1000);
 
             waitForRendering(previewRow);
 
-            // min(126.76, 33.33) - units.gu(1000)
+            // min(126.76, 40.00) - units.gu(1000)
             fuzzyCompare(previewRow.implicitHeight, previewRow.minimumHeight, units.gu(1));
         }
     }
