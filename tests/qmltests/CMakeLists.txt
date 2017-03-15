@@ -18,7 +18,7 @@ endif()
 set(TEST tst_QmlTests)
 add_test(${TEST} ${XVFB_COMMAND} ${QMLTESTRUNNER} -qt=qt5
          -input ${CMAKE_CURRENT_SOURCE_DIR}
-         -import ${CMAKE_BINARY_DIR}/backend)
+         -import ${CMAKE_BINARY_DIR}/ubuntu-printing-app/backend)
 
 
 # Add the qml test files to build dir

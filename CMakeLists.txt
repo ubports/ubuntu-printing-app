@@ -16,15 +16,8 @@ if(NOT INTLTOOL_EXTRACT)
 endif()
 
 # Set the vars
-set(APP_NAME ubuntu-printing-app)
-set(APP_HARDCODE ubuntu-printing-app)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")  # -fno-permissive -pedantic -Wall -Wextra")
-set(DESKTOP_FILE "${APP_NAME}.desktop")
-set(ICON_FILE ubuntu-printing-app.svg)
-set(MAIN_QML Main.qml)
-set(RUNNER ${APP_HARDCODE})
-set(SNAP_DESKTOP_FILE setup/gui/${DESKTOP_FILE})
 
 # Set the options
 option(SNAP_MODE "Build as a snap package" off)
@@ -37,25 +30,8 @@ find_package(Qt5PrintSupport REQUIRED)
 
 include(GNUInstallDirs)
 
-
-# Set the path for the QML files and the backend
-set(UBUNTU_PRINTING_APP_DATA_DIR "${CMAKE_INSTALL_DATADIR}/${APP_HARDCODE}")
-set(MODULE_PATH ${CMAKE_INSTALL_PREFIX}/lib/${CMAKE_LIBRARY_ARCHITECTURE}/${APP_HARDCODE})
-
-# Set the exec path
-if(SNAP_MODE)
-  set(EXEC "APP_ID=${APP_HARDCODE} qmlscene $@ -I $SNAP/${MODULE_PATH} $SNAP/${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${MAIN_QML}")
-  set(ICON "$SNAP/${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${ICON_FILE}")
-else(SNAP_MODE)
-  set(EXEC "APP_ID=${APP_HARDCODE} qmlscene $@ -I ${MODULE_PATH} ${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${MAIN_QML}")
-  set(ICON ${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${ICON_FILE})
-endif(SNAP_MODE)
-
-
 # Add subdirs
-add_subdirectory(backend)
 add_subdirectory(notifier)
-add_subdirectory(runner)
 add_subdirectory(ubuntu-printing-app)
 
 # Setup gettext defs and include po directory

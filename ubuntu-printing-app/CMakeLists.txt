@@ -1,4 +1,27 @@
+set(APP_NAME ubuntu-printing-app)
+set(APP_HARDCODE ubuntu-printing-app)
+set(DESKTOP_FILE "${APP_NAME}.desktop")
+set(ICON_FILE ubuntu-printing-app.png)
+set(MAIN_QML Main.qml)
+set(RUNNER ${APP_HARDCODE})
+set(SNAP_DESKTOP_FILE snap/gui/${DESKTOP_FILE})
+
+# Set the path for the QML files and the backend
+set(UBUNTU_PRINTING_APP_DATA_DIR "${CMAKE_INSTALL_DATADIR}/${APP_HARDCODE}")
+set(MODULE_PATH ${CMAKE_INSTALL_PREFIX}/lib/${CMAKE_LIBRARY_ARCHITECTURE}/${APP_HARDCODE})
+
+# Set the exec path
+if(SNAP_MODE)
+  set(EXEC "APP_ID=${APP_HARDCODE} qmlscene $@ -I $SNAP/${MODULE_PATH} $SNAP/${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${MAIN_QML}")
+  set(ICON "$SNAP/${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${ICON_FILE}")
+else(SNAP_MODE)
+  set(EXEC "APP_ID=${APP_HARDCODE} qmlscene $@ -I ${MODULE_PATH} ${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${MAIN_QML}")
+  set(ICON ${CMAKE_INSTALL_PREFIX}/${UBUNTU_PRINTING_APP_DATA_DIR}/${ICON_FILE})
+endif(SNAP_MODE)
+
+add_subdirectory(backend)
 add_subdirectory(components)
+add_subdirectory(runner)
 add_subdirectory(pages)
 
 # Install Main.qml and icon
@@ -27,3 +50,6 @@ if(NOT "${CMAKE_CURRENT_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
   file(GLOB MAIN_QML_JS_FILES *.apparmor *.js *.json *.qml)
   add_custom_target(ubuntu_printing_app_main_qml_js_files ALL SOURCES ${MAIN_QML_JS_FILES})
 endif(NOT "${CMAKE_CURRENT_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
+
+# Set variables for use in parent scope
+set(UBUNTU_PRINTING_APP_DESKTOP_FILE "${DESKTOP_FILE}" PARENT_SCOPE)
