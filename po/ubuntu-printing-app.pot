@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-printing-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-15 11:56+0000\n"
+"POT-Creation-Date: 2017-03-15 12:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,55 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-#: ubuntu-printing-app/Main.qml:66
-msgid "Document is invalid"
-msgstr ""
-
-#: ubuntu-printing-app/Main.qml:69
-msgid "Document not found"
-msgstr ""
-
-#: ubuntu-printing-app/Main.qml:72
-msgid "Not a PDF document"
-msgstr ""
-
-#: ubuntu-printing-app/Main.qml:75
-msgid "An unknown error occurred"
-msgstr ""
-
-#: ubuntu-printing-app/Main.qml:99
-msgid "Error"
-msgstr ""
-
-#: ubuntu-printing-app/Main.qml:126
-msgid "URL of PDF to print"
-msgstr ""
-
-#: ubuntu-printing-app/components/AlertDialog.qml:28
-msgid "OK"
-msgstr ""
-
-#: ubuntu-printing-app/components/PrintRow.qml:60
-msgid "Cancel"
-msgstr ""
-
-#: ubuntu-printing-app/components/PrintRow.qml:74
-msgid "Create PDF"
-msgstr ""
-
-#: ubuntu-printing-app/components/PrintRow.qml:74
-#: po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
-msgid "Print"
-msgstr ""
-
-#: ubuntu-printing-app/components/PrintRow.qml:74
-msgid "Sheets"
-msgstr ""
-
-#: ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
-msgid "Open With..."
-msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
@@ -122,6 +74,100 @@ msgstr ""
 
 #: ubuntu-printing-app/pages/PrintPage.qml:266
 msgid "Reverse"
+msgstr ""
+
+#: ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
+msgid "Open With..."
+msgstr ""
+
+#: ubuntu-printing-app/Main.qml:66
+msgid "Document is invalid"
+msgstr ""
+
+#: ubuntu-printing-app/Main.qml:69
+msgid "Document not found"
+msgstr ""
+
+#: ubuntu-printing-app/Main.qml:72
+msgid "Not a PDF document"
+msgstr ""
+
+#: ubuntu-printing-app/Main.qml:75
+msgid "An unknown error occurred"
+msgstr ""
+
+#: ubuntu-printing-app/Main.qml:99
+msgid "Error"
+msgstr ""
+
+#: ubuntu-printing-app/Main.qml:126
+msgid "URL of PDF to print"
+msgstr ""
+
+#: ubuntu-printing-app/components/PrintRow.qml:60 queue-dialog/Main.qml:164
+msgid "Cancel"
+msgstr ""
+
+#: ubuntu-printing-app/components/PrintRow.qml:74
+msgid "Create PDF"
+msgstr ""
+
+#: ubuntu-printing-app/components/PrintRow.qml:74
+#: po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
+msgid "Print"
+msgstr ""
+
+#: ubuntu-printing-app/components/PrintRow.qml:74
+msgid "Sheets"
+msgstr ""
+
+#: ubuntu-printing-app/components/AlertDialog.qml:28
+msgid "OK"
+msgstr ""
+
+#: queue-dialog/Main.qml:52
+#, c-format, qt-plural-format
+msgid "%n job"
+msgid_plural "%n jobs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: queue-dialog/Main.qml:53 queue-dialog/Main.qml:129
+msgid "Printing"
+msgstr ""
+
+#: queue-dialog/Main.qml:126
+#, c-format, qt-plural-format
+msgid "Printing %n pages"
+msgid_plural "Printing %n page"
+msgstr[0] ""
+msgstr[1] ""
+
+#: queue-dialog/Main.qml:134
+#, c-format, qt-plural-format
+msgid "Ready to print %n pages"
+msgid_plural "Ready to print %n page"
+msgstr[0] ""
+msgstr[1] ""
+
+#: queue-dialog/Main.qml:137
+msgid "Ready to print"
+msgstr ""
+
+#: queue-dialog/Main.qml:152
+msgid "Pause"
+msgstr ""
+
+#: queue-dialog/Main.qml:191
+msgid "Active"
+msgstr ""
+
+#: queue-dialog/Main.qml:202
+msgid "Queued"
+msgstr ""
+
+#: queue-dialog/Main.qml:213
+msgid "Paused"
 msgstr ""
 
 #: po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2

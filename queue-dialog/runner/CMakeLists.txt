@@ -6,4 +6,4 @@ install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/${RUNNER} DESTINATION ${CMAKE_INSTA
 
 
 # Show in QtC
-add_custom_target(ubuntu_printing_app_runner_files ALL SOURCES ${RUNNER}.in)
+add_custom_target(queue_dialog_runner_files ALL SOURCES ${RUNNER}.in)

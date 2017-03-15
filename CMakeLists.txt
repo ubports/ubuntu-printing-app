@@ -34,6 +34,9 @@ include(GNUInstallDirs)
 add_subdirectory(notifier)
 add_subdirectory(ubuntu-printing-app)
 
+# Add queue dialog
+add_subdirectory(queue-dialog)
+
 # Setup gettext defs and include po directory
 set(GETTEXT_PACKAGE "ubuntu-printing-app")
 add_definitions(-DI18N_DOMAIN="${GETTEXT_PACKAGE}")

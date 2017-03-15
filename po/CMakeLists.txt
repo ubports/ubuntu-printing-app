@@ -11,7 +11,12 @@ file(RELATIVE_PATH DESKTOP_FILE_IN_IN_H ${CMAKE_SOURCE_DIR}
 file(GLOB_RECURSE I18N_SRC_FILES
      RELATIVE ${CMAKE_SOURCE_DIR}
      ${CMAKE_SOURCE_DIR}/ubuntu-printing-app/**.qml)
-list(SORT I18N_SRC_FILES)
+
+
+file(GLOB_RECURSE DIALOG_I18N_SRC_FILES
+     RELATIVE ${CMAKE_SOURCE_DIR}
+     ${CMAKE_SOURCE_DIR}/queue-dialog/**.qml)
+list(SORT DIALOG_I18N_SRC_FILES)
 
 set(DOMAIN ${GETTEXT_PACKAGE})
 set(POT_FILE ${DOMAIN}.pot)
@@ -31,6 +36,7 @@ add_custom_target(${POT_FILE} ALL
                           --package-name=ubuntu-printing-app
                           --copyright-holder='Canonical Ltd.'
                           -D ${CMAKE_SOURCE_DIR} ${I18N_SRC_FILES}
+                          -D ${CMAKE_SOURCE_DIR} ${DIALOG_I18N_SRC_FILES}
                           -D ${CMAKE_BINARY_DIR} ${DESKTOP_FILE_IN_IN_H}
                   COMMAND ${CMAKE_COMMAND} -E copy ${POT_FILE} ${CMAKE_CURRENT_SOURCE_DIR})
 
