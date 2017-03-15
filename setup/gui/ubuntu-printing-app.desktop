@@ -2,6 +2,7 @@
 Name=ubuntu-printing-app
 Exec=ubuntu-printing-app
 Icon=${SNAP}/meta/gui/ubuntu-printing-app.svg
+NoDisplay=true
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true

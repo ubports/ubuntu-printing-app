@@ -71,11 +71,13 @@ Item {
         }
 
         function test_changeOption() {
+            var selector = findChild(selectorRow, "selector");
+
             // Check selectedIndex is the starting index
             compare(selectorRow.selectedIndex, dataSelectedIndex);
 
             // Expand the selector
-            mouseClick(selectorRow);
+            mouseClick(selector);
             expansionCompletedSpy.wait();
             compare(expansionCompletedSpy.count, 1);
 
