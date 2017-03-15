@@ -23,8 +23,8 @@
 #include <QSignalSpy>
 #include <QTest>
 
-#include "Ubuntu_Printing_App/document.h"
-#include "Ubuntu_Printing_App/pagehelper.h"
+#include "UbuntuPrintingApp/document.h"
+#include "UbuntuPrintingApp/pagehelper.h"
 
 #define A4_PORTRAIT_ASPECT_RATIO 595.0 / 842.0
 #define A4_LANDSCAPE_ASPECT_RATIO 842.0 / 595.0

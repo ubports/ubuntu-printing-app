@@ -195,7 +195,6 @@ Document::Orientation Document::orientation() const
 
         // TODO: page orientation seems to be wrong?
 //        qDebug() << "DOC" << page->orientation() << Portrait << Landscape;
-
 //        if (page->orientation() == Poppler::Page::Landscape) {
 //            return Landscape;
 //        } else if (page->orientation() == Poppler::Page::Portrait) {
@@ -232,9 +231,6 @@ void Document::setUrl(QUrl url)
                     m_document->setRenderHint(Poppler::Document::TextAntialiasing, true);
                     m_document->setRenderHint(Poppler::Document::TextHinting, true);
                     m_document->setRenderHint(Poppler::Document::TextSlightHinting, true);
-//                    m_document->setRenderHint(Poppler::Document::OverprintPreview, true);
-//                    m_document->setRenderHint(Poppler::Document::ThinLineSolid, true);
-//                    m_document->setRenderHint(Poppler::Document::ThinLineShape, true);
 
                     Q_EMIT urlChanged();
 

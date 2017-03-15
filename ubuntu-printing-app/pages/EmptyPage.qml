@@ -18,15 +18,35 @@
  * Authored-by: Andrew Hayzen <andrew.hayzen@canonical.com>
  */
 import QtQuick 2.4
+
 import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 1.3
 
-Dialog {
-    id: dialog
+Page {
+    id: page
+    anchors {
+        fill: parent
+    }
+    header: PageHeader {
+        id: pageHeader
+        leadingActionBar {
+            actions: [
+                Action {
+                    iconName: "back"
+                    objectName: "headerBack"
 
-    Button {
-        text: i18n.tr("OK")
+                    onTriggered: Qt.quit()
+                }
+            ]
+        }
+    }
 
-        onClicked: PopupUtils.close(dialog)
+    Label {
+        anchors {
+            centerIn: parent
+        }
+        horizontalAlignment: Text.AlignHCenter
+        text: i18n.tr("No document was chosen for printing. In order to print, you need to select print from an app. Alternatively you can export a PDF document from an app.")
+        width: parent.width - units.gu(1)
+        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }
 }

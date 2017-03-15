@@ -17,25 +17,41 @@
  *
  * Authored-by: Andrew Hayzen <andrew.hayzen@canonical.com>
  */
-#include <QtQml>
-#include <QtQml/QQmlContext>
-#include "backend.h"
+#ifndef BACKEND_PLUGIN_H
+#define BACKEND_PLUGIN_H
 
-#include "document.h"
-#include "pagehelper.h"
-#include "popplerimageprovider.h"
+#include <QtQml/QQmlEngine>
+#include <QtQml/QQmlExtensionPlugin>
 
-void BackendPlugin::registerTypes(const char *uri)
+/*
+ ----8<-----
+
+ import UbuntuPrintingApp 1.0
+
+ Rectangle {
+   width: 200
+   height: 200
+
+   MyType {
+      id: helloType
+   }
+
+   Text {
+     anchors.centerIn: parent
+     text: helloType.helloworld
+   }
+ }
+
+ -----8<------
+*/
+class BackendPlugin : public QQmlExtensionPlugin
 {
-    Q_ASSERT(uri == QLatin1String("Ubuntu_Printing_App"));
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
 
-    qmlRegisterType<Document>(uri, 1, 0, "Document");
-    qmlRegisterType<PageHelper>(uri, 1, 0, "PageHelper");
-}
+public:
+    void registerTypes(const char *uri);
+    void initializeEngine(QQmlEngine *engine, const char *uri);
+};
+#endif // BACKEND_PLUGIN_H
 
-void BackendPlugin::initializeEngine(QQmlEngine *engine, const char *uri)
-{
-    QQmlExtensionPlugin::initializeEngine(engine, uri);
-
-    engine->addImageProvider(QLatin1String("poppler"), new PopplerImageProvider);
-}

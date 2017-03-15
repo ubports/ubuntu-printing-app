@@ -23,7 +23,7 @@
 #include <QSignalSpy>
 #include <QTest>
 
-#include "Ubuntu_Printing_App/document.h"
+#include "UbuntuPrintingApp/document.h"
 
 #define A4_PORTRAIT_SIZE QSize(595, 842)
 #define A4_LANDSCAPE_SIZE QSize(842, 595)

@@ -25,6 +25,7 @@ import Ubuntu.Components 1.3
 Item {
     height: units.gu(6)
 
+    property bool canPrint: false
     property bool pdfMode: false
     property int sheets: 0
 
@@ -65,6 +66,7 @@ Item {
         Button {
             objectName: "confirm"
             color: pressed ? Qt.lighter("#111") : "#111"
+            enabled: canPrint
             Layout.fillWidth: true
             text: pdfMode ? i18n.tr("Create PDF") : i18n.tr("Print") + " <u>" + sheets + "</u> " + i18n.tr("Sheets")
 

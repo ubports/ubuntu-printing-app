@@ -10,25 +10,13 @@ if(NOT XVFBRUN)
 endif()
 set(XVFB_COMMAND ${XVFBRUN} -s "-screen 0 640x480x24" -a)
 
-set(TEST tst_QmlTests)
-set(SOURCES
-    tst_QmlTests.cpp
-)
-add_executable(${TEST} ${SOURCES})
-include_directories(
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    ${CMAKE_CURRENT_BINARY_DIR}
-    ${CMAKE_SOURCE_DIR}/backend/
-)
-target_link_libraries(${TEST}
-    Qt5::Core
-    Qt5::Gui
-    Qt5::Qml
-    Qt5::Quick
-    Qt5::QuickTest
-)
+find_program(QMLTESTRUNNER qmltestrunner)
+if(NOT QMLTESTRUNNER)
+    message(FATAL_ERROR "Could not find qmltestrunner, please install the package qtdeclarative5-dev-tools")
+endif()
 
-add_test(${TEST} ${XVFB_COMMAND} ${CMAKE_CURRENT_BINARY_DIR}/${TEST}
+set(TEST tst_QmlTests)
+add_test(${TEST} ${XVFB_COMMAND} ${QMLTESTRUNNER} -qt=qt5
          -input ${CMAKE_CURRENT_SOURCE_DIR}
          -import ${CMAKE_BINARY_DIR}/backend)
 

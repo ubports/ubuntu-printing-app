@@ -3,22 +3,17 @@ include_directories(
     /usr/include/poppler/qt5/
 )
 
-#add_definitions(
-#  -DGETTEXT_PACKAGE=\"${PROJECT_NAME}\"
-#  -DGETTEXT_LOCALEDIR=\"${CMAKE_INSTALL_LOCALEDIR}\"
-#)
-
-set(LIBNAME Ubuntu_Printing_Appbackend)
+set(LIBNAME UbuntuPrintingAppbackend)
 
 set(
-  Ubuntu_Printing_App_SRC
-  Ubuntu_Printing_App/backend.cpp
-  Ubuntu_Printing_App/document.cpp
-  Ubuntu_Printing_App/popplerimageprovider.cpp
-  Ubuntu_Printing_App/pagehelper.cpp
+  UbuntuPrintingAppSRC
+  UbuntuPrintingApp/backend.cpp
+  UbuntuPrintingApp/document.cpp
+  UbuntuPrintingApp/popplerimageprovider.cpp
+  UbuntuPrintingApp/pagehelper.cpp
 )
 
-add_library(${LIBNAME} SHARED ${Ubuntu_Printing_App_SRC})
+add_library(${LIBNAME} SHARED ${UbuntuPrintingAppSRC})
 
 qt5_use_modules(${LIBNAME} Core Gui Qml Quick)
 target_link_libraries(${LIBNAME}
@@ -26,14 +21,14 @@ target_link_libraries(${LIBNAME}
 )
 
 set_target_properties(${LIBNAME} PROPERTIES
-  LIBRARY_OUTPUT_DIRECTORY Ubuntu_Printing_App
+  LIBRARY_OUTPUT_DIRECTORY UbuntuPrintingApp
 )
 
 # Copy the qmldir file to the build dir
-add_custom_target(Ubuntu_Printing_App_qmldir ALL
-  COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/Ubuntu_Printing_App/qmldir ${CMAKE_CURRENT_BINARY_DIR}/Ubuntu_Printing_App
+add_custom_target(UbuntuPrintingApp_qmldir ALL
+  COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/UbuntuPrintingApp/qmldir ${CMAKE_CURRENT_BINARY_DIR}/UbuntuPrintingApp
   DEPENDS ${QMLFILES})
 
 # Install the plugin file
 install(TARGETS ${LIBNAME} DESTINATION ${MODULE_PATH})
-install(FILES Ubuntu_Printing_App/qmldir DESTINATION ${MODULE_PATH})
+install(FILES UbuntuPrintingApp/qmldir DESTINATION ${MODULE_PATH})
