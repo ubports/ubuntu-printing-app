@@ -1,7 +1,7 @@
 set(APP_NAME ubuntu-printing-app)
 set(APP_HARDCODE ubuntu-printing-app)
 set(DESKTOP_FILE "${APP_NAME}.desktop")
-set(ICON_FILE ubuntu-printing-app.png)
+set(ICON_FILE ubuntu-printing-app.svg)
 set(MAIN_QML Main.qml)
 set(RUNNER ${APP_HARDCODE})
 set(SNAP_DESKTOP_FILE snap/gui/${DESKTOP_FILE})
