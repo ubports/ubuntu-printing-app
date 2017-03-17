@@ -1,5 +1,5 @@
 name: ubuntu-printing-app
-version: 0.1+17.04.20170308-0ubuntu1
+version: 0.1+17.04.20170317-0ubuntu1
 summary: "Printing app which consumes a PDF from content-hub"
 description: Printing app which consumes a PDF document from
   content-hub, allows for basic configuration and
