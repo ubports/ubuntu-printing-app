@@ -21,6 +21,10 @@ endif(SNAP_MODE)
 add_subdirectory(components)
 add_subdirectory(runner)
 add_subdirectory(pages)
+
+# Add tests
+find_package(Qt5Test REQUIRED)
+enable_testing()
 add_subdirectory(tests)
 
 # Install Main.qml and icon
