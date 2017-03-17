@@ -20,7 +20,7 @@
 import QtQuick 2.4
 import QtTest 1.1
 import Ubuntu.Test 1.0
-import "../../ubuntu-printing-app/components"
+import "../../components"
 
 Item {
     width: units.gu(100)
