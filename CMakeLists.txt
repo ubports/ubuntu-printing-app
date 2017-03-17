@@ -43,17 +43,6 @@ add_definitions(-DI18N_DOMAIN="${GETTEXT_PACKAGE}")
 
 add_subdirectory(po)
 
-# Add tests
-find_package(Qt5Test REQUIRED)
-enable_testing()
-add_subdirectory(tests)
-
-
-# Add run command for QtC
-add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/ubuntu-printing-app/Main.qml
-                  DEPENDS UbuntuPrintingApp UbuntuPrintingAppqmldir
-                  WORKING_DIRECTORY ./ubuntu-printing-app)
-
 # Show files in QtC
 file(GLOB QTC_FILES
      RELATIVE ${CMAKE_CURRENT_SOURCE_DIR}
