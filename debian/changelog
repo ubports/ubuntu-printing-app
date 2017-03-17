@@ -1,5 +1,7 @@
-ubuntu-printing-app (0.1-1) unstable; urgency=medium
+ubuntu-printing-app (0.1+17.04.20170308-0ubuntu1) zesty; urgency=medium
 
   * Initial release
+  * Empty commit for bileto
+  * Set max width of options
 
- -- Andrew Hayzen <ahayzen@gmail.com>  Fri, 09 Dec 2016 21:54:12 +0000
+ -- Andrew Hayzen <ahayzen@gmail.com>  Wed, 08 Mar 2017 13:03:52 +0000

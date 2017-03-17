@@ -23,7 +23,7 @@
 #include <QSignalSpy>
 #include <QTest>
 
-#include "Ubuntu_Printing_App/popplerimageprovider.h"
+#include "UbuntuPrintingApp/popplerimageprovider.h"
 
 class TestPopplerImageProvider : public QObject
 {
@@ -71,7 +71,13 @@ private Q_SLOTS:
     void testRequestImageMultiPage()
     {
         // TODO: is there a way we can confirm that the image is showing the 2nd page?
-        QString id = "1/true/" + getResourceUrl("mixed_portrait.pdf").toString();
+
+        // Request a grayscale image otherwise power-based CPU's give a value
+        // of isGrayscale() as false (intel-based give true) even though the pdf
+        // has no colour in it.
+        // Note there is a tests that colour and grayscale work above
+        // testRequestImage() and testRequestImageGrayscale()
+        QString id = "1/false/" + getResourceUrl("mixed_portrait.pdf").toString();
         QSize *size = new QSize();
         QSize requestedSize(250, 250);
 

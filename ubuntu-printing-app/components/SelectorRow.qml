@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Canonical Ltd.
+ * Copyright 2016, 2017 Canonical Ltd.
  *
  * This file is part of ubuntu-printing-app.
  *
@@ -23,17 +23,9 @@ import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItems
 
-RowLayout {
+BaseRowLayout {
     id: rowLayout
-    anchors {
-        left: parent.left
-        leftMargin: units.gu(2)
-        right: parent.right
-        rightMargin: units.gu(2)
-    }
-
     implicitHeight: selector.implicitHeight
-    Layout.maximumWidth: width
 
     property alias delegate: selector.delegate
     property alias model: selector.model
@@ -62,8 +54,7 @@ RowLayout {
         }
         Layout.fillWidth: true
         Layout.preferredWidth: units.gu(5)
-//        Layout.minimumWidth: units.gu(20)
-//        Layout.maximumWidth: units.gu(40)
+        objectName: "selector"
         selectedIndex: 0
 
         onExpansionCompleted: rowLayout.expansionCompleted()

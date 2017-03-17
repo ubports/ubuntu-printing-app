@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Canonical Ltd.
+ * Copyright 2016 Canonical Ltd.
  *
  * This file is part of ubuntu-printing-app.
  *
@@ -17,16 +17,41 @@
  *
  * Authored-by: Andrew Hayzen <andrew.hayzen@canonical.com>
  */
-import QtQuick 2.4
-import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 1.3
+#ifndef BACKEND_PLUGIN_H
+#define BACKEND_PLUGIN_H
 
-Dialog {
-    id: dialog
+#include <QtQml/QQmlEngine>
+#include <QtQml/QQmlExtensionPlugin>
 
-    Button {
-        text: i18n.tr("OK")
+/*
+ ----8<-----
 
-        onClicked: PopupUtils.close(dialog)
-    }
-}
+ import UbuntuPrintingApp 1.0
+
+ Rectangle {
+   width: 200
+   height: 200
+
+   MyType {
+      id: helloType
+   }
+
+   Text {
+     anchors.centerIn: parent
+     text: helloType.helloworld
+   }
+ }
+
+ -----8<------
+*/
+class BackendPlugin : public QQmlExtensionPlugin
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.qt-project.Qt.QQmlExtensionInterface")
+
+public:
+    void registerTypes(const char *uri);
+    void initializeEngine(QQmlEngine *engine, const char *uri);
+};
+#endif // BACKEND_PLUGIN_H
+

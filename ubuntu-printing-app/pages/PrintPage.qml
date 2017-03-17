@@ -22,8 +22,8 @@ import QtQuick.Layouts 1.1
 
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.3
-import Ubuntu_Printing_App 1.0
-import Ubuntu.Settings.Printers 0.1
+import UbuntuPrintingApp 1.0
+import Ubuntu.Components.Extras.Printers 0.1
 
 import "../components"
 
@@ -69,6 +69,7 @@ Page {
 
             PreviewRow {
                 document: currentDocument
+                monitorMouseArea: globalMouseArea
                 Layout.fillHeight: true
                 printerJob: printing.printerJob
                 view: scrollView
@@ -84,14 +85,23 @@ Page {
                 objectName: "printerSelector"
                 text: i18n.tr("Printer")
 
-                onSelectedIndexChanged: printing.printerSelectedIndex = selectedIndex
+                Binding {
+                    target: printing
+                    property: "printerSelectedIndex"
+                    value: printerSelector.selectedIndex
+                }
 
-                Component.onCompleted: printing.printerSelectedIndex = selectedIndex
-             }
+                // Shows indicator at the end (right) of the row when loading
+                ActivityIndicator {
+                    objectName: "printerLoadingIndicator"
+                    running: !printing.isLoaded
+                    visible: running
+                }
+            }
 
             TextFieldRow {
                 id: copiesSelector
-                enabled: !printing.pdfMode
+                enabled: printing.isLoaded && !printing.pdfMode
                 inputMethodHints: Qt.ImhDigitsOnly
                 objectName: "copiesTextField"
                 text: i18n.tr("Copies")
@@ -115,70 +125,9 @@ Page {
                 }
             }
 
-            CheckBoxRow {
-                id: checkboxSelector
-                checkboxText: i18n.tr("Collate")
-                enabled: printing.printerJob.copies > 1 && !printing.pdfMode
-                objectName: "collateCheckBox"
-
-                onCheckedChanged: {
-                    if (printing.printerJob.collate !== checked) {
-                        printing.printerJob.collate = checked
-                    }
-                }
-
-                Binding {
-                    target: checkboxSelector
-                    property: "checked"
-                    when: printing.printerJob
-                    value: printing.printerJob.collate
-                }
-            }
-
-            CheckBoxRow {
-                id: reverseSelector
-                checkboxText: i18n.tr("Reverse")
-                enabled: !printing.pdfMode
-                objectName: "reverseCheckBox"
-
-                onCheckedChanged: {
-                    if (printing.printerJob.reverse !== checked) {
-                        printing.printerJob.reverse = checked
-                    }
-                }
-
-                Binding {
-                    target: reverseSelector
-                    property: "checked"
-                    when: printing.printerJob
-                    value: printing.printerJob.reverse
-                }
-            }
-
-            SelectorRow {
-                id: duplexSelector
-                enabled: printing.printer && currentDocument.count > 1 && !printing.pdfMode ? printing.printer.supportedDuplexModes.length > 1 : false
-                model: printing.printer ? printing.printer.supportedDuplexModes : [""]
-                objectName: "duplexSelector"
-                text: i18n.tr("Two-sided")
-
-                onSelectedIndexChanged: {
-                    if (printing.printerJob.duplexMode !== selectedIndex) {
-                        printing.printerJob.duplexMode = selectedIndex
-                    }
-                }
-
-                Binding {
-                    target: duplexSelector
-                    property: "selectedIndex"
-                    when: printing.printerJob && duplexSelector.enabled
-                    value: printing.printerJob.duplexMode
-                }
-            }
-
             SelectorRow {
                 id: pageRangeSelector
-                enabled: !printing.pdfMode
+                enabled: printing.isLoaded && !printing.pdfMode
                 model: [i18n.tr("All"), i18n.tr("Range")]
                 modelValue: [PrinterEnum.AllPages, PrinterEnum.PageRange]
                 objectName: "pageRangeSelector"
@@ -186,7 +135,7 @@ Page {
                 text: i18n.tr("Pages")
 
                 onSelectedValueChanged: {
-                    if (printing.printerJob.printRangeMode !== selectedValue) {
+                    if (printing.printerJob && printing.printerJob.printRangeMode !== selectedValue) {
                         printing.printerJob.printRangeMode = selectedValue
                     }
                 }
@@ -201,7 +150,7 @@ Page {
 
             TextFieldRow {
                 id: pageRangeTextField
-                enabled: !printing.pdfMode
+                enabled: printing.isLoaded && !printing.pdfMode
                 objectName: "pageRangeTextField"
                 validator: RegExpValidator {
 //                        regExp: ""  // TODO: validate to only 0-9||9-0||0 ,
@@ -223,22 +172,36 @@ Page {
             }
 
             LabelRow {
-                enabled: !printing.pdfMode
+                enabled: printing.isLoaded && !printing.pdfMode
                 objectName: "pageRangeLabel"
                 secondaryText: i18n.tr("eg 1-3,8")
                 visible: pageRangeSelector.selectedValue === PrinterEnum.PageRange
             }
 
-//                SelectorRow {
-//                    enabled: !printer.pdfMode
-//                    model: [1, 2, 4, 6, 9]
-//                    selectedIndex: 0
-//                    text: i18n.tr("Pages per side")
-//                }
+            SelectorRow {
+                id: duplexSelector
+                enabled: printing.isEditable && currentDocument.count > 1 && printing.printer.supportedDuplexModes.length > 1
+                model: printing.printer ? printing.printer.supportedDuplexModes : [""]
+                objectName: "duplexSelector"
+                text: i18n.tr("Two-sided")
+
+                onSelectedIndexChanged: {
+                    if (printing.printerJob.duplexMode !== selectedIndex) {
+                        printing.printerJob.duplexMode = selectedIndex
+                    }
+                }
+
+                Binding {
+                    target: duplexSelector
+                    property: "selectedIndex"
+                    when: printing.printerJob && duplexSelector.enabled
+                    value: printing.printerJob.duplexMode
+                }
+            }
 
             SelectorRow {
                 id: colorModelSelector
-                enabled: printing.printer && !printing.pdfMode ? printing.printer.supportedColorModels.length > 1 : false
+                enabled: printing.isEditable && printing.printer.supportedColorModels.length > 1
                 model: printing.printer ? printing.printer.supportedColorModels : [""]
                 objectName: "colorModelSelector"
                 text: i18n.tr("Color")
@@ -259,7 +222,7 @@ Page {
 
             SelectorRow {
                 id: qualitySelector
-                enabled: printing.printer && !printing.pdfMode ? printing.printer.supportedPrintQualities.length > 1 : false
+                enabled: printing.isEditable && printing.printer.supportedPrintQualities.length > 1
                 model: printing.printer ? printing.printer.supportedPrintQualities : [""]
                 objectName: "qualitySelector"
                 text: i18n.tr("Quality")
@@ -275,6 +238,46 @@ Page {
                     property: "selectedIndex"
                     when: printing.printerJob && qualitySelector.enabled
                     value: qualitySelector.quality
+                }
+            }
+
+            CheckBoxRow {
+                id: checkboxSelector
+                checkboxText: i18n.tr("Collate")
+                enabled: printing.printerJob.copies > 1 && printing.isLoaded && !printing.pdfMode
+                objectName: "collateCheckBox"
+
+                onCheckedChanged: {
+                    if (printing.printerJob.collate !== checked) {
+                        printing.printerJob.collate = checked
+                    }
+                }
+
+                Binding {
+                    target: checkboxSelector
+                    property: "checked"
+                    when: printing.printerJob
+                    value: printing.printerJob.collate
+                }
+            }
+
+            CheckBoxRow {
+                id: reverseSelector
+                checkboxText: i18n.tr("Reverse")
+                enabled: printing.isLoaded && !printing.pdfMode
+                objectName: "reverseCheckBox"
+
+                onCheckedChanged: {
+                    if (printing.printerJob.reverse !== checked) {
+                        printing.printerJob.reverse = checked
+                    }
+                }
+
+                Binding {
+                    target: reverseSelector
+                    property: "checked"
+                    when: printing.printerJob
+                    value: printing.printerJob.reverse
                 }
             }
 
@@ -294,11 +297,25 @@ Page {
             right: parent.right
             rightMargin: units.gu(1)
         }
+        canPrint: printing.isLoaded
+        objectName: "printRow"
         pdfMode: printing.pdfMode
-        // TODO: should this be (range * copies) / duplex ?
-        sheets: document.count
+        // TODO: This should count the range not all pages
+        // roundUp((pageCount * copies) / duplex)
+        sheets: Math.ceil((document.count * printing.printerJob.copies) / (printing.printerJob.isTwoSided ? 2 : 1))
 
         onCancel: page.cancel()
         onConfirm: page.confirm(document.url)
+    }
+
+    // ScrollView has a MouseArea which doesn't propagate hover events
+    // so this is used to monitor for these events
+    MouseArea {
+        id: globalMouseArea
+        anchors {
+            fill: parent
+        }
+        acceptedButtons: Qt.NoButton
+        hoverEnabled: true
     }
 }

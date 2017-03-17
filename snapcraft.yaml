@@ -1,5 +1,5 @@
 name: ubuntu-printing-app
-version: "0.1"
+version: 0.1+17.04.20170308-0ubuntu1
 summary: "Printing app which consumes a PDF from content-hub"
 description: Printing app which consumes a PDF document from
   content-hub, allows for basic configuration and
@@ -29,19 +29,44 @@ parts:
   ubuntu-printing-app:
     build-packages:
      - intltool
-     - libcups2-dev
      - libpoppler-qt5-dev
-     - qt5-default
-     - qt5-qmake
+     - qml-module-qttest
+     - qml-module-ubuntu-test
      - qtdeclarative5-dev
-     - ubuntu-sdk-qmake-extras
-    configflags: [-DCMAKE_INSTALL_PREFIX=/usr, -DCLICK_MODE=off, -DSNAP_MODE=on]
+     - qtdeclarative5-dev-tools
+     - xvfb
+    configflags: [-DCMAKE_INSTALL_PREFIX=/usr, -DSNAP_MODE=on]
     plugin: cmake
     source: .
+    after: [printer-components, desktop-ubuntu-app-platform]
+
+  printer-components:
+    plugin: cmake
+    configflags: [-DCMAKE_INSTALL_PREFIX=/usr]
+    source: https://code.launchpad.net/~phablet-team/ubuntu-settings-components/printer-components
+    source-type: bzr
+    build-packages:
+     - cmake-extras
+     - libcups2-dev
+     - libqt5printsupport5
+     - debhelper
+     - gettext
+     - pkg-config
+     - python3
+     - qml-module-qt-labs-folderlistmodel
+     - qml-module-qtquick-layouts
+     - qml-module-qtquick2
+     - qml-module-qttest
+     - qml-module-ubuntu-components
+     - qml-module-ubuntu-thumbnailer0.1
+     - qtbase5-dev
+     - qtbase5-private-dev
+     - qtdeclarative5-dev
+     - qtdeclarative5-dev-tools
+     - suru-icon-theme
     stage-packages:
      - libcups2
      - libqt5printsupport5
-    after: [desktop-ubuntu-app-platform]
 
   environment:
     source: snap/

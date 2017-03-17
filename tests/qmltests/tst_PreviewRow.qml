@@ -22,8 +22,8 @@ import QtTest 1.1
 import Ubuntu.Test 1.0
 import "../../ubuntu-printing-app/components"
 
-import Ubuntu_Printing_App 1.0
-import Ubuntu.Settings.Printers 0.1
+import UbuntuPrintingApp 1.0
+import Ubuntu.Components.Extras.Printers 0.1
 
 Item {
     id: root
@@ -50,8 +50,18 @@ Item {
     PreviewRow {
         id: previewRow
         document: testDocument
+        monitorMouseArea: globalMouseArea
         printerJob: mockPrinterJob
         view: mockView
+    }
+
+    MouseArea {
+        id: globalMouseArea
+        anchors {
+            fill: parent
+        }
+        acceptedButtons: Qt.NoButton
+        hoverEnabled: true
     }
 
     SignalSpy {
@@ -74,6 +84,11 @@ Item {
             testDocument.url = Qt.resolvedUrl("../resources/pdf/a4_portrait.pdf");
 
             mockPrinterJob.colorModelType = PrinterEnum.ColorType;
+
+            mockView.width = units.gu(100);
+
+            // Reset the separator y position
+            findChild(root, "separator").resizer.y = 0;
 
             activityIndicatorSpy.target = null;
             activityIndicatorSpy.clear();
@@ -192,6 +207,7 @@ Item {
             // Check with multi page doc, next button becomes enabled
             compare(testDocument.count, 3);
             compare(next.enabled, true);
+            compare(next.visible, true);
             compare(pageHelper.page, 0);
 
             // Check the requested image page is 0
@@ -202,6 +218,7 @@ Item {
             mouseClick(next);
             tryCompare(pageHelper, "page", 1);
             compare(next.enabled, true);
+            compare(next.visible, true);
 
             // Check the requested image page is 1
             // image://poppler/1/true/file:///path/to/file.pdf
@@ -217,6 +234,7 @@ Item {
             tryCompare(image, "status", Image.Ready);
             tryCompare(pageHelper, "page", 2);
             compare(next.enabled, false);
+            compare(next.visible, false);
 
             // Check the requested image page is 2
             // image://poppler/2/true/file:///path/to/file.pdf
@@ -236,6 +254,7 @@ Item {
             // Check with mulit page doc, previous is still disabled when on 1st
             compare(testDocument.count, 3);
             compare(previous.enabled, false);
+            compare(previous.visible, false);
             compare(pageHelper.page, 0)
 
             // Check the requested image page is 0
@@ -246,6 +265,7 @@ Item {
             pageHelper.page = 2;
             tryCompare(pageHelper, "page", 2);
             compare(previous.enabled, true);
+            compare(previous.visible, true);
 
             // Check the requested image page is 2
             // image://poppler/2/true/file:///path/to/file.pdf
@@ -255,6 +275,7 @@ Item {
             mouseClick(previous);
             tryCompare(pageHelper, "page", 1);
             compare(previous.enabled, true);
+            compare(previous.visible, true);
 
             // Check the requested image page is 1
             // image://poppler/1/true/file:///path/to/file.pdf
@@ -264,6 +285,7 @@ Item {
             mouseClick(previous);
             tryCompare(pageHelper, "page", 0);
             compare(previous.enabled, false);
+            compare(previous.visible, false);
 
             // Check the requested image page is 0
             // image://poppler/0/true/file:///path/to/file.pdf
@@ -296,21 +318,61 @@ Item {
             // test that the implicitHeight is set from the view height
             var pageHelper = previewRow.pageHelper;
 
-            // min((WIDTH - 10) / ASPECT, HEIGHT / 1.5)
+            // min((WIDTH - 10) / ASPECT, HEIGHT * 0.4)
 
             // height/width of 100GU, aspect is 0.71
-            // min((100 - 10) / 0.71, 100 / 1.5)
-            // min(126.76, 66.66)
-            fuzzyCompare(previewRow.implicitHeight, units.gu(66.66), units.gu(1));
+            // min((100 - 10) / 0.71, 100 * 0.4)
+            // min(126.76, 40.00)
+            fuzzyCompare(previewRow.implicitHeight, units.gu(40), units.gu(1));
 
             // Change the view to have a short width
-            mockView.width = units.gu(50);
+            mockView.width = units.gu(20);
             waitForRendering(previewRow);
 
-            // width 50GU, height 100GU, aspect is 0.71
-            // min((50 - 10) / 0.71, 100 / 1.5)
-            // min(56.33, 66.66)
-            fuzzyCompare(previewRow.implicitHeight, units.gu(56.33), units.gu(1));
+            // width 20GU, height 100GU, aspect is 0.71
+            // min((20 - 10) / 0.71, 100 * 0.4)
+            // min(14.08, 40.00)
+            fuzzyCompare(previewRow.implicitHeight, units.gu(14.08), units.gu(1));
+        }
+
+        function test_view_heightDiff() {
+            // Test that changing the heightDiff changes the view height
+            var pageHelper = previewRow.pageHelper;
+
+            // min((WIDTH - 10) / ASPECT, HEIGHT * 0.4)  +  heightDiff
+
+            // height/width of 100GU, aspect is 0.71
+            // min((100 - 10) / 0.71, 100 * 0.4)
+            // min(126.76, 40.00)
+            fuzzyCompare(previewRow.implicitHeight, units.gu(40), units.gu(1));
+
+            var sepearator = findChild(root, "separator");
+            sepearator.resizer.y = units.gu(10);
+
+            waitForRendering(previewRow);
+
+            // min(126.76, 40.00) + units.gu(10)
+            fuzzyCompare(previewRow.implicitHeight, units.gu(50), units.gu(1));
+        }
+
+        function test_view_heightDiff_minimum() {
+            // Test that changing the heightDiff cannot go below the minimum
+            var pageHelper = previewRow.pageHelper;
+
+            // min((WIDTH - 10) / ASPECT, HEIGHT * 0.4)  +  heightDiff
+
+            // height/width of 100GU, aspect is 0.71
+            // min((100 - 10) / 0.71, 100 * 0.4)
+            // min(126.76, 40.00)
+            fuzzyCompare(previewRow.implicitHeight, units.gu(40), units.gu(1));
+
+            var sepearator = findChild(root, "separator");
+            sepearator.resizer.y = -units.gu(1000);
+
+            waitForRendering(previewRow);
+
+            // min(126.76, 40.00) - units.gu(1000)
+            fuzzyCompare(previewRow.implicitHeight, previewRow.minimumHeight, units.gu(1));
         }
     }
 }

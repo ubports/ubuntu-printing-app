@@ -1,12 +1,8 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: ubuntu-printing-app
-Source: <url://example.com>
+Source: https://code.launchpad.net/ubuntu-printing-app
 
 Files: *
-Copyright: 2016 Canonical Ltd.
-License: GPL-3.0+
-
-Files: debian/*
 Copyright: 2016 Canonical Ltd.
 License: GPL-3.0+
 
@@ -26,8 +22,3 @@ License: GPL-3.0+
  .
  On Debian systems, the complete text of the GNU General
  Public License version 3 can be found in "/usr/share/common-licenses/GPL-3".
-
-# Please also look if there are files or directories which have a
-# different copyright/license attached and list them here.
-# Please avoid picking licenses with terms that are more restrictive than the
-# packaged work, as it may make Debian's contributions unacceptable upstream.

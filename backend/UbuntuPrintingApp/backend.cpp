@@ -27,7 +27,7 @@
 
 void BackendPlugin::registerTypes(const char *uri)
 {
-    Q_ASSERT(uri == QLatin1String("Ubuntu_Printing_App"));
+    Q_ASSERT(uri == QLatin1String("UbuntuPrintingApp"));
 
     qmlRegisterType<Document>(uri, 1, 0, "Document");
     qmlRegisterType<PageHelper>(uri, 1, 0, "PageHelper");

@@ -41,10 +41,10 @@ signals:
     void documentChanged();
     void pageChanged();
 public slots:
-    void setAspect(double aspect);
     void setDocument(Document *document);
     void setPage(int page);
 private slots:
+    void setAspect(double aspect);
     void loadAspect();
 private:
     double m_aspect;

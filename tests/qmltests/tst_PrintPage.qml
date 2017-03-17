@@ -22,17 +22,21 @@ import QtTest 1.1
 import Ubuntu.Test 1.0
 import "../../ubuntu-printing-app/pages"
 
-import Ubuntu_Printing_App 1.0
-import Ubuntu.Settings.Printers 0.1
+import UbuntuPrintingApp 1.0
+import Ubuntu.Components.Extras.Printers 0.1
 
 Item {
     width: units.gu(100)
-    height: units.gu(75)
+    // use a large height so all options are visible to click
+    height: units.gu(150)
 
     // Mock the PrintingHelper
     QtObject {
         id: mockPrinting
 
+        property bool __isEditable: true
+        readonly property bool isEditable: isLoaded && !pdfMode && __isEditable
+        property bool isLoaded: true
         property ListModel model: ListModel {
 
         }
@@ -48,6 +52,7 @@ Item {
             property int colorModel: 0
             property int copies: 1
             property int duplexMode: 0
+            property bool isTwoSided: false
             property string printRange: ""
             property var printRangeMode: 0  // var as it needs to be enum
             property int quality: 0
@@ -104,6 +109,8 @@ Item {
                 mockPrinting.model.append(dataPrinters[i]);
             }
 
+            mockPrinting.__isEditable = true;
+            mockPrinting.isLoaded = true;
             mockPrinting.pdfMode = false;
 
             mockPrinting.printer.supportedColorModels = dataColorModels;
@@ -300,25 +307,90 @@ Item {
             compare(duplex.enabled, false);
         }
 
-        function testPdfMode() {
+        function test_isEditable() {
+            var i;
+            var objects = ["duplexSelector", "colorModelSelector",
+                           "qualitySelector"];
+
+            // Load a multi-page doc so we can test duplex selector
+            document.url = Qt.resolvedUrl("../resources/pdf/mixed_portrait.pdf");
+
+            // Disable editing
+            mockPrinting.__isEditable = false;
+
+            // Check that all the selectors become disabled
+            for (i=0; i < objects.length; i++) {
+                compare(findChild(printPage, objects[i]).enabled, false);
+            }
+
+            // Enable editing
+            mockPrinting.__isEditable = true;
+
+            // Check that all the selectors become enabled
+            for (i=0; i < objects.length; i++) {
+                compare(findChild(printPage, objects[i]).enabled, true);
+            }
+        }
+
+        function test_isLoading() {
+            var i;
+            var indicator = findChild(printPage, "printerLoadingIndicator");
             var objects = ["collateCheckBox", "copiesTextField",
                            "duplexSelector", "pageRangeSelector",
                            "pageRangeTextField", "pageRangeLabel",
                            "colorModelSelector", "qualitySelector",
                            "reverseCheckBox"];
-            var pageTitle = printPage.title;
+
+            // Load a multi-page doc so we can test duplex selector
+            document.url = Qt.resolvedUrl("../resources/pdf/mixed_portrait.pdf");
+
+            // Set multiple copies to allow for testing collate selector
+            mockPrinting.printerJob.copies = 2;
+
+            // Enabling loading of printer
+            mockPrinting.isLoaded = false;
+
+            // Check that the loading indicator is visible
+            compare(indicator.running, true);
+            compare(indicator.visible, true);
+
+            // Check that all the selectors become disabled
+            for (i=0; i < objects.length; i++) {
+                compare(findChild(printPage, objects[i]).enabled, false);
+            }
+
+            // Finish loading of printer
+            mockPrinting.isLoaded = true;
+
+            // Check that the loading indicator is invisible
+            compare(indicator.running, false);
+            compare(indicator.visible, false);
+
+            // Check that all the selectors become enabled
+            for (i=0; i < objects.length; i++) {
+                compare(findChild(printPage, objects[i]).enabled, true);
+            }
+        }
+
+        function test_pdfMode() {
+            var objects = ["collateCheckBox", "copiesTextField",
+                           "duplexSelector", "pageRangeSelector",
+                           "pageRangeTextField", "pageRangeLabel",
+                           "colorModelSelector", "qualitySelector",
+                           "reverseCheckBox"];
+            var pageTitle = printPage.header.title;
 
             // Enable pdf mode
             mockPrinting.pdfMode = true;
             waitForRendering(printPage, timeout);
 
             // Check that all the selectors become disabled
-            for (var obj in objects) {
-                compare(findChild(printPage, obj).enabled, false);
+            for (var i=0; i < objects.length; i++) {
+                compare(findChild(printPage, objects[i]).enabled, false);
             }
 
             // Check that the page title changes
-            verify(pageTitle !== printPage.title, "Page title did not change");
+            verify(pageTitle !== printPage.header.title, "Page title did not change");
         }
 
         function test_printers() {
@@ -394,6 +466,43 @@ Item {
             // Check that the value of reverse has flipped
             tryCompare(reverse, "checked", true);
             compare(mockPrinting.printerJob.reverse, true);
+        }
+
+        function test_sheets() {
+            var printRow = findChild(printPage, "printRow");
+            compare(document.count, 1);
+            compare(mockPrinting.printerJob.copies, 1);
+            compare(mockPrinting.printerJob.isTwoSided, false);
+            compare(printRow.sheets, 1);
+
+            // Enable twoSided, we should get 0.5 rounded to 1 sheet
+            mockPrinting.printerJob.isTwoSided = true;
+
+            compare(mockPrinting.printerJob.isTwoSided, true);
+            compare(printRow.sheets, 1);
+
+            // Enable two copies, we should get 2 copies with duplex, so 1 sheet
+            mockPrinting.printerJob.copies = 2;
+
+            compare(mockPrinting.printerJob.copies, 2);
+            compare(printRow.sheets, 1);
+
+            // Disable two sided, so 2 copies and 2 sheets
+            mockPrinting.printerJob.isTwoSided = false;
+
+            compare(mockPrinting.printerJob.isTwoSided, false);
+            compare(printRow.sheets, 2);
+
+            // Change to a multi page document (3 pages, 2 copies so 6 sheets)
+            document.url = Qt.resolvedUrl("../resources/pdf/mixed_portrait.pdf");
+
+            compare(printRow.sheets, 6);
+
+            // Enable two sided, and 1 copy, check we have 3 pages, duplex so 2 sheets
+            mockPrinting.printerJob.copies = 1;
+            mockPrinting.printerJob.isTwoSided = true;
+
+            compare(printRow.sheets, 2);
         }
     }
 }
