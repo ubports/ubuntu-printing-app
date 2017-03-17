@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-printing-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-15 12:10+0000\n"
+"POT-Creation-Date: 2017-03-17 12:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -104,7 +104,8 @@ msgstr ""
 msgid "URL of PDF to print"
 msgstr ""
 
-#: ubuntu-printing-app/components/PrintRow.qml:60 queue-dialog/Main.qml:164
+#: ubuntu-printing-app/components/PrintRow.qml:60
+#: queue-dialog/components/QueueDelegate.qml:86
 msgid "Cancel"
 msgstr ""
 
@@ -125,48 +126,67 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: queue-dialog/Main.qml:52
-#, c-format, qt-plural-format
-msgid "%n job"
-msgid_plural "%n jobs"
+#: queue-dialog/components/QueueDelegate.qml:45
+#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:147
+#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:156
+#, qt-format
+msgid "Printing %1 page"
+msgid_plural "Printing %1 pages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: queue-dialog/Main.qml:53 queue-dialog/Main.qml:129
+#: queue-dialog/components/QueueDelegate.qml:48
+#: queue-dialog/pages/QueuePage.qml:42
+#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:138
 msgid "Printing"
 msgstr ""
 
-#: queue-dialog/Main.qml:126
-#, c-format, qt-plural-format
-msgid "Printing %n pages"
-msgid_plural "Printing %n page"
+#: queue-dialog/components/QueueDelegate.qml:53
+#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:180
+#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:189
+#, qt-format
+msgid "Ready to print %1 page"
+msgid_plural "Ready to print %1 pages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: queue-dialog/Main.qml:134
-#, c-format, qt-plural-format
-msgid "Ready to print %n pages"
-msgid_plural "Ready to print %n page"
-msgstr[0] ""
-msgstr[1] ""
-
-#: queue-dialog/Main.qml:137
+#: queue-dialog/components/QueueDelegate.qml:56
+#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:171
 msgid "Ready to print"
 msgstr ""
 
-#: queue-dialog/Main.qml:152
-msgid "Pause"
+#: queue-dialog/components/QueueDelegate.qml:73
+#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:104
+msgid "Release"
 msgstr ""
 
-#: queue-dialog/Main.qml:191
+#: queue-dialog/components/QueueDelegate.qml:73
+#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:111
+msgid "Hold"
+msgstr ""
+
+#: queue-dialog/pages/QueuePage.qml:41
+#: queue-dialog/tests/qmltests/tst_QueuePage.qml:123
+#: queue-dialog/tests/qmltests/tst_QueuePage.qml:130
+#, qt-format
+msgid "%1 job"
+msgid_plural "%1 jobs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: queue-dialog/pages/QueuePage.qml:79
+msgid "No printer jobs"
+msgstr ""
+
+#: queue-dialog/pages/QueuePage.qml:87
 msgid "Active"
 msgstr ""
 
-#: queue-dialog/Main.qml:202
+#: queue-dialog/pages/QueuePage.qml:95
 msgid "Queued"
 msgstr ""
 
-#: queue-dialog/Main.qml:213
+#: queue-dialog/pages/QueuePage.qml:103
 msgid "Paused"
 msgstr ""
 

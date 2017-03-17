@@ -18,7 +18,10 @@ else(SNAP_MODE)
 #  set(ICON ${CMAKE_INSTALL_PREFIX}/${QUEUE_DIALOG_DATA_DIR}/${ICON_FILE})
 endif(SNAP_MODE)
 
+add_subdirectory(components)
 add_subdirectory(runner)
+add_subdirectory(pages)
+add_subdirectory(tests)
 
 # Install Main.qml and icon
 install(FILES ${MAIN_QML} DESTINATION ${QUEUE_DIALOG_DATA_DIR})
