@@ -13,7 +13,7 @@ link_directories(
   ${SERVICE_DEPS_LIBRARY_DIRS}
 )
 
-find_package (GDbus)
+find_package(GDbus REQQUIRED)
 add_gdbus_codegen(
   SERVICE_GENERATED_SOURCES
   cups-cupsd-notifier
