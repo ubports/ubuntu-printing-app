@@ -5,15 +5,7 @@ cmake_minimum_required(VERSION 2.8.9)
 enable_testing()
 
 # Load translation tools
-find_program(INTLTOOL_MERGE intltool-merge)
-if(NOT INTLTOOL_MERGE)
-    message(FATAL_ERROR "Could not find intltool-merge, please install the intltool package")
-endif()
-
-find_program(INTLTOOL_EXTRACT intltool-extract)
-if(NOT INTLTOOL_EXTRACT)
-    message(FATAL_ERROR "Could not find intltool-extract, please install the intltool package")
-endif()
+find_package(Intltool REQUIRED)
 
 # Set the vars
 set(APP_NAME ubuntu-printing-app)
@@ -60,8 +52,6 @@ add_subdirectory(ubuntu-printing-app)
 
 # Setup gettext defs and include po directory
 set(GETTEXT_PACKAGE "ubuntu-printing-app")
-add_definitions(-DI18N_DOMAIN="${GETTEXT_PACKAGE}")
-
 add_subdirectory(po)
 
 # Add tests
