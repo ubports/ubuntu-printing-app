@@ -13,10 +13,12 @@ link_directories(
   ${SERVICE_DEPS_LIBRARY_DIRS}
 )
 
-include (GdbusCodegen)
-add_gdbus_codegen(SERVICE_GENERATED_SOURCES cups-cupsd-notifier
-                  org.cups.cupsd
-                  ${CMAKE_CURRENT_SOURCE_DIR}/org.cups.cupsd.Notifier.xml)
+find_package(GDbus REQUIRED)
+add_gdbus_codegen(
+  SERVICE_GENERATED_SOURCES
+  cups-cupsd-notifier
+  org.cups.cupsd
+  ${CMAKE_CURRENT_SOURCE_DIR}/org.cups.cupsd.Notifier.xml)
 
 add_library(${SERVICE_LIB_NAME} STATIC
   actions.cpp
