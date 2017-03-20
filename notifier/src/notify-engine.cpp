@@ -43,8 +43,8 @@ public:
          const std::shared_ptr<Actions>& actions):
         m_client(client),
         m_actions(actions),
+        // NOTE: sorted alphabetically by state
         m_reasons({
-            // NOTE: sorted alphabetically by state
             {"cover-open", _("A cover is open on the printer “%s”.")},
             {"cups-missing-filter", _("The printer “%s” can’t be used, because required software is missing.")},
             {"door-open-report", _("A door is open on the printer “%s”.")},

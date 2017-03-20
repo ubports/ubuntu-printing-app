@@ -1,6 +1,3 @@
-### Need to have own copy of gdbuscodegen module
-list (APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
-
 ### Install path variables
 include (GNUInstallDirs)
 if (EXISTS "/etc/debian_version") # Workaround for libexecdir on debian
