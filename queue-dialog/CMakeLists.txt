@@ -43,6 +43,9 @@ intltool_merge_translations(
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}
         DESTINATION ${CMAKE_INSTALL_DATADIR}/applications)
 
+# Install the url dispatcher
+# For now any printing:/// uri will open the queue dialog
+install(FILES ${APP_NAME}.url-dispatcher DESTINATION ${CMAKE_INSTALL_DATADIR}/url-dispatcher/urls)
 
 # Show in QtCreator
 if(NOT "${CMAKE_CURRENT_SOURCE_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
