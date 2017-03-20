@@ -1,203 +1,258 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Canonical Ltd.
-# This file is distributed under the same license as the ubuntu-printing-app package.
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: ubuntu-printing-app\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-20 11:58+0000\n"
+"POT-Creation-Date: 2017-03-20 16:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: ubuntu-printing-app/pages/EmptyPage.qml:48
-msgid ""
-"No document was chosen for printing. In order to print, you need to select "
-"print from an app. Alternatively you can export a PDF document from an app."
+#: ../notifier/src/notify-engine.cpp:48
+#, c-format
+msgid "A cover is open on the printer “%s”."
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:47
-msgid "Page Setup"
+#: ../notifier/src/notify-engine.cpp:49
+#, c-format
+msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:47
-msgid "Printer Options"
+#: ../notifier/src/notify-engine.cpp:50
+#, c-format
+msgid "A door is open on the printer “%s”."
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:86
-msgid "Printer"
+#: ../notifier/src/notify-engine.cpp:51
+#, c-format
+msgid "The printer “%s” is out of paper."
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:107
-msgid "Copies"
+#: ../notifier/src/notify-engine.cpp:52
+#, c-format
+msgid "The printer “%s” is low on paper."
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:131
-msgid "All"
+#: ../notifier/src/notify-engine.cpp:53
+#, c-format
+msgid "The printer “%s” is currently off-line."
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:131
-msgid "Range"
+#: ../notifier/src/notify-engine.cpp:54
+#, c-format
+msgid "The printer “%s” has an unknown problem."
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:135
-msgid "Pages"
+#: ../notifier/src/notify-engine.cpp:55
+#, c-format
+msgid "The printer “%s” is out of toner."
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:177
-msgid "eg 1-3,8"
+#: ../notifier/src/notify-engine.cpp:56
+#, c-format
+msgid "The printer “%s” is low on toner."
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:186
-msgid "Two-sided"
+#: ../notifier/src/notify-engine.cpp:167
+#, c-format
+msgid "“%s” has printed."
 msgstr ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:207
-msgid "Color"
-msgstr ""
+#: ../notifier/src/notify-engine.cpp:185
+#, c-format
+msgid "You have %d job queued to print on this printer."
+msgid_plural "You have %d jobs queued to print on this printer."
+msgstr[0] ""
+msgstr[1] ""
 
-#: ubuntu-printing-app/pages/PrintPage.qml:228
-msgid "Quality"
-msgstr ""
-
-#: ubuntu-printing-app/pages/PrintPage.qml:246
-msgid "Collate"
-msgstr ""
-
-#: ubuntu-printing-app/pages/PrintPage.qml:266
-msgid "Reverse"
-msgstr ""
-
-#: ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
-msgid "Open With..."
-msgstr ""
-
-#: ubuntu-printing-app/Main.qml:66
-msgid "Document is invalid"
-msgstr ""
-
-#: ubuntu-printing-app/Main.qml:69
-msgid "Document not found"
-msgstr ""
-
-#: ubuntu-printing-app/Main.qml:72
-msgid "Not a PDF document"
-msgstr ""
-
-#: ubuntu-printing-app/Main.qml:75
-msgid "An unknown error occurred"
-msgstr ""
-
-#: ubuntu-printing-app/Main.qml:99
-msgid "Error"
-msgstr ""
-
-#: ubuntu-printing-app/Main.qml:126
-msgid "URL of PDF to print"
-msgstr ""
-
-#: ubuntu-printing-app/components/PrintRow.qml:60
-#: queue-dialog/components/QueueDelegate.qml:86
-msgid "Cancel"
-msgstr ""
-
-#: ubuntu-printing-app/components/PrintRow.qml:74
-msgid "Create PDF"
-msgstr ""
-
-#: ubuntu-printing-app/components/PrintRow.qml:74
-#: po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
-msgid "Print"
-msgstr ""
-
-#: ubuntu-printing-app/components/PrintRow.qml:74
-msgid "Sheets"
-msgstr ""
-
-#: ubuntu-printing-app/components/AlertDialog.qml:28
+#: ../notifier/src/notify-engine.cpp:193
+#: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
 msgstr ""
 
-#: queue-dialog/components/QueueDelegate.qml:45
-#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:147
-#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:156
-#, qt-format
-msgid "Printing %1 page"
-msgid_plural "Printing %1 pages"
-msgstr[0] ""
-msgstr[1] ""
-
-#: queue-dialog/components/QueueDelegate.qml:48
-#: queue-dialog/pages/QueuePage.qml:42
-#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:138
-msgid "Printing"
+#: ../notifier/src/notify-engine.cpp:195
+msgid "Settings…"
 msgstr ""
 
-#: queue-dialog/components/QueueDelegate.qml:53
-#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:180
-#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:189
-#, qt-format
-msgid "Ready to print %1 page"
-msgid_plural "Ready to print %1 pages"
-msgstr[0] ""
-msgstr[1] ""
-
-#: queue-dialog/components/QueueDelegate.qml:56
-#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:171
-msgid "Ready to print"
+#: ../build/po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
+#: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
+#: ../ubuntu-printing-app/components/PrintRow.qml:74
+msgid "Print"
 msgstr ""
 
-#: queue-dialog/components/QueueDelegate.qml:73
-#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:104
-msgid "Release"
+#: ../build/po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
+#: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
+msgid "Print;Printing;"
 msgstr ""
 
-#: queue-dialog/components/QueueDelegate.qml:73
-#: queue-dialog/tests/qmltests/tst_QueueDelegate.qml:111
-msgid "Hold"
+#. notifier
+#. printing
+#. ubuntu
+#: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
+msgid "Print Queue"
 msgstr ""
 
-#: queue-dialog/pages/QueuePage.qml:41
-#: queue-dialog/tests/qmltests/tst_QueuePage.qml:123
-#: queue-dialog/tests/qmltests/tst_QueuePage.qml:130
-#, qt-format
+#: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
+msgid "Queue;Paper;Print;Printing;"
+msgstr ""
+
+#: ../queue-dialog/pages/QueuePage.qml:41
 msgid "%1 job"
 msgid_plural "%1 jobs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: queue-dialog/pages/QueuePage.qml:79
+#: ../queue-dialog/pages/QueuePage.qml:42
+#: ../queue-dialog/components/QueueDelegate.qml:48
+msgid "Printing"
+msgstr ""
+
+#: ../queue-dialog/pages/QueuePage.qml:79
 msgid "No printer jobs"
 msgstr ""
 
-#: queue-dialog/pages/QueuePage.qml:87
+#: ../queue-dialog/pages/QueuePage.qml:87
 msgid "Active"
 msgstr ""
 
-#: queue-dialog/pages/QueuePage.qml:95
+#: ../queue-dialog/pages/QueuePage.qml:95
 msgid "Queued"
 msgstr ""
 
-#: queue-dialog/pages/QueuePage.qml:103
+#: ../queue-dialog/pages/QueuePage.qml:103
 msgid "Paused"
 msgstr ""
 
-#: po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
-msgid "Print;Printing;"
+#: ../queue-dialog/components/QueueDelegate.qml:45
+msgid "Printing %1 page"
+msgid_plural "Printing %1 pages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../queue-dialog/components/QueueDelegate.qml:53
+msgid "Ready to print %1 page"
+msgid_plural "Ready to print %1 pages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../queue-dialog/components/QueueDelegate.qml:56
+msgid "Ready to print"
 msgstr ""
 
-#: po/queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
-msgid "Print Queue"
+#: ../queue-dialog/components/QueueDelegate.qml:73
+msgid "Release"
 msgstr ""
 
-#: po/queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
-msgid "Queue;Paper;Print;Printing;"
+#: ../queue-dialog/components/QueueDelegate.qml:73
+msgid "Hold"
+msgstr ""
+
+#. Text color is determined from background color so set from html
+#: ../queue-dialog/components/QueueDelegate.qml:86
+#: ../ubuntu-printing-app/components/PrintRow.qml:60
+msgid "Cancel"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/EmptyPage.qml:48
+msgid ""
+"No document was chosen for printing. In order to print, you need to select "
+"print from an app. Alternatively you can export a PDF document from an app."
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:47
+msgid "Page Setup"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:47
+msgid "Printer Options"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:86
+msgid "Printer"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:107
+msgid "Copies"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:131
+msgid "All"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:131
+msgid "Range"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:135
+msgid "Pages"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:177
+msgid "eg 1-3,8"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:186
+msgid "Two-sided"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:207
+msgid "Color"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:228
+msgid "Quality"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:246
+msgid "Collate"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:266
+msgid "Reverse"
+msgstr ""
+
+#: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
+msgid "Open With..."
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:66
+msgid "Document is invalid"
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:69
+msgid "Document not found"
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:72
+msgid "Not a PDF document"
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:75
+msgid "An unknown error occurred"
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:99
+msgid "Error"
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:126
+msgid "URL of PDF to print"
+msgstr ""
+
+#: ../ubuntu-printing-app/components/PrintRow.qml:74
+msgid "Create PDF"
+msgstr ""
+
+#: ../ubuntu-printing-app/components/PrintRow.qml:74
+msgid "Sheets"
 msgstr ""
