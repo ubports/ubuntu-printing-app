@@ -1,7 +1,7 @@
 set(APP_HARDCODE queue-dialog)
 set(APP_NAME ubuntu-queue-dialog)
 set(DESKTOP_FILE "${APP_NAME}.desktop")
-set(ICON_FILE ${APP_NAME}.png)
+set(ICON_FILE ${APP_NAME}.svg)
 set(MAIN_QML Main.qml)
 set(RUNNER ${APP_NAME})
 set(SNAP_DESKTOP_FILE snap/gui/${DESKTOP_FILE})
