@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ubuntu-printing-app\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-17 12:21+0000\n"
+"POT-Creation-Date: 2017-03-20 11:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -192,4 +192,12 @@ msgstr ""
 
 #: po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
+msgstr ""
+
+#: po/queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
+msgid "Print Queue"
+msgstr ""
+
+#: po/queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
+msgid "Queue;Paper;Print;Printing;"
 msgstr ""
