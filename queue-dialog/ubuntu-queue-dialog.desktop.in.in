@@ -1,9 +1,9 @@
 [Desktop Entry]
 _Name=Print Queue
-Exec=@RUNNER@
+Exec=@RUNNER@ %u
 Icon=@ICON@
 _Keywords=Queue;Paper;Print;Printing;
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
-X-Ubuntu-Touch-Single-Instance=false
+X-Ubuntu-Touch-Single-Instance=true
