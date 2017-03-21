@@ -5,5 +5,6 @@ Icon=@ICON@
 _Keywords=Queue;Paper;Print;Printing;
 Terminal=false
 Type=Application
-X-Ubuntu-Touch=true
+X-Ubuntu-Gettext-Domain=@GETTEXT_PACKAGE@
 X-Ubuntu-Single-Instance=true
+X-Ubuntu-Touch=true
