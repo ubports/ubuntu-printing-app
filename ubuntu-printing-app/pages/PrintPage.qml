@@ -305,7 +305,7 @@ Page {
         sheets: {
             // If range is selected and a value exists, then set the sheets to zero
             // for now. Which results in not showing the number sheets
-            if (printing.printerJob.printRangeMode === PrinterEnum.PageRange && printing.printerJob.printRange.length) {
+            if (printing.printerJob.printRangeMode === PrinterEnum.PageRange && printing.printerJob.printRange.length > 0) {
                 0
             } else {
                 Math.ceil((document.count * printing.printerJob.copies) / (printing.printerJob.isTwoSided ? 2 : 1))
