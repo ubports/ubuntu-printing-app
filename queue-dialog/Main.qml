@@ -26,6 +26,7 @@ import Ubuntu.Components.ListItems 1.3 as ListItems
 
 import "components"
 
+// Use a Window as UriHandler requests need to call Window.requestActivate()
 Window {
     id: window
     contentOrientation: Screen.orientation
@@ -34,36 +35,46 @@ Window {
     height: units.gu(60)
     width: units.gu(60)
 
-    property Page queuePage: null
-
-    PageStack {
-        id: pageStack
+    // Nest a MainView inside the Window so that we can set the i18n domain
+    // from QML to ubuntu-printing-app we share the .pot
+    MainView {
+        id: mainView
         anchors {
             fill: parent
         }
-    }
+        applicationName: "ubuntu-printing-app"
 
-    QueueHelper {
-        id: queueHelper
-    }
+        property Page queuePage: null
 
-    Connections {
-        target: queuePage
-
-        onSettings: Qt.openUrlExternally("settings:///system/printing")
-    }
-
-    Connections {
-        target: UriHandler
-        onOpened: window.requestActivate()
-    }
-
-    Component.onCompleted: {
-        queuePage = pageStack.push(
-            Qt.resolvedUrl("pages/QueuePage.qml"),
-            {
-                "queueHelper": queueHelper,
+        PageStack {
+            id: pageStack
+            anchors {
+                fill: parent
             }
-        );
+        }
+
+        QueueHelper {
+            id: queueHelper
+        }
+
+        Connections {
+            target: mainView.queuePage
+
+            onSettings: Qt.openUrlExternally("settings:///system/printing")
+        }
+
+        Connections {
+            target: UriHandler
+            onOpened: window.requestActivate()
+        }
+
+        Component.onCompleted: {
+            mainView.queuePage = pageStack.push(
+                Qt.resolvedUrl("pages/QueuePage.qml"),
+                {
+                    "queueHelper": queueHelper,
+                }
+            );
+        }
     }
 }
