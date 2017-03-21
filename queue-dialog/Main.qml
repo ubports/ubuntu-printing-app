@@ -19,15 +19,18 @@
  */
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
+import QtQuick.Window 2.2
 
 import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItems
 
 import "components"
 
-MainView {
-    id: mainView
-    objectName: "mainView"
+Window {
+    id: window
+    contentOrientation: Screen.orientation
+    minimumHeight: units.gu(20)
+    minimumWidth: units.gu(20)
     height: units.gu(60)
     width: units.gu(60)
 
@@ -49,6 +52,11 @@ MainView {
 
         onClose: Qt.quit()
         onSettings: Qt.openUrlExternally("settings:///system/printing")
+    }
+
+    Connections {
+        target: UriHandler
+        onOpened: window.requestActivate()
     }
 
     Component.onCompleted: {
