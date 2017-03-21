@@ -36,7 +36,7 @@ Window {
     width: units.gu(60)
 
     // Nest a MainView inside the Window so that we can set the i18n domain
-    // from QML to ubuntu-printing-app we share the .pot
+    // from QML to ubuntu-printing-app as we share the .pot
     MainView {
         id: mainView
         anchors {

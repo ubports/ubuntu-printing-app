@@ -69,6 +69,7 @@ Flickable {
                         title {
                             objectName: "filterHeaderLabel" + index
                             text: model.name
+                            textSize: Label.Large
                         }
                     }
                 }
