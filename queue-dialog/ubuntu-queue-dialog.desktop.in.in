@@ -6,4 +6,4 @@ _Keywords=Queue;Paper;Print;Printing;
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
-X-Ubuntu-Touch-Single-Instance=true
+X-Ubuntu-Single-Instance=true
