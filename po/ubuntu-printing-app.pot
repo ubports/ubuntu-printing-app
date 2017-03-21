@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-20 16:57+0000\n"
+"POT-Creation-Date: 2017-03-21 17:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,17 +84,6 @@ msgstr ""
 msgid "Settings…"
 msgstr ""
 
-#: ../build/po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
-#: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
-#: ../ubuntu-printing-app/components/PrintRow.qml:74
-msgid "Print"
-msgstr ""
-
-#: ../build/po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
-#: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
-msgid "Print;Printing;"
-msgstr ""
-
 #. notifier
 #. printing
 #. ubuntu
@@ -106,30 +95,41 @@ msgstr ""
 msgid "Queue;Paper;Print;Printing;"
 msgstr ""
 
-#: ../queue-dialog/pages/QueuePage.qml:41
+#. Only show the amount of sheets if they are above zero
+#: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
+#: ../ubuntu-printing-app/components/PrintRow.qml:79
+#: ../ubuntu-printing-app/components/PrintRow.qml:82
+msgid "Print"
+msgstr ""
+
+#: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
+msgid "Print;Printing;"
+msgstr ""
+
+#: ../queue-dialog/pages/QueuePage.qml:30
 msgid "%1 job"
 msgid_plural "%1 jobs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../queue-dialog/pages/QueuePage.qml:42
+#: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
 msgstr ""
 
-#: ../queue-dialog/pages/QueuePage.qml:79
+#: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
 msgstr ""
 
-#: ../queue-dialog/pages/QueuePage.qml:87
+#: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
 msgstr ""
 
-#: ../queue-dialog/pages/QueuePage.qml:95
+#: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
 msgstr ""
 
-#: ../queue-dialog/pages/QueuePage.qml:103
+#: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
 msgstr ""
 
@@ -249,10 +249,12 @@ msgstr ""
 msgid "URL of PDF to print"
 msgstr ""
 
-#: ../ubuntu-printing-app/components/PrintRow.qml:74
+#: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
 msgstr ""
 
-#: ../ubuntu-printing-app/components/PrintRow.qml:74
-msgid "Sheets"
-msgstr ""
+#: ../ubuntu-printing-app/components/PrintRow.qml:80
+msgid "<u>%1</u> Sheet"
+msgid_plural "<u>%1</u> Sheets"
+msgstr[0] ""
+msgstr[1] ""

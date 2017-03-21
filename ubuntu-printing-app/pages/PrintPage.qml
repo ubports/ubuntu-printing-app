@@ -302,7 +302,15 @@ Page {
         pdfMode: printing.pdfMode
         // TODO: This should count the range not all pages
         // roundUp((pageCount * copies) / duplex)
-        sheets: Math.ceil((document.count * printing.printerJob.copies) / (printing.printerJob.isTwoSided ? 2 : 1))
+        sheets: {
+            // If range is selected and a value exists, then set the sheets to zero
+            // for now. Which results in not showing the number sheets
+            if (printing.printerJob.printRangeMode === PrinterEnum.PageRange && printing.printerJob.printRange.length) {
+                0
+            } else {
+                Math.ceil((document.count * printing.printerJob.copies) / (printing.printerJob.isTwoSided ? 2 : 1))
+            }
+        }
 
         onCancel: page.cancel()
         onConfirm: page.confirm(document.url)
