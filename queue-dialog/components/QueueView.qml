@@ -54,7 +54,7 @@ Flickable {
                 readonly property int outerIndex: index  // used for QML tests
                 readonly property string outerState: model.state
 
-                ListItem {  // Split into component
+                ListItem {
                     divider {
                         visible: false
                     }
@@ -62,6 +62,10 @@ Flickable {
 
                     ListItemLayout {
                         id: headerLayout
+                        padding {
+                            bottom: units.gu(1)
+                            top: units.gu(1)
+                        }
                         title {
                             objectName: "filterHeaderLabel" + index
                             text: model.name
