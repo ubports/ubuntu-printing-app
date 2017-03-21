@@ -27,7 +27,6 @@ import "../components"
 Page {
     id: page
     header: PageHeader {
-        flickable: queueView
         subtitle: i18n.tr("%1 job", "%1 jobs", queueHelper.count).arg(queueHelper.count)
         title: i18n.tr("Printing")
         trailingActionBar {
@@ -47,17 +46,26 @@ Page {
 
     signal settings()
 
-    QueueView {
-        id: queueView
+    ScrollView {
+        id: scrollView
         anchors {
-            fill: parent
+            bottom: parent.bottom
+            left: parent.left
+            right: parent.right
+            top: page.header.bottom
         }
-        filtersModel: ListModel {
-            id: filtersModel
-            objectName: "filtersModel"
+
+        QueueView {
+            anchors {
+                fill: parent
+            }
+            filtersModel: ListModel {
+                id: filtersModel
+                objectName: "filtersModel"
+            }
+            objectName: "queueView"
+            queueHelper: page.queueHelper
         }
-        objectName: "queueView"
-        queueHelper: page.queueHelper
     }
 
     Label {
