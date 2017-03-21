@@ -68,12 +68,6 @@ Item {
     }
 
     SignalSpy {
-        id: closeSpy
-        signalName: "close"
-        target: queuePage
-    }
-
-    SignalSpy {
         id: settingsSpy
         signalName: "settings"
         target: queuePage
@@ -89,20 +83,9 @@ Item {
             fakeQueueHelper.dataPausedFilter.clear();
             fakeQueueHelper.dataQueuedFilter.clear();
 
-            closeSpy.clear();
             settingsSpy.clear();
 
             waitForRendering(queuePage);
-        }
-
-        // Test that clicking the close in the header emits the signal
-        function test_header_close() {
-            // Note SDK adds _button to objectNames in ActionBar
-            var closeButton = findChild(queuePage, "headerClose_button");
-            mouseClick(closeButton);
-
-            closeSpy.wait();
-            compare(closeSpy.count, 1);
         }
 
         // Test that clicking the settings in the header emits the signal

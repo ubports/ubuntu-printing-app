@@ -50,7 +50,6 @@ Window {
     Connections {
         target: queuePage
 
-        onClose: Qt.quit()
         onSettings: Qt.openUrlExternally("settings:///system/printing")
     }
 

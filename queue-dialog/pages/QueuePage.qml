@@ -28,16 +28,6 @@ Page {
     id: page
     header: PageHeader {
         flickable: queueView
-        leadingActionBar {
-            actions: [
-                Action {
-                    iconName: "close"
-                    objectName: "headerClose"
-
-                    onTriggered: page.close()
-                }
-            ]
-        }
         subtitle: i18n.tr("%1 job", "%1 jobs", queueHelper.count).arg(queueHelper.count)
         title: i18n.tr("Printing")
         trailingActionBar {
@@ -55,7 +45,6 @@ Page {
 
     property QtObject queueHelper: null
 
-    signal close()
     signal settings()
 
     QueueView {
