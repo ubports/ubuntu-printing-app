@@ -83,9 +83,18 @@ Flickable {
                         isActive: outerState === "active"
                         objectName: "jobFilter" + outerIndex + "delegate" + index
 
-                        onCancel: queueHelper.cancelJob(model.printerName, model.id)
-                        onHold: queueHelper.holdJob(model.printerName, model.id)
-                        onRelease: queueHelper.releaseJob(model.printerName, model.id)
+                        onCancel: {
+                            console.debug("Cancel Job:", model.id, "for", model.printerName);
+                            queueHelper.cancelJob(model.printerName, model.id);
+                        }
+                        onHold: {
+                            console.debug("Hold Job:", model.id, "for", model.printerName);
+                            queueHelper.holdJob(model.printerName, model.id);
+                        }
+                        onRelease: {
+                            console.debug("Release Job:", model.id, "for", model.printerName);
+                            queueHelper.releaseJob(model.printerName, model.id);
+                        }
                     }
                 }
             }
