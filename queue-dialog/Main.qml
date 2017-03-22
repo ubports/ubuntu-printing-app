@@ -19,62 +19,48 @@
  */
 import QtQuick 2.4
 import QtQuick.Layouts 1.1
-import QtQuick.Window 2.2
 
 import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 1.3 as ListItems
 
 import "components"
 
-// Use a Window as UriHandler requests need to call Window.requestActivate()
-Window {
-    id: window
-    contentOrientation: Screen.orientation
-    minimumHeight: units.gu(20)
-    minimumWidth: units.gu(20)
+MainView {
+    id: mainView
+    anchors {
+        fill: parent
+    }
+    // Set the application name to "ubuntu-printing-app" as we want to share
+    // the i18n domain to share the same .pot file
+    applicationName: "ubuntu-printing-app"
     height: units.gu(60)
     width: units.gu(60)
 
-    // Nest a MainView inside the Window so that we can set the i18n domain
-    // from QML to ubuntu-printing-app as we share the .pot
-    MainView {
-        id: mainView
+    property Page queuePage: null
+
+    PageStack {
+        id: pageStack
         anchors {
             fill: parent
         }
-        applicationName: "ubuntu-printing-app"
+    }
 
-        property Page queuePage: null
+    QueueHelper {
+        id: queueHelper
+    }
 
-        PageStack {
-            id: pageStack
-            anchors {
-                fill: parent
+    Connections {
+        target: mainView.queuePage
+
+        onSettings: Qt.openUrlExternally("settings:///system/printing")
+    }
+
+    Component.onCompleted: {
+        mainView.queuePage = pageStack.push(
+            Qt.resolvedUrl("pages/QueuePage.qml"),
+            {
+                "queueHelper": queueHelper,
             }
-        }
-
-        QueueHelper {
-            id: queueHelper
-        }
-
-        Connections {
-            target: mainView.queuePage
-
-            onSettings: Qt.openUrlExternally("settings:///system/printing")
-        }
-
-        Connections {
-            target: UriHandler
-            onOpened: window.requestActivate()
-        }
-
-        Component.onCompleted: {
-            mainView.queuePage = pageStack.push(
-                Qt.resolvedUrl("pages/QueuePage.qml"),
-                {
-                    "queueHelper": queueHelper,
-                }
-            );
-        }
+        );
     }
 }
