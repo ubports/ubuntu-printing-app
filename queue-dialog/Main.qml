@@ -26,10 +26,6 @@ import Ubuntu.Components.ListItems 1.3 as ListItems
 import "components"
 
 MainView {
-    id: mainView
-    anchors {
-        fill: parent
-    }
     // Set the application name to "ubuntu-printing-app" as we want to share
     // the i18n domain to share the same .pot file
     applicationName: "ubuntu-printing-app"
@@ -50,13 +46,13 @@ MainView {
     }
 
     Connections {
-        target: mainView.queuePage
+        target: queuePage
 
         onSettings: Qt.openUrlExternally("settings:///system/printing")
     }
 
     Component.onCompleted: {
-        mainView.queuePage = pageStack.push(
+        queuePage = pageStack.push(
             Qt.resolvedUrl("pages/QueuePage.qml"),
             {
                 "queueHelper": queueHelper,
