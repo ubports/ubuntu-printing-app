@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-20 16:29+0000\n"
+"POT-Creation-Date: 2017-03-20 16:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -84,9 +84,6 @@ msgstr ""
 msgid "Settings…"
 msgstr ""
 
-#. notifier
-#. printing
-#. ubuntu
 #: ../build/po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/components/PrintRow.qml:74
@@ -96,6 +93,74 @@ msgstr ""
 #: ../build/po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
+msgstr ""
+
+#. notifier
+#. printing
+#. ubuntu
+#: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
+msgid "Print Queue"
+msgstr ""
+
+#: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
+msgid "Queue;Paper;Print;Printing;"
+msgstr ""
+
+#: ../queue-dialog/pages/QueuePage.qml:41
+msgid "%1 job"
+msgid_plural "%1 jobs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../queue-dialog/pages/QueuePage.qml:42
+#: ../queue-dialog/components/QueueDelegate.qml:48
+msgid "Printing"
+msgstr ""
+
+#: ../queue-dialog/pages/QueuePage.qml:79
+msgid "No printer jobs"
+msgstr ""
+
+#: ../queue-dialog/pages/QueuePage.qml:87
+msgid "Active"
+msgstr ""
+
+#: ../queue-dialog/pages/QueuePage.qml:95
+msgid "Queued"
+msgstr ""
+
+#: ../queue-dialog/pages/QueuePage.qml:103
+msgid "Paused"
+msgstr ""
+
+#: ../queue-dialog/components/QueueDelegate.qml:45
+msgid "Printing %1 page"
+msgid_plural "Printing %1 pages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../queue-dialog/components/QueueDelegate.qml:53
+msgid "Ready to print %1 page"
+msgid_plural "Ready to print %1 pages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../queue-dialog/components/QueueDelegate.qml:56
+msgid "Ready to print"
+msgstr ""
+
+#: ../queue-dialog/components/QueueDelegate.qml:73
+msgid "Release"
+msgstr ""
+
+#: ../queue-dialog/components/QueueDelegate.qml:73
+msgid "Hold"
+msgstr ""
+
+#. Text color is determined from background color so set from html
+#: ../queue-dialog/components/QueueDelegate.qml:86
+#: ../ubuntu-printing-app/components/PrintRow.qml:60
+msgid "Cancel"
 msgstr ""
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
@@ -182,11 +247,6 @@ msgstr ""
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr ""
-
-#. Text color is determined from background color so set from html
-#: ../ubuntu-printing-app/components/PrintRow.qml:60
-msgid "Cancel"
 msgstr ""
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:74

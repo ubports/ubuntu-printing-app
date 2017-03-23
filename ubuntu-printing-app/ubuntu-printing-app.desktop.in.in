@@ -7,4 +7,4 @@ NoDisplay=true
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
-X-Ubuntu-Touch-Single-Instance=false
+X-Ubuntu-Single-Instance=false
