@@ -71,7 +71,17 @@ Item {
             color: pressed ? Qt.lighter("#111") : "#111"
             enabled: canPrint
             Layout.fillWidth: true
-            text: pdfMode ? i18n.tr("Create PDF") : i18n.tr("Print") + " <u>" + sheets + "</u> " + i18n.tr("Sheets")
+            text: {
+                if (pdfMode) {
+                    i18n.tr("Create PDF")
+                } else if (sheets > 0) {
+                    // Only show the amount of sheets if they are above zero
+                    i18n.tr("Print") + " "
+                            + i18n.tr("<u>%1</u> Sheet", "<u>%1</u> Sheets", sheets).arg(sheets)
+                } else {
+                    i18n.tr("Print")
+                }
+            }
 
             onClicked: confirm()
         }

@@ -503,6 +503,12 @@ Item {
             mockPrinting.printerJob.isTwoSided = true;
 
             compare(printRow.sheets, 2);
+
+            // Enable page ranges, this results in zero sheets
+            mockPrinting.printerJob.printRange = "-3,5-7,9-";
+            mockPrinting.printerJob.printRangeMode = PrinterEnum.PageRange;
+
+            compare(printRow.sheets, 0);
         }
     }
 }
