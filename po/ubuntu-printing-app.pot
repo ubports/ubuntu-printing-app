@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-17 17:00-0400\n"
+"POT-Creation-Date: 2017-03-20 16:29+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -87,37 +87,15 @@ msgstr ""
 #. notifier
 #. printing
 #. ubuntu
+#: ../build/po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/components/PrintRow.qml:74
 msgid "Print"
 msgstr ""
 
+#: ../build/po/ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
-msgstr ""
-
-#: ../ubuntu-printing-app/Main.qml:66
-msgid "Document is invalid"
-msgstr ""
-
-#: ../ubuntu-printing-app/Main.qml:69
-msgid "Document not found"
-msgstr ""
-
-#: ../ubuntu-printing-app/Main.qml:72
-msgid "Not a PDF document"
-msgstr ""
-
-#: ../ubuntu-printing-app/Main.qml:75
-msgid "An unknown error occurred"
-msgstr ""
-
-#: ../ubuntu-printing-app/Main.qml:99
-msgid "Error"
-msgstr ""
-
-#: ../ubuntu-printing-app/Main.qml:126
-msgid "URL of PDF to print"
 msgstr ""
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
@@ -180,6 +158,30 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
 msgid "Open With..."
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:66
+msgid "Document is invalid"
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:69
+msgid "Document not found"
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:72
+msgid "Not a PDF document"
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:75
+msgid "An unknown error occurred"
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:99
+msgid "Error"
+msgstr ""
+
+#: ../ubuntu-printing-app/Main.qml:126
+msgid "URL of PDF to print"
 msgstr ""
 
 #. Text color is determined from background color so set from html

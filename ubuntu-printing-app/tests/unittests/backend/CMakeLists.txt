@@ -1,7 +1,7 @@
 include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${CMAKE_SOURCE_DIR}/backend/
+    ${CMAKE_SOURCE_DIR}/ubuntu-printing-app/backend/
 )
 
 find_package(Qt5Test REQUIRED)

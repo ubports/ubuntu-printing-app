@@ -20,7 +20,7 @@
 import QtQuick 2.4
 import QtTest 1.1
 import Ubuntu.Test 1.0
-import "../../ubuntu-printing-app/pages"
+import "../../pages"
 
 import UbuntuPrintingApp 1.0
 import Ubuntu.Components.Extras.Printers 0.1

@@ -1,4 +1,3 @@
-
 intltool_update_potfile(
     KEYWORDS "_" "_:1,2" "N_" "N_:1,2" "tr" "tr:1,2"
     GETTEXT_PACKAGE ${GETTEXT_PACKAGE}
