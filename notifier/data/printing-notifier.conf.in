@@ -1,0 +1,23 @@
+description "Printing Notification Service"
+
+# NOTE: Limiting only to Unity 8 right now as it's still using
+# dbusmenu.  That can be lifted after it is ported to GMenu
+
+start on indicator-services-start
+stop on desktop-end or indicator-services-end
+
+respawn
+respawn limit 2 10
+
+pre-start script
+  # NOTE: Only used on Unity8 today, not 7
+  #       Still allows manual starting
+  if [ "x$DESKTOP_SESSION" != "xubuntu-touch" ] &&
+     [ "x$DESKTOP_SESSION" != "xunity8" ]; then
+    if [ "x$UPSTART_EVENTS" != "x" ] ; then
+      stop; exit 0
+    fi
+  fi
+end script
+
+exec $SNAP@pkglibexecdir@/@SERVICE_EXEC_NAME@

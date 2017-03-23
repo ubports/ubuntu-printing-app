@@ -1,0 +1,37 @@
+This subtree contains the daemon for notifying of successful print jobs,
+and of issues with the printer when jobs are printed, under Unity 8.
+This document describes how to test some notifications.
+
+
+Testing
+
+0) Make sure the notifier daemon is running:
+
+  $: ./build/notifier/src/printing-notifier-service
+
+1) Add a null printer, if one is not already configured, and enable it:
+
+  $: lpadmin -p nulldevice -E -v file:///dev/null
+  $: cupsenable nulldevice
+
+2) Print a test page:
+
+  $: lpr -P nulldevice -J "Test Page" /usr/share/cups/data/default-testpage.pdf
+
+  The document should "print" immediately, and you should get a notification
+  that reads '"Test Page" has printed."
+
+3) Pause the printer, print another test page, and emit the PrinterStateChanged
+   signal over dbus:
+
+  $: cupsdisable nulldevice
+  $: lpr -P nulldevice -J "Test Page" /usr/share/cups/data/default-testpage.pdf
+  $: gdbus emit -y -o /org/cups/cupsd/Notifier \
+     -s org.cups.cupsd.Notifier.PrinterStateChanged \
+     "Some text" "cups://nulldevice" "nulldevice" 'uint32 0' "toner-low" true
+
+  You should see a notification for the toner being low, with one job
+  queued on the printer. Clicking the OK button should close the notification
+  and perform no further actions. Clicking the "Settings…" button should
+  cause system-settings to open to the settings page for that particular
+  printer.
