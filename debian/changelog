@@ -1,3 +1,19 @@
+ubuntu-printing-app (0.1+17.04.20170323-0ubuntu1) zesty; urgency=medium
+
+  [ Andrew Hayzen ]
+  * Fix typo in copyright
+  * Move printing app tests into the ubuntu-printing-app folder
+  * Add queue dialog with relevant components
+  * Only show sheets count in print button when we are not performing a
+    print range for now.
+  * Fix notifier system-settings url
+
+  [ Rodney Dawes ]
+  * Add notifier daemon.
+  * Use intltool module from cmake-extras and update template.
+
+ -- Andrew Hayzen <ahayzen@gmail.com>  Thu, 23 Mar 2017 12:38:48 +0000
+
 ubuntu-printing-app (0.1+17.04.20170317-0ubuntu1) zesty; urgency=medium
 
   * Replace GPL-3.0+ with GPL-3
