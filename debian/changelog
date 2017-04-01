@@ -1,3 +1,12 @@
+ubuntu-printing-app (0.1+17.04.20170401-0ubuntu1) zesty; urgency=medium
+
+  * Change qtdeclarative5-ubuntu-ui-toolkit-plugin to qml-module-ubuntu-
+    components in depends (and -gles) (LP: #1673808)
+  * Add qmlscene to depends
+  * Only show Print Queue in Unity8
+
+ -- Andrew Hayzen <ahayzen@gmail.com>  Sat, 01 Apr 2017 17:51:04 +0000
+
 ubuntu-printing-app (0.1+17.04.20170323-0ubuntu1) zesty; urgency=medium
 
   [ Andrew Hayzen ]
