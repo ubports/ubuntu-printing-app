@@ -41,8 +41,8 @@ install(FILES "ubuntu-printing-app-content-hub.json"
 # Install desktop file
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/${DESKTOP_FILE}.in.in ${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}.in)
 intltool_merge_translations(
-  "${DESKTOP_FILE}.in"
-  "${DESKTOP_FILE}"
+  "${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/${DESKTOP_FILE}"
   ALL
   UTF8
 )
