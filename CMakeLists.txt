@@ -2,7 +2,7 @@ project(ubuntu-printing-app)
 cmake_minimum_required(VERSION 2.8.9)
 
 # Always Be Testing
-enable_testing()
+#enable_testing()
 
 # Load translation tools
 find_package(Intltool REQUIRED)
@@ -23,7 +23,7 @@ find_package(Qt5PrintSupport REQUIRED)
 include(GNUInstallDirs)
 
 # Add subdirs
-add_subdirectory(notifier)
+#add_subdirectory(notifier)
 add_subdirectory(ubuntu-printing-app)
 
 # Add queue dialog

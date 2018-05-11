@@ -26,8 +26,8 @@ add_subdirectory(pages)
 
 # Add tests
 find_package(Qt5Test REQUIRED)
-enable_testing()
-add_subdirectory(tests)
+#enable_testing()
+#add_subdirectory(tests)
 
 # Install Main.qml and icon
 install(FILES ${MAIN_QML} DESTINATION ${UBUNTU_PRINTING_APP_DATA_DIR})
