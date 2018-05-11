@@ -1,0 +1,268 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Canonical Ltd.
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-03-21 17:56+0000\n"
+"PO-Revision-Date: 2018-05-11 12:55+0000\n"
+"Last-Translator: Milan Korecký <milan.korecky@gmail.com>\n"
+"Language-Team: Czech <https://translate.ubports.com/projects/ubports/ubuntu-"
+"printing-app/cs/>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 2.15\n"
+
+#: ../notifier/src/notify-engine.cpp:48
+#, c-format
+msgid "A cover is open on the printer “%s”."
+msgstr "Na tiskárně je otevřen kryt “%s”."
+
+#: ../notifier/src/notify-engine.cpp:49
+#, c-format
+msgid "The printer “%s” can’t be used, because required software is missing."
+msgstr "Tiskárnu “%s” nelze spustit, chybí požadovaný software."
+
+#: ../notifier/src/notify-engine.cpp:50
+#, c-format
+msgid "A door is open on the printer “%s”."
+msgstr "Na tiskárně jsou otevřena dvířka “%s”."
+
+#: ../notifier/src/notify-engine.cpp:51
+#, c-format
+msgid "The printer “%s” is out of paper."
+msgstr "Tiskárně “%s” chybí papír."
+
+#: ../notifier/src/notify-engine.cpp:52
+#, c-format
+msgid "The printer “%s” is low on paper."
+msgstr "V tiskárně “%s” je málo papíru."
+
+#: ../notifier/src/notify-engine.cpp:53
+#, c-format
+msgid "The printer “%s” is currently off-line."
+msgstr "Tiskárna “%s” je nyní off-line."
+
+#: ../notifier/src/notify-engine.cpp:54
+#, c-format
+msgid "The printer “%s” has an unknown problem."
+msgstr "Tiskárna “%s” hlásí neznámou chybu."
+
+#: ../notifier/src/notify-engine.cpp:55
+#, c-format
+msgid "The printer “%s” is out of toner."
+msgstr "V tiskárně “%s” chybí toner."
+
+#: ../notifier/src/notify-engine.cpp:56
+#, c-format
+msgid "The printer “%s” is low on toner."
+msgstr "V tiskárně “%s” je málo toneru."
+
+#: ../notifier/src/notify-engine.cpp:167
+#, c-format
+msgid "“%s” has printed."
+msgstr "“%s” vytisknuto."
+
+#: ../notifier/src/notify-engine.cpp:185
+#, c-format
+msgid "You have %d job queued to print on this printer."
+msgid_plural "You have %d jobs queued to print on this printer."
+msgstr[0] "Máte %d úlohu ve frontě pro tisk."
+msgstr[1] "Máte %d úlohy ve frontě pro tisk."
+msgstr[2] "Máte %d úloh ve frontě pro tisk."
+
+#: ../notifier/src/notify-engine.cpp:193
+#: ../ubuntu-printing-app/components/AlertDialog.qml:28
+msgid "OK"
+msgstr "OK"
+
+#: ../notifier/src/notify-engine.cpp:195
+msgid "Settings…"
+msgstr "Nastavení…"
+
+#. notifier
+#. printing
+#. ubuntu
+#: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
+msgid "Print Queue"
+msgstr "Tisková fronta"
+
+#: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
+msgid "Queue;Paper;Print;Printing;"
+msgstr "Fronta;Papír;Tisk;Tisk;"
+
+#. Only show the amount of sheets if they are above zero
+#: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
+#: ../ubuntu-printing-app/components/PrintRow.qml:79
+#: ../ubuntu-printing-app/components/PrintRow.qml:82
+msgid "Print"
+msgstr "Tisk"
+
+#: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
+msgid "Print;Printing;"
+msgstr "Tisk;Tisk;"
+
+#: ../queue-dialog/pages/QueuePage.qml:30
+msgid "%1 job"
+msgid_plural "%1 jobs"
+msgstr[0] "%1 úloha"
+msgstr[1] "%1 úlohy"
+msgstr[2] "%1 úloh"
+
+#: ../queue-dialog/pages/QueuePage.qml:31
+#: ../queue-dialog/components/QueueDelegate.qml:48
+msgid "Printing"
+msgstr "Tisk"
+
+#: ../queue-dialog/pages/QueuePage.qml:76
+msgid "No printer jobs"
+msgstr "Žádné úlohy k tisku"
+
+#: ../queue-dialog/pages/QueuePage.qml:84
+msgid "Active"
+msgstr "Aktivní"
+
+#: ../queue-dialog/pages/QueuePage.qml:92
+msgid "Queued"
+msgstr "Ve frontě"
+
+#: ../queue-dialog/pages/QueuePage.qml:100
+msgid "Paused"
+msgstr "Pozastaveno"
+
+#: ../queue-dialog/components/QueueDelegate.qml:45
+msgid "Printing %1 page"
+msgid_plural "Printing %1 pages"
+msgstr[0] "Tisk %1 strany"
+msgstr[1] "Tisk %1 stran"
+msgstr[2] "Tisk %1 stran"
+
+#: ../queue-dialog/components/QueueDelegate.qml:53
+msgid "Ready to print %1 page"
+msgid_plural "Ready to print %1 pages"
+msgstr[0] "Připravena k tisku %1 strany"
+msgstr[1] "Připravena k tisku %1 stran"
+msgstr[2] "Připravena k tisku %1 stran"
+
+#: ../queue-dialog/components/QueueDelegate.qml:56
+msgid "Ready to print"
+msgstr "Připraveno k tisku"
+
+#: ../queue-dialog/components/QueueDelegate.qml:73
+msgid "Release"
+msgstr "Spustit"
+
+#: ../queue-dialog/components/QueueDelegate.qml:73
+msgid "Hold"
+msgstr "Podržet"
+
+#. Text color is determined from background color so set from html
+#: ../queue-dialog/components/QueueDelegate.qml:86
+#: ../ubuntu-printing-app/components/PrintRow.qml:60
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: ../ubuntu-printing-app/pages/EmptyPage.qml:48
+msgid ""
+"No document was chosen for printing. In order to print, you need to select "
+"print from an app. Alternatively you can export a PDF document from an app."
+msgstr ""
+"Nebyl vybrán žádný dokument pro tisk. Chcete-li tisknout, musíte vybrat tisk "
+"z aplikace. Případně můžete exportovat dokument PDF z aplikace."
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:47
+msgid "Page Setup"
+msgstr "Nastavení stránky"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:47
+msgid "Printer Options"
+msgstr "Možnosti tiskárny"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:86
+msgid "Printer"
+msgstr "Tiskárna"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:107
+msgid "Copies"
+msgstr "Kopie"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:131
+msgid "All"
+msgstr "Vše"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:131
+msgid "Range"
+msgstr "Interval"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:135
+msgid "Pages"
+msgstr "Strany"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:177
+msgid "eg 1-3,8"
+msgstr "např. 1-3,8"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:186
+msgid "Two-sided"
+msgstr "Oboustranný"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:207
+msgid "Color"
+msgstr "Barva"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:228
+msgid "Quality"
+msgstr "Kvalita"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:246
+msgid "Collate"
+msgstr "Řadit"
+
+#: ../ubuntu-printing-app/pages/PrintPage.qml:266
+msgid "Reverse"
+msgstr "Obráceně"
+
+#: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
+msgid "Open With..."
+msgstr "Otevřít s..."
+
+#: ../ubuntu-printing-app/Main.qml:66
+msgid "Document is invalid"
+msgstr "Neplatný dokument"
+
+#: ../ubuntu-printing-app/Main.qml:69
+msgid "Document not found"
+msgstr "Dokument nenalezen"
+
+#: ../ubuntu-printing-app/Main.qml:72
+msgid "Not a PDF document"
+msgstr "Dokument není v PDF"
+
+#: ../ubuntu-printing-app/Main.qml:75
+msgid "An unknown error occurred"
+msgstr "Nastala neznámá chyba"
+
+#: ../ubuntu-printing-app/Main.qml:99
+msgid "Error"
+msgstr "Chyba"
+
+#: ../ubuntu-printing-app/Main.qml:126
+msgid "URL of PDF to print"
+msgstr "URL PDF k tisku"
+
+#: ../ubuntu-printing-app/components/PrintRow.qml:76
+msgid "Create PDF"
+msgstr "Vytvořit PDF"
+
+#: ../ubuntu-printing-app/components/PrintRow.qml:80
+msgid "<u>%1</u> Sheet"
+msgid_plural "<u>%1</u> Sheets"
+msgstr[0] "<u>%1</u> strana"
+msgstr[1] "<u>%1</u> stran"
+msgstr[2] "<u>%1</u> stran"
