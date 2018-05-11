@@ -1,3 +1,9 @@
+ubuntu-printing-app (0.2+ubports) xenial; urgency=medium
+
+  * Imported to UBports
+
+ -- Florian Leeber <florian@ubports.com> Fri, May 11 2018 00:00:00 +0200
+
 ubuntu-printing-app (0.1+17.04.20170401-0ubuntu1) zesty; urgency=medium
 
   * Change qtdeclarative5-ubuntu-ui-toolkit-plugin to qml-module-ubuntu-
