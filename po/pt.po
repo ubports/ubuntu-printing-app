@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-11 20:19+0000\n"
+"PO-Revision-Date: 2018-05-11 20:21+0000\n"
 "Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/pt/>\n"
@@ -96,7 +96,7 @@ msgstr "Fila de impressão"
 
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
 msgid "Queue;Paper;Print;Printing;"
-msgstr "Fila;Papel;Impressão;Imprimir;"
+msgstr "Fila;Papel;Imprimir;Impressão;"
 
 #. Only show the amount of sheets if they are above zero
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
@@ -107,7 +107,7 @@ msgstr "Imprimir"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
-msgstr "Imprimir;Imprimir;"
+msgstr "Imprimir;Impressão;"
 
 #: ../queue-dialog/pages/QueuePage.qml:30
 msgid "%1 job"
@@ -118,7 +118,7 @@ msgstr[1] "%1 trabalhos"
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
-msgstr "Imprimir"
+msgstr "Impressão"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
