@@ -23,7 +23,7 @@ find_package(Qt5PrintSupport REQUIRED)
 include(GNUInstallDirs)
 
 # Add subdirs
-add_subdirectory(notifier)
+#add_subdirectory(notifier)
 add_subdirectory(ubuntu-printing-app)
 
 # Add queue dialog

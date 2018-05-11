@@ -1,0 +1,14 @@
+{
+  "template": "cmake",
+  "kill": "qmlscene",
+  "dependencies": [
+    "intltool",
+    "libboost-dev",
+    "libcups2-dev",
+    "libglib2.0-dev",
+    "libnotify-dev",
+    "libpoppler-qt5-dev",
+    "libproperties-cpp-dev",
+    "liburl-dispatcher1-dev"
+]
+}
