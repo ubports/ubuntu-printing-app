@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-11 16:45+0000\n"
+"PO-Revision-Date: 2018-05-11 16:46+0000\n"
 "Last-Translator: Daniel Frańczak <danielfranczak5@wp.pl>\n"
 "Language-Team: Polish <https://translate.ubports.com/projects/ubports/ubuntu-"
 "printing-app/pl/>\n"
@@ -185,11 +185,11 @@ msgstr "Ustawienia strony"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Printer Options"
-msgstr ""
+msgstr "Opcje drukarki"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:86
 msgid "Printer"
-msgstr ""
+msgstr "Drukarka"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:107
 msgid "Copies"
