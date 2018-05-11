@@ -8,252 +8,257 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-05-11 10:51+0000\n"
+"Last-Translator: advocatux <advocatux@airpost.net>\n"
+"Language-Team: Spanish <https://translate.ubports.com/projects/ubports"
+"/ubuntu-printing-app/es/>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr ""
+msgstr "Está abierta una tapa en la impresora “%s”."
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr ""
+msgstr "No se puede usar la impresora “%s” porque falta el software necesario."
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "Está abierta una puerta en la impresora “%s”."
 
 #: ../notifier/src/notify-engine.cpp:51
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr ""
+msgstr "La impresora “%s” no tiene papel."
 
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr ""
+msgstr "La impresora “%s” tiene poco papel."
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "La impresora “%s” está desconectada."
 
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr ""
+msgstr "La impresora “%s” tiene un problema desconocido."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr ""
+msgstr "La impresora “%s” no tiene tóner."
 
 #: ../notifier/src/notify-engine.cpp:56
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "La impresora “%s” tiene poco tóner."
 
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr ""
+msgstr "“%s” ha imprimido."
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tiene %d trabajo en cola para imprimir en esta impresora."
+msgstr[1] "Tiene %d trabajos en cola para imprimir en esta impresora."
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr ""
+msgstr "Aceptar"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
-msgstr ""
+msgstr "Configuración…"
 
 #. notifier
 #. printing
 #. ubuntu
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
 msgid "Print Queue"
-msgstr ""
+msgstr "Cola de impresión"
 
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
 msgid "Queue;Paper;Print;Printing;"
-msgstr ""
+msgstr "Cola;Papel;Imprimir;Imprimiendo;"
 
 #. Only show the amount of sheets if they are above zero
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
 msgid "Print"
-msgstr ""
+msgstr "Imprimir"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
-msgstr ""
+msgstr "Imprimir;Imprimiendo;"
 
 #: ../queue-dialog/pages/QueuePage.qml:30
 msgid "%1 job"
 msgid_plural "%1 jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 trabajo"
+msgstr[1] "%1 trabajos"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
-msgstr ""
+msgstr "Imprimiendo"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
-msgstr ""
+msgstr "No hay trabajos de impresión"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr ""
+msgstr "Ocupada"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
-msgstr ""
+msgstr "En cola"
 
 #: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
-msgstr ""
+msgstr "En pausa"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Imprimiendo %1 página"
+msgstr[1] "Imprimiendo %1 páginas"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
 msgid_plural "Ready to print %1 pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Lista para imprimir %1 página"
+msgstr[1] "Lista para imprimir %1 páginas"
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
 msgid "Ready to print"
-msgstr ""
+msgstr "Lista para imprimir"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Release"
-msgstr ""
+msgstr "Liberar"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Hold"
-msgstr ""
+msgstr "Retener"
 
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
 msgid "Cancel"
-msgstr ""
+msgstr "Cancelar"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
+"No se ha elegido un documento para imprimir. Necesita seleccionar imprimir "
+"desde una aplicación para imprimir. Alternativamente puede exportar un "
+"documento en PDF desde una aplicación."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
-msgstr ""
+msgstr "Configuración de página"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Printer Options"
-msgstr ""
+msgstr "Opciones de la impresora"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:86
 msgid "Printer"
-msgstr ""
+msgstr "Impresora"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:107
 msgid "Copies"
-msgstr ""
+msgstr "Copias"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "All"
-msgstr ""
+msgstr "Todo"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
-msgstr ""
+msgstr "Intervalo"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:135
 msgid "Pages"
-msgstr ""
+msgstr "Páginas"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:177
 msgid "eg 1-3,8"
-msgstr ""
+msgstr "p.ej. 1-3,8"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
 msgid "Two-sided"
-msgstr ""
+msgstr "Doble cara"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
 msgid "Color"
-msgstr ""
+msgstr "Color"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
 msgid "Quality"
-msgstr ""
+msgstr "Calidad"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
 msgid "Collate"
-msgstr ""
+msgstr "Ordenar"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
 msgid "Reverse"
-msgstr ""
+msgstr "Inverso"
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
 msgid "Open With..."
-msgstr ""
+msgstr "Abrir con..."
 
 #: ../ubuntu-printing-app/Main.qml:66
 msgid "Document is invalid"
-msgstr ""
+msgstr "El documento no es válido"
 
 #: ../ubuntu-printing-app/Main.qml:69
 msgid "Document not found"
-msgstr ""
+msgstr "No se encontró el documento"
 
 #: ../ubuntu-printing-app/Main.qml:72
 msgid "Not a PDF document"
-msgstr ""
+msgstr "No es un documento en PDF"
 
 #: ../ubuntu-printing-app/Main.qml:75
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "Ha ocurrido un error desconocido"
 
 #: ../ubuntu-printing-app/Main.qml:99
 msgid "Error"
-msgstr ""
+msgstr "Error"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr ""
+msgstr "URL del PDF para imprimir"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
-msgstr ""
+msgstr "Crear PDF"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
 msgid_plural "<u>%1</u> Sheets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<u>%1</u> hoja"
+msgstr[1] "<u>%1</u> hojas"
