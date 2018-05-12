@@ -8,135 +8,151 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-05-12 10:07+0000\n"
+"Last-Translator: Laurentijn Tilleman <laurentijn.tilleman@gmail.com>\n"
+"Language-Team: Dutch <https://translate.ubports.com/projects/ubports/ubuntu-"
+"printing-app/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 
 #: ../notifier/src/notify-engine.cpp:48
-#, c-format
+#, c-format, fuzzy
 msgid "A cover is open on the printer “%s”."
-msgstr ""
+msgstr "Er is een kelp geopend op de printer \"%s\""
 
 #: ../notifier/src/notify-engine.cpp:49
-#, c-format
+#, c-format, fuzzy
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
+"De printer \"%s\" kan niet gebruiktworden, belangrijke software is niet "
+"aangewezig."
 
 #: ../notifier/src/notify-engine.cpp:50
-#, c-format
+#, c-format, fuzzy
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "Een klep is geopend op printer \"%s\"."
 
 #: ../notifier/src/notify-engine.cpp:51
-#, c-format
+#, c-format, fuzzy
 msgid "The printer “%s” is out of paper."
-msgstr ""
+msgstr "Papier is op van printer \"%s\"."
 
 #: ../notifier/src/notify-engine.cpp:52
-#, c-format
+#, c-format, fuzzy
 msgid "The printer “%s” is low on paper."
-msgstr ""
+msgstr "Papier is bijna op van printer \"%s\"."
 
 #: ../notifier/src/notify-engine.cpp:53
-#, c-format
+#, c-format, fuzzy
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "Printer \"%s\" is momenteel niet beschikbaar."
 
 #: ../notifier/src/notify-engine.cpp:54
-#, c-format
+#, c-format, fuzzy
 msgid "The printer “%s” has an unknown problem."
-msgstr ""
+msgstr "Er is een ongekend probleem opgetreden bij printer \"%s\""
 
 #: ../notifier/src/notify-engine.cpp:55
-#, c-format
+#, c-format, fuzzy
 msgid "The printer “%s” is out of toner."
-msgstr ""
+msgstr "De toners zijn op van printer \"%s\"."
 
 #: ../notifier/src/notify-engine.cpp:56
-#, c-format
+#, c-format, fuzzy
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "De toners van printer \"%s\" zijn bijna leeg."
 
 #: ../notifier/src/notify-engine.cpp:167
-#, c-format
+#, c-format, fuzzy
 msgid "“%s” has printed."
-msgstr ""
+msgstr "\"%s\" is klaar met printen."
 
 #: ../notifier/src/notify-engine.cpp:185
-#, c-format
+#, c-format, fuzzy
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Er is %d printopdracht in de wacht van deze printer."
+msgstr[1] "Er zijn %d printopdrachten in de wacht van deze printer."
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: ../notifier/src/notify-engine.cpp:195
+#, fuzzy
 msgid "Settings…"
-msgstr ""
+msgstr "Instellingen"
 
 #. notifier
 #. printing
 #. ubuntu
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
+#, fuzzy
 msgid "Print Queue"
-msgstr ""
+msgstr "Wachtrij"
 
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
+#, fuzzy
 msgid "Queue;Paper;Print;Printing;"
-msgstr ""
+msgstr "Wachtrij;Papier;Afdruk;Afdrukken;"
 
 #. Only show the amount of sheets if they are above zero
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
+#, fuzzy
 msgid "Print"
-msgstr ""
+msgstr "Afdruk"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
+#, fuzzy
 msgid "Print;Printing;"
-msgstr ""
+msgstr "Afdruk;Afdrukken;"
 
 #: ../queue-dialog/pages/QueuePage.qml:30
+#, fuzzy
 msgid "%1 job"
 msgid_plural "%1 jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 opdracht"
+msgstr[1] "%1 opdrachten"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
+#, fuzzy
 msgid "Printing"
-msgstr ""
+msgstr "Afdrukken"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
+#, fuzzy
 msgid "No printer jobs"
-msgstr ""
+msgstr "Geen afdrukopdrachten"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
+#, fuzzy
 msgid "Active"
-msgstr ""
+msgstr "Actief"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
+#, fuzzy
 msgid "Queued"
-msgstr ""
+msgstr "Wachtend"
 
 #: ../queue-dialog/pages/QueuePage.qml:100
+#, fuzzy
 msgid "Paused"
-msgstr ""
+msgstr "Gepauseerd"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
+#, fuzzy
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 pagina aan het afdrukken"
+msgstr[1] "%1 pagina's aan het afdrukken"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
