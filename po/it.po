@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-11 21:14+0000\n"
+"PO-Revision-Date: 2018-05-12 20:07+0000\n"
 "Last-Translator: Simone <19simok89@gmail.com>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/it/>\n"
@@ -121,9 +121,8 @@ msgid "Printing"
 msgstr "In stampa"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
-#, fuzzy
 msgid "No printer jobs"
-msgstr "Stampante libera"
+msgstr "Stampante senza lavoro"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
@@ -138,31 +137,28 @@ msgid "Paused"
 msgstr "In pausa"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
-#, fuzzy
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] "In stampa la pagina %1"
-msgstr[1] "In stampa le pagine %1"
+msgstr[0] "In stampa %1 pagina"
+msgstr[1] "In stampa %2 pagine"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
-#, fuzzy
 msgid "Ready to print %1 page"
 msgid_plural "Ready to print %1 pages"
 msgstr[0] "Stampa pronta di %1 pagina"
 msgstr[1] "Stampa pronta di %1 pagine"
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
-#, fuzzy
 msgid "Ready to print"
 msgstr "Stampante pronta"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Release"
-msgstr ""
+msgstr "Rilascio"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Hold"
-msgstr ""
+msgstr "Occupata"
 
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
@@ -171,7 +167,6 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
-#, fuzzy
 msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
@@ -180,7 +175,6 @@ msgstr ""
 "stampa da una app. In alternativa puoi esportare il file in formato PDF."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
-#, fuzzy
 msgid "Page Setup"
 msgstr "Configurazione pagina"
 
@@ -210,7 +204,7 @@ msgstr "Pagine"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:177
 msgid "eg 1-3,8"
-msgstr ""
+msgstr "eg 1-3,8"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
 msgid "Two-sided"
@@ -226,10 +220,9 @@ msgstr "Qualità"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
 msgid "Collate"
-msgstr ""
+msgstr "Fascicolare"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
-#, fuzzy
 msgid "Reverse"
 msgstr "Inverso"
 
@@ -268,5 +261,5 @@ msgstr "Crea PDF"
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
 msgid_plural "<u>%1</u> Sheets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<u>%1</u> Foglio"
+msgstr[1] "<u>%1</u> Fogli"
