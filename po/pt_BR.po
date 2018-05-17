@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-11 21:40+0000\n"
-"Last-Translator: Fernanda Thiesen <fcthiesen@gmail.com>\n"
+"PO-Revision-Date: 2018-05-17 16:59+0000\n"
+"Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) "
 "<https://translate.ubports.com/projects/ubports/ubuntu-printing-app/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -85,7 +85,7 @@ msgstr ""
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
-msgstr ""
+msgstr "Configurações…"
 
 #. notifier
 #. printing
