@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-18 13:54+0000\n"
-"Last-Translator: Matteo Mandis <mandismatteo@gmail.com>\n"
+"PO-Revision-Date: 2018-05-18 13:56+0000\n"
+"Last-Translator: Flavia <flavia.efloris@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/sc/>\n"
 "Language: sc\n"
@@ -122,11 +122,11 @@ msgstr "Imprentende"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
-msgstr ""
+msgstr "Non bi sunt tareas de imprenta"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr ""
+msgstr "Ativa"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
@@ -134,27 +134,27 @@ msgstr ""
 
 #: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
-msgstr ""
+msgstr "In pàusa"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Imprentende %1 pàgina"
+msgstr[1] "Imprentende %1 pàginas"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
 msgid_plural "Ready to print %1 pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Pronta pro imprentare %1 pàgina"
+msgstr[1] "Pronta pro imprentare %1 pàginas"
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
 msgid "Ready to print"
-msgstr ""
+msgstr "Pronta pro imprentare"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Release"
-msgstr ""
+msgstr "Lìbera"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Hold"
@@ -164,13 +164,16 @@ msgstr ""
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
+"Non s'est seberadu perunu documentu de imprentare. Pro imprentare, tocat a "
+"seletzionare imprenta dae un'aplicatzione. Si nono, podes esportare unu "
+"documetu PDF dae un'aplicatzione."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
