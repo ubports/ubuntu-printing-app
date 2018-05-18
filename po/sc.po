@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
 "PO-Revision-Date: 2018-05-18 13:59+0000\n"
-"Last-Translator: Flavia <flavia.efloris@gmail.com>\n"
+"Last-Translator: Matteo Mandis <mandismatteo@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/sc/>\n"
 "Language: sc\n"
@@ -217,7 +217,7 @@ msgstr "Colore"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
 msgid "Quality"
-msgstr ""
+msgstr "Calidade"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
 msgid "Collate"
