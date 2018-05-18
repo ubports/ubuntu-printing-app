@@ -8,49 +8,53 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2018-05-18 13:54+0000\n"
+"Last-Translator: Flavia <flavia.efloris@gmail.com>\n"
+"Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
+"/ubuntu-printing-app/sc/>\n"
 "Language: sc\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.15\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr ""
+msgstr "B'est unu cobertore abertu a s'imprentadora \"%s\"."
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
+"S'imprentadora “%s” non podet èssere impreada, ca ammancat su programma "
+"netzessàriu."
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "B'est una gianna aberta a s'imprentadora \"%s\"."
 
 #: ../notifier/src/notify-engine.cpp:51
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr ""
+msgstr "S'imprentadora \"%s\" non portat paperi."
 
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr ""
+msgstr "S'imprentadora “%s” portat pagu paperi."
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "S'imprentadora “%s” est fora de lìnia."
 
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr ""
+msgstr "S'imprentadora “%s” portat unu problema disconnotu."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
@@ -77,11 +81,11 @@ msgstr[1] ""
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr ""
+msgstr "AB"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
-msgstr ""
+msgstr "Cunfiguratzione..."
 
 #. notifier
 #. printing
@@ -99,17 +103,17 @@ msgstr ""
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
 msgid "Print"
-msgstr ""
+msgstr "Imprenta"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
-msgstr ""
+msgstr "Imprenta;Imprentende;"
 
 #: ../queue-dialog/pages/QueuePage.qml:30
 msgid "%1 job"
 msgid_plural "%1 jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 tarea"
+msgstr[1] "%1 tareas"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
