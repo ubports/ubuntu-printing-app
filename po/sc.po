@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
 "PO-Revision-Date: 2018-05-18 14:03+0000\n"
-"Last-Translator: Flavia <flavia.efloris@gmail.com>\n"
+"Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/sc/>\n"
 "Language: sc\n"
@@ -253,7 +253,7 @@ msgstr "Faddina"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr "URL o PDF de imprentare"
+msgstr "URL de su PDF de imprentare"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
