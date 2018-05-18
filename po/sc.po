@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
 "PO-Revision-Date: 2018-05-18 13:56+0000\n"
-"Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
+"Last-Translator: Flavia <flavia.efloris@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/sc/>\n"
 "Language: sc\n"
@@ -177,11 +177,11 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
-msgstr ""
+msgstr "Cunfiguratzione de sa pàgina"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Printer Options"
-msgstr ""
+msgstr "Optziones de s'imprentadora"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:86
 msgid "Printer"
