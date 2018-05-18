@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-18 13:56+0000\n"
-"Last-Translator: Flavia <flavia.efloris@gmail.com>\n"
+"PO-Revision-Date: 2018-05-18 13:57+0000\n"
+"Last-Translator: Matteo Mandis <mandismatteo@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/sc/>\n"
 "Language: sc\n"
@@ -185,11 +185,11 @@ msgstr "Optziones de s'imprentadora"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:86
 msgid "Printer"
-msgstr ""
+msgstr "Imprentadora"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:107
 msgid "Copies"
-msgstr ""
+msgstr "Còpias"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "All"
