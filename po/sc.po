@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
 "PO-Revision-Date: 2018-05-18 13:54+0000\n"
-"Last-Translator: Flavia <flavia.efloris@gmail.com>\n"
+"Last-Translator: Matteo Mandis <mandismatteo@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/sc/>\n"
 "Language: sc\n"
@@ -118,7 +118,7 @@ msgstr[1] "%1 tareas"
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
-msgstr ""
+msgstr "Imprentende"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
