@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
 "PO-Revision-Date: 2018-05-18 14:03+0000\n"
-"Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
+"Last-Translator: Flavia <flavia.efloris@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/sc/>\n"
 "Language: sc\n"
@@ -257,10 +257,10 @@ msgstr "URL de su PDF de imprentare"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
-msgstr ""
+msgstr "Crea unu PDF"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
 msgid_plural "<u>%1</u> Sheets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<u>%1</u> Follu"
+msgstr[1] "<u>%1</u> Follos"
