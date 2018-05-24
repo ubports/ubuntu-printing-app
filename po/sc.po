@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-24 15:18+0000\n"
-"Last-Translator: Matteo Mandis <mandismatteo@gmail.com>\n"
+"PO-Revision-Date: 2018-05-24 15:19+0000\n"
+"Last-Translator: Flavia <flavia.efloris@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/sc/>\n"
 "Language: sc\n"
@@ -75,9 +75,9 @@ msgstr "“%s” at imprentadu."
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] "B'est %d documentu isetende d'èssere imprentadu in custa imprentadora."
+msgstr[0] "B'est %d documentu isetende de èssere imprentadu in custa imprentadora."
 msgstr[1] ""
-"Bi sunt %d documentos isetende d'èssere imprentados in custa imprentadora."
+"Bi sunt %d documentos isetende de èssere imprentados in custa imprentadora."
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
