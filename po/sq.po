@@ -69,7 +69,7 @@ msgstr "Printeri “%s” pothuajse nuk ka më  toner."
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr "\"%s\" është shtypur"
+msgstr "\"%s\" është shtypur."
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
