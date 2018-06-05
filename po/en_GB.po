@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-12 09:29+0000\n"
-"Last-Translator: Jonathan A <jarmit55@gmail.com>\n"
+"PO-Revision-Date: 2018-06-05 15:47+0000\n"
+"Last-Translator: Rondy Andersson <rondarius@gmail.com>\n"
 "Language-Team: English (United Kingdom) "
 "<https://translate.ubports.com/projects/ubports/ubuntu-printing-app/en_GB/>\n"
 "Language: en_GB\n"
@@ -162,7 +162,7 @@ msgstr "Hold"
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Avbryt"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
@@ -246,7 +246,7 @@ msgstr "An unknown error occurred"
 
 #: ../ubuntu-printing-app/Main.qml:99
 msgid "Error"
-msgstr "Error"
+msgstr "Fel"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
