@@ -198,7 +198,7 @@ msgid "Pages"
 msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:177
-msgid "eg 1-3,8"
+msgid "e.g. 1-3,8"
 msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
