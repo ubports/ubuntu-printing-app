@@ -174,7 +174,7 @@ Page {
             LabelRow {
                 enabled: printing.isLoaded && !printing.pdfMode
                 objectName: "pageRangeLabel"
-                secondaryText: i18n.tr("eg 1-3,8")
+                secondaryText: i18n.tr("e.g. 1-3,8")
                 visible: pageRangeSelector.selectedValue === PrinterEnum.PageRange
             }
 
