@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-06-10 19:53+0000\n"
-"Last-Translator: Eran <etherpulse@gmail.com>\n"
+"PO-Revision-Date: 2018-06-27 20:51+0000\n"
+"Last-Translator: robin <musicfree@wanadoo.fr>\n"
 "Language-Team: English (United Kingdom) "
 "<https://translate.ubports.com/projects/ubports/ubuntu-printing-app/en_GB/>\n"
 "Language: en_GB\n"
@@ -161,9 +161,8 @@ msgstr "Hold"
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
-#, fuzzy
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Annuler"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
