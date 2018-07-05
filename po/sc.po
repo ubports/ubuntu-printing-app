@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-07-05 16:21+0000\n"
+"PO-Revision-Date: 2018-07-22 11:41+0000\n"
 "Last-Translator: Adrià <adriamartinmor@gmail.com>\n"
 "Language-Team: Sardinian <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/sc/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 2.17\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -159,7 +159,7 @@ msgstr "Lìbera"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Hold"
-msgstr ""
+msgstr "Bloca"
 
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
