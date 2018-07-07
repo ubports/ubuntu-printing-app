@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-11 21:15+0000\n"
-"Last-Translator: Tatuus <tatuus@riseup.net>\n"
+"PO-Revision-Date: 2018-05-19 13:11+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/fi/>\n"
 "Language: fi\n"
@@ -35,24 +35,24 @@ msgid "A door is open on the printer “%s”."
 msgstr "%sTulostimen luukku on auki."
 
 #: ../notifier/src/notify-engine.cpp:51
-#, c-format, fuzzy
+#, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "%sTulostimesta on paperi lopussa."
+msgstr "Tulostimesta “%s” on paperi loppu."
 
 #: ../notifier/src/notify-engine.cpp:52
-#, c-format, fuzzy
+#, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "%sTulostimessa on paperi vähissä."
+msgstr "Tulostimessa “%s” on paperi vähissä."
 
 #: ../notifier/src/notify-engine.cpp:53
-#, c-format, fuzzy
+#, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr "%sTulostin ei ole kytkettynä verkkoon."
+msgstr "Tulostin “%s” on yhteydettömässä tilassa."
 
 #: ../notifier/src/notify-engine.cpp:54
-#, c-format, fuzzy
+#, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr "%sTuntematon ongelma ilmennyt tulostimessa."
+msgstr "Tulostimessa “%s” ilmeni tuntematon ongelma."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format, fuzzy
@@ -65,25 +65,23 @@ msgid "The printer “%s” is low on toner."
 msgstr "Tulostimen värikasetti on vähissä."
 
 #: ../notifier/src/notify-engine.cpp:167
-#, c-format, fuzzy
+#, c-format
 msgid "“%s” has printed."
-msgstr "%son tulostettu."
+msgstr "“%s” on tulostettu."
 
 #: ../notifier/src/notify-engine.cpp:185
-#, c-format, fuzzy
+#, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] "%dSinulla on työ jonossa tälle tulostimelle."
-msgstr[1] "%dSinulla on työtä jonossa tälle tulostimelle."
+msgstr[0] "Sinulla on %d työ jonossa tässä tulostimessa."
+msgstr[1] "Sinulla on %d työtä jonossa tässä tulostimessa."
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
-#, fuzzy
 msgid "OK"
 msgstr "Selvä"
 
 #: ../notifier/src/notify-engine.cpp:195
-#, fuzzy
 msgid "Settings…"
 msgstr "Asetukset…"
 
@@ -91,12 +89,10 @@ msgstr "Asetukset…"
 #. printing
 #. ubuntu
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
-#, fuzzy
 msgid "Print Queue"
 msgstr "Tulostinjono"
 
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
-#, fuzzy
 msgid "Queue;Paper;Print;Printing;"
 msgstr "Jono;Paperi;Tulosta;Tulostaa;"
 
@@ -109,59 +105,49 @@ msgid "Print"
 msgstr "Tulosta"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
-#, fuzzy
 msgid "Print;Printing;"
 msgstr "Tulosta;Tulostaa;"
 
 #: ../queue-dialog/pages/QueuePage.qml:30
-#, fuzzy
 msgid "%1 job"
 msgid_plural "%1 jobs"
-msgstr[0] "Yksi"
-msgstr[1] "Muu"
+msgstr[0] "%1 työ"
+msgstr[1] "%1 työtä"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
-#, fuzzy
 msgid "Printing"
 msgstr "Tulostaa"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
-#, fuzzy
 msgid "No printer jobs"
-msgstr "Ei töitä tulostimelle"
+msgstr "Ei tulostettavaa"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
-#, fuzzy
 msgid "Active"
 msgstr "Aktiivinen"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
-#, fuzzy
 msgid "Queued"
 msgstr "Jonossa"
 
 #: ../queue-dialog/pages/QueuePage.qml:100
-#, fuzzy
 msgid "Paused"
-msgstr "Tauolla"
+msgstr "Keskeytetty"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
-#, fuzzy
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] "Yksi"
-msgstr[1] "Muu"
+msgstr[0] "Tulostetaan %1 sivu"
+msgstr[1] "Tulostetaan %1 sivua"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
-#, fuzzy
 msgid "Ready to print %1 page"
 msgid_plural "Ready to print %1 pages"
-msgstr[0] "Yksi"
-msgstr[1] "Muu"
+msgstr[0] "Valmiina tulostamaan %1 sivu"
+msgstr[1] "Valmiina tulostamaan %1 sivua"
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
-#, fuzzy
 msgid "Ready to print"
 msgstr "Valmiina tulostamaan"
 
@@ -178,42 +164,35 @@ msgstr "Pito"
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
-#, fuzzy
 msgid "Cancel"
-msgstr "Keskeytä"
+msgstr "Peruuta"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
-#, fuzzy
 msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
 "Yhtäkään asiakirjaa ei ole valittu tulostettavaksi. Jotta voit tulostaa, "
-"sinun tulee valita tulosta ohjelmasta. Vaihtoehtoisesti voit tuoda PDF "
-"asiakirjan ohjelmasta."
+"sinun tulee valita \"tulosta\" sovelluksesta. Vaihtoehtoisesti voit tuoda "
+"PDF-asiakirjan sovelluksesta."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
-#, fuzzy
 msgid "Page Setup"
-msgstr "Sivun asetus"
+msgstr "Sivun asetukset"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
-#, fuzzy
 msgid "Printer Options"
 msgstr "Tulostimen asetukset"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:86
-#, fuzzy
 msgid "Printer"
 msgstr "Tulostin"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:107
-#, fuzzy
 msgid "Copies"
 msgstr "Kopiot"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
-#, fuzzy
 msgid "All"
 msgstr "Kaikki"
 
@@ -223,27 +202,22 @@ msgid "Range"
 msgstr "Ala"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:135
-#, fuzzy
 msgid "Pages"
 msgstr "Sivut"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:177
-#, fuzzy
 msgid "eg 1-3,8"
 msgstr "esim. 1-3,8"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
-#, fuzzy
 msgid "Two-sided"
 msgstr "Kaksipuolinen"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
-#, fuzzy
 msgid "Color"
 msgstr "Väri"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
-#, fuzzy
 msgid "Quality"
 msgstr "Laatu"
 
@@ -258,42 +232,34 @@ msgid "Reverse"
 msgstr "Peruutus"
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
-#, fuzzy
 msgid "Open With..."
-msgstr "Avaa tällä..."
+msgstr "Avaa sovelluksella..."
 
 #: ../ubuntu-printing-app/Main.qml:66
-#, fuzzy
 msgid "Document is invalid"
 msgstr "Asiakirja on kelpaamaton"
 
 #: ../ubuntu-printing-app/Main.qml:69
-#, fuzzy
 msgid "Document not found"
 msgstr "Asiakirjaa ei löydy"
 
 #: ../ubuntu-printing-app/Main.qml:72
-#, fuzzy
 msgid "Not a PDF document"
 msgstr "Ei PDF-asiakirja"
 
 #: ../ubuntu-printing-app/Main.qml:75
-#, fuzzy
 msgid "An unknown error occurred"
 msgstr "Tapahtui tuntematon virhe"
 
 #: ../ubuntu-printing-app/Main.qml:99
-#, fuzzy
 msgid "Error"
 msgstr "Virhe"
 
 #: ../ubuntu-printing-app/Main.qml:126
-#, fuzzy
 msgid "URL of PDF to print"
-msgstr "PDF-tiedoston URL-osoite tulostettavaksi"
+msgstr "Tulostettavan PDF-tiedoston URL-osoite"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
-#, fuzzy
 msgid "Create PDF"
 msgstr "Luo PDF"
 

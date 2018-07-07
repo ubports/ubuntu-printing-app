@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-12 20:07+0000\n"
-"Last-Translator: Simone <19simok89@gmail.com>\n"
+"PO-Revision-Date: 2018-05-24 13:12+0000\n"
+"Last-Translator: Stefano Verzegnassi <verzegnassi.stefano@gmail.com>\n"
 "Language-Team: Italian <https://translate.ubports.com/projects/ubports"
 "/ubuntu-printing-app/it/>\n"
 "Language: it\n"
@@ -145,8 +145,8 @@ msgstr[1] "In stampa %2 pagine"
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
 msgid_plural "Ready to print %1 pages"
-msgstr[0] "Stampa pronta di %1 pagina"
-msgstr[1] "Stampa pronta di %1 pagine"
+msgstr[0] "Pronto per stampare %1 pagina"
+msgstr[1] "Pronto per stampare %1 pagine"
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
 msgid "Ready to print"
@@ -204,7 +204,7 @@ msgstr "Pagine"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:177
 msgid "eg 1-3,8"
-msgstr "eg 1-3,8"
+msgstr "es. 1-3,8"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
 msgid "Two-sided"
