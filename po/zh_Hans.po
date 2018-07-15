@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-18 16:00+0000\n"
-"Last-Translator: Hugh Y <hugh_yan@live.com>\n"
+"PO-Revision-Date: 2018-07-22 00:00+0000\n"
+"Last-Translator: tongsj2333 <hh23333@foxmail.com>\n"
 "Language-Team: Chinese (Simplified) "
 "<https://translate.ubports.com/projects/ubports/ubuntu-printing-app/zh_Hans/>"
 "\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 2.17\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -124,7 +124,7 @@ msgstr "没有打印任务"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr ""
+msgstr "活动"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
@@ -209,9 +209,8 @@ msgid "Two-sided"
 msgstr "双面"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
-#, fuzzy
 msgid "Color"
-msgstr "有色打印"
+msgstr "颜色"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
 #, fuzzy
