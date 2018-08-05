@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-05 11:59+0000\n"
+"PO-Revision-Date: 2018-08-05 12:01+0000\n"
 "Last-Translator: Tom Rausner <tomrausner@gmail.com>\n"
 "Language-Team: Danish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/da/>\n"
@@ -57,12 +57,12 @@ msgstr "Printeren “%1“ har et ukendt problem"
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "Printeren er løbet tør for farve."
+msgstr "Printeren ”%1”er løbet tør for farve."
 
 #: ../notifier/src/notify-engine.cpp:56
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "Printeren er næsten løbet tør for farve."
 
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
