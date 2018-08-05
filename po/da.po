@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-05 12:09+0000\n"
+"PO-Revision-Date: 2018-08-05 12:11+0000\n"
 "Last-Translator: Tom Rausner <tomrausner@gmail.com>\n"
 "Language-Team: Danish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/da/>\n"
@@ -116,11 +116,11 @@ msgstr[1] "%1 job"
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
-msgstr ""
+msgstr "Udskrivning"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
-msgstr ""
+msgstr "Ingen printjob."
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
@@ -128,17 +128,17 @@ msgstr "Aktiv"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
-msgstr ""
+msgstr "Sat i kø"
 
 #: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
-msgstr ""
+msgstr "Sat på pause"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Printer 1 side"
+msgstr[1] "Printer %d sider"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
