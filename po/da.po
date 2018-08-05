@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-05 12:04+0000\n"
+"PO-Revision-Date: 2018-08-05 12:09+0000\n"
 "Last-Translator: Tom Rausner <tomrausner@gmail.com>\n"
 "Language-Team: Danish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/da/>\n"
@@ -83,35 +83,35 @@ msgstr "OK"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
-msgstr ""
+msgstr "Indstillinger..."
 
 #. notifier
 #. printing
 #. ubuntu
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
 msgid "Print Queue"
-msgstr ""
+msgstr "Printkø"
 
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
 msgid "Queue;Paper;Print;Printing;"
-msgstr ""
+msgstr "Kø;Papir;Udskrift;Udskrivning;"
 
 #. Only show the amount of sheets if they are above zero
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
 msgid "Print"
-msgstr ""
+msgstr "Udskriv"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
-msgstr ""
+msgstr "Udskrift;Udskrivning;"
 
 #: ../queue-dialog/pages/QueuePage.qml:30
 msgid "%1 job"
 msgid_plural "%1 jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 job"
+msgstr[1] "%1 job"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
