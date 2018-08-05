@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-05 12:02+0000\n"
+"PO-Revision-Date: 2018-08-05 12:04+0000\n"
 "Last-Translator: Tom Rausner <tomrausner@gmail.com>\n"
 "Language-Team: Danish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/da/>\n"
@@ -67,14 +67,14 @@ msgstr "Printeren “% s” er næsten løbet tør for farve."
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr "Har printet"
+msgstr "“% s” har printet"
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Du har %d job i kø på denne printer."
+msgstr[1] "Du har %d job i kø på denne printer."
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
