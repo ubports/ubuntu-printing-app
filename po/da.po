@@ -42,12 +42,12 @@ msgstr "Printeren er løbet tør for papir."
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "Printeren er næsten løbet tør for papir"
+msgstr "Printeren “%1“ er næsten løbet tør for papir"
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "Printeren er i øjeblikket off-line."
 
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
