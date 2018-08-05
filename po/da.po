@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-05 12:27+0000\n"
+"PO-Revision-Date: 2018-08-05 14:59+0000\n"
 "Last-Translator: Tom Rausner <tomrausner@gmail.com>\n"
 "Language-Team: Danish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/da/>\n"
@@ -22,52 +22,52 @@ msgstr ""
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "En dæksel på printeren er åbent"
+msgstr "En dæksel på printeren “%s” er åbent"
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr "Kan ikke bruges, da krævet software mangler."
+msgstr "Printeren “%s” Kan ikke bruges, da krævet software mangler."
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "En låge er åben på printeren."
+msgstr "En låge er åben på printeren “%s”."
 
 #: ../notifier/src/notify-engine.cpp:51
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "Printeren er løbet tør for papir."
+msgstr "Printeren “%s” er løbet tør for papir."
 
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "Printeren “%1“ er næsten løbet tør for papir"
+msgstr "Printeren “%s” er næsten løbet tør for papir"
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr "Printeren “%1“ er i øjeblikket off-line."
+msgstr "Printeren “%s“ er i øjeblikket off-line."
 
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr "Printeren “%1“ har et ukendt problem"
+msgstr "Printeren “%s“ har et ukendt problem"
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "Printeren ”%1”er løbet tør for farve."
+msgstr "Printeren ”%s”er løbet tør for farve."
 
 #: ../notifier/src/notify-engine.cpp:56
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "Printeren “% s” er næsten løbet tør for farve."
+msgstr "Printeren “%s” er næsten løbet tør for farve."
 
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr "“% s” har printet"
+msgstr "“%s” har printet"
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
