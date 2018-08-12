@@ -8,16 +8,17 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-11 20:57+0000\n"
+"PO-Revision-Date: 2018-08-05 14:59+0000\n"
 "Last-Translator: Eran <etherpulse@gmail.com>\n"
-"Language-Team: Hebrew <https://translate.ubports.com/projects/ubports/ubuntu-"
-"printing-app/he/>\n"
+"Language-Team: Hebrew <https://translate.ubports.com/projects/ubports/"
+"ubuntu-printing-app/he/>\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15\n"
+"Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
+"n % 10 == 0) ? 2 : 3));\n"
+"X-Generator: Weblate 2.20\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -93,7 +94,6 @@ msgid "Print Queue"
 msgstr "תור הדפסה"
 
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
-#, fuzzy
 msgid "Queue;Paper;Print;Printing;"
 msgstr "תור;נייר;הדפסה;הדפסות"
 
@@ -109,11 +109,12 @@ msgid "Print;Printing;"
 msgstr "הדפסה;הדפסות;"
 
 #: ../queue-dialog/pages/QueuePage.qml:30
-#, fuzzy
 msgid "%1 job"
 msgid_plural "%1 jobs"
 msgstr[0] "%1 עבודה"
 msgstr[1] "%1 עבודות"
+msgstr[2] "%1 עבודות‍"
+msgstr[3] "%1 עבודות"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
@@ -137,11 +138,12 @@ msgid "Paused"
 msgstr "מושהה"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
-#, fuzzy
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] "הדפסה של %1 דפים"
+msgstr[0] "הדפסה של  דף %1"
 msgstr[1] "הדפסה של %1 דפים"
+msgstr[2] "הדפסה של %1 דפים"
+msgstr[3] "הדפסה של %1 דפים"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
@@ -159,7 +161,7 @@ msgstr "שחרור"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Hold"
-msgstr ""
+msgstr "החזק"
 
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
@@ -168,13 +170,12 @@ msgid "Cancel"
 msgstr "ביטול"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
-#, fuzzy
 msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
-"לא נבחר מסמך להדפסה. על מנת להדפיס, יש לבחור מאפליקצייה. ניתן גם לייצא מסמך "
-"PDF מאפלקצייה."
+"לא נבחר מסמך להדפסה. על מנת להדפיס, יש לבחור הדפסה מאפליקציה כלשהי. ניתן גם "
+"לייצא מסמך PDF מהאפליקציה."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
@@ -226,7 +227,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
 msgid "Reverse"
-msgstr ""
+msgstr "הפיכת סדר"
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
 msgid "Open With..."
@@ -255,7 +256,7 @@ msgstr "שגיאה"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr ""
+msgstr "מיקום של ה - PDF להדפסה"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
