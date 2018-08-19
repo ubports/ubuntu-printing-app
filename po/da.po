@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-19 14:22+0000\n"
+"PO-Revision-Date: 2018-08-19 14:25+0000\n"
 "Last-Translator: Tom Rausner <tomrausner@gmail.com>\n"
 "Language-Team: Danish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/da/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "Et dæksel på printeren “%s” er åbent"
+msgstr "Et dæksel på printeren “%s” er åbent."
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
@@ -42,7 +42,7 @@ msgstr "Printeren “%s” er løbet tør for papir."
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "Printeren “%s” er næsten løbet tør for papir"
+msgstr "Printeren “%s” er næsten løbet tør for papir."
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
@@ -52,7 +52,7 @@ msgstr "Printeren “%s“ er i øjeblikket off-line."
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr "Printeren “%s“ har et ukendt problem"
+msgstr "Printeren “%s“ har et ukendt problem."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
@@ -67,14 +67,14 @@ msgstr "Printeren “%s” er næsten løbet tør for farve."
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr "“%s” har udskrevet"
+msgstr "“%s” har udskrevet."
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
 msgstr[0] "Du har %d job i kø på denne printer."
-msgstr[1] "Du har %d job i kø på denne printer."
+msgstr[1] "Du har %d jobs i kø på denne printer."
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
@@ -111,7 +111,7 @@ msgstr "Udskrift;Udskrivning;"
 msgid "%1 job"
 msgid_plural "%1 jobs"
 msgstr[0] "%1 job"
-msgstr[1] "%1 job"
+msgstr[1] "%1 jobs"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
@@ -156,7 +156,7 @@ msgstr "Giv fri"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Hold"
-msgstr "Hold"
+msgstr "Hold tilbage"
 
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
