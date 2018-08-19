@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-05 14:59+0000\n"
+"PO-Revision-Date: 2018-08-19 14:22+0000\n"
 "Last-Translator: Tom Rausner <tomrausner@gmail.com>\n"
 "Language-Team: Danish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/da/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "En dæksel på printeren “%s” er åbent"
+msgstr "Et dæksel på printeren “%s” er åbent"
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
@@ -67,7 +67,7 @@ msgstr "Printeren “%s” er næsten løbet tør for farve."
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr "“%s” har printet"
+msgstr "“%s” har udskrevet"
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
@@ -83,7 +83,7 @@ msgstr "OK"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
-msgstr "Indstillinger..."
+msgstr "Indstillinger…"
 
 #. notifier
 #. printing
@@ -101,7 +101,7 @@ msgstr "Kø;Papir;Udskrift;Udskrivning;"
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
 msgid "Print"
-msgstr "Udskriv"
+msgstr "Udskrift"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
@@ -120,7 +120,7 @@ msgstr "Udskrivning"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
-msgstr "Ingen printjob."
+msgstr "Ingen printjob"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
@@ -137,8 +137,8 @@ msgstr "Sat på pause"
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] "Printer %1 side"
-msgstr[1] "Printer %1 sider"
+msgstr[0] "Udskriver %1 side"
+msgstr[1] "Udskriver %1 sider"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
@@ -169,8 +169,8 @@ msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
-"Intet dokument er valgt til udskrift, du er nødt til at vælge 'udskriv' fra "
-"en app. Alternativt kan du eksportere et PDF dokument fra en app."
+"Intet dokument er valgt til udskrift, du er nødt til at vælge en udskrift "
+"fra en app. Alternativt kan du eksportere et PDF dokument fra en app."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
@@ -206,7 +206,7 @@ msgstr "F.eks 1-3,8"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
 msgid "Two-sided"
-msgstr "Dobbelt sidet"
+msgstr "Dobbeltsidet"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
 msgid "Color"
