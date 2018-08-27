@@ -118,7 +118,7 @@ msgid_plural "%1 jobs"
 msgstr[0] "%1 مهمة"
 msgstr[1] "%1 مهام"
 msgstr[2] "%1 مهام"
-msgstr[3] "%1 jobs"
+msgstr[3] "%1 مهام"
 msgstr[4] "%1 jobs"
 msgstr[5] "%1 jobs"
 
