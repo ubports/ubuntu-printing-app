@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-27 06:56+0000\n"
+"PO-Revision-Date: 2018-08-27 06:57+0000\n"
 "Last-Translator: Ahmed Suliman <ahmedselaman@gmail.com>\n"
 "Language-Team: Arabic <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/ar/>\n"
@@ -249,19 +249,19 @@ msgstr "المستند غير صالح"
 
 #: ../ubuntu-printing-app/Main.qml:69
 msgid "Document not found"
-msgstr "المستند غير موجد"
+msgstr "المستند غير موجود"
 
 #: ../ubuntu-printing-app/Main.qml:72
 msgid "Not a PDF document"
-msgstr ""
+msgstr "هذا ليس مستند PDF"
 
 #: ../ubuntu-printing-app/Main.qml:75
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "حدث حطأ غير معروف"
 
 #: ../ubuntu-printing-app/Main.qml:99
 msgid "Error"
-msgstr ""
+msgstr "خطأ"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
@@ -269,14 +269,14 @@ msgstr ""
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
-msgstr ""
+msgstr "انشاء PDF"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
 msgid_plural "<u>%1</u> Sheets"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "<u>%1</u> Sheet"
+msgstr[1] "<u>%1</u> Sheets"
+msgstr[2] "<u>%1</u> Sheets"
+msgstr[3] "<u>%1</u> Sheets"
+msgstr[4] "<u>%1</u> صفحات"
+msgstr[5] "<u>%1</u> صفحات"
