@@ -161,7 +161,7 @@ msgstr[1] "جاهزة لطباعة %1 pages"
 msgstr[2] "جاهزة لطباعة %1 pages"
 msgstr[3] "جاهزة لطباعة %1 pages"
 msgstr[4] "جاهزة لطباعة %1 pages"
-msgstr[5] "Ready to print %1 pages"
+msgstr[5] "جاهزة لطباعة %1 pages"
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
 msgid "Ready to print"
