@@ -150,8 +150,8 @@ msgstr[0] "طباعة %1 صفحة"
 msgstr[1] "طباعة %1 pages"
 msgstr[2] "طباعة %1 pages"
 msgstr[3] "طباعة %1 pages"
-msgstr[4] "Printing %1 pages"
-msgstr[5] "Printing %1 pages"
+msgstr[4] "طباعة %1 pages"
+msgstr[5] "طباعة %1 pages"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
