@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-27 06:48+0000\n"
+"PO-Revision-Date: 2018-08-27 06:51+0000\n"
 "Last-Translator: Ahmed Suliman <ahmedselaman@gmail.com>\n"
 "Language-Team: Arabic <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/ar/>\n"
@@ -53,22 +53,22 @@ msgstr "الطابعة “%s” حالياً غير متصلة."
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr "الطابعة “%s” بهها مشكلة غير معروفة."
+msgstr "الطابعة “%s” بها مشكلة غير معروفة."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "الطابعة “%s” is out of toner."
+msgstr "الطابعة “%s” نفذ الحبر منها."
 
 #: ../notifier/src/notify-engine.cpp:56
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "الطابعة “%s” مستوى الحبر فيها منخفض."
 
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr ""
+msgstr "“%s” طُبع."
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
@@ -106,21 +106,21 @@ msgstr ""
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
 msgid "Print"
-msgstr ""
+msgstr "طباعة"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
-msgstr ""
+msgstr "طباعة;الطباعة;"
 
 #: ../queue-dialog/pages/QueuePage.qml:30
 msgid "%1 job"
 msgid_plural "%1 jobs"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "%1 مهمة"
+msgstr[1] "%1 jobs"
+msgstr[2] "%1 jobs"
+msgstr[3] "%1 jobs"
+msgstr[4] "%1 jobs"
+msgstr[5] "%1 jobs"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
