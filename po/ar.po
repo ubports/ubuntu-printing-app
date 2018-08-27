@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-27 06:51+0000\n"
+"PO-Revision-Date: 2018-08-27 06:53+0000\n"
 "Last-Translator: Ahmed Suliman <ahmedselaman@gmail.com>\n"
 "Language-Team: Arabic <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/ar/>\n"
@@ -120,38 +120,38 @@ msgstr[1] "%1 مهام"
 msgstr[2] "%1 مهام"
 msgstr[3] "%1 مهام"
 msgstr[4] "%1 مهام"
-msgstr[5] "%1 jobs"
+msgstr[5] "%1 مهام"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
-msgstr ""
+msgstr "يطبع"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
-msgstr ""
+msgstr "لا توجد مهام طباعة"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr ""
+msgstr "نشطة"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
-msgstr ""
+msgstr "صف الانتظار"
 
 #: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
-msgstr ""
+msgstr "تم الايقاف"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "طباعة %1 صفحة"
+msgstr[1] "Printing %1 pages"
+msgstr[2] "Printing %1 pages"
+msgstr[3] "Printing %1 pages"
+msgstr[4] "Printing %1 pages"
+msgstr[5] "Printing %1 pages"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
