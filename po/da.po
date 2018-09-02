@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-05 14:59+0000\n"
-"Last-Translator: Tom Rausner <tomrausner@gmail.com>\n"
+"PO-Revision-Date: 2018-09-02 00:00+0000\n"
+"Last-Translator: Øjvind Fritjof Arnfred <fritjofarnfred@protonmail.com>\n"
 "Language-Team: Danish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/da/>\n"
 "Language: da\n"
@@ -22,7 +22,7 @@ msgstr ""
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "En dæksel på printeren “%s” er åbent"
+msgstr "Et dæksel på printeren “%s” er åbent."
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
@@ -42,7 +42,7 @@ msgstr "Printeren “%s” er løbet tør for papir."
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "Printeren “%s” er næsten løbet tør for papir"
+msgstr "Printeren “%s” er næsten løbet tør for papir."
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
@@ -52,7 +52,7 @@ msgstr "Printeren “%s“ er i øjeblikket off-line."
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr "Printeren “%s“ har et ukendt problem"
+msgstr "Printeren “%s“ har et ukendt problem."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
@@ -67,14 +67,14 @@ msgstr "Printeren “%s” er næsten løbet tør for farve."
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr "“%s” har printet"
+msgstr "“%s” har udskrevet."
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
 msgstr[0] "Du har %d job i kø på denne printer."
-msgstr[1] "Du har %d job i kø på denne printer."
+msgstr[1] "Du har %d jobs i kø på denne printer."
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
@@ -83,7 +83,7 @@ msgstr "OK"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
-msgstr "Indstillinger..."
+msgstr "Indstillinger…"
 
 #. notifier
 #. printing
@@ -101,7 +101,7 @@ msgstr "Kø;Papir;Udskrift;Udskrivning;"
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
 msgid "Print"
-msgstr "Udskriv"
+msgstr "Udskrift"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
@@ -111,16 +111,16 @@ msgstr "Udskrift;Udskrivning;"
 msgid "%1 job"
 msgid_plural "%1 jobs"
 msgstr[0] "%1 job"
-msgstr[1] "%1 job"
+msgstr[1] "%1 jobs"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
-msgstr "Udskrivning"
+msgstr "Printer"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
-msgstr "Ingen printjob."
+msgstr "Ingen printjob"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
@@ -137,8 +137,8 @@ msgstr "Sat på pause"
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] "Printer %1 side"
-msgstr[1] "Printer %1 sider"
+msgstr[0] "Udskriver %1 side"
+msgstr[1] "Udskriver %1 sider"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
@@ -156,21 +156,21 @@ msgstr "Giv fri"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Hold"
-msgstr "Hold"
+msgstr "Hold tilbage"
 
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
 msgid "Cancel"
-msgstr "Annullér"
+msgstr "Annuller"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
-"Intet dokument er valgt til udskrift, du er nødt til at vælge 'udskriv' fra "
-"en app. Alternativt kan du eksportere et PDF dokument fra en app."
+"Intet dokument er valgt til udskrift, du er nødt til at vælge en udskrift "
+"fra en app. Alternativt kan du eksportere et PDF dokument fra en app."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
@@ -206,7 +206,7 @@ msgstr "F.eks 1-3,8"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
 msgid "Two-sided"
-msgstr "Dobbelt sidet"
+msgstr "Dobbeltsidet"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
 msgid "Color"

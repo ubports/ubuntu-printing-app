@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-08-08 14:54+0000\n"
+"PO-Revision-Date: 2018-08-12 06:18+0000\n"
 "Last-Translator: ierihon <idekovets@mail.ru>\n"
 "Language-Team: Belarusian <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/be/>\n"
@@ -81,7 +81,7 @@ msgstr[2] ""
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr ""
+msgstr "ОК"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
@@ -127,7 +127,7 @@ msgstr ""
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr ""
+msgstr "Актыўны"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
@@ -135,7 +135,7 @@ msgstr ""
 
 #: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
-msgstr ""
+msgstr "Прыпынена"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
@@ -213,7 +213,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
 msgid "Color"
-msgstr ""
+msgstr "Колер"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
 msgid "Quality"
@@ -257,7 +257,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
-msgstr ""
+msgstr "Стварыць PDF"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
