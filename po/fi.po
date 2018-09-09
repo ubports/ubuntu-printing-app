@@ -8,26 +8,26 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-19 13:11+0000\n"
+"PO-Revision-Date: 2018-09-02 07:37+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <https://translate.ubports.com/projects/ubports"
-"/ubuntu-printing-app/fi/>\n"
+"Language-Team: Finnish <https://translate.ubports.com/projects/ubports/"
+"ubuntu-printing-app/fi/>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 2.20\n"
 
 #: ../notifier/src/notify-engine.cpp:48
-#, c-format, fuzzy
+#, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "%sTulostimen kansi on auki."
+msgstr "Kansi on avoinna tulostimessa “%s”."
 
 #: ../notifier/src/notify-engine.cpp:49
-#, c-format, fuzzy
+#, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr "%sTulostinta ei voida käyttää: tarvittava ohjelmisto puuttuu."
+msgstr "Tulostinta “%s” ei voi käyttää, koska vaadittu ohjelmisto puuttuu."
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format, fuzzy
@@ -100,7 +100,6 @@ msgstr "Jono;Paperi;Tulosta;Tulostaa;"
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
-#, fuzzy
 msgid "Print"
 msgstr "Tulosta"
 
@@ -222,9 +221,8 @@ msgid "Quality"
 msgstr "Laatu"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
-#, fuzzy
 msgid "Collate"
-msgstr "Lajittele"
+msgstr "Kokoa"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
 #, fuzzy
