@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-10-04 10:17+0000\n"
+"PO-Revision-Date: 2018-10-04 10:22+0000\n"
 "Last-Translator: Neutrum N <neutro@tutanota.com>\n"
 "Language-Team: Galician <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/gl/>\n"
@@ -235,30 +235,30 @@ msgstr "O documento non é válido"
 
 #: ../ubuntu-printing-app/Main.qml:69
 msgid "Document not found"
-msgstr "Documento non encontrado"
+msgstr "O documento non se encontrou"
 
 #: ../ubuntu-printing-app/Main.qml:72
 msgid "Not a PDF document"
-msgstr ""
+msgstr "Non é un documento PDF"
 
 #: ../ubuntu-printing-app/Main.qml:75
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "Ocorreu un erro descoñecido"
 
 #: ../ubuntu-printing-app/Main.qml:99
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr ""
+msgstr "URL do PDF para imprimir"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
-msgstr ""
+msgstr "Crear PDF"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
 msgid_plural "<u>%1</u> Sheets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<u>%1</u> folla"
+msgstr[1] "<u>%1</u> follas"
