@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-10-04 09:24+0000\n"
+"PO-Revision-Date: 2018-10-04 09:28+0000\n"
 "Last-Translator: Neutrum N <neutro@tutanota.com>\n"
 "Language-Team: Galician <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/gl/>\n"
@@ -27,7 +27,7 @@ msgstr "Unha tapa está aberta na impresora “%s”."
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr ""
+msgstr "Non se pode usar a impresora “%s”, porque falta o software necesario."
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
