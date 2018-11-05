@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-11-05 14:31+0000\n"
+"PO-Revision-Date: 2018-11-11 00:02+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/ubuntu-printing-app/zh_Hant/>\n"
@@ -220,7 +220,7 @@ msgstr "翻轉"
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
 msgid "Open With..."
-msgstr "打開方式用..."
+msgstr "打開方式..."
 
 #: ../ubuntu-printing-app/Main.qml:66
 msgid "Document is invalid"
@@ -253,4 +253,4 @@ msgstr "建立 PDF"
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
 msgid_plural "<u>%1</u> Sheets"
-msgstr[0] "<u>1%1</u>2 張"
+msgstr[0] "<u>%1</u> 張"
