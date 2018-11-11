@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-06-03 05:58+0000\n"
-"Last-Translator: Walter Garcia-Fontes <walter.garcia@upf.edu>\n"
-"Language-Team: Catalan <https://translate.ubports.com/projects/ubports"
-"/ubuntu-printing-app/ca/>\n"
+"PO-Revision-Date: 2018-11-11 00:02+0000\n"
+"Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
+"Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
+"ubuntu-printing-app/ca/>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 3.1.1\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -80,7 +80,7 @@ msgstr[1] "Teniu %d tasques a la cua d'impressió d'aquesta impressora."
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr "D'acord"
+msgstr "D’acord"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
@@ -125,7 +125,7 @@ msgstr "No hi ha tasques d'impressió"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr "Activa"
+msgstr "Actiu"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
