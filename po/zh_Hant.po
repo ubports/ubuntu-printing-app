@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-11-25 00:01+0000\n"
+"PO-Revision-Date: 2018-12-09 00:00+0000\n"
 "Last-Translator: Louies <louies0623@gmail.com>\n"
 "Language-Team: Chinese (Traditional) <https://translate.ubports.com/projects/"
 "ubports/ubuntu-printing-app/zh_Hant/>\n"
@@ -114,7 +114,7 @@ msgstr[0] "％1個工作"
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
-msgstr "列印中"
+msgstr "列印"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
@@ -135,7 +135,7 @@ msgstr "已暫停"
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] "列印%1 頁"
+msgstr[0] "列印 %1 頁"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
