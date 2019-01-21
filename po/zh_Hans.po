@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-01-21 07:55+0000\n"
+"PO-Revision-Date: 2019-01-27 00:00+0000\n"
 "Last-Translator: Hugh Y <hugh_yan@live.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.ubports.com/projects/"
 "ubports/ubuntu-printing-app/zh_Hans/>\n"
@@ -192,15 +192,15 @@ msgstr "全部"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
-msgstr "距离"
+msgstr "范围"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:135
 msgid "Pages"
-msgstr ""
+msgstr "页"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:177
 msgid "eg 1-3,8"
-msgstr ""
+msgstr "如 1-3，8"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
 #, fuzzy
@@ -253,7 +253,7 @@ msgstr "错误"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr ""
+msgstr "需要打印的PDF的URL"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
