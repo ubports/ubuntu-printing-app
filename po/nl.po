@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-02-11 18:59+0000\n"
+"PO-Revision-Date: 2019-02-11 20:35+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/nl/>\n"
@@ -171,9 +171,9 @@ msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
-"Geen document gekozen om af te drukken. Als je wilt afdrukken, dan moet je "
-"de afdrukfunctie kiezen in de gewenste app of het resultaat exporteren naar "
-"een PDF-document."
+"Geen af te drukken document gekozen. Als je wilt afdrukken, dan moet je de "
+"afdrukfunctie kiezen in een app of het resultaat exporteren naar een PDF-"
+"bestand."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
@@ -197,7 +197,7 @@ msgstr "Alles"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
-msgstr "Printgebied"
+msgstr "Afdrukgebied"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:135
 msgid "Pages"
@@ -225,11 +225,11 @@ msgstr "Rangschikken"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
 msgid "Reverse"
-msgstr "Achterstevoren"
+msgstr "Omgekeerd"
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
 msgid "Open With..."
-msgstr "Openen met ..."
+msgstr "Openen met..."
 
 #: ../ubuntu-printing-app/Main.qml:66
 msgid "Document is invalid"
@@ -241,11 +241,11 @@ msgstr "Document niet gevonden"
 
 #: ../ubuntu-printing-app/Main.qml:72
 msgid "Not a PDF document"
-msgstr "Geen pdf document"
+msgstr "Geen PDF-bestand"
 
 #: ../ubuntu-printing-app/Main.qml:75
 msgid "An unknown error occurred"
-msgstr "Een onbekende fout is opgetreden"
+msgstr "Er is een onbekende fout opgetreden"
 
 #: ../ubuntu-printing-app/Main.qml:99
 msgid "Error"
@@ -253,11 +253,11 @@ msgstr "Fout"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr "URL van het PDF document om te printen"
+msgstr "URL van het af te drukken PDF-bestand"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
-msgstr "Maak een PDF-bestand"
+msgstr "PDF-bestand creëren"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
