@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-11-11 05:00+0000\n"
-"Last-Translator: Sander <sander.k1007@kpnmail.nl>\n"
+"PO-Revision-Date: 2019-02-11 18:59+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/nl/>\n"
 "Language: nl\n"
@@ -28,57 +28,55 @@ msgstr "Er is een klep geopend op de printer \"%s\"."
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
-"De printer \"%s\" kan niet gebruiktworden omdat de benodigde software niet "
-"aangewezig is."
+"De printer \"%s\" kan niet worden gebruikt omdat de benodigde software niet "
+"geïnstalleerd is."
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "Een klep is geopend op \"%s\" printer."
+msgstr "Er is een klep geopend op de printer \"%s\"."
 
 #: ../notifier/src/notify-engine.cpp:51
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "Papier is op van \"%s\" printer."
+msgstr "Het papier van de printer \"%s\" is op."
 
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "Papier is bijna op van de \"%s\" printer."
+msgstr "Het papier van de printer \"%s\" is bijna op."
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
-"De \"%s\" printer is momenteel niet aangesloten of verbonden en daarom niet "
-"beschikbaar."
+msgstr "De \"%s\" printer is momenteel niet aangesloten of verbonden."
 
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr "Er is een onbekend probleem opgetreden bij de \"%s\" printer."
+msgstr "Er is een onbekend probleem opgetreden met de printer \"%s\"."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "De cartridge(s) (toner(s)) van printer \"%s\" is/zijn op."
+msgstr "De toner van de printer \"%s\" is leeg."
 
 #: ../notifier/src/notify-engine.cpp:56
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "De cartridge(s) (toner(s)) van printer \"%s\" is/zijn bijna leeg."
+msgstr "De toner van de printer \"%s\" is bijna leeg."
 
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr "\"%s\" is klaar met printen."
+msgstr "\"%s\" is klaar met afdrukken."
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] "Er is %d printopdracht in de wachtrij van deze printer."
-msgstr[1] "Er zijn %d printopdrachten in de wachtrij van deze printer."
+msgstr[0] "Er staat %d printopdracht in de wachtrij van deze printer."
+msgstr[1] "Er staan %d printopdrachten in de wachtrij van deze printer."
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
@@ -94,7 +92,7 @@ msgstr "Instellingen…"
 #. ubuntu
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
 msgid "Print Queue"
-msgstr "Print wachtrij"
+msgstr "Wachtrij"
 
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
 msgid "Queue;Paper;Print;Printing;"
@@ -104,9 +102,8 @@ msgstr "Wachtrij;Papier;Afdruk;Afdrukken;"
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
-#, fuzzy
 msgid "Print"
-msgstr "Afdruk"
+msgstr "Afdrukken"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
@@ -133,7 +130,7 @@ msgstr "Actief"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
-msgstr "Wachtend"
+msgstr "In wachtrij"
 
 #: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
@@ -167,23 +164,24 @@ msgstr "Gepauzeerd"
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
 msgid "Cancel"
-msgstr "Annuleren"
+msgstr "Afbreken"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
-"Geen document gekozen om te printen. Om te printen, kies de print functie in "
-"de gewenste app of exporteer het resultaat naar een PDF document."
+"Geen document gekozen om af te drukken. Als je wilt afdrukken, dan moet je "
+"de afdrukfunctie kiezen in de gewenste app of het resultaat exporteren naar "
+"een PDF-document."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
-msgstr "Pagina instellingen"
+msgstr "Pagina-instellingen"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Printer Options"
-msgstr "Printer opties"
+msgstr "Printeropties"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:86
 msgid "Printer"
@@ -191,7 +189,7 @@ msgstr "Printer"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:107
 msgid "Copies"
-msgstr "Kopieën"
+msgstr "Aantal kopieën"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "All"
@@ -199,7 +197,7 @@ msgstr "Alles"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
-msgstr "Print gebied"
+msgstr "Printgebied"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:135
 msgid "Pages"
@@ -207,11 +205,11 @@ msgstr "Pagina's"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:177
 msgid "eg 1-3,8"
-msgstr "Bijv. 1-3,8"
+msgstr "bijv. 1-3,8"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
 msgid "Two-sided"
-msgstr "Tweezijdig"
+msgstr "Dubbelzijdig"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
 msgid "Color"
@@ -223,7 +221,7 @@ msgstr "Kwaliteit"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
 msgid "Collate"
-msgstr ""
+msgstr "Rangschikken"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
 msgid "Reverse"
