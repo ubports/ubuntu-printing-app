@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
 "PO-Revision-Date: 2019-03-17 00:00+0000\n"
-"Last-Translator: Ivo Xavier <ivofernandes12@gmail.com>\n"
+"Last-Translator: Rúben Carneiro <rubencarneiro01@gmail.com>\n"
 "Language-Team: Portuguese <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/pt/>\n"
 "Language: pt\n"
@@ -81,7 +81,7 @@ msgstr[1] "Você tem %d trabalhos em fila para serem imprimidos nesta impressora
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr "OK"
+msgstr "Confirmar"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
@@ -126,7 +126,7 @@ msgstr "Sem trabalhos de impressão"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr "Ativo"
+msgstr "Activo"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
