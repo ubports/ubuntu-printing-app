@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-29 18:09+0000\n"
-"Last-Translator: Alexandre de Paula Bastos <xandebastos@yahoo.com.br>\n"
-"Language-Team: Portuguese (Brazil) "
-"<https://translate.ubports.com/projects/ubports/ubuntu-printing-app/pt_BR/>\n"
+"PO-Revision-Date: 2019-04-25 19:14+0000\n"
+"Last-Translator: Vinícius F <magnetuz@protonmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://translate.ubports.com/projects/"
+"ubports/ubuntu-printing-app/pt_BR/>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 3.2.2\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -126,7 +126,7 @@ msgstr "Sem trabalhos de impressão"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr "Ativa"
+msgstr "Ativo"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
@@ -193,7 +193,7 @@ msgstr "Cópias"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "All"
-msgstr "Todas"
+msgstr "Todos (as)"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
