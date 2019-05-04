@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-01-27 00:00+0000\n"
-"Last-Translator: Hugh Y <hugh_yan@live.com>\n"
+"PO-Revision-Date: 2019-04-26 23:38+0000\n"
+"Last-Translator: 不朽正义 <tanyongle0633@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://translate.ubports.com/projects/"
 "ubports/ubuntu-printing-app/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -17,22 +17,22 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 3.1.1\n"
+"X-Generator: Weblate 3.2.2\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "打印机%s机盖开启"
+msgstr "打印机 “%s” 上的机盖已打开。"
 
 #: ../notifier/src/notify-engine.cpp:49
-#, c-format, fuzzy
+#, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr "打印机“%s”无法使用，没有找到需要的软件"
+msgstr "无法使用打印机 “%s1”，因为缺少所需的软件。"
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "打印机“%s”的门是开的"
+msgstr "打印机 “%s”上的通道已打开。"
 
 #: ../notifier/src/notify-engine.cpp:51
 #, c-format
@@ -67,13 +67,13 @@ msgstr "打印机“%s”碳粉存量低。"
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr ""
+msgstr "“%s” 已打印。"
 
 #: ../notifier/src/notify-engine.cpp:185
-#, c-format, fuzzy
+#, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] "在这台打印机上您有%d项任务在队列中。"
+msgstr[0] "您有 %d 项任务在队列等待打印在该打印机上。"
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
@@ -89,23 +89,22 @@ msgstr "设置…"
 #. ubuntu
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
 msgid "Print Queue"
-msgstr ""
+msgstr "打印队列"
 
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
-#, fuzzy
 msgid "Queue;Paper;Print;Printing;"
-msgstr "队列；纸张；打印；正在打印；"
+msgstr "队列;纸张;打印;正在打印;"
 
 #. Only show the amount of sheets if they are above zero
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
 msgid "Print"
-msgstr ""
+msgstr "打印"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
-msgstr "打印；正在打印；"
+msgstr "打印;正在打印;"
 
 #: ../queue-dialog/pages/QueuePage.qml:30
 msgid "%1 job"
@@ -139,23 +138,21 @@ msgid_plural "Printing %1 pages"
 msgstr[0] "正在打印%1页"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
-#, fuzzy
 msgid "Ready to print %1 page"
 msgid_plural "Ready to print %1 pages"
-msgstr[0] "将要打印%1页"
+msgstr[0] "将要打印 %1 页"
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
-#, fuzzy
 msgid "Ready to print"
 msgstr "准备打印"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Release"
-msgstr ""
+msgstr "发布"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Hold"
-msgstr ""
+msgstr "保持"
 
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
@@ -167,10 +164,9 @@ msgstr "取消"
 msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
-msgstr "没有文档被选中打印。如需打印，从应用中选择打印，或从应用中导出PDF"
+msgstr "没有选择要打印的文档。 要进行打印，您需要从应用中选择。 或者，您可以从应用中导出 PDF 文档。"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
-#, fuzzy
 msgid "Page Setup"
 msgstr "页面设置"
 
@@ -203,7 +199,6 @@ msgid "eg 1-3,8"
 msgstr "如 1-3，8"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
-#, fuzzy
 msgid "Two-sided"
 msgstr "双面"
 
@@ -212,24 +207,20 @@ msgid "Color"
 msgstr "颜色"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
-#, fuzzy
 msgid "Quality"
 msgstr "质量"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
-#, fuzzy
 msgid "Collate"
 msgstr "对照"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
-#, fuzzy
 msgid "Reverse"
 msgstr "翻转"
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
-#, fuzzy
 msgid "Open With..."
-msgstr "打开方式..."
+msgstr "打开方式…"
 
 #: ../ubuntu-printing-app/Main.qml:66
 msgid "Document is invalid"

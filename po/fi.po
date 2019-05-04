@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-09-02 07:37+0000\n"
+"PO-Revision-Date: 2019-04-29 19:03+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/fi/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20\n"
+"X-Generator: Weblate 3.6\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -79,7 +79,7 @@ msgstr[1] "Sinulla on %d työtä jonossa tässä tulostimessa."
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr "Selvä"
+msgstr "OK"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
@@ -164,7 +164,7 @@ msgstr "Pito"
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
 msgid "Cancel"
-msgstr "Peruuta"
+msgstr "Peru"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
@@ -225,9 +225,8 @@ msgid "Collate"
 msgstr "Kokoa"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
-#, fuzzy
 msgid "Reverse"
-msgstr "Peruutus"
+msgstr "Käänteinen"
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
 msgid "Open With..."
@@ -262,8 +261,7 @@ msgid "Create PDF"
 msgstr "Luo PDF"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
-#, fuzzy
 msgid "<u>%1</u> Sheet"
 msgid_plural "<u>%1</u> Sheets"
-msgstr[0] "Yksi"
-msgstr[1] "Muu"
+msgstr[0] "<u>%1</u> sivu"
+msgstr[1] "<u>%1</u> sivua"
