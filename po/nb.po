@@ -8,21 +8,21 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-06-12 17:39+0000\n"
+"PO-Revision-Date: 2019-05-21 18:03+0000\n"
 "Last-Translator: Ari Börde Kröyer <ari.kroyer@online.no>\n"
-"Language-Team: Norwegian Bokmål "
-"<https://translate.ubports.com/projects/ubports/ubuntu-printing-app/nb/>\n"
+"Language-Team: Norwegian Bokmål <https://translate.ubports.com/projects/"
+"ubports/ubuntu-printing-app/nb/>\n"
 "Language: nb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "Et deksel er åpent på skriveren \"%s\"."
+msgstr "Et deksel er åpent på skriveren “%s”."
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
