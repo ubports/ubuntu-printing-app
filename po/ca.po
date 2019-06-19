@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-05-03 21:03+0000\n"
+"PO-Revision-Date: 2019-06-20 02:04+0000\n"
 "Last-Translator: Joan CiberSheep <cibersheep@gmail.com>\n"
 "Language-Team: Catalan <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/ca/>\n"
@@ -80,7 +80,7 @@ msgstr[1] "Teniu %d tasques a la cua d'impressió d'aquesta impressora."
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr "Acceptar"
+msgstr "D'acord"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
