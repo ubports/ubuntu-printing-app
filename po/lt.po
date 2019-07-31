@@ -8,9 +8,10 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-08-02 15:49+0000\n"
+"Last-Translator: Moo <moose@mail.ru>\n"
+"Language-Team: Lithuanian <https://translate.ubports.com/projects/ubports/"
+"ubuntu-printing-app/lt/>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,16 +19,19 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
+"X-Generator: Weblate 3.6.1\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr ""
+msgstr "Yra atidarytas spausdintuvo “%s” dangtis."
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
+"Spausdintuvas “%s” negali būti naudojamas, nes trūksta reikalingos "
+"programinės įrangos."
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
@@ -80,7 +84,7 @@ msgstr[2] ""
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr ""
+msgstr "Gerai"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
@@ -126,7 +130,7 @@ msgstr ""
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr ""
+msgstr "Aktyvus"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
@@ -166,7 +170,7 @@ msgstr ""
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
 msgid "Cancel"
-msgstr ""
+msgstr "Atsisakyti"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
@@ -212,7 +216,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
 msgid "Color"
-msgstr ""
+msgstr "Spalva"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
 msgid "Quality"
@@ -248,7 +252,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/Main.qml:99
 msgid "Error"
-msgstr ""
+msgstr "Klaida"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
@@ -256,7 +260,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
-msgstr ""
+msgstr "Sukurti PDF"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
