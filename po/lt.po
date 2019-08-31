@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-08-02 15:49+0000\n"
+"PO-Revision-Date: 2019-09-01 15:50+0000\n"
 "Last-Translator: Moo <moose@mail.ru>\n"
 "Language-Team: Lithuanian <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/lt/>\n"
@@ -122,7 +122,7 @@ msgstr[2] ""
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
-msgstr ""
+msgstr "Spausdinimas"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
@@ -220,7 +220,7 @@ msgstr "Spalva"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
 msgid "Quality"
-msgstr ""
+msgstr "Kokybė"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
 msgid "Collate"
