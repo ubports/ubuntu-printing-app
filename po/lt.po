@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-09-01 15:50+0000\n"
+"PO-Revision-Date: 2019-09-06 19:50+0000\n"
 "Last-Translator: Moo <moose@mail.ru>\n"
 "Language-Team: Lithuanian <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/lt/>\n"
@@ -138,7 +138,7 @@ msgstr ""
 
 #: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
-msgstr ""
+msgstr "Pristabdyta"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
