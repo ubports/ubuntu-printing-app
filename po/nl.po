@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-06-30 01:02+0000\n"
+"PO-Revision-Date: 2019-10-12 20:55+0000\n"
 "Last-Translator: Tom Dom <thomas@patoel.nl>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/nl/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -81,7 +81,7 @@ msgstr[1] "Er staan %d printopdrachten in de wachtrij van deze printer."
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr "Oké"
+msgstr "OK"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
@@ -249,7 +249,7 @@ msgstr "Er is een onbekende fout opgetreden"
 
 #: ../ubuntu-printing-app/Main.qml:99
 msgid "Error"
-msgstr "Error"
+msgstr "Fout"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
