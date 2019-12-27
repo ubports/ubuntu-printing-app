@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-09-08 20:50+0000\n"
+"PO-Revision-Date: 2020-01-19 19:39+0000\n"
 "Last-Translator: Moo <moose@mail.ru>\n"
 "Language-Team: Lithuanian <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/lt/>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n % 10 == 1 && (n % 100 < 11 || n % 100 > "
 "19)) ? 0 : ((n % 10 >= 2 && n % 10 <= 9 && (n % 100 < 11 || n % 100 > 19)) ? "
 "1 : 2);\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.8\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -56,7 +56,7 @@ msgstr ""
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr ""
+msgstr "Spausdintuve \"%s\" yra nežinoma problema."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
@@ -88,7 +88,7 @@ msgstr "Gerai"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
-msgstr ""
+msgstr "Nustatymai…"
 
 #. notifier
 #. printing
@@ -156,7 +156,7 @@ msgstr[2] ""
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
 msgid "Ready to print"
-msgstr ""
+msgstr "Pasiruošęs spausdinti"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Release"
@@ -180,11 +180,11 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
-msgstr ""
+msgstr "Puslapio parinktys"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Printer Options"
-msgstr ""
+msgstr "Spausdintuvo parinktys"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:86
 msgid "Printer"
@@ -200,7 +200,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
-msgstr ""
+msgstr "Rėžis"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:135
 msgid "Pages"
@@ -208,7 +208,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:177
 msgid "eg 1-3,8"
-msgstr ""
+msgstr "pvz., 1-3,8"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
 msgid "Two-sided"
@@ -232,7 +232,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
 msgid "Open With..."
-msgstr ""
+msgstr "Atverti naudojant..."
 
 #: ../ubuntu-printing-app/Main.qml:66
 msgid "Document is invalid"
@@ -240,15 +240,15 @@ msgstr ""
 
 #: ../ubuntu-printing-app/Main.qml:69
 msgid "Document not found"
-msgstr ""
+msgstr "Dokumentas nerastas"
 
 #: ../ubuntu-printing-app/Main.qml:72
 msgid "Not a PDF document"
-msgstr ""
+msgstr "Nėra PDF dokumentas"
 
 #: ../ubuntu-printing-app/Main.qml:75
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "Įvyko nežinoma klaida"
 
 #: ../ubuntu-printing-app/Main.qml:99
 msgid "Error"
