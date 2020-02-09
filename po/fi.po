@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2020-01-19 19:39+0000\n"
-"Last-Translator: Sami Törmänen <tormanen.sami@gmail.com>\n"
+"PO-Revision-Date: 2020-02-09 19:21+0000\n"
+"Last-Translator: Oi Suomi On! <oisuomion@protonmail.com>\n"
 "Language-Team: Finnish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/fi/>\n"
 "Language: fi\n"
@@ -30,9 +30,9 @@ msgid "The printer “%s” can’t be used, because required software is missin
 msgstr "Tulostinta “%s” ei voi käyttää, koska vaadittu ohjelmisto puuttuu."
 
 #: ../notifier/src/notify-engine.cpp:50
-#, c-format, fuzzy
+#, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "%sTulostimen luukku on auki."
+msgstr "Tulostimen luukku on auki “%s”."
 
 #: ../notifier/src/notify-engine.cpp:51
 #, c-format
@@ -55,14 +55,14 @@ msgid "The printer “%s” has an unknown problem."
 msgstr "Tulostimessa “%s” ilmeni tuntematon ongelma."
 
 #: ../notifier/src/notify-engine.cpp:55
-#, c-format, fuzzy
+#, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "%sTulostimen värikasetti on lopussa."
+msgstr "Tulostimen “%s” värikasetti on lopussa."
 
 #: ../notifier/src/notify-engine.cpp:56
-#, c-format, fuzzy
+#, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "Tulostimen värikasetti on vähissä."
+msgstr "Tulostimen “%s” värikasetti on vähissä."
 
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
@@ -79,7 +79,7 @@ msgstr[1] "Sinulla on %d työtä jonossa tässä tulostimessa."
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr "OK"
+msgstr "Selvä"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
@@ -151,12 +151,10 @@ msgid "Ready to print"
 msgstr "Valmiina tulostamaan"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
-#, fuzzy
 msgid "Release"
-msgstr "Julkaisu"
+msgstr "Vapauta"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
-#, fuzzy
 msgid "Hold"
 msgstr "Pito"
 
@@ -196,7 +194,6 @@ msgid "All"
 msgstr "Kaikki"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
-#, fuzzy
 msgid "Range"
 msgstr "Ala"
 
