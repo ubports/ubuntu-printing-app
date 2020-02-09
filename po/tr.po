@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-11-03 15:33+0000\n"
+"PO-Revision-Date: 2020-02-06 20:21+0000\n"
 "Last-Translator: Ege Öz <ege.oz@tutanota.com>\n"
 "Language-Team: Turkish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/tr/>\n"
@@ -208,7 +208,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
 msgid "Color"
-msgstr ""
+msgstr "Renk"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
 msgid "Quality"
