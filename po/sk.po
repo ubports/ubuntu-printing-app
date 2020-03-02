@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2020-02-16 01:21+0000\n"
+"PO-Revision-Date: 2020-02-24 17:56+0000\n"
 "Last-Translator: dano6 <dano.kutka@gmail.com>\n"
 "Language-Team: Slovak <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/sk/>\n"
@@ -118,7 +118,7 @@ msgstr[2] "%1 úloh"
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
-msgstr "Tlačenie"
+msgstr "Tlač"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
@@ -126,7 +126,7 @@ msgstr "Žiadne úlohy pre tlač"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr "Aktívne"
+msgstr "Aktívna"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
