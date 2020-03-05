@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-10-04 10:22+0000\n"
+"PO-Revision-Date: 2020-03-06 09:22+0000\n"
 "Last-Translator: Neutrum N <neutro@tutanota.com>\n"
 "Language-Team: Galician <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/gl/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.20\n"
+"X-Generator: Weblate 3.8\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -73,8 +73,8 @@ msgstr "“%s” imprimiu."
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] "Ten %d traballo na fila para imprimir nesta impresora."
-msgstr[1] "Ten %d traballos na fila para imprimir nesta impresora."
+msgstr[0] "Ten %d traballo na fila pra imprimir desta impresora."
+msgstr[1] "Ten %d traballos na fila pra imprimir desta impresora."
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
@@ -124,7 +124,7 @@ msgstr "Non hai traballos de impresión"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr "Activa"
+msgstr "Activo"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
@@ -143,12 +143,12 @@ msgstr[1] "Imprimindo %1 páxinas"
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
 msgid_plural "Ready to print %1 pages"
-msgstr[0] "Lista para imprimir %1 páxina"
-msgstr[1] "Lista para imprimir %1 páxinas"
+msgstr[0] "Lista pra imprimir %1 páxina"
+msgstr[1] "Lista pra imprimir %1 páxinas"
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
 msgid "Ready to print"
-msgstr "Lista para imprimir"
+msgstr "Lista pra imprimir"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Release"
@@ -169,8 +169,8 @@ msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
-"Non se escolleu ningún documento para imprimir. Para imprimir, necesita "
-"seleccionar imprimir nunha aplicación. Alternativamente pode exportar un "
+"Non se escolleu ningún documento pra imprimir. Pra imprimir, necesita "
+"seleccionar 'imprimir' nunha aplicación. Alternativamente pode exportar un "
 "documento PDF desde unha aplicación."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
@@ -191,7 +191,7 @@ msgstr "Copias"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "All"
-msgstr "Todo"
+msgstr "Todos"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
@@ -219,7 +219,7 @@ msgstr "Calidade"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
 msgid "Collate"
-msgstr "Ordenar"
+msgstr "Secuenciar"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
 msgid "Reverse"
@@ -251,7 +251,7 @@ msgstr "Erro"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr "URL do PDF para imprimir"
+msgstr "URL do PDF pra imprimir"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
