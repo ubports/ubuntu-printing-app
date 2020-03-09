@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2020-02-29 19:22+0000\n"
+"PO-Revision-Date: 2020-03-02 22:11+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/cs/>\n"
@@ -22,27 +22,27 @@ msgstr ""
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "Na tiskárně je otevřen kryt “%s”."
+msgstr "Na tiskárně „%s“ je otevřený kryt."
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr "Tiskárnu “%s” nelze spustit, chybí požadovaný software."
+msgstr "Tiskárnu „%s“ nelze použít – chybí potřebný software."
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "Na tiskárně “%s” jsou otevřena dvířka."
+msgstr "Na tiskárně „%s“ jsou otevřená dvířka."
 
 #: ../notifier/src/notify-engine.cpp:51
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "Tiskárně “%s” chybí papír."
+msgstr "Tiskárně „%s“ chybí papír."
 
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "V tiskárně “%s” je málo papíru."
+msgstr "V tiskárně „%s“ je málo papíru."
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
@@ -52,22 +52,22 @@ msgstr "Tiskárna “%s” je nyní off-line."
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr "Tiskárna “%s” hlásí neznámou chybu."
+msgstr "Tiskárna „%s“ hlásí neznámou chybu."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "V tiskárně “%s” chybí toner."
+msgstr "V tiskárně „%s“ došel toner."
 
 #: ../notifier/src/notify-engine.cpp:56
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "V tiskárně “%s” je málo toneru."
+msgstr "V tiskárně „%s“ dochází toner."
 
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr "“%s” vytisknuto."
+msgstr "„%s“ vytisknuto."
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
@@ -173,8 +173,8 @@ msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
-"Nebyl vybrán žádný dokument pro tisk. Chcete-li tisknout, musíte vybrat tisk "
-"z aplikace. Případně můžete exportovat dokument PDF z aplikace."
+"Nebyl vybrán žádný dokument pro tisk. Pokud chcete tisknout, je třeba vybrat "
+"tisk z aplikace. Případně můžete z aplikace exportovat dokument PDF."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
@@ -182,7 +182,7 @@ msgstr "Nastavení stránky"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Printer Options"
-msgstr "Možnosti tiskárny"
+msgstr "Předvolby tiskárny"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:86
 msgid "Printer"
@@ -198,7 +198,7 @@ msgstr "Vše"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
-msgstr "Interval"
+msgstr "Rozsah"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:135
 msgid "Pages"
@@ -230,7 +230,7 @@ msgstr "Obráceně"
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
 msgid "Open With..."
-msgstr "Otevřít s..."
+msgstr "Otevřít s…"
 
 #: ../ubuntu-printing-app/Main.qml:66
 msgid "Document is invalid"
@@ -242,7 +242,7 @@ msgstr "Dokument nenalezen"
 
 #: ../ubuntu-printing-app/Main.qml:72
 msgid "Not a PDF document"
-msgstr "Dokument není v PDF"
+msgstr "Nejedná se o PDF dokument"
 
 #: ../ubuntu-printing-app/Main.qml:75
 msgid "An unknown error occurred"
@@ -254,7 +254,7 @@ msgstr "Chyba"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr "URL PDF k tisku"
+msgstr "URL adresa PDF souboru k tisku"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
