@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2020-03-06 09:22+0000\n"
+"PO-Revision-Date: 2020-04-09 14:23+0000\n"
 "Last-Translator: Neutrum N <neutro@tutanota.com>\n"
 "Language-Team: Galician <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/gl/>\n"
@@ -73,8 +73,8 @@ msgstr "“%s” imprimiu."
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] "Ten %d traballo na fila pra imprimir desta impresora."
-msgstr[1] "Ten %d traballos na fila pra imprimir desta impresora."
+msgstr[0] "Ten %d traballo na fila para imprimir desta impresora."
+msgstr[1] "Ten %d traballos na fila para imprimir desta impresora."
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
@@ -143,12 +143,12 @@ msgstr[1] "Imprimindo %1 páxinas"
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
 msgid_plural "Ready to print %1 pages"
-msgstr[0] "Lista pra imprimir %1 páxina"
-msgstr[1] "Lista pra imprimir %1 páxinas"
+msgstr[0] "Lista para imprimir %1 páxina"
+msgstr[1] "Lista para imprimir %1 páxinas"
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
 msgid "Ready to print"
-msgstr "Lista pra imprimir"
+msgstr "Lista para imprimir"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Release"
@@ -169,9 +169,9 @@ msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
-"Non se escolleu ningún documento pra imprimir. Pra imprimir, necesita "
-"seleccionar 'imprimir' nunha aplicación. Alternativamente pode exportar un "
-"documento PDF desde unha aplicación."
+"Non se escolleu ningún documento para imprimir. Para imprimir, necesita "
+"seleccionar 'imprimir' nun aplicativo. Alternativamente pode exportar un "
+"documento PDF desde un aplicativo."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
@@ -251,7 +251,7 @@ msgstr "Erro"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr "URL do PDF pra imprimir"
+msgstr "URL do PDF para imprimir"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
