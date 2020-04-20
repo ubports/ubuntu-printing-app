@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2020-04-09 14:23+0000\n"
+"PO-Revision-Date: 2020-04-12 07:18+0000\n"
 "Last-Translator: Neutrum N <neutro@tutanota.com>\n"
 "Language-Team: Galician <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/gl/>\n"
@@ -22,52 +22,52 @@ msgstr ""
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "Está aberta unha tapa na impresora “%s”."
+msgstr "Está aberta unha tapa na impresora «%s»."
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr "Non se pode usar a impresora “%s”, porque falta o software necesario."
+msgstr "Non se pode usar a impresora «%s», porque falta o software necesario."
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "Está aberta unha porta na impresora “%s”."
+msgstr "Está aberta unha porta na impresora «%s»."
 
 #: ../notifier/src/notify-engine.cpp:51
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "A impresora “%s” non ten papel."
+msgstr "A impresora «%s» non ten papel."
 
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "A impresora “%s” ten pouco papel."
+msgstr "A impresora «%s» ten pouco papel."
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr "A impresora “%s” está desconectada."
+msgstr "A impresora «%s» está desconectada."
 
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr "A impresora “%s” ten un problema descoñecido."
+msgstr "A impresora «%s» ten un problema descoñecido."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "A impresora “%s” non ten tóner."
+msgstr "A impresora «%s» non ten tóner."
 
 #: ../notifier/src/notify-engine.cpp:56
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "A impresora “%s” ten pouco tóner."
+msgstr "A impresora «%s» ten pouco tóner."
 
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr "“%s” imprimiu."
+msgstr "«%s» imprimiu."
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
