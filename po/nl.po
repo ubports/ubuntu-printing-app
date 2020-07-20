@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-10-12 20:55+0000\n"
-"Last-Translator: Tom Dom <thomas@patoel.nl>\n"
+"PO-Revision-Date: 2020-07-07 16:32+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/nl/>\n"
 "Language: nl\n"
@@ -17,59 +17,59 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.8\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr "Er is een klep geopend op de printer \"%s\"."
+msgstr "Er is een klep geopend op “%s”."
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
-"De printer \"%s\" kan niet worden gebruikt omdat de benodigde software niet "
+"De printer, “%s”, kan niet worden gebruikt omdat de benodigde software niet "
 "geïnstalleerd is."
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr "Er is een klep geopend op de printer \"%s\"."
+msgstr "Er is een klep geopend op “%s”."
 
 #: ../notifier/src/notify-engine.cpp:51
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr "Het papier van de printer \"%s\" is op."
+msgstr "Het papier van “%s” is op."
 
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr "Het papier van de printer \"%s\" is bijna op."
+msgstr "Het papier van “%s” is bijna op."
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr "De \"%s\" printer is momenteel niet aangesloten of verbonden."
+msgstr "“%s” is momenteel niet aangesloten of verbonden."
 
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr "Er is een onbekend probleem opgetreden met de printer \"%s\"."
+msgstr "Er is een onbekend probleem opgetreden met “%s”."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr "De toner van de printer \"%s\" is leeg."
+msgstr "De toner van “%s” is leeg."
 
 #: ../notifier/src/notify-engine.cpp:56
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr "De toner van de printer \"%s\" is bijna leeg."
+msgstr "De toner van “%s” is bijna leeg."
 
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr "\"%s\" is klaar met afdrukken."
+msgstr "“%s” is klaar met afdrukken."
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
@@ -81,7 +81,7 @@ msgstr[1] "Er staan %d printopdrachten in de wachtrij van deze printer."
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr "OK"
+msgstr "Oké"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
@@ -134,7 +134,7 @@ msgstr "In wachtrij"
 
 #: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
-msgstr "Gepauzeerd"
+msgstr "Onderbroken"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
@@ -158,13 +158,13 @@ msgstr "Vrijgegeven"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Hold"
-msgstr "Gepauzeerd"
+msgstr "Achtergehouden"
 
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
 msgid "Cancel"
-msgstr "Annuleren"
+msgstr "Afbreken"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
@@ -172,7 +172,7 @@ msgid ""
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
 "Geen af te drukken document gekozen. Als je wilt afdrukken, dan moet je de "
-"afdrukfunctie kiezen in een app of het resultaat exporteren naar een PDF-"
+"afdrukfunctie kiezen in een app of het resultaat exporteren naar een pdf-"
 "bestand."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
@@ -241,7 +241,7 @@ msgstr "Document niet gevonden"
 
 #: ../ubuntu-printing-app/Main.qml:72
 msgid "Not a PDF document"
-msgstr "Geen PDF-bestand"
+msgstr "Geen pdf-bestand"
 
 #: ../ubuntu-printing-app/Main.qml:75
 msgid "An unknown error occurred"
@@ -253,11 +253,11 @@ msgstr "Fout"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr "URL van het af te drukken PDF-bestand"
+msgstr "URL van het af te drukken pdf-bestand"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
-msgstr "PDF-bestand creëren"
+msgstr "PDF-bestand maken"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
