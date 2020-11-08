@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-07-16 07:48+0000\n"
-"Last-Translator: Yasser Lotfy <yasser-lotfy@hotmail.com>\n"
+"PO-Revision-Date: 2020-11-06 07:43+0000\n"
+"Last-Translator: abidin <abidin24@tutanota.com>\n"
 "Language-Team: Arabic <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/ar/>\n"
 "Language: ar\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Weblate 3.6.1\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -84,7 +84,7 @@ msgstr[5] ""
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr ""
+msgstr "موافق"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
@@ -179,7 +179,7 @@ msgstr ""
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
 msgid "Cancel"
-msgstr "إلغاء"
+msgstr "ألغ"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
