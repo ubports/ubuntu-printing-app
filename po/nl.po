@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2020-10-26 21:27+0000\n"
+"PO-Revision-Date: 2020-11-12 14:00+0000\n"
 "Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
 "Language-Team: Dutch <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/nl/>\n"
@@ -81,7 +81,7 @@ msgstr[1] "Er staan %d printopdrachten in de wachtrij van deze printer."
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr "Oké"
+msgstr "Uitzetten"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"

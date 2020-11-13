@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2020-11-06 07:43+0000\n"
+"PO-Revision-Date: 2020-11-13 19:53+0000\n"
 "Last-Translator: abidin <abidin24@tutanota.com>\n"
 "Language-Team: Arabic <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/ar/>\n"
@@ -133,7 +133,7 @@ msgstr "لا توجد مهام طباعة"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr "نشطة"
+msgstr "نشط"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
@@ -141,7 +141,7 @@ msgstr "صف الانتظار"
 
 #: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
-msgstr "تم الايقاف"
+msgstr "أُلبِث"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
@@ -201,7 +201,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:107
 msgid "Copies"
-msgstr ""
+msgstr "نُسخٌ"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "All"
@@ -229,7 +229,7 @@ msgstr "اللون"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
 msgid "Quality"
-msgstr ""
+msgstr "جودة"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
 msgid "Collate"
@@ -269,7 +269,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
-msgstr "انشاء PDF"
+msgstr "انشئ PDF"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
