@@ -8,102 +8,105 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2021-01-03 01:03+0000\n"
+"Last-Translator: GK <miscgk@pm.me>\n"
+"Language-Team: Tamil <https://translate.ubports.com/projects/ubports/"
+"ubuntu-printing-app/ta/>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr ""
+msgstr "“%s” அச்சுப்பொறியின் ஒரு மேலுறை திறந்துள்ளது."
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
 msgstr ""
+"“%s” அச்சுப்பொறியை உபயோகிக்க இயலாது, ஏனென்றால் மென்பொருளைக் காணவில்லை."
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "“%s” அச்சுப்பொறியின் ஒரு கதவு திறந்துள்ளது."
 
 #: ../notifier/src/notify-engine.cpp:51
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr ""
+msgstr "“%s” அச்சுப்பொறியில் காகிதம் தீர்ந்துவிட்டது."
 
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr ""
+msgstr "“%s” அச்சுப்பொறியில் காகிதம் குறைவாக உள்ளது."
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "“%s” அச்சுப்பொறி அகல்நிலையில் உள்ளது."
 
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr ""
+msgstr "“%s” அச்சுப்பொறியில் தெறியாத சிக்கலொன்று உள்ளது."
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr ""
+msgstr "“%s” அச்சுப்பொறியில் மைய் தீர்ந்துவிட்டது."
 
 #: ../notifier/src/notify-engine.cpp:56
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "“%s” அச்சுப்பொறியில் மைய் குறைவாக உள்ளது."
 
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr ""
+msgstr "“%s” அச்சிட்டுவிட்டது."
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "இந்த அச்சுப்பொறியில் அச்சடிக்க உங்களின் %d வேலை வரிசையில் உள்ளது."
+msgstr[1] "இந்த அச்சுப்பொறியில் அச்சடிக்க உங்களின் %d வேலைகள் வரிசையில் உள்ளது."
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr ""
+msgstr "சரி"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
-msgstr ""
+msgstr "அமைவுகள்…"
 
 #. notifier
 #. printing
 #. ubuntu
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
 msgid "Print Queue"
-msgstr ""
+msgstr "வரிசையில் உள்ளவற்றை அச்சிடுக"
 
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
 msgid "Queue;Paper;Print;Printing;"
-msgstr ""
+msgstr "வரிசை;காகிதம்;அச்சிடுக;அச்சிடுகிறது;"
 
 #. Only show the amount of sheets if they are above zero
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
 msgid "Print"
-msgstr ""
+msgstr "அச்சிடுக"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
-msgstr ""
+msgstr "அச்சிடுக;அச்சிடுகிறது;"
 
 #: ../queue-dialog/pages/QueuePage.qml:30
 msgid "%1 job"
@@ -122,7 +125,7 @@ msgstr ""
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr ""
+msgstr "செயலில்"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
@@ -160,7 +163,7 @@ msgstr ""
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
 msgid "Cancel"
-msgstr ""
+msgstr "ரத்துசெய்"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
@@ -206,7 +209,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
 msgid "Color"
-msgstr ""
+msgstr "நிறம்"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
 msgid "Quality"
@@ -242,7 +245,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/Main.qml:99
 msgid "Error"
-msgstr ""
+msgstr "பிழை"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
@@ -250,7 +253,7 @@ msgstr ""
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
-msgstr ""
+msgstr "PDF-ஐ உருவாக்குக"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
