@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2021-01-03 01:03+0000\n"
+"PO-Revision-Date: 2021-01-03 02:00+0000\n"
 "Last-Translator: GK <miscgk@pm.me>\n"
 "Language-Team: Tamil <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/ta/>\n"
@@ -111,17 +111,17 @@ msgstr "அச்சிடுக;அச்சிடுகிறது;"
 #: ../queue-dialog/pages/QueuePage.qml:30
 msgid "%1 job"
 msgid_plural "%1 jobs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 வேலை"
+msgstr[1] "%1 வேலைகள்"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
-msgstr ""
+msgstr "அச்சிடுகிறது"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
-msgstr ""
+msgstr "அச்சிடும் வேலை எதுவுமில்லை"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
@@ -129,35 +129,35 @@ msgstr "செயலில்"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
-msgstr ""
+msgstr "சாரைப்படுத்தப்பட்டது"
 
 #: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
-msgstr ""
+msgstr "இடைநிறுத்தப்பட்டது"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 பக்கம் அச்சிடப்படுகின்றது"
+msgstr[1] "%1 பக்கங்கள் அச்சிடப்படுகின்றன"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
 msgid_plural "Ready to print %1 pages"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 பக்கம் அச்சிடுவதற்கு ஆயத்தமாக உள்ளேன்"
+msgstr[1] "%1 பக்கங்களை அச்சிடுவதற்கு ஆயத்தமாக உள்ளேன்"
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
 msgid "Ready to print"
-msgstr ""
+msgstr "அச்சிடுவதற்கு ஆயத்தமாக உள்ளேன்"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Release"
-msgstr ""
+msgstr "விடுவி"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Hold"
-msgstr ""
+msgstr "பிடித்திரு"
 
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
@@ -170,42 +170,44 @@ msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
+"அச்சிடுவதற்கான ஆவணங்கள் தேர்வு செய்யப்படவில்லை. அச்சிடுவதற்து, எதாவதொரு "
+"செயலியிருந்தி “அச்சிடு” என்க அல்லது PDF ஆவணத்திலிருந்து ஏற்றுமதி செய்க."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
-msgstr ""
+msgstr "பக்க அமைப்புகள்"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Printer Options"
-msgstr ""
+msgstr "அச்சுப்பொறி விருப்பத்தேர்வுகள்"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:86
 msgid "Printer"
-msgstr ""
+msgstr "அச்சுப்பொறி"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:107
 msgid "Copies"
-msgstr ""
+msgstr "நகல்கள்"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "All"
-msgstr ""
+msgstr "எல்லாம்"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
-msgstr ""
+msgstr "வீச்சு"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:135
 msgid "Pages"
-msgstr ""
+msgstr "பக்கங்கள்"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:177
 msgid "eg 1-3,8"
-msgstr ""
+msgstr "எ.கா. 1-3,8"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
 msgid "Two-sided"
-msgstr ""
+msgstr "இருபக்க முறை"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
 msgid "Color"
@@ -213,35 +215,35 @@ msgstr "நிறம்"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
 msgid "Quality"
-msgstr ""
+msgstr "தரம்"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
 msgid "Collate"
-msgstr ""
+msgstr "ஒழுங்காக அடுக்கு"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
 msgid "Reverse"
-msgstr ""
+msgstr "தலைகீழாக்குக"
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
 msgid "Open With..."
-msgstr ""
+msgstr "இதனுடன் திற…"
 
 #: ../ubuntu-printing-app/Main.qml:66
 msgid "Document is invalid"
-msgstr ""
+msgstr "செல்லாத ஆவணம்"
 
 #: ../ubuntu-printing-app/Main.qml:69
 msgid "Document not found"
-msgstr ""
+msgstr "ஆவணத்தைக் காணவில்லை"
 
 #: ../ubuntu-printing-app/Main.qml:72
 msgid "Not a PDF document"
-msgstr ""
+msgstr "இது PDF ஆவணமல்ல"
 
 #: ../ubuntu-printing-app/Main.qml:75
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "ஒரு தெறியாத பிழையேற்பட்டுவிட்டது"
 
 #: ../ubuntu-printing-app/Main.qml:99
 msgid "Error"
@@ -249,7 +251,7 @@ msgstr "பிழை"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr ""
+msgstr "அச்சிட வேண்டிய PDF-ன் உரலி"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
@@ -258,5 +260,5 @@ msgstr "PDF-ஐ உருவாக்குக"
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
 msgid_plural "<u>%1</u> Sheets"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "<u>%1</u> தாள்"
+msgstr[1] "<u>%1</u> தாள்கள்"
