@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2019-03-17 00:00+0000\n"
+"PO-Revision-Date: 2021-03-05 20:27+0000\n"
 "Last-Translator: Anne Onyme <anneonyme017@netcourrier.com>\n"
 "Language-Team: French <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/fr/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 3.1.1\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -193,7 +193,7 @@ msgstr "Copies"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "All"
-msgstr "Tous"
+msgstr "Tout"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
