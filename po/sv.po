@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2018-05-25 21:40+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Swedish <https://translate.ubports.com/projects/ubports"
-"/ubuntu-printing-app/sv/>\n"
+"PO-Revision-Date: 2021-07-26 20:33+0000\n"
+"Last-Translator: Rondy Andersson <rondarius@vivaldi.net>\n"
+"Language-Team: Swedish <https://translate.ubports.com/projects/ubports/"
+"ubuntu-printing-app/sv/>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.15\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
@@ -192,7 +192,7 @@ msgstr "Kopioer"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "All"
-msgstr "Allt"
+msgstr "Alla"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
