@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2021-07-26 20:33+0000\n"
-"Last-Translator: Rondy Andersson <rondarius@vivaldi.net>\n"
+"PO-Revision-Date: 2021-10-19 20:55+0000\n"
+"Last-Translator: Jakob Fridesjö <jakob.fridesjo@tuta.io>\n"
 "Language-Team: Swedish <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/sv/>\n"
 "Language: sv\n"
@@ -100,7 +100,6 @@ msgstr "Utskriftskö;papper;skriv ut;skriver ut;"
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
-#, fuzzy
 msgid "Print"
 msgstr "Skriv ut"
 
