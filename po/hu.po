@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2022-03-01 19:46+0000\n"
+"PO-Revision-Date: 2022-03-01 21:04+0000\n"
 "Last-Translator: Lundrin <berenyi.vilmos@tutanota.com>\n"
 "Language-Team: Hungarian <https://translate.ubports.com/projects/ubports/"
 "ubuntu-printing-app/hu/>\n"
@@ -221,7 +221,7 @@ msgstr "Minőség"
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
 #, fuzzy
 msgid "Collate"
-msgstr "Összehasonlítás"
+msgstr "Szétválogat"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
 msgid "Reverse"
