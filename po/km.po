@@ -8,247 +8,252 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2022-03-15 16:42+0000\n"
+"Last-Translator: ប៉ុកណូ រ៉ូយ៉ាល់ <poknoroyal@outlook.com>\n"
+"Language-Team: Central Khmer <https://translate.ubports.com/projects/ubports/"
+"ubuntu-printing-app/km/>\n"
 "Language: km\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 3.11.3\n"
 
 #: ../notifier/src/notify-engine.cpp:48
 #, c-format
 msgid "A cover is open on the printer “%s”."
-msgstr ""
+msgstr "គម្រប បានបើកនៅលើផ្នោះពុម្ព “%s”។"
 
 #: ../notifier/src/notify-engine.cpp:49
 #, c-format
 msgid "The printer “%s” can’t be used, because required software is missing."
-msgstr ""
+msgstr "ផ្នោះពុម្ព “%s” មិនអាចប្រើបានទេ ព្រោះសូរវែដែលទាមទារបានបាត់។"
 
 #: ../notifier/src/notify-engine.cpp:50
 #, c-format
 msgid "A door is open on the printer “%s”."
-msgstr ""
+msgstr "ទ្វារត្រូវបានបើកនៅលើផ្នោះពុម្ព “%s”។"
 
 #: ../notifier/src/notify-engine.cpp:51
 #, c-format
 msgid "The printer “%s” is out of paper."
-msgstr ""
+msgstr "ផ្នោះពុម្ព “%s” គឺអស់ក្រដាសហើយ។"
 
 #: ../notifier/src/notify-engine.cpp:52
 #, c-format
 msgid "The printer “%s” is low on paper."
-msgstr ""
+msgstr "ផ្នោះពុម្ព “%s” គឺជិតអស់ក្រដាសហើយ។"
 
 #: ../notifier/src/notify-engine.cpp:53
 #, c-format
 msgid "The printer “%s” is currently off-line."
-msgstr ""
+msgstr "ផ្នោះពុម្ព “%s” បច្ចុប្បន្នគឺអហ្វឡាញ។"
 
 #: ../notifier/src/notify-engine.cpp:54
 #, c-format
 msgid "The printer “%s” has an unknown problem."
-msgstr ""
+msgstr "ផ្នោះពុម្ព “%s” មានបញ្ហាមួយដែលមិនស្គាល់។"
 
 #: ../notifier/src/notify-engine.cpp:55
 #, c-format
 msgid "The printer “%s” is out of toner."
-msgstr ""
+msgstr "ផ្នោះពុម្ព “%s” គឺអស់ទឹកថ្នាំហើយ។"
 
 #: ../notifier/src/notify-engine.cpp:56
 #, c-format
 msgid "The printer “%s” is low on toner."
-msgstr ""
+msgstr "ផ្នោះពុម្ព “%s” គឺជិតអស់ទឹកថ្នាំហើយ។"
 
 #: ../notifier/src/notify-engine.cpp:167
 #, c-format
 msgid "“%s” has printed."
-msgstr ""
+msgstr "“%s” ត្រូវបានបោះពុម្ព។"
 
 #: ../notifier/src/notify-engine.cpp:185
 #, c-format
 msgid "You have %d job queued to print on this printer."
 msgid_plural "You have %d jobs queued to print on this printer."
-msgstr[0] ""
+msgstr[0] "អ្នកមានការងារ %d ដែលបានតម្រៀបជួរបោះពុម្ពលើផ្នោះពុម្ពនេះ។"
 
 #: ../notifier/src/notify-engine.cpp:193
 #: ../ubuntu-printing-app/components/AlertDialog.qml:28
 msgid "OK"
-msgstr ""
+msgstr "យល់ព្រម"
 
 #: ../notifier/src/notify-engine.cpp:195
 msgid "Settings…"
-msgstr ""
+msgstr "ការកំណត់…"
 
 #. notifier
 #. printing
 #. ubuntu
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:1
 msgid "Print Queue"
-msgstr ""
+msgstr "តម្រៀបជួរបោះពុម្ព"
 
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
 msgid "Queue;Paper;Print;Printing;"
-msgstr ""
+msgstr "ជួរ;ក្រដាស;បោះពុម្ព;កំពុងបោះពុម្ព;"
 
 #. Only show the amount of sheets if they are above zero
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
 #: ../ubuntu-printing-app/components/PrintRow.qml:79
 #: ../ubuntu-printing-app/components/PrintRow.qml:82
 msgid "Print"
-msgstr ""
+msgstr "បោះពុម្ព"
 
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:2
 msgid "Print;Printing;"
-msgstr ""
+msgstr "បោះពុម្ព;កំពុងបោះពុម្ព;"
 
 #: ../queue-dialog/pages/QueuePage.qml:30
 msgid "%1 job"
 msgid_plural "%1 jobs"
-msgstr[0] ""
+msgstr[0] "ការងារ %1"
 
 #: ../queue-dialog/pages/QueuePage.qml:31
 #: ../queue-dialog/components/QueueDelegate.qml:48
 msgid "Printing"
-msgstr ""
+msgstr "កំពុងបោះពុម្ព"
 
 #: ../queue-dialog/pages/QueuePage.qml:76
 msgid "No printer jobs"
-msgstr ""
+msgstr "ផ្នោះពុម្ពគ្មានការងារ"
 
 #: ../queue-dialog/pages/QueuePage.qml:84
 msgid "Active"
-msgstr ""
+msgstr "សកម្ម"
 
 #: ../queue-dialog/pages/QueuePage.qml:92
 msgid "Queued"
-msgstr ""
+msgstr "តម្រៀបជួរ"
 
 #: ../queue-dialog/pages/QueuePage.qml:100
 msgid "Paused"
-msgstr ""
+msgstr "បានផ្អាក"
 
 #: ../queue-dialog/components/QueueDelegate.qml:45
 msgid "Printing %1 page"
 msgid_plural "Printing %1 pages"
-msgstr[0] ""
+msgstr[0] "កំពុងបោះពុម្ព %1 ទំព័រ"
 
 #: ../queue-dialog/components/QueueDelegate.qml:53
 msgid "Ready to print %1 page"
 msgid_plural "Ready to print %1 pages"
-msgstr[0] ""
+msgstr[0] "ត្រៀមបោះពុម្ព %1 ទំព័រ"
 
 #: ../queue-dialog/components/QueueDelegate.qml:56
 msgid "Ready to print"
-msgstr ""
+msgstr "ត្រៀមបោះពុម្ព"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Release"
-msgstr ""
+msgstr "ចេញផ្សាយ"
 
 #: ../queue-dialog/components/QueueDelegate.qml:73
 msgid "Hold"
-msgstr ""
+msgstr "ផ្អាកសិន"
 
 #. Text color is determined from background color so set from html
 #: ../queue-dialog/components/QueueDelegate.qml:86
 #: ../ubuntu-printing-app/components/PrintRow.qml:60
 msgid "Cancel"
-msgstr ""
+msgstr "បោះបង់"
 
 #: ../ubuntu-printing-app/pages/EmptyPage.qml:48
 msgid ""
 "No document was chosen for printing. In order to print, you need to select "
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
+"គ្មានឯកសារត្រូវបានជ្រើសរើសសម្រាប់ការបោះពុម្ពទេ។ ដើម្បីបោះពុម្ព "
+"អ្នកត្រូវការជ្រើសបោះពុម្ពពីកម្មវិធីសិន។ ជាជម្រើសអ្នកអាចនាំចេញឯកសារ PDF "
+"ពីកម្មវិធី។"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
-msgstr ""
+msgstr "រៀបចំទំព័រ"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Printer Options"
-msgstr ""
+msgstr "ជម្រើសផ្នោះពុម្ព"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:86
 msgid "Printer"
-msgstr ""
+msgstr "ផ្នោះពុម្ព"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:107
 msgid "Copies"
-msgstr ""
+msgstr "ថតចម្លង"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "All"
-msgstr ""
+msgstr "ទាំងអស់"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:131
 msgid "Range"
-msgstr ""
+msgstr "រ៉ង់"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:135
 msgid "Pages"
-msgstr ""
+msgstr "ទំព័រ"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:177
 msgid "eg 1-3,8"
-msgstr ""
+msgstr "ឧ៖ ១-៣,៨"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:186
 msgid "Two-sided"
-msgstr ""
+msgstr "សងខាង"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:207
 msgid "Color"
-msgstr ""
+msgstr "ពណ៌"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:228
 msgid "Quality"
-msgstr ""
+msgstr "បរិមាណ"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:246
 msgid "Collate"
-msgstr ""
+msgstr "រៀបតាមលំដាប់"
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:266
 msgid "Reverse"
-msgstr ""
+msgstr "បញ្ច្រាស"
 
 #: ../ubuntu-printing-app/pages/ContentPeerPickerPage.qml:43
 msgid "Open With..."
-msgstr ""
+msgstr "បើកជាមួយ…"
 
 #: ../ubuntu-printing-app/Main.qml:66
 msgid "Document is invalid"
-msgstr ""
+msgstr "ឯកសារមិនត្រឹមត្រូវ"
 
 #: ../ubuntu-printing-app/Main.qml:69
 msgid "Document not found"
-msgstr ""
+msgstr "ឯកសាររកមិនឃើញ"
 
 #: ../ubuntu-printing-app/Main.qml:72
 msgid "Not a PDF document"
-msgstr ""
+msgstr "មិនមែនឯកសារ PDF"
 
 #: ../ubuntu-printing-app/Main.qml:75
 msgid "An unknown error occurred"
-msgstr ""
+msgstr "កំហុសមិនស្គាល់បានកើតឡើង"
 
 #: ../ubuntu-printing-app/Main.qml:99
 msgid "Error"
-msgstr ""
+msgstr "កំហុស"
 
 #: ../ubuntu-printing-app/Main.qml:126
 msgid "URL of PDF to print"
-msgstr ""
+msgstr "URL នៃ PDF ដើម្បីបោះពុម្ព"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:76
 msgid "Create PDF"
-msgstr ""
+msgstr "បង្កើត PDF"
 
 #: ../ubuntu-printing-app/components/PrintRow.qml:80
 msgid "<u>%1</u> Sheet"
 msgid_plural "<u>%1</u> Sheets"
-msgstr[0] ""
+msgstr[0] "<u>%1</u> សន្លឹក"
