@@ -18,7 +18,7 @@
  * Authored-by: Andrew Hayzen <andrew.hayzen@canonical.com>
  */
 
-import QtQuick 2.4
+import QtQuick 2.12
 import Ubuntu.Components 1.3
 import Ubuntu.Content 1.3
 
