@@ -4,7 +4,7 @@
       "binary": "/usr/bin/ubuntu-printing-app",
       "profile_name": "ubuntu-printing-app",
       "policy_vendor": "ubuntu",
-      "policy_version": 1.3,
+      "policy_version": 16.04,
       "policy_groups": [
         "content_exchange",
         "content_exchange_source",
