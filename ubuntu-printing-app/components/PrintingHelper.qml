@@ -17,8 +17,8 @@
  *
  * Authored-by: Andrew Hayzen <andrew.hayzen@canonical.com>
  */
-import QtQuick 2.4
-import QtQml 2.2
+import QtQuick 2.12
+import QtQml 2.12
 import UbuntuPrintingApp 1.0
 import Ubuntu.Components.Extras.Printers 0.1
 
