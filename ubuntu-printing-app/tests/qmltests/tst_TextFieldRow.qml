@@ -17,7 +17,7 @@
  *
  * Authored-by: Andrew Hayzen <andrew.hayzen@canonical.com>
  */
-import QtQuick 2.4
+import QtQuick 2.12
 import QtTest 1.1
 import Ubuntu.Test 1.0
 import "../../components"
