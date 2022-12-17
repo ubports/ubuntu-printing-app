@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-03-21 17:56+0000\n"
-"PO-Revision-Date: 2020-08-02 19:22+0000\n"
-"Last-Translator: ffsi <fabioihle@hotmail.com>\n"
+"PO-Revision-Date: 2022-12-17 19:18+0000\n"
+"Last-Translator: Filipe Botelho <filipebotelhos@outlook.com>\n"
 "Language-Team: Portuguese (Brazil) <https://translate.ubports.com/projects/"
 "ubports/ubuntu-printing-app/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -96,7 +96,7 @@ msgstr "Fila de Impressão"
 
 #: ../queue-dialog/ubuntu-queue-dialog.desktop.in.in.h:2
 msgid "Queue;Paper;Print;Printing;"
-msgstr "Fila;Papel;Imprimir;Imprimindo;"
+msgstr "Fila;Papel;Imprimir;Impresso;"
 
 #. Only show the amount of sheets if they are above zero
 #: ../ubuntu-printing-app/ubuntu-printing-app.desktop.in.in.h:1
@@ -172,8 +172,8 @@ msgid ""
 "print from an app. Alternatively you can export a PDF document from an app."
 msgstr ""
 "Nenhum documento foi selecionado para impressão. Para imprimir, você precisa "
-"selecionar imprimir em um app. Alternativamente você pode exportar um "
-"documento PDF de um app."
+"selecionar imprimir em um app. Ou você pode exportar um documento PDF de um "
+"app."
 
 #: ../ubuntu-printing-app/pages/PrintPage.qml:47
 msgid "Page Setup"
